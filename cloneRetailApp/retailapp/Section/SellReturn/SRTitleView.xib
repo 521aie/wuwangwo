@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SRTitleView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdX-Tt-l7j">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="spy-Ao-SfI"/>
+                    </constraints>
+                </view>
+                <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLQ-O4-7K3">
+                    <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="lbC-Gh-fSu"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" placeholderIntrinsicWidth="162" placeholderIntrinsicHeight="21" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5Y-lH-a7r">
+                    <rect key="frame" x="146" y="11" width="162" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.53333333333333333" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基本信息" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPz-ah-9aS">
+                    <rect key="frame" x="12" y="12" width="69.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.70000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="pLQ-O4-7K3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3Uj-Mz-vZc"/>
+                <constraint firstAttribute="trailing" secondItem="YdX-Tt-l7j" secondAttribute="trailing" id="5xW-nh-csN"/>
+                <constraint firstItem="gPz-ah-9aS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6jU-mF-91W"/>
+                <constraint firstAttribute="trailing" secondItem="r5Y-lH-a7r" secondAttribute="trailing" constant="12" id="OoB-eT-1In"/>
+                <constraint firstItem="gPz-ah-9aS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="UCc-aO-9Px"/>
+                <constraint firstAttribute="trailing" secondItem="pLQ-O4-7K3" secondAttribute="trailing" id="Uxe-J3-yd0"/>
+                <constraint firstItem="r5Y-lH-a7r" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gPz-ah-9aS" secondAttribute="trailing" constant="8" id="XdN-7b-dNU"/>
+                <constraint firstItem="YdX-Tt-l7j" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bCH-HI-VB3"/>
+                <constraint firstAttribute="bottom" secondItem="pLQ-O4-7K3" secondAttribute="bottom" id="hg2-cA-L0S"/>
+                <constraint firstItem="YdX-Tt-l7j" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ord-4B-t8x"/>
+                <constraint firstItem="r5Y-lH-a7r" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rUm-sZ-Sfn"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomLine" destination="YdX-Tt-l7j" id="CVN-Dr-VvH"/>
+                <outlet property="bottomLineHeight" destination="lbC-Gh-fSu" id="N3Z-FJ-Qlo"/>
+                <outlet property="bottomLineLead" destination="3Uj-Mz-vZc" id="j2C-2k-e6Y"/>
+                <outlet property="bottomLineTrail" destination="Uxe-J3-yd0" id="Wc5-Li-750"/>
+                <outlet property="lblTitle" destination="gPz-ah-9aS" id="gRf-da-ugM"/>
+                <outlet property="lblValue" destination="r5Y-lH-a7r" id="AyQ-PU-Dwc"/>
+                <outlet property="rightMarginConstraint" destination="OoB-eT-1In" id="ilB-4P-Lvw"/>
+                <outlet property="topLine" destination="pLQ-O4-7K3" id="IHG-IB-9BL"/>
+                <outlet property="topLineHeight" destination="spy-Ao-SfI" id="EQS-gM-2gH"/>
+            </connections>
+            <point key="canvasLocation" x="297" y="497"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

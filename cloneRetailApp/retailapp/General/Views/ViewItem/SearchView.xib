@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView">
+            <connections>
+                <outlet property="btn" destination="UiS-eh-5aM" id="HUs-M3-Re2"/>
+                <outlet property="img" destination="lYS-6E-oFe" id="okv-v6-4vh"/>
+                <outlet property="lblVal" destination="t9x-NO-5lz" id="UgA-LL-xqT"/>
+                <outlet property="view" destination="iN0-l3-epB" id="03F-cc-T0f"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_add_rr" translatesAutoresizingMaskIntoConstraints="NO" id="lYS-6E-oFe">
+                    <rect key="frame" x="85" y="33" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="6Uc-Vy-lnB"/>
+                        <constraint firstAttribute="height" constant="22" id="J0Y-cu-08h"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加收货商品..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9x-NO-5lz">
+                    <rect key="frame" x="117" y="34" width="118" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hTH-aZ-DO4">
+                    <rect key="frame" x="10" y="87" width="300" height="1"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="H9U-O6-Cvo"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UiS-eh-5aM">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                    <connections>
+                        <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="kR2-EN-dFQ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="UiS-eh-5aM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1H5-tq-8Sj"/>
+                <constraint firstAttribute="trailing" secondItem="hTH-aZ-DO4" secondAttribute="trailing" constant="10" id="C7a-7t-NUU"/>
+                <constraint firstItem="t9x-NO-5lz" firstAttribute="leading" secondItem="lYS-6E-oFe" secondAttribute="trailing" constant="10" id="CwN-Ib-iW6"/>
+                <constraint firstAttribute="bottom" secondItem="hTH-aZ-DO4" secondAttribute="bottom" id="Efw-3H-lNF"/>
+                <constraint firstItem="UiS-eh-5aM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TxX-Pv-fW5"/>
+                <constraint firstItem="hTH-aZ-DO4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="dDE-fc-IJi"/>
+                <constraint firstAttribute="trailing" secondItem="UiS-eh-5aM" secondAttribute="trailing" id="du8-lF-qRh"/>
+                <constraint firstAttribute="bottom" secondItem="UiS-eh-5aM" secondAttribute="bottom" id="hSn-fo-bf9"/>
+                <constraint firstItem="lYS-6E-oFe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="iH8-mc-gjJ"/>
+                <constraint firstItem="t9x-NO-5lz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lUi-G9-znU"/>
+                <constraint firstItem="t9x-NO-5lz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="16" id="rhJ-e5-jgY"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="305" y="422"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ico_add_rr" width="44" height="44"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

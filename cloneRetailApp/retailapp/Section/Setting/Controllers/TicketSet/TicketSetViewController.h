@@ -1,0 +1,13 @@
+//
+//  TicketSetViewController.h
+//  retailapp
+//
+//  Created by taihangju on 16/8/30.
+//  Copyright © 2016年 杭州迪火科技有限公司. All rights reserved.
+//
+
+#import "LSRootViewController.h"
+
+@interface TicketSetViewController : LSRootViewController
+
+@end

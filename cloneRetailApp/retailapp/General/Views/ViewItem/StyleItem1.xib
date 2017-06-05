@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StyleItem1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAN-R2-LQL">
+                    <rect key="frame" x="84" y="10" width="228" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jz7-PI-F76">
+                    <rect key="frame" x="84" y="25" width="228" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="OZ9-Xu-VmY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="lcS-Hy-HiA">
+                    <rect key="frame" x="10" y="10" width="66" height="66"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="66" id="860-29-LTS"/>
+                        <constraint firstAttribute="height" constant="66" id="kVp-3k-EB5"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Jz7-PI-F76" firstAttribute="leading" secondItem="lcS-Hy-HiA" secondAttribute="trailing" constant="8" id="2Jh-XS-UyT"/>
+                <constraint firstItem="Jz7-PI-F76" firstAttribute="top" secondItem="PAN-R2-LQL" secondAttribute="bottom" constant="15" id="VPV-Oj-jsq"/>
+                <constraint firstAttribute="trailing" secondItem="Jz7-PI-F76" secondAttribute="trailing" constant="8" id="XCd-M8-LJ8"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lcS-Hy-HiA" secondAttribute="bottom" constant="10" id="f4D-Tz-4i0"/>
+                <constraint firstItem="lcS-Hy-HiA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="j0T-76-56W"/>
+                <constraint firstItem="PAN-R2-LQL" firstAttribute="top" secondItem="lcS-Hy-HiA" secondAttribute="top" id="kOl-CG-5Ya"/>
+                <constraint firstItem="PAN-R2-LQL" firstAttribute="leading" secondItem="lcS-Hy-HiA" secondAttribute="trailing" constant="8" id="nNX-6C-nL6"/>
+                <constraint firstItem="lcS-Hy-HiA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="pC0-BR-ic3"/>
+                <constraint firstAttribute="trailing" secondItem="PAN-R2-LQL" secondAttribute="trailing" constant="8" id="pXY-J8-Re8"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Jz7-PI-F76" secondAttribute="bottom" constant="10" id="zJ2-2h-vwe"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lblName" destination="PAN-R2-LQL" id="q8h-f9-xq6"/>
+                <outlet property="lblStyleCode" destination="Jz7-PI-F76" id="onz-KQ-aSi"/>
+                <outlet property="pic" destination="lcS-Hy-HiA" id="9TF-eM-v5t"/>
+            </connections>
+            <point key="canvasLocation" x="570" y="465"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_default.png" width="160" height="160"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

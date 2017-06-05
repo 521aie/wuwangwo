@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="293" id="KGk-i7-Jjw" customClass="GoodCommentDetailTopCell">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="146"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="146"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ft-qK-XJm">
+                        <rect key="frame" x="0.0" y="0.0" width="339" height="92"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTO-gp-lAJ">
+                                <rect key="frame" x="20" y="20" width="72" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="商品名称商品名称商品名称商品名称商品名称商品名称商品名称" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQr-fa-TNv">
+                                <rect key="frame" x="102" y="20" width="218" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="款号：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XR-5T-Wpq">
+                                <rect key="frame" x="102" y="66" width="218" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="92" id="h6z-CG-nNV"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xLj-Jo-mHe">
+                        <rect key="frame" x="8" y="94" width="323" height="1"/>
+                        <color key="backgroundColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="46F-3M-gwv"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3IJ-7e-NIf">
+                        <rect key="frame" x="0.0" y="95" width="339" height="50.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="好评度：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gip-Ux-CVN" userLabel="好评度:">
+                                <rect key="frame" x="20" y="10" width="50" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wc-8B-niQ">
+                                <rect key="frame" x="72" y="10" width="50" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.041634990499271884" blue="0.025197969127448316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="（0个评价）" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Cd-aO-7rm">
+                                <rect key="frame" x="117" y="10" width="207" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico_comment_good.png" translatesAutoresizingMaskIntoConstraints="NO" id="1qC-Iy-RA6">
+                                <rect key="frame" x="20" y="33" width="12" height="12"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0个好评" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPE-6X-Fny">
+                                <rect key="frame" x="37" y="31" width="60" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0个中评" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EO-uu-MrO">
+                                <rect key="frame" x="116" y="31" width="55" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico_comment_medium.png" translatesAutoresizingMaskIntoConstraints="NO" id="X6p-BU-xAA">
+                                <rect key="frame" x="98" y="33" width="12" height="12"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico_comment_bad.png" translatesAutoresizingMaskIntoConstraints="NO" id="RI1-Ct-7jf" userLabel="Img Bad">
+                                <rect key="frame" x="175" y="33" width="12" height="12"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0个差评" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wb6-qu-YrT">
+                                <rect key="frame" x="198" y="31" width="55" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3IJ-7e-NIf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0dQ-Rt-tr8"/>
+                    <constraint firstItem="xLj-Jo-mHe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1Ag-z1-yXn"/>
+                    <constraint firstAttribute="trailing" secondItem="5ft-qK-XJm" secondAttribute="trailing" id="2Oq-tj-BpI"/>
+                    <constraint firstItem="xLj-Jo-mHe" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="3Gc-BT-EGn"/>
+                    <constraint firstItem="xLj-Jo-mHe" firstAttribute="top" secondItem="5ft-qK-XJm" secondAttribute="bottom" constant="2" id="9eZ-N0-FgQ"/>
+                    <constraint firstItem="3IJ-7e-NIf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="95" id="E6G-DL-f1L"/>
+                    <constraint firstAttribute="trailing" secondItem="3IJ-7e-NIf" secondAttribute="trailing" id="M4b-SD-bzq"/>
+                    <constraint firstItem="5ft-qK-XJm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ODi-fs-Kr4"/>
+                    <constraint firstItem="5ft-qK-XJm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gwi-qX-NJL"/>
+                    <constraint firstAttribute="bottom" secondItem="3IJ-7e-NIf" secondAttribute="bottom" id="n3g-mX-luD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgBad" destination="RI1-Ct-7jf" id="T3t-Fy-gNt"/>
+                <outlet property="imgMed" destination="X6p-BU-xAA" id="9zg-f0-LuH"/>
+                <outlet property="imgPic" destination="bTO-gp-lAJ" id="65y-8W-NRE"/>
+                <outlet property="lblBadComment" destination="Wb6-qu-YrT" id="hZe-Nu-usd"/>
+                <outlet property="lblFeedback" destination="5wc-8B-niQ" id="Q5N-nq-d5l"/>
+                <outlet property="lblGoodComment" destination="rPE-6X-Fny" id="85Y-wK-M2Q"/>
+                <outlet property="lblGoodsName" destination="CQr-fa-TNv" id="rlS-Se-uSx"/>
+                <outlet property="lblMediumComment" destination="7EO-uu-MrO" id="9fh-g8-WM4"/>
+                <outlet property="lblStyle" destination="8XR-5T-Wpq" id="Pli-s1-uyK"/>
+                <outlet property="lblTotal" destination="2Cd-aO-7rm" id="Nvl-FX-CTP"/>
+                <outlet property="view" destination="xLj-Jo-mHe" id="Kt2-ra-12v"/>
+            </connections>
+            <point key="canvasLocation" x="146.5" y="61"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ico_comment_bad.png" width="16" height="16"/>
+        <image name="ico_comment_good.png" width="16" height="16"/>
+        <image name="ico_comment_medium.png" width="16" height="16"/>
+    </resources>
+</document>

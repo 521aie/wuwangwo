@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="GoodsStyleListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWx-Hy-rzS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="87" id="BgO-h5-xWu"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="K5f-d2-lGm">
+                        <rect key="frame" x="10" y="8" width="72" height="72"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="72" id="osw-5c-0yP"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcr-lt-3vv" userLabel="Name" customClass="MyUILabel">
+                        <rect key="frame" x="95" y="10" width="193" height="45"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_next" translatesAutoresizingMaskIntoConstraints="NO" id="PwS-fC-Pwp">
+                        <rect key="frame" x="288" y="33" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="VrN-J7-L3m"/>
+                            <constraint firstAttribute="height" constant="22" id="fCO-sP-oKm"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="124124214" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asd-4Z-vxH">
+                        <rect key="frame" x="92" y="64" width="66" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico_alreadyOffShelf" translatesAutoresizingMaskIntoConstraints="NO" id="1jw-X9-aen">
+                        <rect key="frame" x="90" y="11" width="40" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="K5f-d2-lGm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="4Q6-vj-b5Y"/>
+                    <constraint firstItem="JWx-Hy-rzS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4xH-Nc-H82"/>
+                    <constraint firstItem="asd-4Z-vxH" firstAttribute="bottom" secondItem="K5f-d2-lGm" secondAttribute="bottom" id="6qH-FD-UfH"/>
+                    <constraint firstItem="JWx-Hy-rzS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Fw1-er-I92"/>
+                    <constraint firstItem="asd-4Z-vxH" firstAttribute="leading" secondItem="K5f-d2-lGm" secondAttribute="trailing" constant="10" id="HRr-lK-Emo"/>
+                    <constraint firstAttribute="bottom" secondItem="K5f-d2-lGm" secondAttribute="bottom" constant="7" id="Twr-Mb-Yco"/>
+                    <constraint firstAttribute="trailing" secondItem="PwS-fC-Pwp" secondAttribute="trailing" constant="10" id="ZpU-ys-lc3"/>
+                    <constraint firstItem="K5f-d2-lGm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dut-ds-sU4"/>
+                    <constraint firstItem="PwS-fC-Pwp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="obz-Sg-v6S"/>
+                    <constraint firstAttribute="trailing" secondItem="JWx-Hy-rzS" secondAttribute="trailing" id="yqq-HF-Qn1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="img" destination="K5f-d2-lGm" id="fav-of-vUJ"/>
+                <outlet property="imgNext" destination="PwS-fC-Pwp" id="CAz-W3-08Q"/>
+                <outlet property="imgUpDown" destination="1jw-X9-aen" id="1dA-ZX-exh"/>
+                <outlet property="lblName" destination="fcr-lt-3vv" id="QIs-3C-VNe"/>
+                <outlet property="lblStyleNo" destination="asd-4Z-vxH" id="paF-rP-tU3"/>
+            </connections>
+            <point key="canvasLocation" x="483" y="422"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ico_alreadyOffShelf" width="80" height="30"/>
+        <image name="ico_next" width="44" height="44"/>
+        <image name="img_default.png" width="160" height="160"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

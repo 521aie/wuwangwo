@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBar2">
+            <connections>
+                <outlet property="cancelBtn" destination="kP9-bK-fTK" id="dvy-pO-Hq9"/>
+                <outlet property="keyWordTxt" destination="ENq-LP-c33" id="0S4-uK-WH2"/>
+                <outlet property="panel" destination="v1Z-hh-h7f" id="A2w-OT-hlW"/>
+                <outlet property="rightConstraintPanel" destination="uFM-UJ-cyQ" id="PfN-Pr-FDp"/>
+                <outlet property="view" destination="iN0-l3-epB" id="aZC-Hi-SaS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1Z-hh-h7f">
+                    <rect key="frame" x="10" y="5" width="300" height="34"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_search" translatesAutoresizingMaskIntoConstraints="NO" id="9U7-Mn-IK4">
+                            <rect key="frame" x="3" y="6" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="4Le-G1-Um4"/>
+                                <constraint firstAttribute="width" constant="22" id="i2y-Ht-FnN"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="简称/手机号" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ENq-LP-c33">
+                            <rect key="frame" x="30" y="0.0" width="270" height="34"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="search"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ENq-LP-c33" secondAttribute="trailing" id="8dN-Nj-zc7"/>
+                        <constraint firstAttribute="bottom" secondItem="ENq-LP-c33" secondAttribute="bottom" id="Cua-xe-sQ5"/>
+                        <constraint firstItem="ENq-LP-c33" firstAttribute="leading" secondItem="9U7-Mn-IK4" secondAttribute="trailing" constant="5" id="PzD-PY-RKS"/>
+                        <constraint firstItem="9U7-Mn-IK4" firstAttribute="centerY" secondItem="v1Z-hh-h7f" secondAttribute="centerY" id="qrD-s1-av1"/>
+                        <constraint firstItem="9U7-Mn-IK4" firstAttribute="leading" secondItem="v1Z-hh-h7f" secondAttribute="leading" constant="3" id="rnL-mo-mih"/>
+                        <constraint firstItem="ENq-LP-c33" firstAttribute="top" secondItem="v1Z-hh-h7f" secondAttribute="top" id="zzv-gW-8HS"/>
+                    </constraints>
+                </view>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kP9-bK-fTK">
+                    <rect key="frame" x="320" y="7" width="40" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="i9m-ns-1wk"/>
+                        <constraint firstAttribute="width" constant="40" id="yIi-xD-gvS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="取消">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onCancelBtnClick:" destination="-1" eventType="touchUpInside" id="5s0-XW-L8a"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kP9-bK-fTK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="CG7-dO-Ecq"/>
+                <constraint firstAttribute="bottom" secondItem="v1Z-hh-h7f" secondAttribute="bottom" constant="5" id="Lty-Jy-Q2L"/>
+                <constraint firstItem="v1Z-hh-h7f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="MNI-xc-09K"/>
+                <constraint firstItem="v1Z-hh-h7f" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="TFx-I9-XNl"/>
+                <constraint firstItem="kP9-bK-fTK" firstAttribute="leading" secondItem="v1Z-hh-h7f" secondAttribute="trailing" constant="10" id="hsT-SB-R1b"/>
+                <constraint firstItem="v1Z-hh-h7f" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-10" id="uFM-UJ-cyQ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="614" y="222"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ico_search" width="64" height="64"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

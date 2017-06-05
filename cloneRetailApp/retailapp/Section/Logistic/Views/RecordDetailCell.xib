@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="RecordDetailCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.666666666666664"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJr-gN-KoU">
+                        <rect key="frame" x="10" y="59" width="300" height="1"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="wWT-b2-5eI"/>
+                        </constraints>
+                    </view>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htQ-TS-Hle">
+                        <rect key="frame" x="10" y="0.0" width="1" height="60"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="4oy-G1-xAG"/>
+                        </constraints>
+                    </view>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIK-gY-FPg">
+                        <rect key="frame" x="309" y="0.0" width="1" height="60"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="HZ9-iq-Kgx"/>
+                        </constraints>
+                    </view>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mXF-3w-pns">
+                        <rect key="frame" x="177" y="0.0" width="1" height="60"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="KID-7F-hLL"/>
+                        </constraints>
+                    </view>
+                    <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZc-Q8-HPS">
+                        <rect key="frame" x="228" y="0.0" width="1" height="60"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="gMv-kO-7pt"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="唐狮女装薄春秋棒球服女小立领花棒球衫休闲运动 红色 xl 浙江" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e72-QY-FwM">
+                        <rect key="frame" x="16" y="10" width="156" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.15056313574314117" green="0.15055863559246063" blue="0.15056121349334717" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="条形码:6987895874589" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQ5-cM-3Rt">
+                        <rect key="frame" x="16" y="33" width="156" height="15.666666666666664"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.32584697008132935" green="0.32583719491958618" blue="0.32584273815155029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="199.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWL-pm-GgI">
+                        <rect key="frame" x="229" y="0.0" width="80" height="59"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.32584697008132935" green="0.32583719491958618" blue="0.32584273815155029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32M-7C-38i">
+                        <rect key="frame" x="178" y="0.0" width="50" height="59"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.32584697008132935" green="0.32583719491958618" blue="0.32584273815155029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="eJr-gN-KoU" secondAttribute="bottom" id="0XB-6V-xE8"/>
+                    <constraint firstItem="tZc-Q8-HPS" firstAttribute="leading" secondItem="32M-7C-38i" secondAttribute="trailing" id="0sU-k8-Qy2"/>
+                    <constraint firstItem="qQ5-cM-3Rt" firstAttribute="leading" secondItem="htQ-TS-Hle" secondAttribute="trailing" constant="5" id="27j-4q-2NU"/>
+                    <constraint firstAttribute="bottom" secondItem="mXF-3w-pns" secondAttribute="bottom" id="2v3-nL-jAO"/>
+                    <constraint firstItem="dIK-gY-FPg" firstAttribute="leading" secondItem="FWL-pm-GgI" secondAttribute="trailing" id="31x-jq-wAE"/>
+                    <constraint firstItem="dIK-gY-FPg" firstAttribute="leading" secondItem="tZc-Q8-HPS" secondAttribute="trailing" constant="80" id="5pf-LX-quv"/>
+                    <constraint firstItem="FWL-pm-GgI" firstAttribute="leading" secondItem="tZc-Q8-HPS" secondAttribute="trailing" id="7xv-br-G18"/>
+                    <constraint firstAttribute="bottom" secondItem="dIK-gY-FPg" secondAttribute="bottom" id="Doz-Eh-aIj"/>
+                    <constraint firstItem="eJr-gN-KoU" firstAttribute="top" secondItem="qQ5-cM-3Rt" secondAttribute="bottom" constant="10" id="SCP-fS-kHC"/>
+                    <constraint firstItem="mXF-3w-pns" firstAttribute="leading" secondItem="e72-QY-FwM" secondAttribute="trailing" constant="5" id="Se0-N5-nyq"/>
+                    <constraint firstItem="eJr-gN-KoU" firstAttribute="top" secondItem="32M-7C-38i" secondAttribute="bottom" id="Taw-Ys-Pye"/>
+                    <constraint firstItem="mXF-3w-pns" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UFs-GO-mVr"/>
+                    <constraint firstItem="dIK-gY-FPg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VnK-7A-dPM"/>
+                    <constraint firstItem="e72-QY-FwM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="VoR-y3-VVZ"/>
+                    <constraint firstItem="htQ-TS-Hle" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WKn-Te-3KB"/>
+                    <constraint firstAttribute="trailing" secondItem="eJr-gN-KoU" secondAttribute="trailing" constant="10" id="Wrz-sV-zBj"/>
+                    <constraint firstItem="32M-7C-38i" firstAttribute="leading" secondItem="mXF-3w-pns" secondAttribute="trailing" id="XBd-KI-vOI"/>
+                    <constraint firstItem="htQ-TS-Hle" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Xjm-D8-AFI"/>
+                    <constraint firstItem="32M-7C-38i" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bdg-Wu-9K7"/>
+                    <constraint firstAttribute="trailing" secondItem="dIK-gY-FPg" secondAttribute="trailing" constant="10" id="bwb-Hh-LsM"/>
+                    <constraint firstItem="e72-QY-FwM" firstAttribute="leading" secondItem="htQ-TS-Hle" secondAttribute="trailing" constant="5" id="ccL-UQ-CaE"/>
+                    <constraint firstItem="eJr-gN-KoU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="cnL-BF-L4I"/>
+                    <constraint firstItem="FWL-pm-GgI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hDy-KJ-wGU"/>
+                    <constraint firstItem="tZc-Q8-HPS" firstAttribute="leading" secondItem="mXF-3w-pns" secondAttribute="trailing" constant="50" id="kWW-pT-NTb"/>
+                    <constraint firstItem="mXF-3w-pns" firstAttribute="leading" secondItem="qQ5-cM-3Rt" secondAttribute="trailing" constant="5" id="m1P-8S-2os"/>
+                    <constraint firstItem="eJr-gN-KoU" firstAttribute="top" secondItem="FWL-pm-GgI" secondAttribute="bottom" id="mYn-lL-Ms5"/>
+                    <constraint firstAttribute="bottom" secondItem="htQ-TS-Hle" secondAttribute="bottom" id="o0v-fb-aim"/>
+                    <constraint firstAttribute="bottom" secondItem="tZc-Q8-HPS" secondAttribute="bottom" id="vZi-El-YS0"/>
+                    <constraint firstItem="tZc-Q8-HPS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yGr-ES-CFg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="lblCode" destination="qQ5-cM-3Rt" id="IOx-EY-ohz"/>
+                <outlet property="lblCount" destination="32M-7C-38i" id="yz6-Bc-t2p"/>
+                <outlet property="lblName" destination="e72-QY-FwM" id="ZUZ-Pd-F5k"/>
+                <outlet property="lblPrice" destination="FWL-pm-GgI" id="7j1-y8-rXj"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

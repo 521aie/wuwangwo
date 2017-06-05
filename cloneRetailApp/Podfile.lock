@@ -1,0 +1,135 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - CocoaLumberjack (3.0.0):
+    - CocoaLumberjack/Default (= 3.0.0)
+    - CocoaLumberjack/Extensions (= 3.0.0)
+  - CocoaLumberjack/Default (3.0.0)
+  - CocoaLumberjack/Extensions (3.0.0):
+    - CocoaLumberjack/Default
+  - CocoaSecurity (1.2.4.1)
+  - Crashlytics (3.7.3):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.7)
+  - IQKeyboardManager (4.0.7)
+  - jastor (0.2.2)
+  - JPush (2.1.9)
+  - JSBadgeView (1.4.2)
+  - JSONKit (1.5.3)
+  - Masonry (1.0.1)
+  - MJExtension (3.0.13)
+  - MJRefresh (1.0)
+  - NullSafe (1.2.2)
+  - RegexKitLite (4.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - SobotKit (2.2.1)
+  - SVProgressHUD (0.8.1)
+  - TDFCategories (1.0.4)
+  - TDFConditionFilter (0.0.2)
+  - TDFLogger (1.0.0):
+    - CocoaLumberjack (~> 3.0)
+  - TDFNetworkActivityLogger (1.0.1):
+    - AFNetworking/NSURLSession
+  - TDFSobotChatModule (0.0.7):
+    - IQKeyboardManager
+    - JSBadgeView
+    - Masonry
+    - SobotKit
+    - TDFCategories
+    - TDFLogger
+    - uidevice-extension
+  - uidevice-extension (0.0.7)
+  - UMengAnalytics-NO-IDFA (4.1.9)
+  - UMengUShare/Core (6.4.2):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.4.2)
+  - UMengUShare/Social/ReducedWeChat (6.4.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/WeChat (6.4.2):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedWeChat
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.1.0)
+  - CocoaSecurity (~> 1.2.4)
+  - Crashlytics
+  - Fabric
+  - jastor
+  - JPush (~> 2.1.8)
+  - JSBadgeView
+  - JSONKit (~> 1.4)
+  - Masonry (~> 1.0.1)
+  - MJExtension
+  - MJRefresh (from `git@github.com:CoderMJLee/MJRefresh.git`, tag `0.0.1`)
+  - NullSafe (from `git@git.2dfire-inc.com:cocoapods-repos/NullSafe.git`, tag `1.2.2`)
+  - RegexKitLite (~> 4.0)
+  - SDWebImage
+  - SVProgressHUD (~> 0.8.1)
+  - TDFConditionFilter
+  - TDFNetworkActivityLogger
+  - TDFSobotChatModule
+  - UMengAnalytics-NO-IDFA
+  - UMengUShare/Social/WeChat
+
+EXTERNAL SOURCES:
+  MJRefresh:
+    :git: git@github.com:CoderMJLee/MJRefresh.git
+    :tag: 0.0.1
+  NullSafe:
+    :git: git@git.2dfire-inc.com:cocoapods-repos/NullSafe.git
+    :tag: 1.2.2
+
+CHECKOUT OPTIONS:
+  MJRefresh:
+    :git: git@github.com:CoderMJLee/MJRefresh.git
+    :tag: 0.0.1
+  NullSafe:
+    :git: git@git.2dfire-inc.com:cocoapods-repos/NullSafe.git
+    :tag: 1.2.2
+
+SPEC CHECKSUMS:
+  AFNetworking: fd1eba7a2d3d0eeaf22cfe23d73bddc0b9246021
+  CocoaLumberjack: e65611e6b0b2fea1d9fa4278d2cc3b5c7e51cb72
+  CocoaSecurity: 230c3656b36b6b4e0e700560361ab53ae90d0b3e
+  Crashlytics: 5e33099431c72bc8f0edc4006b7247350f4d0574
+  Fabric: 8e757be029113d6f13fd7e1de1cd76808a1634a3
+  IQKeyboardManager: 987f6806b838af5b22043f99213fa54127ca93bd
+  jastor: 283846d1304fe01e5d22835a90d2bce57459b793
+  JPush: 8bccf709ace4318a8e7008cc4fab42b706bfad46
+  JSBadgeView: fa8c18bac0ae2915b3402009a68542f7c9a7969a
+  JSONKit: '088af064caa95a0c761a00fe0508f8fb4f055e81'
+  Masonry: aed6e17183e57e15d1f00521c78f249c215c6b48
+  MJExtension: f9ec021f81337f1e4a994e19e85e132de3f2e88f
+  MJRefresh: 1e18c80131afd6689c5997a0735cc1714e93873c
+  NullSafe: cbf1f77a24558e49bc76e2673f31250d3087c792
+  RegexKitLite: 58b982393f205864df2df8ac2fafe811f59a214e
+  SDWebImage: 6026ff38f0158e879a11394cf734f7771da6aff7
+  SobotKit: 17480b154cbb288207e179f41c79467b557d974b
+  SVProgressHUD: 287e89c9603d5615ba737d16732e2602fbdb0f17
+  TDFCategories: 97c721291577bf9cd16f87f4f1a961fcfc57d0c1
+  TDFConditionFilter: f135381a93045c804ad15e2d7e7a5cc096045d19
+  TDFLogger: ca99971e777e4a89290817c1e03e0920ba8e05c3
+  TDFNetworkActivityLogger: c3b226c9f60635783073bc5557e5f12732f9f6ea
+  TDFSobotChatModule: e69971618a358e6bd9e5c4b6f3ed06488b32f452
+  uidevice-extension: 96ac2431eb9bc251ae8414aebdfb8609296f4e7d
+  UMengAnalytics-NO-IDFA: 985292af177111685325c90c321094172b95d2cb
+  UMengUShare: 740664d1dd5cc2fb2cc3325d61e4b35539aa9c78
+
+PODFILE CHECKSUM: 455d56d1a8ec9e65657e970045399d10d94ba105
+
+COCOAPODS: 1.2.1

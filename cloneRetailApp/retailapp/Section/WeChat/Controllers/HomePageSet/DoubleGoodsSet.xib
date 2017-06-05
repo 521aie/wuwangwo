@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DoubleGoodsSet">
+            <connections>
+                <outlet property="footView" destination="dLC-aQ-fU8" id="Z6v-7e-fsF"/>
+                <outlet property="mainGrid" destination="JFb-1f-XgH" id="zCf-Qk-6dW"/>
+                <outlet property="titleDiv" destination="Byv-jZ-Z0y" id="6yp-GK-s6S"/>
+                <outlet property="view" destination="iN0-l3-epB" id="mo9-r2-xER"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Byv-jZ-Z0y">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="Jdm-qa-tpO"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JFb-1f-XgH">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="JBb-nR-axV"/>
+                        <outlet property="delegate" destination="-1" id="BGM-AB-PbL"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLC-aQ-fU8" customClass="FooterListView8">
+                    <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="d9E-KU-gdf"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Byv-jZ-Z0y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4Hd-PM-FtM"/>
+                <constraint firstItem="dLC-aQ-fU8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DO4-kv-yJY"/>
+                <constraint firstAttribute="trailing" secondItem="dLC-aQ-fU8" secondAttribute="trailing" id="PS3-ht-CqR"/>
+                <constraint firstAttribute="trailing" secondItem="Byv-jZ-Z0y" secondAttribute="trailing" id="Waf-NC-GDd"/>
+                <constraint firstItem="JFb-1f-XgH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ypu-fQ-FC1"/>
+                <constraint firstAttribute="trailing" secondItem="JFb-1f-XgH" secondAttribute="trailing" id="aKy-3h-xWp"/>
+                <constraint firstItem="Byv-jZ-Z0y" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="d0I-Hl-b6M"/>
+                <constraint firstItem="JFb-1f-XgH" firstAttribute="top" secondItem="Byv-jZ-Z0y" secondAttribute="bottom" id="grz-ru-k8R"/>
+                <constraint firstAttribute="bottom" secondItem="JFb-1f-XgH" secondAttribute="bottom" id="n9z-cG-Pug"/>
+                <constraint firstAttribute="bottom" secondItem="dLC-aQ-fU8" secondAttribute="bottom" id="qFY-gL-siN"/>
+            </constraints>
+            <point key="canvasLocation" x="182" y="271"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,33 @@
+//
+//  CardSummarizingVo.m
+//  retailapp
+//
+//  Created by zhangzhiliang on 15/7/8.
+//  Copyright (c) 2015年 杭州迪火科技有限公司. All rights reserved.
+//
+
+#import "CardSummarizingVo.h"
+
+@implementation CardSummarizingVo
+
+-(NSString*) obtainItemName
+{
+    return self.cardTypeName;
+}
+
+-(NSString*) obtainItemId
+{
+    return self.cardTypeName;
+}
+
+-(NSString*) obtainOrignName
+{
+    return self.cardTypeName;
+}
+
+-(NSString*) obtainItemValue
+{
+    return self.cardTypeName;
+}
+
+@end

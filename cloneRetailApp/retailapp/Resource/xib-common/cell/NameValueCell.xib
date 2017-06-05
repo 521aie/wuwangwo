@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell autoresizesSubviews="NO" contentMode="scaleToFill" restorationIdentifier="NameValueCellIdentifier" selectionStyle="default" indentationWidth="10" reuseIdentifier="NameValueCellIdentifier" id="KGk-i7-Jjw" customClass="NameValueCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" userLabel="view">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Flb-bx-KUW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="货物" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHx-Ge-Lj2">
+                        <rect key="frame" x="10" y="35" width="31" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="货物" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbl-wo-lMI">
+                        <rect key="frame" x="261" y="36" width="27" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_next" translatesAutoresizingMaskIntoConstraints="NO" id="DQB-QJ-0Fi">
+                        <rect key="frame" x="288" y="33" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="geB-45-BN3"/>
+                            <constraint firstAttribute="height" constant="22" id="sB6-lW-urm"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Flb-bx-KUW" secondAttribute="bottom" constant="1" id="0BP-Ee-33v"/>
+                    <constraint firstAttribute="trailing" secondItem="DQB-QJ-0Fi" secondAttribute="trailing" constant="10" id="6kj-yD-r8Z"/>
+                    <constraint firstItem="JHx-Ge-Lj2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="PLy-sR-pzF"/>
+                    <constraint firstItem="Flb-bx-KUW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SOm-7p-5WE"/>
+                    <constraint firstItem="DQB-QJ-0Fi" firstAttribute="leading" secondItem="kbl-wo-lMI" secondAttribute="trailing" id="bEq-SP-8s3"/>
+                    <constraint firstItem="DQB-QJ-0Fi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="htl-Sc-cQi"/>
+                    <constraint firstItem="kbl-wo-lMI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="mqr-Yx-XKx"/>
+                    <constraint firstItem="kbl-wo-lMI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JHx-Ge-Lj2" secondAttribute="trailing" constant="3" id="q1D-yn-qPH"/>
+                    <constraint firstItem="Flb-bx-KUW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qdZ-pw-hkx"/>
+                    <constraint firstAttribute="trailing" secondItem="Flb-bx-KUW" secondAttribute="trailing" id="u2T-8T-yhU"/>
+                    <constraint firstItem="JHx-Ge-Lj2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ykZ-tp-4nE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="img" destination="DQB-QJ-0Fi" id="Wv4-Nd-oCd"/>
+                <outlet property="lblName" destination="JHx-Ge-Lj2" id="0jV-7E-pgh"/>
+                <outlet property="lblVal" destination="kbl-wo-lMI" id="RDO-2B-yEf"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ico_next" width="44" height="44"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

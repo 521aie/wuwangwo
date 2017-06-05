@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="GoodsAttributeCell2Indentifier" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="GoodsAttributeCell2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRP-gV-8fN">
+                        <rect key="frame" x="10" y="86" width="300" height="1"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="ot2-wq-sF0"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_next" translatesAutoresizingMaskIntoConstraints="NO" id="pjh-3Q-rkO">
+                        <rect key="frame" x="288" y="33" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="2mF-cq-Kdf"/>
+                            <constraint firstAttribute="height" constant="22" id="mrA-1r-9jv"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已添加颜色" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCO-Z4-77y">
+                        <rect key="frame" x="10" y="57" width="268" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="颜色" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTq-f6-JaP">
+                        <rect key="frame" x="10" y="15" width="268" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="RCO-Z4-77y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="2ft-io-osc"/>
+                    <constraint firstAttribute="trailing" secondItem="dRP-gV-8fN" secondAttribute="trailing" constant="10" id="3Re-zj-fjP"/>
+                    <constraint firstAttribute="bottom" secondItem="dRP-gV-8fN" secondAttribute="bottom" id="Dvh-sm-biS"/>
+                    <constraint firstItem="dTq-f6-JaP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="FQh-Ln-Rvb"/>
+                    <constraint firstAttribute="trailing" secondItem="pjh-3Q-rkO" secondAttribute="trailing" constant="10" id="La8-3M-FJJ"/>
+                    <constraint firstItem="pjh-3Q-rkO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MAM-I9-QjB"/>
+                    <constraint firstItem="pjh-3Q-rkO" firstAttribute="leading" secondItem="RCO-Z4-77y" secondAttribute="trailing" constant="10" id="MDJ-kU-QEw"/>
+                    <constraint firstItem="pjh-3Q-rkO" firstAttribute="leading" secondItem="dTq-f6-JaP" secondAttribute="trailing" constant="10" id="RFF-RM-wPa"/>
+                    <constraint firstAttribute="bottom" secondItem="RCO-Z4-77y" secondAttribute="bottom" constant="15" id="bwQ-OG-E2d"/>
+                    <constraint firstItem="dTq-f6-JaP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="lrv-Vz-YEL"/>
+                    <constraint firstItem="dRP-gV-8fN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="oN4-8A-Eep"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="lblInfo" destination="RCO-Z4-77y" id="4ud-wU-IeN"/>
+                <outlet property="lblName" destination="dTq-f6-JaP" id="4hB-pe-6YL"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ico_next" width="44" height="44"/>
+    </resources>
+</document>

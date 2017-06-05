@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="SmsRemainNumItem">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="界面语言" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3M-Dg-H68">
+                    <rect key="frame" x="10" y="15" width="62" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQB-h4-oAr" userLabel="line">
+                    <rect key="frame" x="10" y="69" width="300" height="1"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="uHI-vW-zMI"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQK-df-J5i">
+                    <rect key="frame" x="254" y="9" width="56" height="31"/>
+                    <color key="backgroundColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="qEO-cD-3RR"/>
+                        <constraint firstAttribute="width" constant="56" id="uHz-me-ml0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="充值">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnMoney:" destination="iN0-l3-epB" eventType="touchUpInside" id="hNA-8M-rl9"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvq-4e-Bzu">
+                    <rect key="frame" x="234" y="15" width="10" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详情介绍" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd2-eh-Ycm">
+                    <rect key="frame" x="10" y="43" width="300" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="wQK-df-J5i" firstAttribute="centerY" secondItem="r3M-Dg-H68" secondAttribute="centerY" id="1We-pT-ocw"/>
+                <constraint firstItem="cQB-h4-oAr" firstAttribute="top" secondItem="fd2-eh-Ycm" secondAttribute="bottom" constant="10" id="3AW-qs-g6Q"/>
+                <constraint firstItem="fd2-eh-Ycm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="43" id="QxV-kw-kZ8"/>
+                <constraint firstAttribute="trailing" secondItem="cQB-h4-oAr" secondAttribute="trailing" constant="10" id="T77-03-qS1"/>
+                <constraint firstAttribute="trailing" secondItem="wQK-df-J5i" secondAttribute="trailing" constant="10" id="ZVI-Fr-FTa"/>
+                <constraint firstItem="r3M-Dg-H68" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Zh9-fF-6WG"/>
+                <constraint firstItem="fd2-eh-Ycm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="alU-Ws-som"/>
+                <constraint firstItem="r3M-Dg-H68" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="eFc-fL-MCU"/>
+                <constraint firstItem="wQK-df-J5i" firstAttribute="leading" secondItem="Cvq-4e-Bzu" secondAttribute="trailing" constant="10" id="en1-4q-qWB"/>
+                <constraint firstItem="Cvq-4e-Bzu" firstAttribute="centerY" secondItem="r3M-Dg-H68" secondAttribute="centerY" id="hph-xt-T3N"/>
+                <constraint firstItem="cQB-h4-oAr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="kUI-Er-Xd0"/>
+                <constraint firstAttribute="trailing" secondItem="fd2-eh-Ycm" secondAttribute="trailing" constant="10" id="nGq-KB-PcI"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btn" destination="wQK-df-J5i" id="FoQ-rz-aCg"/>
+                <outlet property="lblDetail" destination="fd2-eh-Ycm" id="WYo-Rg-zWp"/>
+                <outlet property="lblName" destination="r3M-Dg-H68" id="ENK-Yv-ouM"/>
+                <outlet property="lblVal" destination="Cvq-4e-Bzu" id="P0g-gd-rd5"/>
+                <outlet property="line" destination="cQB-h4-oAr" id="Pt6-Lr-3Rr"/>
+            </connections>
+            <point key="canvasLocation" x="289" y="96.5"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

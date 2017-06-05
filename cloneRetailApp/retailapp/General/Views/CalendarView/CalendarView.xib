@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarView">
+            <connections>
+                <outlet property="monthSelectorView" destination="wu9-jR-Wd6" id="kvd-lo-Z7e"/>
+                <outlet property="monthView" destination="Ti6-vf-CDY" id="D4D-rJ-HuZ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="L8f-oB-VVq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wu9-jR-Wd6" userLabel="selector" customClass="CalendarMonthSelectorView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="aRd-t6-2oX"/>
+                    </constraints>
+                </view>
+                <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ti6-vf-CDY" userLabel="monthView" customClass="CalendarMonthView">
+                    <rect key="frame" x="0.0" y="64" width="320" height="196"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="196" id="e93-TG-XYF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ti6-vf-CDY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="A2f-ZN-hEc"/>
+                <constraint firstItem="Ti6-vf-CDY" firstAttribute="top" secondItem="wu9-jR-Wd6" secondAttribute="bottom" id="gye-Bn-gu2"/>
+                <constraint firstAttribute="trailing" secondItem="Ti6-vf-CDY" secondAttribute="trailing" id="r1v-g5-XvH"/>
+                <constraint firstItem="wu9-jR-Wd6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sPs-ha-vHK"/>
+                <constraint firstAttribute="trailing" secondItem="wu9-jR-Wd6" secondAttribute="trailing" id="t9c-Wy-6Wh"/>
+                <constraint firstItem="wu9-jR-Wd6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yMy-gg-xTA"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="45" y="163"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,286 @@
+//
+//  RetailApp-Prefix.pch
+//  retailapp
+//
+//  Created by hm on 15/6/25.
+//  Copyright (c) 2015年 杭州迪火科技有限公司. All rights reserved.
+//
+
+#define RGB(a, b, c) [UIColor colorWithRed:a/255.0f green:b/255.0f blue:c/255.0f alpha:1.0]
+#define RGBA(r,g,b,a) [UIColor colorWithRed:(float)r/255.0f green:(float)g/255.0f blue:(float)b/255.0f alpha:a]
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "MJRefresh.h"
+#import "NSString+Estimate.h"
+#import "GlobalRender.h"
+#import "ActionConstants.h"
+#import "RetailConstants.h"
+#import "HelpConstant.h"
+#import "HttpEngine.h"
+#import "Platform.h"
+#import "UIImageView+WebCache.h"
+#import "ViewFactory.h"
+#import "UITableView+Category.h"
+#import "ColorHelper.h"
+#import "ObjectUtil.h"
+#import "SystemUtil.h"
+#import "BaseService.h"
+#import "SVProgressHUD.h"
+#import "BaseViewController.h"
+#import "UIView+Sizes.h"
+#import "LSViewUtil.h"
+#import "MJExtension.h"
+#import "LSViewFactor.h"
+#import "LSAlertHelper.h"
+#import "UIHelper.h"
+#import "XHAnimalUtil.h"
+#import "UIViewController+Animation.h"
+#import "UIViewController+LSHelp.h"
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+
+#import "Masonry.h"
+
+#define CELL_HEADER_RADIUS 12
+//页面内容距离底部的高度
+#define HEIGHT_CONTENT_BOTTOM 88
+
+
+
+//底部高度
+#define BOTTOM_HEIGHT 88
+
+/** 公共 **/
+#define PANEL_OUTTER_CORNER_RADIUS 6
+
+//店铺模式
+#define CLOTHESHOES_MODE 101    //服鞋模式
+#define SUPERMARKET_MODE 102    //商超模式
+
+//宏定义 Action常数
+#define ACTION_CONSTANTS_VIEW 0
+#define ACTION_CONSTANTS_ADD 1
+#define ACTION_CONSTANTS_EDIT 2
+#define ACTION_CONSTANTS_DEL 3
+#define ACTION_CONSTANTS_DELALL 4
+#define ACTION_CONSTANTS_SORT 5
+
+// 微店款式详情，由微店款式-> 微店款式详情(编辑时)
+#define WECHAT_STYLE_MicroInfo 1
+// 微店款式详情，由选择款式页面 -> 微店款式详情(添加时)
+#define WECHAT_STYLE_AddDetail 0
+
+//宏定义 标题栏图片
+#define Head_ICON_BACK @"nav_back"
+#define Head_ICON_HELP @"ico_help_w"
+#define Head_ICON_OK @"nav_ok"
+#define Head_ICON_CONFIRM @"ico_ok"
+#define Head_ICON_CANCEL @"nav_cancel"
+#define Head_ICON_CATE @"nav_cate"
+#define Head_ICON_MORE @"ico_more"
+#define Head_ICON_DELETE @"ico_delete"
+#define Head_ICON_CHOOSE @"ico_choose"
+
+//UI通知
+#define Notification_Message_Push @"Notification_Message_Push" //推送
+#define Notification_System_Message_Push @"Notification_System_Message_Push" //系统通知推送主要是为了一键上架
+#define Notification_UI_Change @"Notification_UI_Change"    //页面UI
+#define Notification_Sms_Pay_Finish @"Notification_Sms_Pay_Finish" //短信充值完成
+
+//重新登录
+
+#define NameValueCellIdentifier @"NameValueCellIdentifier"
+#define GridColHeadIndentifier @"GridColHeadIndentifier"
+#define GridColHead2Indentifier @"GridColHead2Indentifier"
+#define RetailTableCellIndentifier @"RetailTableCellIndentifier"
+#define GridHeadIndentifier @"GridHeadIndentifier"
+#define GridFooterCellIndentifier @"GridFooterCellIndentifier"
+#define MultiCheckCellIdentifier @"MultiCheckCellIdentifier"
+#define MultiHeadCellIndentifier @"MultiHeadCellIndentifier"
+#define GridColHead3Indentifier @"GridColHead3Indentifier"
+#define RetailTableCell2Indentifier @"RetailTableCell2Indentifier"
+#define GridColHead4Indentifier @"GridColHead4Indentifier"
+
+
+
+#define MemberTypeCellIndentifier @"MemberTypeCellIndentifier"
+#define MemberRechargeSalesCellIndentifier @"MemberRechargeSalesCellIndentifier"
+#define MemberInfoTypeViewCellIndentifier @"MemberInfoTypeViewCellIndentifier"
+#define MemberInfoTypeViewCell2Indentifier @"MemberInfoTypeViewCell2Indentifier"
+#define MemberSelectCellIndentifier @"MemberSelectCellIndentifier"
+#define MemberDegreeExchangeCellIndentifier @"MemberDegreeExchangeCellIndentifier"
+#define DegreeExchangeFootViewIndentifier @"DegreeExchangeFootViewIndentifier"
+
+#define GoodsCategoryCellIndentifier @"GoodsCategoryCellIndentifier"
+#define GoodsBatchSelectCellIndentifier @"GoodsBatchSelectCellIndentifier"
+#define GoodsStyleListCellIndentifier @"GoodsStyleListCellIndentifier"
+#define GoodsListCellIndentifier @"GoodsListCellIndentifier"
+#define GoodsAttributeCellIndentifier @"GoodsAttributeCellIndentifier"
+#define GoodsSingleAttributeCellIndentifier @"GoodsSingleAttributeCellIndentifier"
+#define GoodsStyleBatchSelectCellIndentifier @"GoodsStyleBatchSelectCellIndentifier"
+#define GoodsAttributeCell2Indentifier @"GoodsAttributeCell2Indentifier"
+#define GoodsInnerCodeRegulationSettingCellIndentifier @"GoodsInnerCodeRegulationSettingCellIndentifier"
+#define GoodsInnerCodeAttributeAddCellIndentifier @"GoodsInnerCodeAttributeAddCellIndentifier"
+#define GoodsInnerCodeAttributeSortCellIndentifier @"GoodsInnerCodeAttributeSortCellIndentifier"
+#define WechatSalePackCellIndentifier @"WechatSalePackCellIndentifier"
+#define GoodsSalePackManageEditCellIndentifier @"GoodsSalePackManageEditCellIndentifier"
+#define GoodsAttributeEditCellIndentifier @"GoodsAttributeEditCellIndentifier"
+#define GoodsBrandLibraryManageCellIndentifier @"GoodsBrandLibraryManageCellIndentifier"
+#define GoodsStyleGoodsCellIndentifier @"GoodsStyleGoodsCellIndentifier"
+#define StyleGoodsBatchOfGoodsCellIndentifier @"StyleGoodsBatchOfGoodsCellIndentifier"
+#define StyleGoodsBatchOfColorCellIndentifier @"StyleGoodsBatchOfColorCellIndentifier"
+#define GoodsChoiceCellIndentifier @"GoodsChoiceCellIndentifier"
+#define GoodsBatchChoiceCellIndentifier @"GoodsBatchChoiceCellIndentifier"
+#define StyleChoiceCellIndentifier @"StyleChoiceCellIndentifier"
+//#define CommonGoodsSelectCellIndentifier @"CommonGoodsSelectCellIndentifier"
+#define CategoryListCellIndentifier @"CategoryListCellIndentifier"
+
+#define StyleAreaCellIndentifier @"StyleAreaCellIndentifier"
+#define GoodsAreaOfStyleCellIndentifier @"GoodsAreaOfStyleCellIndentifier"
+#define GoodsAreaCellIndentifier @"GoodsAreaCellIndentifier"
+#define AttributeAddCellIndentifier @"AttributeAddCellIndentifier"
+
+
+
+
+#define SpecialOfferCellIndentifier @"SpecialOfferCellIndentifier"
+#define SpecialOfferGoodsOfStyleCellIndentifier @"SpecialOfferGoodsOfStyleCellIndentifier"
+#define PiecesDiscountCellIndentifier @"PiecesDiscountCellIndentifier"
+#define PiecesDiscountEditCellIndentifier @"PiecesDiscountEditCellIndentifier"
+#define WechatGoodsBatchSelectCellIdentifier @"WechatGoodsBatchSelectCellIdentifier"
+#define MarketAddCellIdentifier @"MarketAddCellIdentifier"
+
+
+
+
+#define Notification_UI_MemberTypeEditView_Change @"Notification_UI_MemberTypeEditView_Change"  //会员类型编辑.
+#define Notification_UI_MemberInfoEditView_Change @"Notification_UI_MemberInfoEditView_Change"  //会员信息编辑.
+#define Notification_UI_MemberRechargeSalesEditView_Change @"Notification_UI_MemberRechargeSalesEditView_Change"  //会员充值促销编辑.
+#define Notification_UI_MemberRechargeEditView_Change @"Notification_UI_MemberRechargeEditView_Change"  //会员充值编辑.
+#define Notification_UI_DegreeGoodsEditView_Change @"Notification_UI_DegreeGoodsEditView_Change"  //会员兑换商品设置编辑.
+
+#define Notification_UI_GoodsCategoryEditView_Change @"Notification_UI_GoodsCategoryEditView_Change"  //商品分类编辑.
+#define Notification_UI_GoodsEditView_Change @"Notification_UI_GoodsEditView_Change"  //商品信息编辑.
+#define Notification_UI_GoodsMicroEditView_Change @"Notification_UI_GoodsMicroEditView_Change"  //商品微店信息编辑.
+#define Notification_UI_GoodsPictureView_Change @"Notification_UI_GoodsPictureView_Change"  //商品微店图片编辑.
+#define Notification_UI_GoodsStyleEditView_Change @"Notification_UI_GoodsStyleEditView_Change"  //商品款式信息编辑.
+#define Notification_UI_GoodsStyleGoodsEditView_Change @"Notification_UI_GoodsStyleGoodsEditView_Change"  //商品款式商品信息编辑.
+#define Notification_UI_GoodsAttributeCategoryManageEditView_Change @"Notification_UI_GoodsAttributeCategoryManageEditView_Change"  //商品属性分类编辑.
+#define Notification_UI_GoodsAttributeEditView_Change @"Notification_UI_GoodsAttributeEditView_Change"  //商品属性编辑.
+#define Notification_UI_WechatSalePackManageEditView_Change @"Notification_UI_WechatSalePackManageEditView_Change"  //商品销售包管理编辑.
+#define Notification_UI_GoodsInnerCodeRegulationSettingView_Change @"Notification_UI_GoodsInnerCodeRegulationSettingView_Change"  //商品店内码规则设置.
+#define Notification_UI_GoodsStyleEditView_Change @"Notification_UI_GoodsStyleEditView_Change"  //商品款式信息编辑.
+
+#define Notification_UI_GoodsAttributeManageEditView_Change @"Notification_UI_GoodsAttributeManageEditView_Change"  //品牌、系列、季节、材质编辑.
+
+#define Notification_UI_MarketSalesEditView_Change @"Notification_UI_MarketSalesEditView_Change"  //促销活动编辑.
+#define Notification_UI_PiecesDiscountEditView_Change @"Notification_UI_PiecesDiscountEditView_Change"  //N件打折编辑.
+#define Notification_UI_SaleRegulationAddView_Change @"Notification_UI_SaleRegulationAddView_Change"  //促销规则添加.
+#define Notification_UI_SaleCouponEditView_Change @"Notification_UI_SaleCouponEditView_Change"  //优惠券详情.
+#define Notification_UI_SaleMinusEditView_Change @"Notification_UI_SaleMinusEditView_Change"  //满减规则编辑.
+#define Notification_UI_SaleSendOrSwapEditView_Change @"Notification_UI_SaleSendOrSwapEditView_Change"  //满送/换购规则编辑.
+
+
+#define Notification_SalePackStyleImageView_Change @"Notification_SalePackStyleImageView_Change"  //微店销售包款式图片编辑.
+
+//------------------------员工模块UI变化通知------------------------------------------------
+#define Notification_UI_EmployeeEditView_Change @"Notification_UI_EmployeeEditView_Change"  //员工编辑.
+#define Notification_UI_RoleCommissionnDetailView_Change @"Notification_UI_RoleCommissionnDetailView_Change" //角色提成编辑
+
+//------------------------物流模块UI变化通知------------------------------------------------
+#define Notification_UI_OrderPaperEditView_Change @"Notification_UI_OrderPaperEditView_Change"
+#define Notification_UI_SupplyType_Change @"Notification_UI_SupplyType_Change"  //供应商类别编辑
+//-----------------共同-----------------------
+#define KIND_MENU_VIEW 100       //分类页面.
+#define EXPORT_VIEW 101       //导出页面.
+#define GOODS_SINGLE_CHOICE_VIEW 102   //商品选择页面(商超版单选).
+#define SELECT_ORG_LIST_VIEW 103
+#define SELECT_ORG_SHOP_LIST_VIEW 104
+#define SELECT_SHOP_LIST_VIEW 105
+#define SELECT_SHOP_STORE_LIST_VIEW 106
+#define GOODS_SINGLE_CHOICE_VIEW2 107   //商品选择页面(服鞋版单选).
+#define GOODS_CHOICE_VIEW 108   //商品选择页面(商超版 包括批量).
+#define GOODS_BATCH_CHOICE_VIEW 109   //商品选择页面(商超版 包括批量).
+#define STYLE_CHOICE_VIEW 110   //款式选择页面(包括批量).
+#define STYLE_BATCH_CHOICE_VIEW 111   //款式批量选择页面.
+#define STYLE_CHOICE_TOP_VIEW 112   //款式选择顶部筛选页面.
+
+#define STYLE_BATCH_CHOICE_VIEW2 113   //款式批量选择2页面.
+#define STYLE_CHOICE_TOP_VIEW2 114   //款式选择顶部筛选2页面.
+
+#define GOODS_BATCH_CHOICE_VIEW1 115   //商品选择页面(商超版 只含批量).
+
+
+//-----------------商品-----------------------
+#define GOODS_INFO_SELECT_VIEW 4       //商品信息查询页面.
+#define GOODS_LIST_VIEW 5       //商品一览页面.
+#define GOODS_BATCH_SELECT_VIEW 6       //商品批量选择页面.
+#define GOODS_EDIT_VIEW 9      //商品编辑页面.
+#define GOODS_STYLE_LIST_VIEW 12      //商品款式一览页面.
+#define GOODS_STYLE_EDIT_VIEW 14     //商品款式编辑页面.
+#define GOODS_ATTRIBUTE_MANAGE_LIST_VIEW 16     //商品属性库管理一览页面.
+#define GOODS_ATTRIBUTE_ADD_LIST_VIEW 17     //商品属性添加一览页面.
+#define GOODS_ATTRIBUTE_COLOUR_LIST_VIEW 18     //商品属性(颜色)一览页面.
+#define GOODS_ATTRIBUTE_SIZE_LIST_VIEW 19     //商品属性(尺码)一览页面.
+#define GOODS_ATTRIBUTE_SELECT_VIEW 21     //商品属性选择页面.
+#define GOODS_SINGLE_ATTRIBUTE_LIST_VIEW 22     //商品各个属性一览页面.
+#define GOODS_STYLE_BATCH_SELECT_VIEW 23      //商品款式批量选择页面.
+#define GOODS_SINGLE_ATTRIBUTE_EDIT_VIEW 27     //商品各个属性编辑页面.
+#define GOODS_ATTRIBUTE_LIST_VIEW 28     //商品属性一览页面.
+#define GOODS_STYLE_INFO_VIEW 38      //款式主页面.
+#define GOODS_STYLE_GOODS_LIST_VIEW 40     //商品款式商品一览页面.
+
+//-----------------物流管理-----------------------
+//单据类型
+//采购单
+#define ORDER_PAPER_TYPE 1
+//收货入库单
+#define PURCHASE_PAPER_TYPE 2
+//退货出库单
+#define RETURN_PAPER_TYPE 3
+//门店调拨单
+#define ALLOCATE_PAPER_TYPE 4
+//客户采货单
+#define CLIENT_ORDER_PAPER_TYPE 5
+//客户退货单
+#define CLIENT_RETURN_PAPER_TYPE 6
+//装箱单
+#define PACK_BOX_PAPER_TYPE 7
+//库存调整单
+#define STOCK_ADJUST_PAPER_TYPE 8
+//成本价调整单
+#define COST_ADJUST_PAPER_TYPE 9
+
+
+#define GOODS_SECOND_VIEW 1000
+//-----------------营销管理-----------------------
+#define SPECIAL_OFFER_LIST_VIEW 2               //特价管理一览页面.
+#define SPECIAL_OFFER_GOODS_LIST_VIEW 3         //特价管理一览页面(商品).
+#define SPECIAL_OFFER_STYLE_LIST_VIEW 4         //特价管理一览页面(款式).
+#define SPECIAL_OFFER_EDIT_VIEW 5               //特价管理编辑页面.
+#define PIECES_DISCOUNT_LIST_VIEW 6             //第N件打折一览页面.
+#define BIRTHDAY_SALES_VIEW 7                   //会员生日促销页面.
+#define BINDING_DISCOUNT_LIST_VIEW 8            //捆绑打折一览页面.
+#define SALES_SEND_OR_SWAP_LIST_VIEW 9          //满送/换购一览页面.
+#define SALES_MINUS_LIST_VIEW 10                //满减一览页面.
+#define SALES_COUPON_LIST_VIEW 11               //优惠券一览页面.
+#define MARKET_SALES_EDIT_VIEW 12               //促销活动编辑页面.
+#define PIECES_DISCOUNT_EDIT_VIEW 13             //第N件打折编辑页面.
+#define BINDING_DISCOUNT_EDIT_VIEW 14             //捆绑打折编辑页面.
+
+
+
+
+//-----------------库存管理-----------------------
+#define STOCK_ALERT_SETTING_VIEW 10010 //提醒设置页面
+
+
+#define Notification_UI_KindPayEditView_Change @"Notification_UI_KindPayEditView_Change"  //付款方式编辑.
+#define Notification_UI_VirtualStockManagement_Change @"Notification_UI_VirtualStockManagement_Change"
+
+#endif
