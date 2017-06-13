@@ -22,28 +22,25 @@
 
 - (NSString *)statusString {
     
-    if (self.isExpiry.boolValue) {
-        
-        if (self.status.integerValue == 2) {
-            return @"已用完";
-        } else if (_status.integerValue == 3) {
-            return @"已退款";
-        }
-        
-    } else {
+    if (_status.integerValue == 1 && !_isExpiry.boolValue) {
         return @"已过期";
+    } else if (_status.integerValue == 2) {
+        return @"已用完";
+    } else if (_status.integerValue == 3) {
+        return @"已退款";
     }
+
     return @"";
 }
 
 - (NSString *)validTimeString {
     
-    if (_expiryDate.integerValue == 0) {
+    if (_expiryDate.integerValue == -1) {
         return @"不限期";
     }
     
-    NSString *startTime = [DateUtils formateTime2:_startDate.longLongValue];
-    NSString *endTime = [DateUtils formateTime2:_endDate.longLongValue];
+    NSString *startTime = [DateUtils formateTime5:_startDate.longLongValue];
+    NSString *endTime = [DateUtils formateTime5:_endDate.longLongValue];
     return [NSString stringWithFormat:@"有效期: %@至%@",startTime,endTime];
 }
 

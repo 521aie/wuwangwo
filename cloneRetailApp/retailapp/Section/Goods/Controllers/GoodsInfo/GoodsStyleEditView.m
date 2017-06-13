@@ -90,6 +90,9 @@
     [self loaddatas];
     if (self.action == ACTION_CONSTANTS_ADD) {
         [self loadCategoryList];
+        if (self.addStyleVo != nil) {
+            [self textFieldDidEndEditing:self.txtStyleNo.txtVal];
+        }
     }
 }
 
@@ -728,9 +731,11 @@
     [self.txtStyleNo.txtVal setDelegate:self];
     
     [self.lsPurPrice initLabel:@"参考进货价(元)" withHit:nil isrequest:NO delegate:self];
-    if ([[Platform Instance] lockAct:ACTION_REF_PURCHASE_PRICE]) {//没有权限时参考进货价不显示
-        [self.lsPurPrice visibal:NO];
-    }
+//    if ([[Platform Instance] lockAct:ACTION_REF_PURCHASE_PRICE]) {//没有权限时参考进货价不显示
+//        [self.lsPurPrice visibal:NO];
+//    }
+    
+    [self.lsPurPrice visibal:NO];
     
     
     [self.lsHangTagPrice initLabel:@"吊牌价(元)" withHit:nil isrequest:YES delegate:self];

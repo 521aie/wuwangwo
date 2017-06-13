@@ -217,15 +217,11 @@
                 return;
             }
      }
-#warning "jicika"
-//
-//    if (item.goodsId.length > 0) {
-//        self.selectedItem = item;
-//        [self checkEntityHaveGoods:item.goodsId];
-//    }
-
-    self.goodsInfoBlock(item);
-#warning "jicika"
+    
+    if (item.goodsId.length > 0) {
+        self.selectedItem = item;
+        [self checkEntityHaveGoods:item.goodsId];
+    }
 }
 
 #pragma mark - 网络请求
@@ -258,7 +254,9 @@
                     return;
                 }
             }
-            self.goodsInfoBlock(item);
+//            self.goodsInfoBlock(item);
+            self.selectedItem = item;
+            [self checkEntityHaveGoods:item.goodsId];
             return;
         }
     } errorHandler:^(id json) {

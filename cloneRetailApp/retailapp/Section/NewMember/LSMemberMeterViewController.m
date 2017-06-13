@@ -19,8 +19,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LSFooterView *footerView;
 @property (nonatomic, strong) NSMutableArray *datas;
-/** 当前页 */
-//@property (nonatomic, strong) NSNumber *lastDateTime;
+@property (nonatomic,assign) CGFloat cellHeight;
 @end
 
 @implementation LSMemberMeterViewController
@@ -44,7 +43,6 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 130.0f;
     [self.view addSubview:self.tableView];
     
     __weak typeof(self) wself = self;
@@ -129,6 +127,7 @@
     LSMemberMeterListCell *cell = [LSMemberMeterListCell memberMeteringListCellWithTableView:tableView];
     LSMemberMeterVo*obj = self.datas[indexPath.row];
     cell.obj = obj;
+    self.cellHeight = [cell heightForContent:obj.accountCardName];
     return cell;
 }
 
@@ -137,6 +136,10 @@
     LSMemberMeterVo *obj = self.datas[indexPath.row];
     LSMemberMeterDetailViewController *vc = [[LSMemberMeterDetailViewController alloc] initWith:obj action:ACTION_CONSTANTS_EDIT];
     [self pushViewController:vc];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return self.cellHeight + 129;
 }
 
 @end

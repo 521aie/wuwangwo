@@ -10,5 +10,5 @@
 
 @interface LSMemberByTimeRechargeNotesListController : BaseViewController
 
-- (instancetype)initWithMemberCardId:(id)cardId;
+- (instancetype)initWithMemberCardVo:(id)card packVo:(id)packVo;
 @end

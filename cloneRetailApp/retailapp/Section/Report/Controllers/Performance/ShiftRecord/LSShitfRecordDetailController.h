@@ -6,9 +6,9 @@
 //  Copyright © 2017年 杭州迪火科技有限公司. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LSRootViewController.h"
 @class LSUserHandoverVo;
-@interface LSShitfRecordDetailController : UIViewController
+@interface LSShitfRecordDetailController : LSRootViewController
 /**用来接受门店,由上一个页面传入*/
 @property (nonatomic, copy) NSString *shopName;
 /** <#注释#> */

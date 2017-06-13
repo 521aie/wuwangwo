@@ -48,10 +48,7 @@
 
 - (void)configViews {
     self.view.backgroundColor = [UIColor clearColor];
-    [self configTitle:@"会员充值记录" leftPath:Head_ICON_BACK rightPath:nil];
-    
-#warning “jicika"
-//    [self configTitle:@"储值充值记录" leftPath:Head_ICON_BACK rightPath:nil];
+    [self configTitle:@"储值充值记录" leftPath:Head_ICON_BACK rightPath:nil];
     
     self.tableView = [[UITableView alloc] init];
     self.tableView.delegate = self;

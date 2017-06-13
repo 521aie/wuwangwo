@@ -165,6 +165,11 @@
     }
     else {
         self.lblName.ls_top = 13.0;
+        if ([label isEqualToString:@"身份证"]) {
+             self.lblName.frame = CGRectMake(11, 10, rect.size.width, rect.size.height);
+            [self.txtVal setLs_left:(11+rect.size.width+10)];
+            [self.txtVal setLs_width:SCREEN_W-30-self.lblName.ls_right];
+        }
     }
 }
 

@@ -11,6 +11,8 @@
 #import "SRTitleView.h"
 #import "DateUtils.h"
 #import "LSByTimeRechargeRecordVo.h"
+#import "LSMemberCardVo.h"
+#import "LSMemberInfoVo.h"
 
 @interface LSByTimeRechargeRecordDetailController ()<INavigateEvent>
 
@@ -25,31 +27,32 @@
 @property (nonatomic, strong) SRTitleView *optType;/**<操作类型>*/
 @property (nonatomic, strong) SRTitleView *salePrice;/**<销售金额>*/
 @property (nonatomic, strong) SRTitleView *payType;/**<支付方式>*/
-//@property (nonatomic, strong) SRTitleView *saleShop;/**<销售门店>*/
 @property (nonatomic, strong) SRTitleView *optPeople;/**<操作人>*/
 @property (nonatomic, strong) SRTitleView *time;/**<时间>*/
 @property (nonatomic, strong) LSByTimeRechargeRecordVo *recordVo;/**<充值记录详情vo>*/
-@property (nonatomic, strong) NSString *memberCardId;/**<会员卡号>*/
-@property (nonatomic, strong) NSString *byTimeCardId;/**<记次卡id>*/
+@property (nonatomic, strong) LSMemberCardVo *cardVo;/**<记次充值记录所在的会员卡vo>*/
+@property (nonatomic, strong) LSMemberPackVo *packVo;/**<会员vo>*/
 @end
 
 @implementation LSByTimeRechargeRecordDetailController
 
-- (instancetype)initWith:(id)byTimeCardId memberCardId:(id)cardId {
+- (instancetype)initWithRechargeRecordVo:(id)vo memberCardVo:(LSMemberCardVo *)cardVo packVo:(LSMemberPackVo *)packVo {
     
     self = [super init];
     if (self) {
-        _byTimeCardId = byTimeCardId;
-        _memberCardId = cardId;
+        _recordVo = vo;
+        _cardVo = cardVo;
+        _packVo = packVo;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     [self configSubViews];
-    [self getByTimeNoteDetail];
+//    [self fillDetailData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,7 +62,7 @@
 - (void)configSubViews {
     
     _titleBox = [NavigateTitle2 navigateTitle:self];
-    [_titleBox initWithName:_recordVo.memberName backImg:Head_ICON_BACK moreImg:nil];
+    [_titleBox initWithName:@"计次充值记录" backImg:Head_ICON_BACK moreImg:nil];
     [self.view addSubview:_titleBox];
     
     _scrollView = [[UIScrollView alloc] initWithFrame:
@@ -68,19 +71,19 @@
     [self.view addSubview:_scrollView];
     
     _memberName = [SRTitleView titleViewWith:@"会员名"];
-    [_memberName setLblText:_recordVo.memberName color:nil];
+    [_memberName setLblText:_packVo.customer.name?:@"" color:nil];
     [_scrollView addSubview:_memberName];
     
     _memberPhone = [SRTitleView titleViewWith:@"手机号码"];
-    [_memberPhone setLblText:_recordVo.phoneNo color:nil];
+    [_memberPhone setLblText:[_packVo getMemberPhoneNum] color:nil];
     [_scrollView addSubview:_memberPhone];
     
     _memberCardType = [SRTitleView titleViewWith:@"会员卡类型"];
-    [_memberCardType setLblText:_recordVo.memberType color:nil];
+    [_memberCardType setLblText:_cardVo.cardTypeVo.name?:@"" color:nil];
     [_scrollView addSubview:_memberCardType];
     
     _memberCardNo = [SRTitleView titleViewWith:@"会员卡号"];
-    [_memberCardNo setLblText:_recordVo.memberNo color:nil];
+    [_memberCardNo setLblText:_cardVo.code?:@"" color:nil];
     [_scrollView addSubview:_memberCardNo];
     
     _byTimeCard = [SRTitleView titleViewWith:@"计次服务"];
@@ -92,79 +95,44 @@
     [_scrollView addSubview:_effectiveTime];
     
     _optType = [SRTitleView titleViewWith:@"操作类型"];
-    [_optType setLblText:_recordVo.operType color:[ColorHelper getTipColor6]];
+    [_optType setLblText:[_recordVo operationTypeString] color:[ColorHelper getTipColor6]];
     [_scrollView addSubview:_optType];
     
     // 销售金额或者退款金额
     if ([_recordVo byTimeRechargeRecordVoOperType] == LSByTimeRechargeRecordOperType_Recharge) {
         
         _salePrice = [SRTitleView titleViewWith:@"销售金额(元)"];
-        NSString *price = [NSString stringWithFormat:@"%.2f",_recordVo.price.floatValue];
+        NSString *price = [NSString stringWithFormat:@"%.2f",_recordVo.pay.floatValue];
         [_salePrice setLblText:price color:[ColorHelper getRedColor]];
         
     } else if ([_recordVo byTimeRechargeRecordVoOperType] == LSByTimeRechargeRecordOperType_Refund) {
         
-        _salePrice = [SRTitleView titleViewWith:@"退款金额(元)"];
-        NSString *price = [NSString stringWithFormat:@"-%.2f",_recordVo.price.floatValue];
+        _salePrice = [SRTitleView titleViewWith:@"销售金额(元)"];
+        NSString *price = [NSString stringWithFormat:@"-%.2f",fabs(_recordVo.pay.floatValue)];
         [_salePrice setLblText:price color:[ColorHelper getGreenColor]];
     }
     [_scrollView addSubview:_salePrice];
     
     _payType = [SRTitleView titleViewWith:@"支付方式"];
-    [_payType setLblText:_recordVo.payMode color:nil];
+    [_payType setLblText:[_recordVo payModeString] color:nil];
     [_scrollView addSubview:_payType];
     
     _optPeople = [SRTitleView titleViewWith:@"操作人"];
-    [_optPeople setLblText:_recordVo.opUserName color:nil];
+    NSString *optPeopleString = @"";
+    if (_recordVo.opUserName && _recordVo.opUserNo) {
+        optPeopleString = [NSString stringWithFormat:@"%@ (%@)", _recordVo.opUserName, _recordVo.opUserNo];
+    }
+    [_optPeople setLblText:optPeopleString color:nil];
     [_scrollView addSubview:_optPeople];
     
     _time = [SRTitleView titleViewWith:@"时间"];
-    NSString *time = [DateUtils formateLongChineseTime:_recordVo.createTime.longLongValue];
+    NSString *time = [DateUtils formateLongChineseTime:_recordVo.createTime.longLongValue];;
     [_time setLblText:time color:nil];
     [_scrollView addSubview:_time];
     
     [UIHelper refreshUI:_scrollView];
 }
 
-
-// 展示详情数据
-- (void)fillDetailData {
-    
-    [_titleBox initWithName:_recordVo.memberName backImg:Head_ICON_BACK moreImg:nil];
-    
-    [_memberName setLblText:_recordVo.memberName color:nil];
-
-    [_memberPhone setLblText:_recordVo.phoneNo color:nil];
-    
-    [_memberCardType setLblText:_recordVo.memberType color:nil];
-    
-    [_memberCardNo setLblText:_recordVo.memberNo color:nil];
-    
-    [_byTimeCard setLblText:_recordVo.accountCardName color:nil];
-    
-    [_effectiveTime setLblText:[_recordVo vailidTimeString] color:nil];
-    
-    [_optType setLblText:_recordVo.operType color:[ColorHelper getTipColor6]];
-    
-    // 销售金额或者退款金额
-    if ([_recordVo byTimeRechargeRecordVoOperType] == LSByTimeRechargeRecordOperType_Recharge) {
-        
-        NSString *price = [NSString stringWithFormat:@"%.2f",_recordVo.price.floatValue];
-        [_salePrice setLblText:price color:[ColorHelper getRedColor]];
-        
-    } else if ([_recordVo byTimeRechargeRecordVoOperType] == LSByTimeRechargeRecordOperType_Refund) {
-        
-        NSString *price = [NSString stringWithFormat:@"-%.2f",_recordVo.price.floatValue];
-        [_salePrice setLblText:price color:[ColorHelper getGreenColor]];
-    }
-    
-    [_payType setLblText:_recordVo.payMode color:nil];
-    
-    [_optPeople setLblText:_recordVo.opUserName color:nil];
-    
-    NSString *time = [DateUtils formateLongChineseTime:_recordVo.createTime.longLongValue];
-    [_time setLblText:time color:nil];
-}
 
 #pragma mark - 相关协议方法 -
 // INavigateEvent
@@ -180,24 +148,24 @@
 //    
 //}
 
-#pragma mark - 网络请求 -
-// 获取计次充值记录详情信息
-- (void)getByTimeNoteDetail {
-    
-    __weak typeof(self) wself = self;
-    NSDictionary *param = @{@"id":_byTimeCardId};
-    NSString *url = @"accountcard/detail";
-    [BaseService getRemoteLSDataWithUrl:url param:param withMessage:nil show:YES CompletionHandler:^(id json) {
-        
-        wself.recordVo = [LSByTimeRechargeRecordVo byTimeRechargeRecordVo:json[@"accountRechargeRecordVo"]];
-        if (wself.recordVo) {
-            [wself fillDetailData];
-        }
-        
-    } errorHandler:^(id json) {
-        [LSAlertHelper showAlert:json];
-    }];
-}
+//#pragma mark - 网络请求 -
+//// 获取计次充值记录详情信息
+//- (void)getByTimeNoteDetail {
+//    
+//    __weak typeof(self) wself = self;
+//    NSDictionary *param = @{@"id":_byTimeCardId};
+//    NSString *url = @"accountcard/detail";
+//    [BaseService getRemoteLSDataWithUrl:url param:param withMessage:nil show:YES CompletionHandler:^(id json) {
+//        
+//        wself.recordVo = [LSByTimeRechargeRecordVo byTimeRechargeRecordVo:json[@"accountRechargeRecordVo"]];
+//        if (wself.recordVo) {
+//            [wself fillDetailData];
+//        }
+//        
+//    } errorHandler:^(id json) {
+//        [LSAlertHelper showAlert:json];
+//    }];
+//}
 
 @end
 

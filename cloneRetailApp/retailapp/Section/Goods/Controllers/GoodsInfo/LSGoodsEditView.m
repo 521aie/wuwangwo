@@ -691,9 +691,10 @@
     //只有散装称重商品打开才显示计价方式
     [self.lstPriceModel initLabel:@"▪︎ 计价方式" withHit:nil delegate:self];
     [self.lsPurPrice initLabel:@"参考进货价(元)" withHit:nil isrequest:NO delegate:self];
-    if ([[Platform Instance] lockAct:ACTION_REF_PURCHASE_PRICE]) {//没有参考进货价权限时参考进货价不显示
-        [self.lsPurPrice visibal:NO];
-    }
+//    if ([[Platform Instance] lockAct:ACTION_REF_PURCHASE_PRICE]) {//没有参考进货价权限时参考进货价不显示
+//        [self.lsPurPrice visibal:NO];
+//    }
+     [self.lsPurPrice visibal:NO];
     [self.lsRetailPrice initLabel:@"零售价(元)" withHit:nil isrequest:YES delegate:self];
     [self.lsMemberPrice initLabel:@"会员价(元)" withHit:nil isrequest:NO delegate:self];
     [self.lsWhoPrice initLabel:@"批发价(元)" withHit:nil isrequest:NO delegate:self];

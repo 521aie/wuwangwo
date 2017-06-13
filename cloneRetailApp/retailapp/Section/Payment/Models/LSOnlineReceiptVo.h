@@ -61,6 +61,7 @@
  * 充值方式 1=实体 2=微店
  */
 @property (nonatomic, strong) NSNumber *channelType;
+@property (nonatomic, copy) NSString *payMsgTag;
 
 + (instancetype)onlineReceiptVoWithMap:(NSDictionary *)map;
 @end

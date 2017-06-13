@@ -11,6 +11,7 @@
 #define CONFIG_SEND_DEAL_SMS @"CONFIG_SEND_DEAL_SMS"
 #define CONFIG_SEND_CANCEL_CARD_SMS @"CONFIG_SEND_CANCEL_CARD_SMS"
 #define CONFIG_SEND_GIVE_DEGREE_SMS @"CONFIG_SEND_GIVE_DEGREE_SMS"
+#define CONFIG_SEND_CANCEL_ACCOUNTCARD_SMS @"CONFIG_SEND_CANCEL_ACCOUNTCARD_SMS"
 
 #import "SmsSetController.h"
 #import "ItemTitle.h"
@@ -40,8 +41,12 @@
 /**是否开启退卡短信*/
 @property(nonatomic, strong)  LSEditItemRadio* rdoReturnSms;
 @property ( strong, nonatomic)  LSEditItemView *vewReturnSms;
+///**是否开启计次服务退款短信*/
+@property(nonatomic, strong)  LSEditItemRadio* rdoMeterReturnSms;
+@property ( strong, nonatomic)  LSEditItemView *vewMeterReturnSms;
 @property ( strong, nonatomic)  LSEditItemRadio *rdoIntegral;
 @property ( strong, nonatomic)  LSEditItemView *viewIntegral;
+
 @property (nonatomic,strong) SettingService* service;
 /**短信设置项列表*/
 @property (nonatomic,strong) NSMutableArray* configVoList;
@@ -81,34 +86,38 @@
     //开卡短信
     self.rdoCardSms = [LSEditItemRadio editItemRadio];
     [self.container addSubview:self.rdoCardSms];
-    
     self.vewCardSms = [LSEditItemView editItemView];
     [self.container addSubview:self.vewCardSms];
+    
     //充值短信
     self.rdoPaySms = [LSEditItemRadio editItemRadio];
     [self.container addSubview:self.rdoPaySms];
-    
     self.vewPaySms = [LSEditItemView editItemView];
     [self.container addSubview:self.vewPaySms];
+    
     //赠分短信
     self.rdoIntegral = [LSEditItemRadio editItemRadio];
     [self.container addSubview:self.rdoIntegral];
-    
     self.viewIntegral = [LSEditItemView editItemView];
     [self.container addSubview:self.viewIntegral];
+    
     //交易短信
     self.rdoTradeSms = [LSEditItemRadio editItemRadio];
     [self.container addSubview:self.rdoTradeSms];
-    
     self.vewTradeSms = [LSEditItemView editItemView];
     [self.container addSubview:self.vewTradeSms];
+    
     //退卡短信
     self.rdoReturnSms = [LSEditItemRadio editItemRadio];
     [self.container addSubview:self.rdoReturnSms];
-    
     self.vewReturnSms = [LSEditItemView editItemView];
     [self.container addSubview:self.vewReturnSms];
-
+    
+    //计次服务退款短信
+    self.rdoMeterReturnSms = [LSEditItemRadio editItemRadio];
+    [self.container addSubview:self.rdoMeterReturnSms];
+    self.vewMeterReturnSms = [LSEditItemView editItemView];
+    [self.container addSubview:self.vewMeterReturnSms];
 }
 
 
@@ -128,6 +137,8 @@
     [self.rdoIntegral initLabel:@"赠分短信" withHit:nil delegate:self];
     [self.rdoTradeSms initLabel:@"交易短信" withHit:nil delegate:self];
     [self.rdoReturnSms initLabel:@"退卡短信" withHit:nil delegate:self];
+    [self.rdoMeterReturnSms initLabel:@"计次服务退款短信" withHit:nil delegate:self];
+    
     [self refreshUI];
 }
 
@@ -143,22 +154,41 @@
     NSString *strCardSms = [NSString stringWithFormat:@"【二维火】尊敬的{会员姓名}，您好！欢迎您成为我店会员。如有疑问请咨询%@<%@>",self.telephone, self.shopName];
     [self.vewCardSms initLabel:@"▪︎ 短信预览" withHit:strCardSms];
     
-    NSString *strPaySms = [NSString stringWithFormat:@"【二维火】您的会员卡充值成功，充值金额{充值金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>",self.telephone, self.shopName];
+    NSString *strPaySms = nil;
+    NSString *strTradeSms = nil;
+    
+    if ([[Platform Instance] getShopMode] != 1 && [[[Platform Instance] getkey:SHOP_MODE] intValue] == 102
+) {
+        
+        strPaySms = [NSString stringWithFormat:@"储值充值短信：\n【二维火】您的会员卡充值成功，充值金额{充值金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>",self.telephone, self.shopName];
+        
+        strTradeSms = [NSString stringWithFormat:@"储值消费短信：\n【二维火】您的会员卡本次消费了{消费金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n储值退款短信：\n【二维火】您的会员卡本次退款{退款金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>",self.telephone, self.shopName, self.telephone, self.shopName];
+        
+        [self.vewMeterReturnSms visibal:NO];
+        [self.rdoMeterReturnSms visibal:NO];
+    } else {
+        
+        strPaySms = [NSString stringWithFormat:@"储值充值短信：\n【二维火】您的会员卡充值成功，充值金额{充值金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n计次充值短信：\n【二维火】您已成功充值计次服务：{计次服务名称}，有效期{开始日期}至{结束日期}。如有疑问请咨询%@<%@>",self.telephone, self.shopName,self.telephone, self.shopName];
+        
+        strTradeSms = [NSString stringWithFormat:@"储值消费短信：\n【二维火】您的会员卡本次消费了{消费金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n储值退款短信：\n【二维火】您的会员卡本次退款{退款金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n计次消费短信：\n【二维火】您的会员卡本次消费了计次服务：{计次商品名称}（等多项），共计消费{消费计次商品数量}次。如有疑问请咨询%@<%@>",self.telephone, self.shopName, self.telephone, self.shopName, self.telephone, self.shopName];
+    }
     [self.vewPaySms initLabel:@"▪︎ 短信预览" withHit:strPaySms];
     [self.vewPaySms visibal:[self.rdoPaySms getVal]];
     
-    NSString *strIntegral = [NSString stringWithFormat:@"【二维火】尊敬的{会员姓名} : 您已获赠卡积分**分，积分余额为**分。如有疑问请咨询18888888878<%@>" ,self.shopName];
+    NSString *strIntegral = [NSString stringWithFormat:@"【二维火】尊敬的{会员姓名} : 您已获赠卡积分**分，积分余额为**分。如有疑问请咨询%@<%@>" ,self.telephone,self.shopName];
     [self.viewIntegral initLabel:@"▪︎ 短信预览" withHit:strIntegral];
     [self.viewIntegral visibal:[self.rdoIntegral getVal]];
     
-    NSString *strTradeSms = [NSString stringWithFormat:@"消费短信：\n【二维火】您的会员卡本次消费了{消费金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n退款短信：\n【二维火】您的会员卡本次退款{消费金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>",self.telephone, self.shopName, self.telephone, self.shopName];
-    [self.vewTradeSms initLabel:@"▪︎ 短信预览" withHit:nil];
     [self.vewTradeSms initLabel:@"▪︎ 短信预览" withHit:strTradeSms];
     [self.vewTradeSms visibal:[self.rdoTradeSms getVal]];
     
     NSString *strReturnSms = [NSString stringWithFormat:@"【二维火】尊敬的{会员姓名}，您好！您已成功退卡！原卡内余额{卡内余额}元，实退{实退金额}元，会员卡内余额已清零。如有疑问请咨询%@<%@>",self.telephone, self.shopName];
     [self.vewReturnSms initLabel:@"▪︎ 短信预览" withHit:strReturnSms];
     [self.vewReturnSms visibal:[self.rdoReturnSms getVal]];
+    
+    NSString *strMeterReturnSms = [NSString stringWithFormat:@"【二维火】尊敬的{会员姓名}，您好！您的计次服务：{计次服务名称}已成功退款！实退{实退金额}元。如有疑问请咨询%@<%@>",self.telephone, self.shopName];
+    [self.vewMeterReturnSms initLabel:@"▪︎ 短信预览" withHit:strMeterReturnSms];
+    [self.vewMeterReturnSms visibal:[self.rdoMeterReturnSms getVal]];
     
     [UIHelper refreshUI:self.container scrollview:self.scrollView];
 }
@@ -197,7 +227,7 @@
 - (void)loadData
 {
     [self registerNotification];
-    NSMutableArray* configCodeList = [NSMutableArray arrayWithObjects:CONFIG_SEND_OPEN_CARD_SMS,CONFIG_SEND_CANCEL_CARD_SMS,CONFIG_SEND_CHARGE_SMS,CONFIG_SEND_DEAL_SMS, CONFIG_SEND_GIVE_DEGREE_SMS, nil];
+    NSMutableArray* configCodeList = [NSMutableArray arrayWithObjects:CONFIG_SEND_OPEN_CARD_SMS,CONFIG_SEND_CANCEL_CARD_SMS,CONFIG_SEND_CHARGE_SMS,CONFIG_SEND_DEAL_SMS, CONFIG_SEND_GIVE_DEGREE_SMS,CONFIG_SEND_CANCEL_ACCOUNTCARD_SMS, nil];
     
     __weak typeof(self) weakSelf = self;
     [_service acquireSmsSettingDetail:configCodeList completionHandler:^(id json) {
@@ -219,12 +249,16 @@
             if ([configVo.code isEqualToString:CONFIG_SEND_CANCEL_CARD_SMS]) {
                 [weakSelf.rdoReturnSms initData:[@"2" isEqualToString:configVo.value]?@"0":configVo.value];
             }
-            
             //赠分短信开关 |1 开| 2关
             if ([configVo.code isEqualToString:CONFIG_SEND_GIVE_DEGREE_SMS]) {
                 [weakSelf.rdoIntegral initData:[@"2" isEqualToString:configVo.value]?@"0":configVo.value];
             }
+            //计次服务退款短信开关 |1 开| 2关
+            if ([configVo.code isEqualToString:CONFIG_SEND_CANCEL_ACCOUNTCARD_SMS]) {
+                [weakSelf.rdoMeterReturnSms initData:[@"2" isEqualToString:configVo.value]?@"0":configVo.value];
+            }
         }
+    
         [weakSelf refreshUI];
     } errorHandler:^(id json) {
         [LSAlertHelper showAlert:json block:nil];
@@ -240,19 +274,26 @@
         [wself.lblRemainNum initData:[NSString stringWithFormat:@"%d条", number] withVal:[NSString stringWithFormat:@"%d", number]];
         weakSelf.shopName = json[@"shopName"];
         [weakSelf refreshUI];
-        if ([NSString isBlank:weakSelf.telephone]) {
-            if ([NSString isBlank:self.telephone]) {
-                // 打开短信提醒需先有店铺手机号
-                [LSAlertHelper showAlert:@"提示" message:@"请先前往［营业］-［店家信息］完善手机号码，否则短信将无法正常发送！" cancle:@"我知道了" block:^{
-                     [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromRight];
-                    [weakSelf.navigationController popViewControllerAnimated:NO];
-//                    [weakSelf popToLatestViewController:kCATransitionFromLeft];
-                }];
-            }
+        //如果号码不存在或者该号码是固话则提示错误
+        if ([NSString isBlank:weakSelf.telephone] || [weakSelf validateTelphone:weakSelf.telephone]) {
+            // 打开短信提醒需先有店铺手机号
+            [LSAlertHelper showAlert:@"提示" message:@"请先前往［营业］-［店家信息］完善手机号码，否则短信将无法正常发送！" cancle:@"我知道了" block:^{
+                [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromRight];
+                [weakSelf.navigationController popViewControllerAnimated:NO];
+                //                    [weakSelf popToLatestViewController:kCATransitionFromLeft];
+            }];
         }
     } errorHandler:^(id json) {
         [LSAlertHelper showAlert:json block:nil];
     }];
+}
+
+//判断是否是固定电话
+- (BOOL) validateTelphone:(NSString *)telphone
+{
+    NSString *phoneRegex = @"\\d{3}-\\d{8}|\\d{4}-\\d{7,8}";
+    NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
+    return [phoneTest evaluateWithObject:telphone];
 }
 
 - (void)onItemRadioClick:(id)obj {
@@ -284,9 +325,11 @@
         if ([configVo.code isEqualToString:CONFIG_SEND_CANCEL_CARD_SMS]) {
             configVo.value = [self.rdoReturnSms getVal]?@"1":@"2";
         }
-        
         if ([configVo.code isEqualToString:CONFIG_SEND_GIVE_DEGREE_SMS]) {
             configVo.value = [self.rdoIntegral getVal]?@"1":@"2";
+        }
+        if ([configVo.code isEqualToString:CONFIG_SEND_CANCEL_ACCOUNTCARD_SMS]) {
+            configVo.value = [self.rdoMeterReturnSms getVal]?@"1":@"2";
         }
     }
     
@@ -304,20 +347,5 @@
         [LSAlertHelper showAlert:json block:nil];
     }];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

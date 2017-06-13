@@ -37,17 +37,18 @@
     if ([vo byTimeRechargeRecordVoOperType] == LSByTimeRechargeRecordOperType_Recharge) {
       
         _lowerLeftLabel.textColor = [ColorHelper  getRedColor];
-        _lowerLeftLabel.text = [NSString stringWithFormat:@"￥%.2f", vo.price.floatValue];
+        _lowerLeftLabel.text = [NSString stringWithFormat:@"￥%.2f", vo.pay.floatValue];
    
     }  else if ([vo byTimeRechargeRecordVoOperType] == LSByTimeRechargeRecordOperType_Refund) {
        
         _lowerLeftLabel.textColor = [ColorHelper  getGreenColor];
-        _lowerLeftLabel.text = [NSString stringWithFormat:@"-￥%.2f", vo.price.floatValue];
+        // 这边后台返回的就是负数，取绝对值
+        _lowerLeftLabel.text = [NSString stringWithFormat:@"-￥%.2f", fabs(vo.pay.floatValue)];
     }
     
     
     _name.text = vo.accountCardName;
-    _lowerRightLabel.text = [DateUtils formateTime1:vo.createTime.longLongValue];
+    _lowerRightLabel.text = [DateUtils formateTime:vo.consumeDate.longLongValue];
 }
 
 @end

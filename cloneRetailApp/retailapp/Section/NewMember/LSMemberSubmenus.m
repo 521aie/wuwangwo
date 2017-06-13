@@ -39,15 +39,6 @@
         } else {
             
             // 单店模式和连锁门店用户，积分兑换设置模块加锁通过“积分兑换设置”和“积分商品数量设置”两个小功能判断(新定义的大权限：PAD_MEMBER_POINT_SET)，都关闭则加锁，否则可以进入
-            array = @[[LSMemberSubmenus submenu:@"会员卡类型" icon:@"ico_huiyuankaleixing" className:@"LSMemberCardTypeListViewController"
-                                           type:MBSubModule_CardType action:ACTION_CARD_CATEGORY],
-                      [LSMemberSubmenus submenu:@"充值优惠设置" icon:@"ico_chongzhiyouhui" className:@"LSMemberRechargeRuleListViewController"
-                                           type:MBSubModule_RechargeSet action:ACTION_CARD_CHARGE_PROMOTION],
-                      [LSMemberSubmenus submenu:@"积分兑换设置" icon:@"ico_jifenduihuanshezhi" className:@"LSMemberIntegralSetViewController"
-                                           type:MBSubModule_IntegralSet action:PAD_MEMBER_POINT_SET]];
-            
-#warning "jicika_begin"
-            /*
             // 计次卡目前只是商超单店有
             if ([[Platform Instance] getShopMode] == 1 && [[[Platform Instance] getkey:SHOP_MODE] integerValue] == 102) {
                 array = @[[LSMemberSubmenus submenu:@"会员卡类型" icon:@"ico_huiyuankaleixing" className:@"LSMemberCardTypeListViewController"
@@ -67,8 +58,8 @@
                                                type:MBSubModule_RechargeSet action:ACTION_CARD_CHARGE_PROMOTION],
                           [LSMemberSubmenus submenu:@"积分兑换设置" icon:@"ico_jifenduihuanshezhi" className:@"LSMemberIntegralSetViewController"
                                                type:MBSubModule_IntegralSet action:PAD_MEMBER_POINT_SET]];
-            }*/
-#warning "jicika_end"
+            }
+           
         }
         [menusArr addObject:array];
     }
@@ -77,13 +68,8 @@
                                        type:MBSubModule_SendCard action:ACTION_CARD_ADD],
                   [LSMemberSubmenus submenu:@"会员换卡" icon:@"ico_huiyuanhuanka" className:@"LSMemberCheckViewController"
                                        type:MBSubModule_ChangeCard action:ACTION_CARD_CHANGE],
-                  [LSMemberSubmenus submenu:@"会员充值" icon:@"ico_huiyuanchongzhi" className:@"LSMemberCheckViewController"
+                  [LSMemberSubmenus submenu:@"储值充值" icon:@"ico_huiyuanchongzhi" className:@"LSMemberCheckViewController"
                                        type:MBSubModule_Recharge action:ACTION_CARD_CHARGE],
- 
-#warning "jicika"
-//                  [LSMemberSubmenus submenu:@"储值充值" icon:@"ico_huiyuanchongzhi" className:@"LSMemberCheckViewController"
-//                                       type:MBSubModule_Recharge action:ACTION_CARD_CHARGE],
-                  
                   [LSMemberSubmenus submenu:@"积分兑换" icon:@"ico_jifenduihuan" className:@"LSMemberCheckViewController"
                                        type:MBSubModule_Integral action:ACTION_POINT_EXCHANGE],
                   [LSMemberSubmenus submenu:@"会员赠分" icon:@"ico_huiyuanzengfen" className:@"LSMemberCheckViewController"
@@ -105,15 +91,9 @@
 // 会员详情页，8个功能入口项
 + (NSArray *)memberCardFunctions {
    
-   NSArray *array = @[[LSMemberSubmenus submenu:@"会员充值" icon:@"ico_huiyuanchongzhi"
+   NSArray *array = @[[LSMemberSubmenus submenu:@"储值充值" icon:@"ico_huiyuanchongzhi"
                           className:@"LSMemberRechargeViewController"
                                            type:MBSubModule_Recharge action:ACTION_CARD_CHARGE],
-                      
-#warning "jicika"
-//                      [LSMemberSubmenus submenu:@"储值充值" icon:@"ico_huiyuanchongzhi"
-//                                      className:@"LSMemberRechargeViewController"
-//                                           type:MBSubModule_Recharge action:ACTION_CARD_CHARGE],
-                      
                       [LSMemberSubmenus submenu:@"积分兑换" icon:@"ico_jifenduihuan" className:@"LSMemberIntegralExchangeViewController"
                                            type:MBSubModule_Integral action:ACTION_POINT_EXCHANGE],
                       [LSMemberSubmenus submenu:@"会员赠分" icon:@"ico_huiyuanzengfen" className:@"LSMemberBestowIntegralViewController"
@@ -124,13 +104,8 @@
                                            type:MBSubModule_ReturnCard action:ACTION_CARD_CLOSE],
                       [LSMemberSubmenus submenu:@"改卡密码" icon:@"ico_gaikamima" className:@"LSMemberChangeCardViewController"
                                            type:MBSubModule_ChangePwd action:ACTION_CARD_CHANGE_PASSWORD],
-                      [LSMemberSubmenus submenu:@"会员红冲" icon:@"ico_chongzhihongchong" className:@"LSMemberSaveDetailViewController"
+                      [LSMemberSubmenus submenu:@"储值红冲" icon:@"ico_chongzhihongchong" className:@"LSMemberSaveDetailViewController"
                                            type:MBSubModule_RechargeRedRush action:ACTION_CARD_UNDO_CHARGE],
-        
-#warning "jicika"
-//                      [LSMemberSubmenus submenu:@"储值红冲" icon:@"ico_chongzhihongchong" className:@"LSMemberSaveDetailViewController"
-//                                           type:MBSubModule_RechargeRedRush action:ACTION_CARD_UNDO_CHARGE],
-                      
                       [LSMemberSubmenus submenu:@"赠分红冲" icon:@"ico_zengfenhongchong" className:@"LSMemberSaveDetailViewController"
                                            type:MBSubModule_BestowRedRush action:ACTION_CARD_UNDO_GIVE_DEGREE]
                       ];

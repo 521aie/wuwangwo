@@ -172,18 +172,17 @@
         [self.scrollView addSubview:self.savingDetail];
     }
 
-#warning "jicika"
     // 记次服务
-//    if ([[Platform Instance] getShopMode] == 1 && [[[Platform Instance] getkey:SHOP_MODE] integerValue] == 102) {
-//        
-//        if (!_byTimeItem) {
-//            _byTimeItem = [[EditItemList alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 48.0)];
-//            [_byTimeItem initLabel:@"计次服务" withHit:nil delegate:self];
-//            _byTimeItem.imgMore.image = [UIImage imageNamed:@"ico_next"];
-//            [_scrollView addSubview:_byTimeItem];
-//        }
-//    }
-#warning "jicika"
+    if ([[Platform Instance] getShopMode] == 1 && [[[Platform Instance] getkey:SHOP_MODE] integerValue] == 102) {
+        
+        if (!_byTimeItem) {
+            _byTimeItem = [[EditItemList alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 48.0)];
+            [_byTimeItem initLabel:@"计次服务" withHit:nil delegate:self];
+            _byTimeItem.imgMore.image = [UIImage imageNamed:@"ico_next"];
+            [_scrollView addSubview:_byTimeItem];
+        }
+    }
+
     
     if (!self.cardBalance) {
         
@@ -411,19 +410,17 @@
         [self.infoView fillMemberInfo:self.memberPackVo cards:self.memberCards cardTypes:self.memberCardTypes phone:self.phoneNum];
         [self.cardsSummary setCardDatas:self.memberCards initPage:[self.memberCards indexOfObject:self.memberCardVo]];
     }
-   
-#warning "jicika"
+    
     // 计次充值记录
-//    if ([[Platform Instance]  getShopMode] == 1 && [[[Platform Instance] getkey:SHOP_MODE] integerValue] == 102) {
-//        
-//        [_byTimeItem initData:@"" withVal:@""];
-//        _byTimeItem.lblVal.hidden = YES;
-//        if (_memberCardVo.byTimeServiceTimes.integerValue > 0) {
-//            [_byTimeItem initData:[NSString stringWithFormat:@"%@项",_memberCardVo.byTimeServiceTimes] withVal:@"1"];
-//            _byTimeItem.lblVal.hidden = NO;
-//        }
-//    }
-#warning "jicika"
+    if ([[Platform Instance]  getShopMode] == 1 && [[[Platform Instance] getkey:SHOP_MODE] integerValue] == 102) {
+        
+        [_byTimeItem initData:@"" withVal:@""];
+        _byTimeItem.lblVal.hidden = YES;
+        if (_memberCardVo.byTimeServiceTimes.integerValue >= 0) {
+            [_byTimeItem initData:[NSString stringWithFormat:@"%@项",_memberCardVo.byTimeServiceTimes] withVal:@"1"];
+            _byTimeItem.lblVal.hidden = NO;
+        }
+    }
 
     [self.allRecharge initData:[NSString stringWithFormat:@"%.2f",self.memberCardVo.realBalance.floatValue]];
     [self.allPresent initData:[NSString stringWithFormat:@"%.2f",self.memberCardVo.giftBalance.floatValue]];
@@ -477,7 +474,12 @@
                 LSMemberTypeVo *type = [LSMemberTypeVo getMemberTypeVo:dic[@"kindCard"]];
                 LSMemberCardVo *card = [LSMemberCardVo getMemberCardVo:dic[@"card"]];
                 card.cardTypeVo = type;
-                card.byTimeServiceTimes = [dic valueForKey:@"accountcardnum"];
+                // 计次服务次数
+                if ([ObjectUtil isNotNull:[dic valueForKey:@"accountcardnum"]]) {
+                    card.byTimeServiceTimes = [dic valueForKey:@"accountcardnum"];
+                } else {
+                    card.byTimeServiceTimes = @0;
+                }
                 card.kindCardName = type.name;
                 card.filePath = type.filePath;
                 card.mode = @(type.mode);

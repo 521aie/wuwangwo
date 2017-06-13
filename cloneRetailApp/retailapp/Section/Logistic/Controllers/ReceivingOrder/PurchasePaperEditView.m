@@ -184,7 +184,7 @@
     self.paperId = paperId;
     self.paperType = paperType;
     self.action = action;
-    self.isEdit = (action==ACTION_CONSTANTS_ADD)||(billStatus == 4)||((billStatus == 1)&& [@"1" isEqualToString:[[Platform Instance] getkey:DISTRIBUTION_EDIT_FLAG]]);;
+    self.isEdit = (action==ACTION_CONSTANTS_ADD)||(billStatus == 4)||((billStatus == 1)&& [@"1" isEqualToString:[[Platform Instance] getkey:DISTRIBUTION_EDIT_FLAG]]);
     self.status = billStatus;
     self.recordType = recordType;
     self.paperHandler = callBack;
@@ -307,6 +307,9 @@
         self.txtMemo.txtVal.placeholder = @"";
     }
     [self.lsMode visibal:(self.shopMode==SUPERMARKET_MODE&&(self.status==4||self.status==1||action==ACTION_CONSTANTS_ADD))];
+    if (self.status == 1 && [@"0" isEqualToString:[[Platform Instance] getkey:DISTRIBUTION_EDIT_FLAG]]) {//配送中的单据如果没有修改配送中单据的权限时时不显示展示内容的
+        [self.lsMode visibal:NO];
+    }
 }
 #pragma mark - 根据状态显示页面底部按钮
 - (void)showFooterView:(NSInteger)action isEdit:(BOOL)isEdit

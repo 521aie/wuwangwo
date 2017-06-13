@@ -329,6 +329,16 @@
 		503BB2441DF11F6300E01D1C /* LSSettleAccountInfoVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 503BB2421DF11F6300E01D1C /* LSSettleAccountInfoVo.m */; };
 		503BB2971E5EF2DB002E0C86 /* UIViewController+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 503BB2961E5EF2DB002E0C86 /* UIViewController+Animation.m */; };
 		503BB2981E5EF2DB002E0C86 /* UIViewController+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 503BB2961E5EF2DB002E0C86 /* UIViewController+Animation.m */; };
+		503CEA2F1E127C8600B7DE66 /* LSPaymentOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503CEA2E1E127C8600B7DE66 /* LSPaymentOrderDetailController.m */; };
+		503CEA301E127C8600B7DE66 /* LSPaymentOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503CEA2E1E127C8600B7DE66 /* LSPaymentOrderDetailController.m */; };
+		503CEA391E127F3F00B7DE66 /* LSPaymentOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 503CEA321E127F3F00B7DE66 /* LSPaymentOrderDetailCell.m */; };
+		503CEA3A1E127F3F00B7DE66 /* LSPaymentOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 503CEA321E127F3F00B7DE66 /* LSPaymentOrderDetailCell.m */; };
+		503CEA3B1E127F3F00B7DE66 /* LSPaymentOrderDetailFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 503CEA341E127F3F00B7DE66 /* LSPaymentOrderDetailFooterView.m */; };
+		503CEA3C1E127F3F00B7DE66 /* LSPaymentOrderDetailFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 503CEA341E127F3F00B7DE66 /* LSPaymentOrderDetailFooterView.m */; };
+		503CEA3D1E127F3F00B7DE66 /* LSPaymentOrderDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 503CEA361E127F3F00B7DE66 /* LSPaymentOrderDetailHeaderView.m */; };
+		503CEA3E1E127F3F00B7DE66 /* LSPaymentOrderDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 503CEA361E127F3F00B7DE66 /* LSPaymentOrderDetailHeaderView.m */; };
+		503CEA3F1E127F3F00B7DE66 /* LSPaymentOrderDetailMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 503CEA381E127F3F00B7DE66 /* LSPaymentOrderDetailMemberView.m */; };
+		503CEA401E127F3F00B7DE66 /* LSPaymentOrderDetailMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 503CEA381E127F3F00B7DE66 /* LSPaymentOrderDetailMemberView.m */; };
 		504140A91E6805AD007B26D9 /* LSVideoPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504140A81E6805AD007B26D9 /* LSVideoPlayController.m */; };
 		504140AA1E6805AD007B26D9 /* LSVideoPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504140A81E6805AD007B26D9 /* LSVideoPlayController.m */; };
 		504838E21D62E2F7005B6B00 /* OpenShopSucessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504838E01D62E2F6005B6B00 /* OpenShopSucessViewController.m */; };
@@ -457,13 +467,16 @@
 		5072895A1D6BD9D9000EE0E9 /* OrderPayListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5072894F1D6BD9D9000EE0E9 /* OrderPayListData.m */; };
 		5072895B1D6BD9D9000EE0E9 /* PayBillSummaryOfMonthVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289511D6BD9D9000EE0E9 /* PayBillSummaryOfMonthVO.m */; };
 		5072895C1D6BD9D9000EE0E9 /* ShopInfoVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289531D6BD9D9000EE0E9 /* ShopInfoVO.m */; };
+		507289641D6BDA1B000EE0E9 /* OrderPayListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5072895F1D6BDA1B000EE0E9 /* OrderPayListCell.m */; };
 		507289661D6BDA1B000EE0E9 /* SelectItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289621D6BDA1B000EE0E9 /* SelectItemCell.m */; };
 		507289671D6BDA1B000EE0E9 /* SelectItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507289631D6BDA1B000EE0E9 /* SelectItemCell.xib */; };
+		507289781D6BDA39000EE0E9 /* OrderListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5072896C1D6BDA39000EE0E9 /* OrderListView.m */; };
 		507289791D6BDA39000EE0E9 /* PaymentEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5072896E1D6BDA39000EE0E9 /* PaymentEditView.m */; };
 		5072897A1D6BDA39000EE0E9 /* PaymentNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289701D6BDA39000EE0E9 /* PaymentNoteView.m */; };
 		5072897B1D6BDA39000EE0E9 /* PaymentTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289721D6BDA39000EE0E9 /* PaymentTypeView.m */; };
 		5072897C1D6BDA39000EE0E9 /* PaymentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289741D6BDA39000EE0E9 /* PaymentView.m */; };
 		5072897D1D6BDA39000EE0E9 /* SelectItemList.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289761D6BDA39000EE0E9 /* SelectItemList.m */; };
+		5072897F1D6BDC4C000EE0E9 /* OrderListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5072896C1D6BDA39000EE0E9 /* OrderListView.m */; };
 		507289801D6BDC4C000EE0E9 /* PaymentEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5072896E1D6BDA39000EE0E9 /* PaymentEditView.m */; };
 		507289811D6BDC4C000EE0E9 /* PaymentNoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289701D6BDA39000EE0E9 /* PaymentNoteView.m */; };
 		507289821D6BDC4C000EE0E9 /* PaymentTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289721D6BDA39000EE0E9 /* PaymentTypeView.m */; };
@@ -488,6 +501,7 @@
 		5072899D1D6BE3C2000EE0E9 /* LSBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5072899B1D6BE3C2000EE0E9 /* LSBarChartView.m */; };
 		507289A01D6BE5B4000EE0E9 /* LSPaymentTypeVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5072899F1D6BE5B4000EE0E9 /* LSPaymentTypeVo.m */; };
 		507289A11D6BE5B4000EE0E9 /* LSPaymentTypeVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5072899F1D6BE5B4000EE0E9 /* LSPaymentTypeVo.m */; };
+		507289A61D6C032E000EE0E9 /* OrderPayListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5072895F1D6BDA1B000EE0E9 /* OrderPayListCell.m */; };
 		507289A71D6C032E000EE0E9 /* SelectItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289621D6BDA1B000EE0E9 /* SelectItemCell.m */; };
 		507289A91D6C037E000EE0E9 /* SelectItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 507289631D6BDA1B000EE0E9 /* SelectItemCell.xib */; };
 		507289AC1D6C2045000EE0E9 /* DatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 507289AB1D6C2045000EE0E9 /* DatePickerView.m */; };
@@ -577,6 +591,8 @@
 		50781F951E247F3E00B7FD15 /* LSShiftRecordListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50781F7E1E247F3E00B7FD15 /* LSShiftRecordListController.m */; };
 		50781F961E247F3E00B7FD15 /* LSShiftRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50781F801E247F3E00B7FD15 /* LSShiftRecordViewController.m */; };
 		50781F971E247F3E00B7FD15 /* LSShiftRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50781F801E247F3E00B7FD15 /* LSShiftRecordViewController.m */; };
+		50781F981E247F3E00B7FD15 /* LSShitfRecordDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50781F821E247F3E00B7FD15 /* LSShitfRecordDetailController.m */; };
+		50781F991E247F3E00B7FD15 /* LSShitfRecordDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50781F821E247F3E00B7FD15 /* LSShitfRecordDetailController.m */; };
 		50781F9A1E247F3E00B7FD15 /* LSShopCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50781F851E247F3E00B7FD15 /* LSShopCollectionController.m */; };
 		50781F9B1E247F3E00B7FD15 /* LSShopCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50781F851E247F3E00B7FD15 /* LSShopCollectionController.m */; };
 		50781F9C1E247F3E00B7FD15 /* LSShopCollectionDetailListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50781F871E247F3E00B7FD15 /* LSShopCollectionDetailListController.m */; };
@@ -1790,6 +1806,7 @@
 		77B26E6B1E6AB1BC0056C7D6 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B26E651E6AB1BC0056C7D6 /* PopoverView.m */; };
 		77B26E6C1E6AB1BC0056C7D6 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B26E671E6AB1BC0056C7D6 /* PopoverViewCell.m */; };
 		77B26E6D1E6AB1BC0056C7D6 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B26E671E6AB1BC0056C7D6 /* PopoverViewCell.m */; };
+		77BCE6301E4851740001D89B /* SmsSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54A66411E2766DD006DBF1F /* SmsSetController.m */; };
 		77BCE6311E4852600001D89B /* LSEmployeePerformanceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5318A461E288331008B2CE5 /* LSEmployeePerformanceListCell.m */; };
 		77BCE6321E48526C0001D89B /* LSModuleInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D535A01E46B63E00E68623 /* LSModuleInfoController.m */; };
 		77BCE6351E48621B0001D89B /* LSRightFilterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C165811E277E0600368151 /* LSRightFilterListCell.m */; };
@@ -1860,26 +1877,6 @@
 		E515D5AC1E8A7DE300A065D5 /* LSMemberMeterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E515D5AA1E8A7DE300A065D5 /* LSMemberMeterListCell.m */; };
 		E515D5AF1E8A7E1800A065D5 /* LSMemberMeterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E515D5AE1E8A7E1800A065D5 /* LSMemberMeterDetailViewController.m */; };
 		E515D5B01E8A7E1800A065D5 /* LSMemberMeterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E515D5AE1E8A7E1800A065D5 /* LSMemberMeterDetailViewController.m */; };
-		E51D72BE1EC2E37F00AFA3CF /* LSShitfRecordDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72BD1EC2E37F00AFA3CF /* LSShitfRecordDetailController.m */; };
-		E51D72BF1EC2E37F00AFA3CF /* LSShitfRecordDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72BD1EC2E37F00AFA3CF /* LSShitfRecordDetailController.m */; };
-		E51D72C21EC3052300AFA3CF /* OrderListView.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72C11EC3052300AFA3CF /* OrderListView.m */; };
-		E51D72C31EC3052300AFA3CF /* OrderListView.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72C11EC3052300AFA3CF /* OrderListView.m */; };
-		E51D72C71EC3055500AFA3CF /* OrderPayListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72C51EC3055500AFA3CF /* OrderPayListCell.m */; };
-		E51D72C81EC3055500AFA3CF /* OrderPayListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72C51EC3055500AFA3CF /* OrderPayListCell.m */; };
-		E51D72C91EC3055500AFA3CF /* OrderPayListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51D72C61EC3055500AFA3CF /* OrderPayListCell.xib */; };
-		E51D72CA1EC3055500AFA3CF /* OrderPayListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E51D72C61EC3055500AFA3CF /* OrderPayListCell.xib */; };
-		E51D72CD1EC305B300AFA3CF /* LSPaymentOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72CC1EC305B300AFA3CF /* LSPaymentOrderDetailController.m */; };
-		E51D72CE1EC305B300AFA3CF /* LSPaymentOrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72CC1EC305B300AFA3CF /* LSPaymentOrderDetailController.m */; };
-		E51D72D71EC3069200AFA3CF /* LSPaymentOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72D01EC3069200AFA3CF /* LSPaymentOrderDetailCell.m */; };
-		E51D72D81EC3069200AFA3CF /* LSPaymentOrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72D01EC3069200AFA3CF /* LSPaymentOrderDetailCell.m */; };
-		E51D72D91EC3069200AFA3CF /* LSPaymentOrderDetailFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72D21EC3069200AFA3CF /* LSPaymentOrderDetailFooterView.m */; };
-		E51D72DA1EC3069200AFA3CF /* LSPaymentOrderDetailFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72D21EC3069200AFA3CF /* LSPaymentOrderDetailFooterView.m */; };
-		E51D72DB1EC3069200AFA3CF /* LSPaymentOrderDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72D41EC3069200AFA3CF /* LSPaymentOrderDetailHeaderView.m */; };
-		E51D72DC1EC3069200AFA3CF /* LSPaymentOrderDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72D41EC3069200AFA3CF /* LSPaymentOrderDetailHeaderView.m */; };
-		E51D72DD1EC3069200AFA3CF /* LSPaymentOrderDetailMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72D61EC3069200AFA3CF /* LSPaymentOrderDetailMemberView.m */; };
-		E51D72DE1EC3069200AFA3CF /* LSPaymentOrderDetailMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72D61EC3069200AFA3CF /* LSPaymentOrderDetailMemberView.m */; };
-		E51D72E11EC3109C00AFA3CF /* SmsSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72E01EC3109C00AFA3CF /* SmsSetController.m */; };
-		E51D72E21EC3109C00AFA3CF /* SmsSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51D72E01EC3109C00AFA3CF /* SmsSetController.m */; };
 		E52232D81E7A29430073ABCE /* LSGoodsEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = E52232D71E7A29430073ABCE /* LSGoodsEditView.m */; };
 		E5318A471E288331008B2CE5 /* LSEmployeePerformanceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5318A461E288331008B2CE5 /* LSEmployeePerformanceListCell.m */; };
 		E5327A7A1E8F803500BCAC00 /* LSMemberMeterCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5327A791E8F803500BCAC00 /* LSMemberMeterCardController.m */; };
@@ -1899,10 +1896,13 @@
 		E53A18251E72A540005F0243 /* message.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53A18241E72A540005F0243 /* message.plist */; };
 		E53A18261E72A540005F0243 /* message.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53A18241E72A540005F0243 /* message.plist */; };
 		E548A9921E1F3B3200831EE6 /* LSMemberCardOperateListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E548A9911E1F3B3200831EE6 /* LSMemberCardOperateListCell.m */; };
+		E54A66421E2766DD006DBF1F /* SmsSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54A66411E2766DD006DBF1F /* SmsSetController.m */; };
 		E552FEF41E56EBB200CA7ED7 /* LSChainShopInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E552FEF21E56EBB200CA7ED7 /* LSChainShopInfoController.m */; };
 		E55580591E4D6C6D00FCFCF1 /* LSSmsMainListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E55580581E4D6C6D00FCFCF1 /* LSSmsMainListController.m */; };
 		E555805C1E4DB1D200FCFCF1 /* LSSmsMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E555805B1E4DB1D200FCFCF1 /* LSSmsMainCell.m */; };
 		E555805F1E4DB1F200FCFCF1 /* SmsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E555805E1E4DB1F200FCFCF1 /* SmsDetailController.m */; };
+		E556C6901EA6235A006A9EFB /* LSPaymentOrderDetailRechargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E556C68F1EA6235A006A9EFB /* LSPaymentOrderDetailRechargeController.m */; };
+		E556C6911EA6235A006A9EFB /* LSPaymentOrderDetailRechargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E556C68F1EA6235A006A9EFB /* LSPaymentOrderDetailRechargeController.m */; };
 		E556C6941EA62671006A9EFB /* LSPaymentOrderDetailRechargeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E556C6931EA62671006A9EFB /* LSPaymentOrderDetailRechargeTopView.m */; };
 		E556C6951EA62671006A9EFB /* LSPaymentOrderDetailRechargeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E556C6931EA62671006A9EFB /* LSPaymentOrderDetailRechargeTopView.m */; };
 		E556C6981EA62682006A9EFB /* LSPaymentOrderDetailRechargeBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E556C6971EA62682006A9EFB /* LSPaymentOrderDetailRechargeBottomView.m */; };
@@ -3262,6 +3262,16 @@
 		503BB2421DF11F6300E01D1C /* LSSettleAccountInfoVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSettleAccountInfoVo.m; sourceTree = "<group>"; };
 		503BB2951E5EF2DB002E0C86 /* UIViewController+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Animation.h"; sourceTree = "<group>"; };
 		503BB2961E5EF2DB002E0C86 /* UIViewController+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Animation.m"; sourceTree = "<group>"; };
+		503CEA2D1E127C8600B7DE66 /* LSPaymentOrderDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailController.h; sourceTree = "<group>"; };
+		503CEA2E1E127C8600B7DE66 /* LSPaymentOrderDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailController.m; sourceTree = "<group>"; };
+		503CEA311E127F3F00B7DE66 /* LSPaymentOrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailCell.h; sourceTree = "<group>"; };
+		503CEA321E127F3F00B7DE66 /* LSPaymentOrderDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailCell.m; sourceTree = "<group>"; };
+		503CEA331E127F3F00B7DE66 /* LSPaymentOrderDetailFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailFooterView.h; sourceTree = "<group>"; };
+		503CEA341E127F3F00B7DE66 /* LSPaymentOrderDetailFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailFooterView.m; sourceTree = "<group>"; };
+		503CEA351E127F3F00B7DE66 /* LSPaymentOrderDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailHeaderView.h; sourceTree = "<group>"; };
+		503CEA361E127F3F00B7DE66 /* LSPaymentOrderDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailHeaderView.m; sourceTree = "<group>"; };
+		503CEA371E127F3F00B7DE66 /* LSPaymentOrderDetailMemberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailMemberView.h; sourceTree = "<group>"; };
+		503CEA381E127F3F00B7DE66 /* LSPaymentOrderDetailMemberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailMemberView.m; sourceTree = "<group>"; };
 		504140A71E6805AD007B26D9 /* LSVideoPlayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSVideoPlayController.h; sourceTree = "<group>"; };
 		504140A81E6805AD007B26D9 /* LSVideoPlayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSVideoPlayController.m; sourceTree = "<group>"; };
 		504838DF1D62E2F6005B6B00 /* OpenShopSucessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenShopSucessViewController.h; sourceTree = "<group>"; };
@@ -3380,9 +3390,13 @@
 		507289511D6BD9D9000EE0E9 /* PayBillSummaryOfMonthVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayBillSummaryOfMonthVO.m; sourceTree = "<group>"; };
 		507289521D6BD9D9000EE0E9 /* ShopInfoVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopInfoVO.h; sourceTree = "<group>"; };
 		507289531D6BD9D9000EE0E9 /* ShopInfoVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopInfoVO.m; sourceTree = "<group>"; };
+		5072895E1D6BDA1B000EE0E9 /* OrderPayListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderPayListCell.h; sourceTree = "<group>"; };
+		5072895F1D6BDA1B000EE0E9 /* OrderPayListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderPayListCell.m; sourceTree = "<group>"; };
 		507289611D6BDA1B000EE0E9 /* SelectItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectItemCell.h; sourceTree = "<group>"; };
 		507289621D6BDA1B000EE0E9 /* SelectItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectItemCell.m; sourceTree = "<group>"; };
 		507289631D6BDA1B000EE0E9 /* SelectItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectItemCell.xib; sourceTree = "<group>"; };
+		5072896B1D6BDA39000EE0E9 /* OrderListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListView.h; sourceTree = "<group>"; };
+		5072896C1D6BDA39000EE0E9 /* OrderListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListView.m; sourceTree = "<group>"; };
 		5072896D1D6BDA39000EE0E9 /* PaymentEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentEditView.h; sourceTree = "<group>"; };
 		5072896E1D6BDA39000EE0E9 /* PaymentEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentEditView.m; sourceTree = "<group>"; };
 		5072896F1D6BDA39000EE0E9 /* PaymentNoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentNoteView.h; sourceTree = "<group>"; };
@@ -3483,6 +3497,8 @@
 		50781F7E1E247F3E00B7FD15 /* LSShiftRecordListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSShiftRecordListController.m; sourceTree = "<group>"; };
 		50781F7F1E247F3E00B7FD15 /* LSShiftRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSShiftRecordViewController.h; sourceTree = "<group>"; };
 		50781F801E247F3E00B7FD15 /* LSShiftRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSShiftRecordViewController.m; sourceTree = "<group>"; };
+		50781F811E247F3E00B7FD15 /* LSShitfRecordDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSShitfRecordDetailController.h; sourceTree = "<group>"; };
+		50781F821E247F3E00B7FD15 /* LSShitfRecordDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSShitfRecordDetailController.m; sourceTree = "<group>"; };
 		50781F841E247F3E00B7FD15 /* LSShopCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSShopCollectionController.h; sourceTree = "<group>"; };
 		50781F851E247F3E00B7FD15 /* LSShopCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSShopCollectionController.m; sourceTree = "<group>"; };
 		50781F861E247F3E00B7FD15 /* LSShopCollectionDetailListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSShopCollectionDetailListController.h; sourceTree = "<group>"; };
@@ -4643,25 +4659,6 @@
 		E515D5AA1E8A7DE300A065D5 /* LSMemberMeterListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSMemberMeterListCell.m; sourceTree = "<group>"; };
 		E515D5AD1E8A7E1800A065D5 /* LSMemberMeterDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSMemberMeterDetailViewController.h; sourceTree = "<group>"; };
 		E515D5AE1E8A7E1800A065D5 /* LSMemberMeterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSMemberMeterDetailViewController.m; sourceTree = "<group>"; };
-		E51D72BC1EC2E37F00AFA3CF /* LSShitfRecordDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSShitfRecordDetailController.h; sourceTree = "<group>"; };
-		E51D72BD1EC2E37F00AFA3CF /* LSShitfRecordDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSShitfRecordDetailController.m; sourceTree = "<group>"; };
-		E51D72C01EC3052300AFA3CF /* OrderListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListView.h; sourceTree = "<group>"; };
-		E51D72C11EC3052300AFA3CF /* OrderListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListView.m; sourceTree = "<group>"; };
-		E51D72C41EC3055500AFA3CF /* OrderPayListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderPayListCell.h; sourceTree = "<group>"; };
-		E51D72C51EC3055500AFA3CF /* OrderPayListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderPayListCell.m; sourceTree = "<group>"; };
-		E51D72C61EC3055500AFA3CF /* OrderPayListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderPayListCell.xib; sourceTree = "<group>"; };
-		E51D72CB1EC305B300AFA3CF /* LSPaymentOrderDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailController.h; sourceTree = "<group>"; };
-		E51D72CC1EC305B300AFA3CF /* LSPaymentOrderDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailController.m; sourceTree = "<group>"; };
-		E51D72CF1EC3069200AFA3CF /* LSPaymentOrderDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailCell.h; sourceTree = "<group>"; };
-		E51D72D01EC3069200AFA3CF /* LSPaymentOrderDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailCell.m; sourceTree = "<group>"; };
-		E51D72D11EC3069200AFA3CF /* LSPaymentOrderDetailFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailFooterView.h; sourceTree = "<group>"; };
-		E51D72D21EC3069200AFA3CF /* LSPaymentOrderDetailFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailFooterView.m; sourceTree = "<group>"; };
-		E51D72D31EC3069200AFA3CF /* LSPaymentOrderDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailHeaderView.h; sourceTree = "<group>"; };
-		E51D72D41EC3069200AFA3CF /* LSPaymentOrderDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailHeaderView.m; sourceTree = "<group>"; };
-		E51D72D51EC3069200AFA3CF /* LSPaymentOrderDetailMemberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailMemberView.h; sourceTree = "<group>"; };
-		E51D72D61EC3069200AFA3CF /* LSPaymentOrderDetailMemberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailMemberView.m; sourceTree = "<group>"; };
-		E51D72DF1EC3109C00AFA3CF /* SmsSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmsSetController.h; sourceTree = "<group>"; };
-		E51D72E01EC3109C00AFA3CF /* SmsSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmsSetController.m; sourceTree = "<group>"; };
 		E52232D61E7A29430073ABCE /* LSGoodsEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSGoodsEditView.h; sourceTree = "<group>"; };
 		E52232D71E7A29430073ABCE /* LSGoodsEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSGoodsEditView.m; sourceTree = "<group>"; };
 		E5318A451E288331008B2CE5 /* LSEmployeePerformanceListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSEmployeePerformanceListCell.h; sourceTree = "<group>"; };
@@ -4683,6 +4680,8 @@
 		E53A18241E72A540005F0243 /* message.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = message.plist; sourceTree = "<group>"; };
 		E548A9901E1F3B3200831EE6 /* LSMemberCardOperateListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSMemberCardOperateListCell.h; sourceTree = "<group>"; };
 		E548A9911E1F3B3200831EE6 /* LSMemberCardOperateListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSMemberCardOperateListCell.m; sourceTree = "<group>"; };
+		E54A66401E2766DD006DBF1F /* SmsSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmsSetController.h; sourceTree = "<group>"; };
+		E54A66411E2766DD006DBF1F /* SmsSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmsSetController.m; sourceTree = "<group>"; };
 		E552FEED1E56EB6400CA7ED7 /* LSShopInfoSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSShopInfoSetController.h; sourceTree = "<group>"; };
 		E552FEEE1E56EB6400CA7ED7 /* LSShopInfoSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSShopInfoSetController.m; sourceTree = "<group>"; };
 		E552FEF11E56EBB200CA7ED7 /* LSChainShopInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSChainShopInfoController.h; sourceTree = "<group>"; };
@@ -4693,6 +4692,8 @@
 		E555805B1E4DB1D200FCFCF1 /* LSSmsMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSSmsMainCell.m; sourceTree = "<group>"; };
 		E555805D1E4DB1F200FCFCF1 /* SmsDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmsDetailController.h; sourceTree = "<group>"; };
 		E555805E1E4DB1F200FCFCF1 /* SmsDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmsDetailController.m; sourceTree = "<group>"; };
+		E556C68E1EA6235A006A9EFB /* LSPaymentOrderDetailRechargeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailRechargeController.h; sourceTree = "<group>"; };
+		E556C68F1EA6235A006A9EFB /* LSPaymentOrderDetailRechargeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailRechargeController.m; sourceTree = "<group>"; };
 		E556C6921EA62671006A9EFB /* LSPaymentOrderDetailRechargeTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailRechargeTopView.h; sourceTree = "<group>"; };
 		E556C6931EA62671006A9EFB /* LSPaymentOrderDetailRechargeTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPaymentOrderDetailRechargeTopView.m; sourceTree = "<group>"; };
 		E556C6961EA62682006A9EFB /* LSPaymentOrderDetailRechargeBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPaymentOrderDetailRechargeBottomView.h; sourceTree = "<group>"; };
@@ -6067,14 +6068,21 @@
 		5072895D1D6BDA1B000EE0E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E51D72C41EC3055500AFA3CF /* OrderPayListCell.h */,
-				E51D72C51EC3055500AFA3CF /* OrderPayListCell.m */,
-				E51D72C61EC3055500AFA3CF /* OrderPayListCell.xib */,
 				507289AA1D6C2045000EE0E9 /* DatePickerView.h */,
 				507289AB1D6C2045000EE0E9 /* DatePickerView.m */,
+				5072895E1D6BDA1B000EE0E9 /* OrderPayListCell.h */,
+				5072895F1D6BDA1B000EE0E9 /* OrderPayListCell.m */,
 				507289611D6BDA1B000EE0E9 /* SelectItemCell.h */,
 				507289621D6BDA1B000EE0E9 /* SelectItemCell.m */,
 				507289631D6BDA1B000EE0E9 /* SelectItemCell.xib */,
+				503CEA311E127F3F00B7DE66 /* LSPaymentOrderDetailCell.h */,
+				503CEA321E127F3F00B7DE66 /* LSPaymentOrderDetailCell.m */,
+				503CEA331E127F3F00B7DE66 /* LSPaymentOrderDetailFooterView.h */,
+				503CEA341E127F3F00B7DE66 /* LSPaymentOrderDetailFooterView.m */,
+				503CEA351E127F3F00B7DE66 /* LSPaymentOrderDetailHeaderView.h */,
+				503CEA361E127F3F00B7DE66 /* LSPaymentOrderDetailHeaderView.m */,
+				503CEA371E127F3F00B7DE66 /* LSPaymentOrderDetailMemberView.h */,
+				503CEA381E127F3F00B7DE66 /* LSPaymentOrderDetailMemberView.m */,
 				E556C6921EA62671006A9EFB /* LSPaymentOrderDetailRechargeTopView.h */,
 				E556C6931EA62671006A9EFB /* LSPaymentOrderDetailRechargeTopView.m */,
 				E556C6961EA62682006A9EFB /* LSPaymentOrderDetailRechargeBottomView.h */,
@@ -6083,14 +6091,6 @@
 				50DECCF71E529FFD00D84F01 /* LSPaymentButton.m */,
 				50E54BDF1E7799EF00437FD5 /* LSPaymentAccountView.h */,
 				50E54BE01E7799EF00437FD5 /* LSPaymentAccountView.m */,
-				E51D72CF1EC3069200AFA3CF /* LSPaymentOrderDetailCell.h */,
-				E51D72D01EC3069200AFA3CF /* LSPaymentOrderDetailCell.m */,
-				E51D72D11EC3069200AFA3CF /* LSPaymentOrderDetailFooterView.h */,
-				E51D72D21EC3069200AFA3CF /* LSPaymentOrderDetailFooterView.m */,
-				E51D72D31EC3069200AFA3CF /* LSPaymentOrderDetailHeaderView.h */,
-				E51D72D41EC3069200AFA3CF /* LSPaymentOrderDetailHeaderView.m */,
-				E51D72D51EC3069200AFA3CF /* LSPaymentOrderDetailMemberView.h */,
-				E51D72D61EC3069200AFA3CF /* LSPaymentOrderDetailMemberView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -6098,8 +6098,8 @@
 		507289681D6BDA39000EE0E9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E51D72C01EC3052300AFA3CF /* OrderListView.h */,
-				E51D72C11EC3052300AFA3CF /* OrderListView.m */,
+				5072896B1D6BDA39000EE0E9 /* OrderListView.h */,
+				5072896C1D6BDA39000EE0E9 /* OrderListView.m */,
 				5072896D1D6BDA39000EE0E9 /* PaymentEditView.h */,
 				5072896E1D6BDA39000EE0E9 /* PaymentEditView.m */,
 				5072896F1D6BDA39000EE0E9 /* PaymentNoteView.h */,
@@ -6112,8 +6112,10 @@
 				507289761D6BDA39000EE0E9 /* SelectItemList.m */,
 				50923B741DF50C1E00F24429 /* LSPaymentStatusController.h */,
 				50923B751DF50C1E00F24429 /* LSPaymentStatusController.m */,
-				E51D72CB1EC305B300AFA3CF /* LSPaymentOrderDetailController.h */,
-				E51D72CC1EC305B300AFA3CF /* LSPaymentOrderDetailController.m */,
+				503CEA2D1E127C8600B7DE66 /* LSPaymentOrderDetailController.h */,
+				503CEA2E1E127C8600B7DE66 /* LSPaymentOrderDetailController.m */,
+				E556C68E1EA6235A006A9EFB /* LSPaymentOrderDetailRechargeController.h */,
+				E556C68F1EA6235A006A9EFB /* LSPaymentOrderDetailRechargeController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -6390,8 +6392,8 @@
 				50781F801E247F3E00B7FD15 /* LSShiftRecordViewController.m */,
 				50781F7D1E247F3E00B7FD15 /* LSShiftRecordListController.h */,
 				50781F7E1E247F3E00B7FD15 /* LSShiftRecordListController.m */,
-				E51D72BC1EC2E37F00AFA3CF /* LSShitfRecordDetailController.h */,
-				E51D72BD1EC2E37F00AFA3CF /* LSShitfRecordDetailController.m */,
+				50781F811E247F3E00B7FD15 /* LSShitfRecordDetailController.h */,
+				50781F821E247F3E00B7FD15 /* LSShitfRecordDetailController.m */,
 			);
 			path = ShiftRecord;
 			sourceTree = "<group>";
@@ -7561,6 +7563,8 @@
 				5052ADCB1E1F81CB00F59BE6 /* LSBarCodeIdentificationController.m */,
 				5052ADD21E1F98BB00F59BE6 /* LSDataClearController.h */,
 				5052ADD31E1F98BB00F59BE6 /* LSDataClearController.m */,
+				E54A66401E2766DD006DBF1F /* SmsSetController.h */,
+				E54A66411E2766DD006DBF1F /* SmsSetController.m */,
 				50B6DD341EA0638A00CFFC2B /* EnterCircleEditView.h */,
 				50B6DD351EA0638A00CFFC2B /* EnterCircleEditView.m */,
 				50B6DD361EA0638A00CFFC2B /* EnterCircleListView.h */,
@@ -7575,8 +7579,6 @@
 				50B6DD3F1EA0638A00CFFC2B /* OrgBranchListView.m */,
 				50B6DD4C1EA0639F00CFFC2B /* SubOrgShopListView.h */,
 				50B6DD4D1EA0639F00CFFC2B /* SubOrgShopListView.m */,
-				E51D72DF1EC3109C00AFA3CF /* SmsSetController.h */,
-				E51D72E01EC3109C00AFA3CF /* SmsSetController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -10129,7 +10131,6 @@
 				E9FC150B1D2F66CF00B9C4B7 /* EditItemView.xib in Resources */,
 				E9FC15871D2F66CF00B9C4B7 /* BindingDiscountEditView5.xib in Resources */,
 				E9FC22951D2F8E1A00B9C4B7 /* CashRecordCell.xib in Resources */,
-				E51D72C91EC3055500AFA3CF /* OrderPayListCell.xib in Resources */,
 				E9FC152C1D2F66CF00B9C4B7 /* DateMonthPickerBox.xib in Resources */,
 				E9FC14651D2F66CF00B9C4B7 /* SaleCouponEditView.xib in Resources */,
 				508697101D6D86D2003F276A /* WechatGoodsTopSelectView5.xib in Resources */,
@@ -10878,7 +10879,6 @@
 				508696AF1D6D86D2003F276A /* SelectDealListView.xib in Resources */,
 				E99156CF1D51E6E600150FCD /* RetailTableCell2.xib in Resources */,
 				50EE70201DD1BF3C0077D098 /* WithdrawListView.xib in Resources */,
-				E51D72CA1EC3055500AFA3CF /* OrderPayListCell.xib in Resources */,
 				E99156D01D51E6E600150FCD /* SearchBar4.xib in Resources */,
 				508696B71D6D86D2003F276A /* SelectSplitOrderCell.xib in Resources */,
 				508696871D6D86D2003F276A /* PointExOrderDetailView5.xib in Resources */,
@@ -11046,6 +11046,7 @@
 				77BCE6351E48621B0001D89B /* LSRightFilterListCell.m in Sources */,
 				50CFEA271E2CA4A900DCD45E /* LSGoodsPurchaseDetailController.m in Sources */,
 				771318901DD95EB5003EDC82 /* GoodsInnerCodeRegulationSettingCell.m in Sources */,
+				E556C6901EA6235A006A9EFB /* LSPaymentOrderDetailRechargeController.m in Sources */,
 				7785925F1DAF58450095B574 /* LSMemberBestowIntegralViewController.m in Sources */,
 				5086977E1D6D86D2003F276A /* OpOrderShopCell.m in Sources */,
 				E9FC0E7C1D2F66CF00B9C4B7 /* MyMD5.m in Sources */,
@@ -11119,6 +11120,7 @@
 				507820001E24CB4800B7FD15 /* LSOrderReportVo.m in Sources */,
 				5052ADD81E1FB4C400F59BE6 /* LSViewFactor.m in Sources */,
 				50D535A41E470E3400E68623 /* LSRoleInfoController.m in Sources */,
+				507289641D6BDA1B000EE0E9 /* OrderPayListCell.m in Sources */,
 				505F14C81EA5A3FB0023FA6E /* UnitInfoViewController.m in Sources */,
 				508DBEB51DEEB25C00154B1A /* LSGoodsTransactionFlowListCell.m in Sources */,
 				500C679C1E8E22C90075F3C1 /* StockAdjustDetailVo.m in Sources */,
@@ -11129,7 +11131,6 @@
 				50781F361E247F1C00B7FD15 /* LSMemberCardOperateListController.m in Sources */,
 				50FD7DAB1E5EBDAC00EDE436 /* LSOrgInfoController.m in Sources */,
 				500C67BE1E8E36140075F3C1 /* LSStockChangeListController.m in Sources */,
-				E51D72D71EC3069200AFA3CF /* LSPaymentOrderDetailCell.m in Sources */,
 				508697641D6D86D2003F276A /* OrderInfoVo.m in Sources */,
 				77884A371E0D079B00C37EE8 /* LSSmsRechargeViewController.m in Sources */,
 				507968E31EAF1941001D17CF /* PaperDetailVo.m in Sources */,
@@ -11169,7 +11170,6 @@
 				E9FC249B1D2F8E1A00B9C4B7 /* CDatePickerViewEx.m in Sources */,
 				508696621D6D86D2003F276A /* MHImagePickerMutilSelector.m in Sources */,
 				5079A0671EB09A200057CE25 /* ReturnPackBoxListView.m in Sources */,
-				E51D72E11EC3109C00AFA3CF /* SmsSetController.m in Sources */,
 				E9FC24DB1D2F8E1A00B9C4B7 /* StockService.m in Sources */,
 				E9FC24D11D2F8E1A00B9C4B7 /* LogisticService.m in Sources */,
 				E9FC25391D2F8E1A00B9C4B7 /* FooterListView.m in Sources */,
@@ -11273,7 +11273,6 @@
 				E9FC20C91D2F8E1900B9C4B7 /* GoodsCommentVo.m in Sources */,
 				509C16CC1E56E7BC0005CD46 /* LSStockSummaryViewController.m in Sources */,
 				508696AC1D6D86D2003F276A /* SelectDealListView.m in Sources */,
-				E51D72BE1EC2E37F00AFA3CF /* LSShitfRecordDetailController.m in Sources */,
 				5079685A1EAF1602001D17CF /* SupplierKindListView.m in Sources */,
 				5079695C1EAF1972001D17CF /* ReturnGuideCell.m in Sources */,
 				7785927D1DAF58450095B574 /* LSMemberElectronicCardSendViewController.m in Sources */,
@@ -11315,6 +11314,7 @@
 				509549921DC32E3A00021F40 /* MarketSalesEditView.m in Sources */,
 				E9FC21E01D2F8E1A00B9C4B7 /* MarketRender.m in Sources */,
 				778592891DAF58450095B574 /* LSMemberGoodDetailViewController.m in Sources */,
+				503CEA3D1E127F3F00B7DE66 /* LSPaymentOrderDetailHeaderView.m in Sources */,
 				508B70781E84C21500FB497F /* LSDealRecordController.m in Sources */,
 				E9FC20EA1D2F8E1900B9C4B7 /* PerformanceDetailVo.m in Sources */,
 				E9FC24D71D2F8E1A00B9C4B7 /* ScanService.m in Sources */,
@@ -11362,7 +11362,6 @@
 				5072895B1D6BD9D9000EE0E9 /* PayBillSummaryOfMonthVO.m in Sources */,
 				50781FF21E24CB4800B7FD15 /* LSCardOperateListVo.m in Sources */,
 				50A2509A1E6556E10073AEE6 /* LSHelpVideoListCell.m in Sources */,
-				E51D72CD1EC305B300AFA3CF /* LSPaymentOrderDetailController.m in Sources */,
 				508697381D6D86D2003F276A /* WeChatWeShopPriceSet.m in Sources */,
 				E9FC24A91D2F8E1A00B9C4B7 /* SignUtil.m in Sources */,
 				50FD7DAE1E5EC28600EDE436 /* LSAddShopInfoController.m in Sources */,
@@ -11382,7 +11381,6 @@
 				778592A51DAF58450095B574 /* LSMemberRechargeRuleListViewController.m in Sources */,
 				50781F691E247F3300B7FD15 /* LSGoodsTransactionFlowListController.m in Sources */,
 				77C748B31E948712008EFAAC /* LSByTimeServiceListController.m in Sources */,
-				E51D72C71EC3055500AFA3CF /* OrderPayListCell.m in Sources */,
 				5086972C1D6D86D2003F276A /* WechatSalePackStyleSelectView.m in Sources */,
 				50281C6A1D865202000BB386 /* GoodsOperationVo.m in Sources */,
 				E9FC20D11D2F8E1900B9C4B7 /* LevelDescriptionView.m in Sources */,
@@ -11407,6 +11405,7 @@
 				778592591DAF58450095B574 /* LSCardBackgroundImageVo.m in Sources */,
 				500C67201E8E22150075F3C1 /* AdjustStyleEditView.m in Sources */,
 				50781F9C1E247F3E00B7FD15 /* LSShopCollectionDetailListController.m in Sources */,
+				507289781D6BDA39000EE0E9 /* OrderListView.m in Sources */,
 				5056D63C1DD45EE5008F8C10 /* LSGoodsModuleController.m in Sources */,
 				50A772A81DBF571600EFD3FE /* LSFilterCell.m in Sources */,
 				E9FC25051D2F8E1A00B9C4B7 /* DatePickerBox.m in Sources */,
@@ -11607,6 +11606,8 @@
 				508697AA1D6D86D2003F276A /* WechatSalePackCell.m in Sources */,
 				77E698551E778610003C624A /* LSWechatGoodsSortCell.m in Sources */,
 				E9FC258A1D2F8E1A00B9C4B7 /* SelectStoreListView.m in Sources */,
+				50781F981E247F3E00B7FD15 /* LSShitfRecordDetailController.m in Sources */,
+				503CEA2F1E127C8600B7DE66 /* LSPaymentOrderDetailController.m in Sources */,
 				50281C921D865202000BB386 /* GoodsAttributeCell2.m in Sources */,
 				503BB2431DF11F6300E01D1C /* LSSettleAccountInfoVo.m in Sources */,
 				E9FC24EC1D2F8E1A00B9C4B7 /* GridColHead.m in Sources */,
@@ -11614,7 +11615,6 @@
 				508696961D6D86D2003F276A /* ReturnMoneyCell.m in Sources */,
 				5078201E1E24CB4900B7FD15 /* SupplyReportVo.m in Sources */,
 				504838E21D62E2F7005B6B00 /* OpenShopSucessViewController.m in Sources */,
-				E51D72DD1EC3069200AFA3CF /* LSPaymentOrderDetailMemberView.m in Sources */,
 				E9FC25921D2F8E1A00B9C4B7 /* StyleChoiceTopView.m in Sources */,
 				507968591EAF1602001D17CF /* SupplierEditView.m in Sources */,
 				E5327A8E1E8F822900BCAC00 /* LSMemberMeterCardListVo.m in Sources */,
@@ -11685,13 +11685,13 @@
 				50281CED1D8656CC000BB386 /* LSGoodsInfoSelectViewController.m in Sources */,
 				508696701D6D86D2003F276A /* OrderReasonAddView.m in Sources */,
 				50781F5B1E247F3300B7FD15 /* LSGoodsCategorySaleController.m in Sources */,
-				E51D72DB1EC3069200AFA3CF /* LSPaymentOrderDetailHeaderView.m in Sources */,
 				E558027A1E45BA0500C27213 /* LSSuppilerPurchaseDetailHeaderView.m in Sources */,
 				E9FC25C41D2F8E1A00B9C4B7 /* StyleItem.m in Sources */,
 				50C8DBA51DB855760084FC1E /* LSInfoAlertView.m in Sources */,
 				500C67901E8E22C90075F3C1 /* AdjustReasonVo.m in Sources */,
 				E9FC24C31D2F8E1A00B9C4B7 /* MenuList.m in Sources */,
 				508697001D6D86D2003F276A /* WechatGoodsManagementStyleBatchOperateView.m in Sources */,
+				503CEA391E127F3F00B7DE66 /* LSPaymentOrderDetailCell.m in Sources */,
 				E5327A7E1E8F804B00BCAC00 /* LSMemberMeterCardListController.m in Sources */,
 				E9FC25611D2F8E1A00B9C4B7 /* SearchBar4.m in Sources */,
 				507968F31EAF1941001D17CF /* SizeRefer.m in Sources */,
@@ -11719,7 +11719,6 @@
 				77B26E6C1E6AB1BC0056C7D6 /* PopoverViewCell.m in Sources */,
 				50781FFE1E24CB4800B7FD15 /* LSOrderDetailReportVo.m in Sources */,
 				50C463D71DC4BA5C00737482 /* LSSpecialSaleEditController.m in Sources */,
-				E51D72C21EC3052300AFA3CF /* OrderListView.m in Sources */,
 				508696921D6D86D2003F276A /* ReturnMoneyBatchCell.m in Sources */,
 				5078200E1E24CB4800B7FD15 /* MemberIntegralDetailCellVo.m in Sources */,
 				5086978A1D6D86D2003F276A /* OrdersRebateListCell.m in Sources */,
@@ -11733,7 +11732,6 @@
 				77884A331E0D074000C37EE8 /* MemberRender.m in Sources */,
 				E9FC24AD1D2F8E1A00B9C4B7 /* SystemUtil.m in Sources */,
 				50060DBE1DD9B92400393A81 /* LSSystemAuthority.m in Sources */,
-				E51D72D91EC3069200AFA3CF /* LSPaymentOrderDetailFooterView.m in Sources */,
 				50DDE8181E28DBA50051E34D /* LSGoodsPurchaseVo.m in Sources */,
 				5072897B1D6BDA39000EE0E9 /* PaymentTypeView.m in Sources */,
 				E558026B1E45A80D00C27213 /* LSSuppilerPurchaseListCell.m in Sources */,
@@ -11940,6 +11938,7 @@
 				505F14F61EA5F6FF0023FA6E /* GoodsAttributeSelectView.m in Sources */,
 				500C67C01E8E36140075F3C1 /* LSStockChangeViewController.m in Sources */,
 				E9FC21FD1D2F8E1A00B9C4B7 /* SalesStyleBatchView.m in Sources */,
+				503CEA3B1E127F3F00B7DE66 /* LSPaymentOrderDetailFooterView.m in Sources */,
 				50F2665C1E5D7D9400081670 /* LSRootViewController.m in Sources */,
 				507820041E24CB4800B7FD15 /* LSSaleGoodsSummaryVo.m in Sources */,
 				507820181E24CB4900B7FD15 /* MemberTransactionListVo.m in Sources */,
@@ -11987,6 +11986,7 @@
 				5095498E1DC2F23D00021F40 /* LSMarkCell.m in Sources */,
 				50781F591E247F3300B7FD15 /* LSGoodsCategorylistController.m in Sources */,
 				50B6DD6E1EA063C200CFFC2B /* ConfigVo.m in Sources */,
+				503CEA3F1E127F3F00B7DE66 /* LSPaymentOrderDetailMemberView.m in Sources */,
 				E9FC20D41D2F8E1900B9C4B7 /* ShopCommnetView.m in Sources */,
 				508696F41D6D86D2003F276A /* WeChatBatchReturnMoney.m in Sources */,
 				50B6DD6C1EA063C200CFFC2B /* ConfigItemOptionVo.m in Sources */,
@@ -12099,6 +12099,7 @@
 				5056D6311DD44698008F8C10 /* LSWechatModuleController.m in Sources */,
 				50A772B41DBF5C2500EFD3FE /* LSFilterItem.m in Sources */,
 				E9FC21F11D2F8E1A00B9C4B7 /* PiecesDiscountEditView.m in Sources */,
+				E54A66421E2766DD006DBF1F /* SmsSetController.m in Sources */,
 				5068B36B1E4487060014A3AF /* LSBarCodeMark.m in Sources */,
 				778592871DAF58450095B574 /* LSMemberGoodCell.m in Sources */,
 				508697401D6D86D2003F276A /* ExpressVo.m in Sources */,
@@ -12135,6 +12136,7 @@
 				50645FE71E76AFA7003245E5 /* LSOrgInfoController.m in Sources */,
 				50645FE61E76AF47003245E5 /* LSShopInfoSetController.m in Sources */,
 				50BD61FC1E553B300078561D /* SmsDetailController.m in Sources */,
+				E556C6911EA6235A006A9EFB /* LSPaymentOrderDetailRechargeController.m in Sources */,
 				50CDEC131E5414FA003E7529 /* LSSmsMainCell.m in Sources */,
 				50CDEC121E54148B003E7529 /* LSSmsMainListController.m in Sources */,
 				50ECBCDC1E517176002AA6E3 /* LSSuppilerPurchaseRecordController.m in Sources */,
@@ -12154,6 +12156,7 @@
 				50ECBCD31E517054002AA6E3 /* LSSuppilerPurchaseListController.m in Sources */,
 				77BCE6321E48526C0001D89B /* LSModuleInfoController.m in Sources */,
 				77BCE6311E4852600001D89B /* LSEmployeePerformanceListCell.m in Sources */,
+				77BCE6301E4851740001D89B /* SmsSetController.m in Sources */,
 				507820201E24CCE800B7FD15 /* LSMemberCardOperateListCell.m in Sources */,
 				771318911DD95EC0003EDC82 /* GoodsInnerCodeRegulationSettingCell.m in Sources */,
 				50207B871E2A18EA00507DB1 /* LSGoodsPurchaseDetailCell.m in Sources */,
@@ -12164,6 +12167,7 @@
 				500C67631E8E227A0075F3C1 /* RegionalCell.m in Sources */,
 				D82E2FC71EA5F48A00B5A13D /* WechatAppTopView.m in Sources */,
 				776173991D80023100C4D746 /* ScanViewController.m in Sources */,
+				507289A61D6C032E000EE0E9 /* OrderPayListCell.m in Sources */,
 				5086965D1D6D86D2003F276A /* MapView.m in Sources */,
 				507820151E24CB4800B7FD15 /* MemberRechargeDetailVo.m in Sources */,
 				7785925E1DAF58450095B574 /* LSMemberAccessView.m in Sources */,
@@ -12198,18 +12202,19 @@
 				507289891D6BDC92000EE0E9 /* LSPersonDetailVO.m in Sources */,
 				5072898A1D6BDC92000EE0E9 /* OnlineChargeVo.m in Sources */,
 				500C1C801E9B6A6B0085E410 /* LSCostGoodsEditViewController.m in Sources */,
+				503CEA3C1E127F3F00B7DE66 /* LSPaymentOrderDetailFooterView.m in Sources */,
 				E515D5A81E8A7D1900A065D5 /* LSMemberMeterGoodsVo.m in Sources */,
 				7785928E1DAF58450095B574 /* LSMemberInfoCell.m in Sources */,
 				5072898B1D6BDC92000EE0E9 /* OrderPayListData.m in Sources */,
 				5072898C1D6BDC92000EE0E9 /* PayBillSummaryOfMonthVO.m in Sources */,
 				507968DE1EAF1941001D17CF /* LogisticsDetailVo.m in Sources */,
 				5072898D1D6BDC92000EE0E9 /* ShopInfoVO.m in Sources */,
+				5072897F1D6BDC4C000EE0E9 /* OrderListView.m in Sources */,
 				507289801D6BDC4C000EE0E9 /* PaymentEditView.m in Sources */,
 				507289811D6BDC4C000EE0E9 /* PaymentNoteView.m in Sources */,
 				50B6DD731EA063C200CFFC2B /* ESPSettledMallVo.m in Sources */,
 				50A522C91DAB365C0058F644 /* LSSystemNotificationCell.m in Sources */,
 				507289821D6BDC4C000EE0E9 /* PaymentTypeView.m in Sources */,
-				E51D72D81EC3069200AFA3CF /* LSPaymentOrderDetailCell.m in Sources */,
 				507289831D6BDC4C000EE0E9 /* PaymentView.m in Sources */,
 				507289841D6BDC4C000EE0E9 /* SelectItemList.m in Sources */,
 				507969651EAF1972001D17CF /* ReturnGuideSelectView.m in Sources */,
@@ -12250,7 +12255,6 @@
 				508696EF1D6D86D2003F276A /* VirtualStockManagementView.m in Sources */,
 				77884A781E0D095200C37EE8 /* LSSmsTemplateViewController.m in Sources */,
 				507968E81EAF1941001D17CF /* PaperVo.m in Sources */,
-				E51D72E21EC3109C00AFA3CF /* SmsSetController.m in Sources */,
 				E9914FE51D51E6E600150FCD /* PerformanceGoalDetailView.m in Sources */,
 				507820171E24CB4900B7FD15 /* MemberRechargeListVo.m in Sources */,
 				507DBD1F1DED706500E62D5C /* LSShopCollectionListCell.m in Sources */,
@@ -12288,6 +12292,7 @@
 				506E977F1DF0098F00B275DB /* LSGoodsTransactionFlowFooterView.m in Sources */,
 				E5327A831E8F805A00BCAC00 /* LSMemberMeterCardDetailController.m in Sources */,
 				5086977F1D6D86D2003F276A /* OpOrderShopCell.m in Sources */,
+				50781F991E247F3E00B7FD15 /* LSShitfRecordDetailController.m in Sources */,
 				7785929E1DAF58450095B574 /* LSMemberModule.m in Sources */,
 				E99150041D51E6E600150FCD /* StyleBatchChoiceView2.m in Sources */,
 				50781F6E1E247F3300B7FD15 /* LSSaleProfitViewController.m in Sources */,
@@ -12334,6 +12339,7 @@
 				508697651D6D86D2003F276A /* OrderInfoVo.m in Sources */,
 				500C67BB1E8E36140075F3C1 /* LSGoodsChangeDetailController.m in Sources */,
 				E99150211D51E6E600150FCD /* SRItemView.m in Sources */,
+				503CEA3E1E127F3F00B7DE66 /* LSPaymentOrderDetailHeaderView.m in Sources */,
 				E991502D1D51E6E600150FCD /* CDatePickerViewEx.m in Sources */,
 				50781EC71E2479F400B7FD15 /* MemberListCell.m in Sources */,
 				77884A341E0D074000C37EE8 /* MemberRender.m in Sources */,
@@ -12350,7 +12356,6 @@
 				E991503D1D51E6E600150FCD /* MenuRightCell.m in Sources */,
 				5086963F1D6D86D2003F276A /* HotTypeSet.m in Sources */,
 				50781FFD1E24CB4800B7FD15 /* LSHandoverPayTypeVo.m in Sources */,
-				E51D72BF1EC2E37F00AFA3CF /* LSShitfRecordDetailController.m in Sources */,
 				77C6A82B1DB9B575002864D2 /* LSMemberExpandRecordVo.m in Sources */,
 				E99150411D51E6E600150FCD /* EditItemImage.m in Sources */,
 				508696F31D6D86D2003F276A /* WechatApplyView.m in Sources */,
@@ -12441,7 +12446,6 @@
 				E99150971D51E6E600150FCD /* SpecialOfferGoodsOfStyleCell.m in Sources */,
 				507968E61EAF1941001D17CF /* PaperGoodsVo.m in Sources */,
 				E99150A11D51E6E600150FCD /* XHChartBox.m in Sources */,
-				E51D72CE1EC305B300AFA3CF /* LSPaymentOrderDetailController.m in Sources */,
 				E99150A31D51E6E600150FCD /* DateMonthPickerBox.m in Sources */,
 				500C675F1E8E227A0075F3C1 /* CheckRecodCell.m in Sources */,
 				778592BC1DAF58450095B574 /* LSSegmentedView.m in Sources */,
@@ -12461,7 +12465,6 @@
 				77F2459C1E8E386300F96B92 /* LSByTimeRechargeRecordDetailController.m in Sources */,
 				50FD7DAF1E5EC28600EDE436 /* LSAddShopInfoController.m in Sources */,
 				7785927A1DAF58450095B574 /* LSMemberDataPanel.m in Sources */,
-				E51D72C81EC3055500AFA3CF /* OrderPayListCell.m in Sources */,
 				507968D61EAF1941001D17CF /* AllShopVo.m in Sources */,
 				E99150AD1D51E6E600150FCD /* ShopSalesVo.m in Sources */,
 				E99150AF1D51E6E600150FCD /* UIImageView+SDAdd.m in Sources */,
@@ -12492,6 +12495,7 @@
 				E99150DA1D51E6E600150FCD /* EditItemList.m in Sources */,
 				E99150DB1D51E6E600150FCD /* StyleChoiceView.m in Sources */,
 				50B6DD831EA063C200CFFC2B /* ReceiptWidthVo.m in Sources */,
+				503CEA301E127C8600B7DE66 /* LSPaymentOrderDetailController.m in Sources */,
 				500C67CB1E8E377B0075F3C1 /* LSCostChangeRecordDetailController.m in Sources */,
 				E99150DD1D51E6E600150FCD /* PriceInfoVo.m in Sources */,
 				E99150E31D51E6E600150FCD /* SignUtil.m in Sources */,
@@ -12692,7 +12696,6 @@
 				50781FF91E24CB4800B7FD15 /* LSGoodsSalesReportVo.m in Sources */,
 				507969551EAF1972001D17CF /* RecordDetailCell.m in Sources */,
 				5086975B1D6D86D2003F276A /* MicroWechatGoodsVo.m in Sources */,
-				E51D72DE1EC3069200AFA3CF /* LSPaymentOrderDetailMemberView.m in Sources */,
 				E99151A71D51E6E600150FCD /* UserHandoverVo.m in Sources */,
 				50F3D5D11E94C2D400148977 /* NSNull+LSNull.m in Sources */,
 				E99151A81D51E6E600150FCD /* UIImage+Resize.m in Sources */,
@@ -12763,7 +12766,6 @@
 				507DBD271DED781600E62D5C /* LSShopColllectionDetailListCell.m in Sources */,
 				50DDE80D1E28AA2A0051E34D /* LSGoodsPurchaseViewController.m in Sources */,
 				50281C7F1D865202000BB386 /* MicroRelevancePriceVo.m in Sources */,
-				E51D72DC1EC3069200AFA3CF /* LSPaymentOrderDetailHeaderView.m in Sources */,
 				507A36CE1DD2F62B00EB0EEA /* LSModuleController.m in Sources */,
 				50A2509B1E6556E10073AEE6 /* LSHelpVideoListCell.m in Sources */,
 				E99151EC1D51E6E600150FCD /* MenuList.m in Sources */,
@@ -12790,12 +12792,13 @@
 				507965301EAED53C001D17CF /* LSStockBalanceListController.m in Sources */,
 				50281C7B1D865202000BB386 /* LSGoodsUnitVo.m in Sources */,
 				E99151FA1D51E6E600150FCD /* EmployeeCell.m in Sources */,
+				503CEA3A1E127F3F00B7DE66 /* LSPaymentOrderDetailCell.m in Sources */,
+				503CEA401E127F3F00B7DE66 /* LSPaymentOrderDetailMemberView.m in Sources */,
 				508697B51D6D8BF8003F276A /* LSWechatGoodCell.m in Sources */,
 				507968F41EAF1941001D17CF /* SizeRefer.m in Sources */,
 				778592B61DAF58450095B574 /* LSMemberSubmenus.m in Sources */,
 				E99151FD1D51E6E600150FCD /* EditItemView.m in Sources */,
 				E99152011D51E6E600150FCD /* ShopIncomeView.m in Sources */,
-				E51D72C31EC3052300AFA3CF /* OrderListView.m in Sources */,
 				500C675B1E8E227A0075F3C1 /* CheckDetailCell.m in Sources */,
 				50281CC71D865202000BB386 /* GoodsSingleAttributeCell.m in Sources */,
 				E99152041D51E6E600150FCD /* SystemUtil.m in Sources */,
@@ -12811,7 +12814,6 @@
 				508697411D6D86D2003F276A /* ExpressVo.m in Sources */,
 				500C671B1E8E21C40075F3C1 /* AlertSettingDetail.m in Sources */,
 				50781FF11E24CB4800B7FD15 /* LSCardOperateDetailVo.m in Sources */,
-				E51D72DA1EC3069200AFA3CF /* LSPaymentOrderDetailFooterView.m in Sources */,
 				E99152111D51E6E600150FCD /* GoodsInfoCell.m in Sources */,
 				E99152131D51E6E600150FCD /* SelectShopStoreListView.m in Sources */,
 				5079696D1EAF1972001D17CF /* ShoesClothingCell.m in Sources */,

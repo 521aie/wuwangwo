@@ -22,6 +22,7 @@
 @property (nonatomic, copy) NSString *opUserNo; //操作人工号
 @property (nonatomic, strong) NSNumber *action; //操作类型（1充值,2支付,3退卡）
 @property (nonatomic, strong) NSNumber *payMode; //支付方式(微信，支付宝，QQ钱包)
+@property (nonatomic, copy) NSString *payModeName; //支付方式(微信，支付宝，QQ钱包)
 @property (nonatomic, copy) NSString *phoneNo; //手机号
 @property (nonatomic, strong) NSNumber *pay; //售价
 @end

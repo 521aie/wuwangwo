@@ -89,4 +89,6 @@
 //判断掌柜端是否升级：已升级=3，其余的为未升级
 @property (nonatomic, strong) NSNumber *handoverSrc;
 @property (nonatomic, strong) NSArray *payTypeExpansionVos;
+/** 头像 */
+@property (nonatomic, copy) NSString *filePath;
 @end

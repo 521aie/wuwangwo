@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LSMemberMeterCardListVo : NSObject
+
 @property (nonatomic ,copy) NSString *accountCardId;//	计次卡ID
 @property (nonatomic ,copy) NSString *accountCardName;//计次服务名称
 @property (nonatomic, strong) NSNumber *createTime; //充值时间
@@ -18,5 +19,7 @@
 @property (nonatomic, copy) NSString *operType; //操作类型（充值、退款）
 @property (nonatomic, strong) NSNumber *consumeDate; //时间段标记
 @property (nonatomic ,copy) NSString *id;//	充值ID
-- (instancetype)initWithDictionary:(NSDictionary *)json;
+
++ (instancetype)byTimeRechargeRecordVo:(NSDictionary *)jsonDic;
++ (NSArray *)byTimeRechargeRecordVoList:(NSArray *)keyValuesArray;
 @end

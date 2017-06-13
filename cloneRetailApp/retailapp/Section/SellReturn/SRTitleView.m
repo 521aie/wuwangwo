@@ -63,6 +63,17 @@
 
 - (void)setLblText:(NSString *)lblText color:(UIColor *)lblColr {
     
+    CGFloat titleWidth = [_lblTitle intrinsicContentSize].width;
+    CGFloat maxValuewidth = CGRectGetMaxX([UIScreen mainScreen].bounds) - 32.0f - titleWidth;
+    CGFloat valueHeight = 21.0;
+    if (lblText.length > 10) {
+        valueHeight = [NSString getTextSizeWithText:lblText font:_lblValue.font maxSize:CGSizeMake(maxValuewidth, CGFLOAT_MAX)].height;
+        if (valueHeight > 21.0f) {
+            self.ls_height = 44.0f - 21.0f + valueHeight;
+        }
+    }
+    
+//    CGFloat height = 
     _lblValue.text = lblText;
     if (lblColr) {
          _lblValue.textColor = lblColr;

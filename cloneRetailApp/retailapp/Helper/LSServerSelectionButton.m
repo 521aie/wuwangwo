@@ -45,7 +45,7 @@
     NSString *urlOut = nil;
     NSString *appSecert = nil;
     if ([name isEqualToString:@"线上环境"]) {
-        urlOut = @"https://retailapi.2dfire.com";
+        urlOut = @"http://retailapi.2dfire.com";
         appSecert = @"29dc4dafc8ad495db12fe411e16197b8";
     } else if ([name isEqualToString:@"预发环境"]) {
         urlOut = @"http://retailapi.2dfire-pre.com";
@@ -94,7 +94,7 @@
 - (NSArray *)serverSelectionList {
     NSArray *serverSelectionList = @[@{@"name" : @"测试环境", @"url" : API_ROOT},
                                      @{@"name" : @"预发环境", @"url" : @"http://myshop.2dfire-pre.com/serviceCenter/api"},
-                                     @{@"name" : @"线上环境", @"url" : @"https://myshop.2dfire.com/serviceCenter/api"},
+                                     @{@"name" : @"线上环境", @"url" : @"http://myshop.2dfire.com/serviceCenter/api"},
                                      @{@"name" : @"青蒿", @"url" : @"http://10.1.87.104:8080/serviceCenter/api"},
                                      @{@"name" : @"胡萝卜", @"url" : @"http://10.1.87.81:8080/serviceCenter/api"},
                                      @{@"name" : @"茭白", @"url" : @"http://10.1.87.165:8080/serviceCenter/api"},

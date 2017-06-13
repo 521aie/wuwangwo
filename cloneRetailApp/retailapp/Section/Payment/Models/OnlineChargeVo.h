@@ -53,6 +53,10 @@
  * 操作人工号
  */
 @property (nonatomic, copy) NSString *operatorNo;
+/**
+ * 计次服务名称
+ */
+@property (nonatomic, copy) NSString *accountCardName;
 
 + (instancetype)onlineChargeVoWithMap:(NSDictionary *)map;
 

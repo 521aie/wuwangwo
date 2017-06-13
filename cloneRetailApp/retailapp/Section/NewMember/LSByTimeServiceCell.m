@@ -154,8 +154,12 @@
     
     // 针对“已过期”，“已用完”，“已退款”等非可用状态的计次卡，调整计次服务名称的布局
     if (isExpiry) {
-        _expired.hidden = NO;
+        
+        _expired.hidden = YES;
         _expired.text = [vo statusString];
+        if (_expired.text.length > 0) {
+            _expired.hidden = NO;
+        }
         [_nameTrailConstraint setConstant:72.0f];
     }
     

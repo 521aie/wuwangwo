@@ -12,8 +12,9 @@
 #import "ColorHelper.h"
 #import "NumberUtil.h"
 #import "AlertBox.h"
+#import "SymbolNumberInputBox.h"
 
-@interface LSMemberMeterDetailCell ()
+@interface LSMemberMeterDetailCell ()<SymbolNumberInputClient>
 @property (nonatomic, strong) UIView *viewLine;
 @end
 
@@ -39,6 +40,8 @@
     self.lblName = [[UILabel alloc] init];
     self.lblName.font = [UIFont systemFontOfSize:15];
     self.lblName.textColor = [ColorHelper getTipColor3];
+    self.lblName.numberOfLines = 0;    
+    self.lblName.lineBreakMode = NSLineBreakByWordWrapping;
     [self.contentView addSubview:self.lblName];
     
     self.lblCode = [[UILabel alloc] init];
@@ -66,7 +69,12 @@
     _numCountLab.textAlignment = NSTextAlignmentCenter;
     _numCountLab.layer.borderWidth = 1;
     _numCountLab.layer.borderColor = _myColor.CGColor;
-     _numCountLab.textColor = [ColorHelper getBlueColor];
+    _numCountLab.textColor = [ColorHelper getBlueColor];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [_numCountLab addGestureRecognizer:tap];
+        //打开用户交互
+    _numCountLab.userInteractionEnabled = YES;
+    _numCountLab.tag = 10;
     [self.contentView addSubview:_numCountLab];
     
     //加按钮
@@ -97,7 +105,6 @@
         make.top.equalTo(wself.contentView).offset(19);
         make.left.equalTo(wself.contentView).offset(12);
         make.right.equalTo(wself.contentView).offset(-130);
-        make.height.equalTo(20);
     }];
     
     [self.lblCode makeConstraints:^(MASConstraintMaker *make) {
@@ -117,7 +124,7 @@
     [self.numCountLab makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(wself.deleteBtn.top);
         make.right.equalTo(wself.addBtn.left);
-        make.width.equalTo(125-34-34);
+        make.width.equalTo(80);
         make.height.equalTo(wself.deleteBtn);
     }];
     
@@ -160,6 +167,15 @@
 {
     [self.delegate btnClick:self andFlag:(int)sender.tag];
 }
+/**
+ *  点击按钮实现自定义数量的修改
+ *
+ *  @param sender 按钮
+ */
+-(void)tapAction:(UIRotationGestureRecognizer*)tap
+{
+    [self.delegate btnClick:self andFlag:10];
+}
 
 // UIButton初始化
 - (UIButton*)tempButton:(CGRect)frame title:(NSString*)title {
@@ -180,4 +196,5 @@
     [btn.layer addSublayer:line];
     return btn;
 }
+
 @end

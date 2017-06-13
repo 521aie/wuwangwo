@@ -13,4 +13,5 @@
 
 @property (nonatomic, strong) LSMemberMeterVo *obj;
 + (instancetype)memberMeteringListCellWithTableView:(UITableView *)tableView;
+- (CGFloat)heightForContent:(NSString *)content;
 @end

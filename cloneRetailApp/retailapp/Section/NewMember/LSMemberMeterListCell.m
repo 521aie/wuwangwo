@@ -49,29 +49,17 @@
 
 - (void)configViews {
     
-    self.viewWhite = [[UIView alloc] initWithFrame:CGRectMake(10, 10, SCREEN_W-20, 77)];
+    self.viewWhite = [[UIView alloc] init];
     self.viewWhite.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:self.viewWhite];
-    
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.viewWhite.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(6, 6)];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.viewWhite.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.viewWhite.layer.mask = maskLayer;
     
     self.viewCircleLine = [[UIImageView alloc] init];
     self.viewCircleLine.image = [UIImage imageNamed:@"ico_byTime_line1"];
     [self.contentView addSubview:self.viewCircleLine];
     
-    self.viewGray = [[UIView alloc] initWithFrame:CGRectMake(10, 94, SCREEN_W-20, 41)];
+    self.viewGray = [[UIView alloc] init];
     self.viewGray.backgroundColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1.00];
     [self.contentView addSubview:self.viewGray];
-    
-    UIBezierPath *maskPathG = [UIBezierPath bezierPathWithRoundedRect:self.viewGray.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(6, 6)];
-    CAShapeLayer *maskLayerG = [[CAShapeLayer alloc] init];
-    maskLayerG.frame = self.viewGray.bounds;
-    maskLayerG.path = maskPathG.CGPath;
-    self.viewGray.layer.mask = maskLayerG;
     
     self.cardName = [[UILabel alloc] init];
     self.cardName.font = [UIFont systemFontOfSize:15];
@@ -81,9 +69,9 @@
     [self.viewWhite addSubview:self.cardName];
     
     self.price = [[UILabel alloc] init];
-    self.price.font = [UIFont systemFontOfSize:13];
+    self.price.font = [UIFont systemFontOfSize:22];
     self.price.textColor = [ColorHelper getOrangeColor];
-    self.price.textAlignment = 1;
+    self.price.textAlignment = 2;
     [self.viewWhite addSubview:self.price];
     
     self.period = [[UILabel alloc] init];
@@ -107,7 +95,7 @@
     self.txtCardCount = [[UILabel alloc] init];
     self.txtCardCount.font = [UIFont systemFontOfSize:12];
     self.txtCardCount.textColor = [ColorHelper getTipColor6];
-    self.txtCardCount.text = @"已销售（张)";
+    self.txtCardCount.text = @"已销售（项)";
     self.txtCardCount.textAlignment = 1;
     [self.viewGray addSubview:self.txtCardCount];
     
@@ -124,24 +112,34 @@
 
 - (void)configConstraints {
     
+    [self.viewWhite mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(self).offset(10);
+        make.right.equalTo(self).offset(-10);
+        make.height.equalTo(98);
+    }];
+    
+    [self.viewGray mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(10);
+        make.right.equalTo(self).offset(-10);
+        make.top.equalTo(self.viewCircleLine.bottom).offset(-1);
+        make.height.equalTo(41);
+    }];
+    
     [self.cardName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.viewWhite).offset(12);
-        make.left.equalTo(self.viewWhite).offset(9);
-        make.right.equalTo(self.price.left);
-        make.height.equalTo(21);
+        make.top.equalTo(self.viewWhite).offset(10);
+        make.left.equalTo(self.viewWhite).offset(10);
+        make.right.equalTo(self.viewWhite).offset(-10);
     }];
     
     [self.price mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.viewWhite).offset(27);
-        make.right.equalTo(self.viewWhite).offset(19);
-        make.width.equalTo(102);
+        make.top.equalTo(self.cardName.bottom).offset(10);
+        make.left.right.equalTo(self.cardName);
         make.height.equalTo(22);
     }];
     
     [self.period mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.cardName.bottom).offset(14);
-        make.left.equalTo(self.cardName);
-        make.right.equalTo(self.viewWhite);
+        make.top.equalTo(self.price.bottom).offset(10);
+        make.left.right.equalTo(self.cardName);
         make.height.equalTo(17);
     }];
     
@@ -184,6 +182,28 @@
         make.height.equalTo(self.meteringGoods);
     }];
 }
+-(void)layoutSublayersOfLayer:(CALayer *)layer{
+    [self setCornerOnTop];
+    [self setCornerOnBomttom];
+}
+
+- (void)setCornerOnTop
+{
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.viewWhite.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(6, 6)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.viewWhite.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.viewWhite.layer.mask = maskLayer;
+}
+
+- (void)setCornerOnBomttom
+{
+    UIBezierPath *maskPathG = [UIBezierPath bezierPathWithRoundedRect:self.viewGray.bounds byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(6, 6)];
+    CAShapeLayer *maskLayerG = [[CAShapeLayer alloc] init];
+    maskLayerG.frame = self.viewGray.bounds;
+    maskLayerG.path = maskPathG.CGPath;
+    self.viewGray.layer.mask = maskLayerG;
+}
 
 - (void)setObj:(LSMemberMeterVo *)obj {
     
@@ -192,7 +212,7 @@
     self.cardName.text = obj.accountCardName;
     
     //售价
-    self.price.text = [NSString stringWithFormat: @"￥%@",obj.price];
+    self.price.text = [NSString stringWithFormat: @"￥%.2f",obj.price.floatValue];
     
     //有效期（天）：不限期”或N天
     if (obj.expiryDate.integerValue == -1) {
@@ -207,6 +227,37 @@
     self.meteringGoods.text =  [NSString stringWithFormat: @"%ld",(long)obj.goodsKindCount.integerValue];
     
     self.cardCount.text = [NSString stringWithFormat: @"%ld",(long)obj.salesNum.integerValue];
+    
+//    CGFloat contectHeight = [self heightForContent:obj.accountCardName];
+    
+    [self.viewWhite remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(self).offset(10);
+        make.right.equalTo(self).offset(-10);
+        make.bottom.equalTo(self.period).offset(10);
+//        make.height.equalTo(contectHeight + 69);
+    }];
+
+    [self.viewCircleLine remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.viewWhite.bottom).offset(-2);
+        make.left.right.equalTo(self.viewWhite);
+        make.height.equalTo(9);
+    }];
+    
+    [self.viewGray remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.viewCircleLine.bottom).offset(-1);
+        make.left.right.equalTo(self.viewWhite);
+        make.height.equalTo(41);
+    }];
+    
+    [self layoutIfNeeded];
+}
+
+- (CGFloat)heightForContent:(NSString *)content
+{
+    CGSize size = CGSizeMake(250, 10000);
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:15.0], NSFontAttributeName, nil];
+    CGRect frame = [content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:dic context:nil];
+    return frame.size.height;
 }
 
 @end

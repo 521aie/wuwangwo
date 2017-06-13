@@ -94,6 +94,7 @@
     }
     [param setValue:self.orderId forKey:@"orderId"];
     [param setValue:self.orderCode forKey:@"orderCode"];
+    [param setValue:self.payMsgTag forKey:@"payMsgTag"];
     [BaseService getRemoteLSDataWithUrl:url param:param withMessage:nil show:YES CompletionHandler:^(id json) {
         wself.settlements = json[@"settlements"];
         NSDictionary *personDetail = json[@"personDetail"];
@@ -341,10 +342,7 @@
             topMargin = topMargin + 5;
             [viewHeader layoutIfNeeded];
             viewHeader.ls_height = topMargin;
-            wself.tableView.tableHeaderView = viewHeader;
-
-
-            
+            wself.tableView.tableHeaderView = viewHeader;            
         }
         
     } errorHandler:^(id json) {
@@ -426,7 +424,5 @@
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 200;
 }
-
-
 
 @end

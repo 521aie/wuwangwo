@@ -98,10 +98,10 @@
 #pragma mark - 保存
 - (void)saveStyle
 {
-    if (![self isValide]) {
-        [AlertBox show:@"商品数量必须大于0!"];
-        return;
-    }
+//    if (![self isValide]) {
+//        [AlertBox show:@"商品数量必须大于0!"];
+//        return;
+//    }
     self.isContinue = NO;
     self.isDel = NO;
     [self saveData];
@@ -761,10 +761,10 @@
 #pragma mark -保存并继续添加
 - (void)onContinueEventClick
 {
-    if (![self isValide]) {
-        [AlertBox show:@"商品数量必须大于0!"];
-        return;
-    }
+//    if (![self isValide]) {
+//        [AlertBox show:@"商品数量必须大于0!"];
+//        return;
+//    }
     self.isContinue = YES;
     self.isDel = NO;
     [self saveData];

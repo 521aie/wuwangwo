@@ -66,13 +66,17 @@
     self.isShowCostPrice = ![[Platform Instance] lockAct:ACTION_COST_PRICE_SEARCH];
     [self addHeaderAndFooter];
     [self queryStockInfoList];
+    [self loadGoodsTotalNum];
+    [self configHelpButton:HELP_STOCK_QUERY];
+    
+}
+
+- (void)loadGoodsTotalNum {
     //由于后台技术有限 商超的商品数量总和需要调用新的接口 服鞋的不需要调用新的接口
     if ([[[Platform Instance] getkey:SHOP_MODE] intValue] == 102) {
         //获取商品数量总和
         [self loadGoodsTotalNumber];
     }
-    [self configHelpButton:HELP_STOCK_QUERY];
-    
 }
 
 - (void)configViews {
@@ -207,6 +211,7 @@
     [self.params setValue:keyWord forKey:@"keywords"];
     [self.params setValue:self.scanCode forKey:@"scanCode"];
     [self queryStockInfoList];
+    [self loadGoodsTotalNum];
 }
 
 #pragma mark - 条形码扫描

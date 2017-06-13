@@ -156,13 +156,12 @@
 
 #pragma mark 加载分类数据
 - (void)loadCategoryList {
-    NSString *url = @"category/lastCategoryInfo";
-    NSDictionary *param = @{@"hasNoCategory" : @"1"};
+    NSString *url = @"category/firstCategoryInfo";
     __weak typeof(self) wself = self;
     wself.categoryList = [NSMutableArray array];
     NameItemVO *itemVo = [[NameItemVO alloc] initWithVal:@"全部" andId:@""];
     [self.categoryList addObject:itemVo];
-    [BaseService getRemoteLSDataWithUrl:url param:param withMessage:nil show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSDataWithUrl:url param:nil withMessage:nil show:YES CompletionHandler:^(id json) {
         if ([ObjectUtil isNotNull:json[@"categoryList"]]) {
             NSArray *list = [CategoryVo mj_objectArrayWithKeyValuesArray:json[@"categoryList"]];
             [list enumerateObjectsUsingBlock:^(CategoryVo *obj, NSUInteger idx, BOOL * _Nonnull stop) {

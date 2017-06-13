@@ -16,8 +16,9 @@
 #import "LSEditItemView.h"
 #import "DateUtils.h"
 #import "ObjectUtil.h"
+#import "LSEditItemMemo.h"
 
-@interface LSMemberMeterCardDetailController ()
+@interface LSMemberMeterCardDetailController ()<IEditItemMemoEvent>
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UIView *container;
@@ -30,7 +31,7 @@
 /** 会员卡号*/
 @property (nonatomic,strong) LSEditItemView *memberCardNum;
 /** 计次服务*/
-@property (nonatomic,strong) LSEditItemView *meterService;
+@property (nonatomic,strong) LSEditItemMemo *meterService;
 /** 有效期*/
 @property (nonatomic,strong) LSEditItemView *period;
 /** 操作类型*/
@@ -90,7 +91,7 @@
     self.memberCardNum = [LSEditItemView editItemView];
     [self.container addSubview:self.memberCardNum];
     
-    self.meterService = [LSEditItemView editItemView];
+    self.meterService = [LSEditItemMemo editItemMemo];
     [self.container addSubview:self.meterService];
     
     self.period = [LSEditItemView editItemView];
@@ -119,7 +120,7 @@
     [self.phoneNum initLabel:@"手机号码" withHit:nil];
     [self.memberCardType initLabel:@"会员卡类型" withHit:nil];
     [self.memberCardNum initLabel:@"会员卡号" withHit:nil];
-    [self.meterService initLabel:@"计次服务" withHit:nil];
+    [self.meterService initLabel:@"计次服务" isrequest:NO delegate:self];
     [self.period initLabel:@"有效期" withHit:nil];
     [self.action initLabel:@"操作类型" withHit:nil];
     [self.salePrice initLabel:@"销售金额（元）" withHit:nil];
@@ -179,26 +180,32 @@
     if ([NSString isNotBlank:self.detailVo.accountCardName]) {
         
         [wself.meterService initData:self.detailVo.accountCardName];
+        [wself.meterService editEnable:NO];
     }
     
     NSString *dateFrom = [DateUtils formateTime5:self.detailVo.startDate.longLongValue];
     NSString *dateTo = [DateUtils formateTime5:self.detailVo.endDate.longLongValue];
     
-    if ([NSString isNotBlank:dateFrom] && [NSString isNotBlank:dateTo] ) {
-        
-        [wself.period initData:[NSString stringWithFormat:@"%@  至 %@",dateFrom,dateTo]];
-        
-    }else{
+    if (self.detailVo.endDate.intValue == 0) {
         
         [wself.period initData:@"不限期"];
+    } else {
+        
+        [wself.period initData:[NSString stringWithFormat:@"%@  至 %@",dateFrom,dateTo]];
     }
     
     //操作类型(1充值,2支付,3退卡）
+    //销售金额：红色（充值）、绿色（退款）
+    NSNumber *price = self.detailVo.pay;
+    
     if ([ObjectUtil isNotNull:self.detailVo.action]) {
         
         if ([self.detailVo.action  isEqual: @1]) {
             
             [wself.action initData:@"充值"];
+            
+            wself.salePrice.lblVal.textColor = [ColorHelper getRedColor];
+            [wself.salePrice initData:[NSString stringWithFormat:@"%.2f",price.doubleValue]];
             
         } else if ([self.detailVo.action  isEqual: @2]) {
             
@@ -206,29 +213,16 @@
             
         }else if ([self.detailVo.action  isEqual: @3]) {
             
-            [wself.action initData:@"退卡"];
+            [wself.action initData:@"退款"];
+            
+            wself.salePrice.lblVal.textColor = [ColorHelper getGreenColor];
+            [wself.salePrice initData:[NSString stringWithFormat:@"%.2f",price.doubleValue]];
         }
-    }
-    
-    //销售金额
-    NSNumber *price = self.detailVo.pay;
-    
-    if (price.integerValue >= 0) {
-        
-        wself.salePrice.lblVal.textColor = [ColorHelper getRedColor];
-        [wself.salePrice initData:[NSString stringWithFormat:@"%.2f",price.doubleValue]];
-        
-    } else {
-        
-        wself.salePrice.lblVal.textColor = [ColorHelper getGreenColor];
-        NSMutableString *temp = [NSMutableString stringWithFormat:@"%.2f",price.doubleValue];
-        [temp insertString:@"￥" atIndex:1];
-        [wself.salePrice initData:temp];
     }
     
     if ([ObjectUtil isNotNull:self.detailVo.payMode]) {
         
-        [wself.payType initData: [self getPayModeString:self.detailVo.payMode]];
+        [wself.payType initData: self.detailVo.payModeName];
     }
     
     if ([NSString isNotBlank:self.detailVo.opUserName]) {

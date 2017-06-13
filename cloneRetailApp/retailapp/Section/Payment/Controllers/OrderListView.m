@@ -15,6 +15,9 @@
 #import "LSOnlineReceiptVo.h"
 #import "ObjectUtil.h"
 #import "LSPaymentOrderDetailController.h"
+#import "LSPaymentOrderDetailRechargeController.h"
+
+static NSString *listCellId = @"OrderPayListCell";
 @interface OrderListView () <UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) UITableView *mainGrid;
 @property (nonatomic, strong) NSMutableArray *datas;
@@ -23,7 +26,6 @@
 @property (nonatomic, copy) NSString *entityId;
 @property (nonatomic, strong) NSMutableDictionary *param;
 @property (nonatomic, copy) NSString *payment;
-/**  */
 @property (nonatomic, strong) UIView *viewHeader;
 @end
 @implementation OrderListView
@@ -50,10 +52,14 @@
 
 - (void)setupMainGrid {
     self.mainGrid = [[UITableView alloc] init];
+    [self.mainGrid registerClass:[OrderPayListCell class] forCellReuseIdentifier:listCellId];
     self.mainGrid.backgroundColor = [UIColor clearColor];
     self.mainGrid.delegate = self;
     self.mainGrid.dataSource = self;
     self.mainGrid.tableHeaderView = self.viewHeader;
+    
+    self.mainGrid.rowHeight = UITableViewAutomaticDimension;
+    self.mainGrid.estimatedRowHeight=88.0f;
     [self.view addSubview:self.mainGrid];
     
     __weak typeof(self) wself = self;
@@ -84,6 +90,7 @@
         if (weakSelf.currentPage == 1) {
             [weakSelf.datas removeAllObjects];
         }
+        
         NSMutableArray *receiptList = json[@"receiptList"];
         if ([ObjectUtil isNotNull:receiptList]) {
             for (NSDictionary *map in receiptList) {
@@ -163,6 +170,7 @@
 - (void)tapClick:(UITapGestureRecognizer *)ges {
     [self popViewControllerDirect:AnimationDirectionV];
 }
+
 - (NSMutableDictionary *)param {
     if (_param == nil) {
         _param = [NSMutableDictionary dictionary];
@@ -187,58 +195,85 @@
     }
     return _datas;
 }
+
 - (IBAction)btnClick:(UIButton *)sender {
     [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromBottom];
-    [self.navigationController popViewControllerAnimated:NO];
+    [self popViewController];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.datas.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 100;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"cell";
-    OrderPayListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"OrderPayListCell" owner:self options:nil] lastObject];
-    }
+    OrderPayListCell *orderCell =  [tableView dequeueReusableCellWithIdentifier:listCellId];
     LSOnlineReceiptVo *receiptVo = self.datas[indexPath.row];
-    [cell initWithData:receiptVo payType:self.payment];
-    
-    return cell;
+    [orderCell initWithData:receiptVo payType:self.payment];
+    return orderCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     LSOnlineReceiptVo *receiptVo = self.datas[indexPath.row];
+    
     if (receiptVo.orderCode == nil || [receiptVo.orderCode isEqualToString:@""] || [receiptVo.orderCode isEqual:[NSNull null]]) {
+//<<<<<<< HEAD
+//        
+//        [AlertBox show:@"此账单还未经过收银员的同意，暂时无法查看详情哦！"];
+//=======
         [AlertBox show:@"该收银订单暂未上传，请在收银机同步数据后查看订单详情！"];
+//>>>>>>> develop
         return;
     }
-    LSPaymentOrderDetailController *vc = [[LSPaymentOrderDetailController alloc] init];
-    vc.customerId = receiptVo.customerId;
-    vc.customerRegisterId = receiptVo.customerRegisterId;
-    vc.orderCode = receiptVo.orderCode;
-    vc.orderId = receiptVo.orderId;
-    vc.entityId = self.entityId;
-    vc.channelType = receiptVo.channelType;
+//<<<<<<< HEAD
+//    
+//=======
+//    LSPaymentOrderDetailController *vc = [[LSPaymentOrderDetailController alloc] init];
+//    vc.customerId = receiptVo.customerId;
+//    vc.customerRegisterId = receiptVo.customerRegisterId;
+//    vc.orderCode = receiptVo.orderCode;
+//    vc.orderId = receiptVo.orderId;
+//    vc.entityId = self.entityId;
+//    vc.channelType = receiptVo.channelType;
+//>>>>>>> feature/daily
     if ([receiptVo.payFor isEqualToString:@"pay_for_order"]) {//订单
+        
+        LSPaymentOrderDetailController *vc = [[LSPaymentOrderDetailController alloc] init];
+        vc.payMsgTag = receiptVo.payMsgTag;
+        vc.customerId = receiptVo.customerId;
+        vc.customerRegisterId = receiptVo.customerRegisterId;
+        vc.orderCode = receiptVo.orderCode;
+        vc.orderId = receiptVo.orderId;
+        vc.entityId = self.entityId;
         vc.type = TypeConsume;
+        [self pushViewController:vc];
     } else if ([receiptVo.payFor isEqualToString:@"pay_for_charge"]) {//充值
-        vc.type = TypeRecharge;
+        
+        LSPaymentOrderDetailRechargeController *vc = [[LSPaymentOrderDetailRechargeController alloc] init];
+        vc.payMsgTag = receiptVo.payMsgTag;
+        vc.customerId = receiptVo.customerId;
+        vc.customerRegisterId = receiptVo.customerRegisterId;
+        vc.orderCode = receiptVo.orderCode;
+        vc.orderId = receiptVo.orderId;
+        vc.entityId = self.entityId;
+//        vc.type = TypeRecharge;
+        [self pushViewController:vc];
     } else {
+        
+        LSPaymentOrderDetailController *vc = [[LSPaymentOrderDetailController alloc] init];
+        vc.payMsgTag = receiptVo.payMsgTag;
+        vc.customerId = receiptVo.customerId;
+        vc.customerRegisterId = receiptVo.customerRegisterId;
+        vc.orderCode = receiptVo.orderCode;
+        vc.orderId = receiptVo.orderId;
+        vc.entityId = self.entityId;
         vc.type = TypeConsume;
+        [self pushViewController:vc];
     }
-    [self.navigationController pushViewController:vc animated:NO];
+    
     [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromRight];
-
 }
-
 
 @end
 

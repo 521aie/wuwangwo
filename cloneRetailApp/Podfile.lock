@@ -37,7 +37,7 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
-  - SobotKit (2.2.1)
+  - SobotKit (2.2.3)
   - SVProgressHUD (0.8.1)
   - TDFCategories (1.0.4)
   - TDFConditionFilter (0.0.2)
@@ -119,7 +119,7 @@ SPEC CHECKSUMS:
   NullSafe: cbf1f77a24558e49bc76e2673f31250d3087c792
   RegexKitLite: 58b982393f205864df2df8ac2fafe811f59a214e
   SDWebImage: 6026ff38f0158e879a11394cf734f7771da6aff7
-  SobotKit: 17480b154cbb288207e179f41c79467b557d974b
+  SobotKit: af28c00118c9765fa3a63b132eaff6cece86789f
   SVProgressHUD: 287e89c9603d5615ba737d16732e2602fbdb0f17
   TDFCategories: 97c721291577bf9cd16f87f4f1a961fcfc57d0c1
   TDFConditionFilter: f135381a93045c804ad15e2d7e7a5cc096045d19

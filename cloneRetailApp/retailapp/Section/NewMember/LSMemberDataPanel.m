@@ -174,10 +174,7 @@
                 return @"新发卡数 (张)";
                 break;
             case 5:
-                return @"充值金额 (元)";
-                
-#warning “jicika"
-//                return @"储值充值金额 (元)";
+                return @"储值充值金额 (元)";
                 break;
             default:
                 break;
@@ -192,9 +189,6 @@
                 break;
             case 2:
                 return @"充值金额 (元)";
-                
-#warning “jicika"
-//                return @"储值充值金额 (元)";
                 break;
             default:
                 break;

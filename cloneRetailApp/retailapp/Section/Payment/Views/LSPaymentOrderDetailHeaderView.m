@@ -113,10 +113,6 @@
     self.viewRightLine = [[UIView alloc] init];
     self.viewRightLine.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
     [self.viewGray addSubview:self.viewRightLine];
-    
-    
-    
-
 }
 
 - (void)configConstraints {

@@ -241,7 +241,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ShopCell* cell = (ShopCell*)[tableView cellForRowAtIndexPath:indexPath];
-    _treeItem  = cell.item;
+    _treeItem  = self.dataList[indexPath.row];
     if (_treeItem.type==2) {
         //查看门店详情
 //        ChainShopInfoView* chainShopInfoView = [[ChainShopInfoView alloc] initWithNibName:[SystemUtil getXibName:@"ChainShopInfoView"] bundle:nil];

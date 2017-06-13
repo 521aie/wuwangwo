@@ -30,10 +30,10 @@
 @property (nonatomic, strong) LSFooterView *footerView;
 /** 数据源 */
 @property (nonatomic, strong) NSMutableArray *datas;
-/** 分页标志 */
-@property (nonatomic, strong) NSNumber *lastSortId;
 /** 总金额 */
 @property (nonatomic, strong) NSNumber *totalSaleAmount;
+/** 分页 */
+@property (nonatomic, assign) int currPage;
 
 @end
 
@@ -48,6 +48,7 @@
 
 - (void)configViews {
     self.datas = [NSMutableArray array];
+    self.currPage = 1;
     self.view.backgroundColor = [UIColor clearColor];
     //数据源
     self.datas = [NSMutableArray array];
@@ -63,10 +64,11 @@
     self.tableView.tableFooterView = [ViewFactory generateFooter:BOTTOM_HEIGHT];
     __weak typeof(self) wself = self;
     [self.tableView ls_addHeaderWithCallback:^{
-        wself.lastSortId = nil;
+        wself.currPage = 1;
         [wself loadData];
     }];
     [self.tableView ls_addFooterWithCallback:^{
+        wself.currPage ++;
         [wself loadData];
     }];
     [self.view addSubview:self.tableView];
@@ -99,7 +101,7 @@
     [BaseService getRemoteLSDataWithUrl:url param:self.param withMessage:nil show:YES CompletionHandler:^(id json) {
         [wself.tableView headerEndRefreshing];
         [wself.tableView footerEndRefreshing];
-        if (wself.lastSortId == nil) {
+        if (wself.currPage == 1) {
             [wself.datas removeAllObjects];
         }
         if ([ObjectUtil isNotNull:json[@"totalSaleAmount"]]) {
@@ -107,12 +109,12 @@
         }
         NSArray *map = [json objectForKey:@"performanceVos"];
         if ([ObjectUtil isNotNull:map]) {
-            wself.datas = [LSEmployeePerformanceVo mj_objectArrayWithKeyValuesArray:map];
+            [wself.datas addObjectsFromArray:[LSEmployeePerformanceVo mj_objectArrayWithKeyValuesArray:map]];
         }
         [wself.tableView reloadData];
-        wself.lastSortId = json[@"lastSortId"];
         wself.tableView.ls_show = YES;
     } errorHandler:^(id json) {
+        wself.currPage --;
         [wself.tableView headerEndRefreshing];
         [wself.tableView footerEndRefreshing];
         [AlertBox show:json];
@@ -124,11 +126,7 @@
     if (_param == nil) {
         _param = [NSMutableDictionary dictionary];
     }
-    if (self.lastSortId == nil) {
-        [_param removeObjectForKey:@"lastSortId"];
-    } else {
-        [_param setValue:self.lastSortId forKey:@"lastSortId"];
-    }
+    [_param setValue:@(self.currPage) forKey:@"currPage"];
     return _param;
 }
 

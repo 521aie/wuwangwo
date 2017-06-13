@@ -36,7 +36,9 @@
 @property (nonatomic, strong) UIView *viewLineS;
 /** 营收概况背景 */
 @property (nonatomic, strong) UIView *viewBg;
+@property (nonatomic, strong) UILabel *lblPracticalAmountTxt;
 @property (nonatomic, strong) UILabel *lblPracticalAmount;
+@property (nonatomic, strong) UILabel *lblMemberRechargeTxt;
 @property (nonatomic, strong) UILabel *lblMemberRecharge;
 @end
 
@@ -130,19 +132,29 @@
     [self.viewBig addSubview:self.viewBg];
     
     //销售实收/应收金额
+    self.lblPracticalAmountTxt = [[UILabel alloc] init];
+    self.lblPracticalAmountTxt.font = [UIFont systemFontOfSize:13];
+    self.lblPracticalAmountTxt.textColor = [ColorHelper getTipColor3];
+    self.lblPracticalAmountTxt.textAlignment = 1;
+    [self.viewBg addSubview:self.lblPracticalAmountTxt];
+    
     self.lblPracticalAmount = [[UILabel alloc] init];
     self.lblPracticalAmount.font = [UIFont systemFontOfSize:13];
     self.lblPracticalAmount.textColor = [ColorHelper getTipColor3];
-//    self.lblPracticalAmount.textAlignment = 1;
-    self.lblPracticalAmount.numberOfLines = 0;
+    self.lblPracticalAmount.textAlignment = 1;
     [self.viewBg addSubview:self.lblPracticalAmount];
     
     //会员充值实收/实收金额
+    self.lblMemberRechargeTxt = [[UILabel alloc] init];
+    self.lblMemberRechargeTxt.font = [UIFont systemFontOfSize:13];
+    self.lblMemberRechargeTxt.textColor = [ColorHelper getTipColor3];
+    self.lblMemberRechargeTxt.textAlignment = 1;
+    [self.viewBg addSubview:self.lblMemberRechargeTxt];
+    
     self.lblMemberRecharge = [[UILabel alloc] init];
     self.lblMemberRecharge.font = [UIFont systemFontOfSize:13];
     self.lblMemberRecharge.textColor = [ColorHelper getTipColor3];
-//    self.lblMemberRecharge.textAlignment = 1;
-    self.lblMemberRecharge.numberOfLines = 0;
+    self.lblMemberRecharge.textAlignment = 1;
     [self.viewBg addSubview:self.lblMemberRecharge];
 }
 
@@ -251,15 +263,27 @@
         make.width.equalTo(1);
     }];
     
-    [self.lblPracticalAmount makeConstraints:^(MASConstraintMaker *make) {
+    [self.lblPracticalAmountTxt makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(wself.viewBg).offset(15);
-        make.width.equalTo(105);
-        make.height.equalTo(60);
+        make.right.equalTo(firstLine.left).offset(-15);
+        make.height.equalTo(21);
+    }];
+    
+    [self.lblPracticalAmount makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(wself.lblPracticalAmountTxt);
+        make.bottom.equalTo(wself.viewBg).offset(-15);
+        make.height.equalTo(wself.lblPracticalAmountTxt);
+    }];
+    
+    [self.lblMemberRechargeTxt makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(wself.lblPracticalAmountTxt.top);
+        make.right.equalTo(wself.viewBg.right).offset(-15);
+        make.width.height.equalTo(wself.lblPracticalAmountTxt);
     }];
     
     [self.lblMemberRecharge makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(wself.lblPracticalAmount.top);
-        make.right.equalTo(wself.viewBg.right).offset(-15);
+        make.right.equalTo(wself.lblMemberRechargeTxt);
         make.width.height.equalTo(wself.lblPracticalAmount);
     }];
 }
@@ -267,7 +291,7 @@
 - (void)setShiftHeader :(LSUserHandoverVo *)obj {
     _userHandoverVo = obj;
     
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:self.filePath] placeholderImage:[UIImage imageNamed:@"img_default"]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:obj.filePath] placeholderImage:[UIImage imageNamed:@"img_default"]];
     
     NSString *sex = nil;
     if ([obj.sex  isEqual: @1]) {
@@ -275,7 +299,7 @@
     } else if ([obj.sex  isEqual: @2]){
         sex = @"女";
     }else {
-        sex = @"中性";
+        sex = @"-";
     }
     self.lblName.text = [NSString stringWithFormat:@"%@(%@)",obj.userName,sex];
     
@@ -303,20 +327,24 @@
     if ([obj.handoverSrc  isEqual: @3]) {
         
         if ([ObjectUtil isNotNull:obj.recieveAmount]) {
-            self.lblPracticalAmount.text = [NSString stringWithFormat:@"销售实收（元）\n\n%.2f",[obj.recieveAmount doubleValue]];
+            self.lblPracticalAmountTxt.text = @"销售实收（元）";
+            self.lblPracticalAmount.text = [NSString stringWithFormat:@"%.2f",[obj.recieveAmount doubleValue]];
         }
         
         if ([ObjectUtil isNotNull:obj.chargeAmount]) {
-            self.lblMemberRecharge.text = [NSString stringWithFormat:@"会员充值实收（元）\n\n%.2f",[obj.chargeAmount doubleValue]];
+            self.lblMemberRechargeTxt.text = @"会员充值实收（元)";
+            self.lblMemberRecharge.text = [NSString stringWithFormat:@"%.2f",[obj.chargeAmount doubleValue]];
         }
     } else {
         
         if ([ObjectUtil isNotNull:obj.totalResultAmount])  {
-            self.lblPracticalAmount.text = [NSString stringWithFormat:@"应收金额（元）\n\n%.2f",[obj.totalResultAmount doubleValue]];
+            self.lblPracticalAmountTxt.text = @"应收金额（元）";
+            self.lblPracticalAmount.text = [NSString stringWithFormat:@"%.2f",[obj.totalResultAmount doubleValue]];
         }
         
         if ([ObjectUtil isNotNull:obj.totalRecieveAmount])  {
-            self.lblMemberRecharge.text = [NSString stringWithFormat:@"实收金额（元）\n\n%.2f",[obj.totalRecieveAmount doubleValue]];
+            self.lblMemberRechargeTxt.text = @"实收金额（元）";
+            self.lblMemberRecharge.text = [NSString stringWithFormat:@"%.2f",[obj.totalRecieveAmount doubleValue]];
         }
     }
     

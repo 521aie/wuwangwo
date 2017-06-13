@@ -9,14 +9,14 @@
 #import "LSMemberMeterCardListVo.h"
 
 @implementation LSMemberMeterCardListVo
-- (instancetype)initWithDictionary:(NSDictionary *)json {
-    if (self = [super init]) {
-        [self setValuesForKeysWithDictionary:json];
-    }
-    return self;
+
++ (instancetype)byTimeRechargeRecordVo:(NSDictionary *)jsonDic {
+    return [self mj_objectWithKeyValues:jsonDic];
 }
 
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
++ (NSArray *)byTimeRechargeRecordVoList:(NSArray *)keyValuesArray {
     
+    return [self mj_objectArrayWithKeyValuesArray:keyValuesArray];
 }
+
 @end

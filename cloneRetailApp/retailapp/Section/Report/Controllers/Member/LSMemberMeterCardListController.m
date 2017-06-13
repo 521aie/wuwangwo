@@ -10,6 +10,7 @@
 #import "LSMemberMeterCardDetailController.h"
 #import "LSMemberMeterCardListCell.h"
 #import "LSMemberMeterCardListVo.h"
+#import "SMHeaderItem.h"
 #import "DHHeadItem.h"
 #import "HeaderItem.h"
 #import "LSFooterView.h"
@@ -21,11 +22,13 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) LSFooterView *footView;
-/**数据源*/
-@property (nonatomic, strong) NSMutableDictionary *dict;
-/**记录日期数*/
-@property (nonatomic, strong) NSMutableArray *dates;
+/**<按时间分组>*/
+@property (nonatomic, strong) NSMutableDictionary *datasDic;
+/**<sections：按yyyy-MM降序排列>*/
+@property (nonatomic, strong) NSArray *sectionsArray;
 @property (nonatomic, strong) NSNumber *lastDateTime;
+/**<分页标识>*/
+@property (nonatomic, assign) NSInteger lastTime;
 @end
 
 @implementation LSMemberMeterCardListController
@@ -33,18 +36,24 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.lastTime = 1;
     [self configViews];
     [self configConstraints];
     [self loadData];
+}
+
+- (NSMutableDictionary *)datasDic {
+    
+    if (!_datasDic) {
+        _datasDic = [[NSMutableDictionary alloc] init];
+    }
+    return _datasDic;
 }
 
 - (void)configViews {
     
     self.view.backgroundColor = [UIColor clearColor];
     [self configTitle:@"计次充值记录" leftPath:Head_ICON_BACK rightPath:nil];
-    
-    self.dict = [[NSMutableDictionary alloc] init];
-    self.dates = [[NSMutableArray alloc] init];
 
     self.tableView = [[UITableView alloc] init];
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -59,12 +68,14 @@
     __weak typeof(self) wself = self;
     [self.tableView ls_addHeaderWithCallback:^{
         
+        wself.lastTime = 1;
         wself.lastDateTime = nil;
         [wself loadData];
     }];
     
     [self.tableView ls_addFooterWithCallback:^{
         
+        wself.lastTime += 1;
         [wself loadData];
     }];
     
@@ -124,97 +135,92 @@
     [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromTop];
 }
 
-- (NSMutableDictionary *)param {
-    
-    [_param removeObjectForKey:@"lastDateTime"];
-    
-    if ([ObjectUtil isNotNull:self.lastDateTime]) {
-        
-        [_param setValue:self.lastDateTime forKey:@"lastDateTime"];
-    }
-    
-    return _param;
-}
-
 #pragma mark - 加载数据
 - (void)loadData {
     
-    NSString *url = @"accountcard/shopRachargeList";
     __weak typeof(self) wself = self;
+    [_param setValue:self.lastDateTime forKey:@"lastDateTime"];
+    NSString *url = @"accountcard/shopRachargeList";
     
     [BaseService getRemoteLSDataWithUrl:url param:self.param withMessage:@"" show:YES CompletionHandler:^(id json) {
         
         [wself.tableView headerEndRefreshing];
         [wself.tableView footerEndRefreshing];
         
-        if (wself.lastDateTime == nil) {
-            
-            [wself.dict removeAllObjects];
-            [wself.dates removeAllObjects];
+        if ([ObjectUtil isNotNull:[json valueForKey:@"lastDateTime"]]) {
+            self.lastDateTime = [json valueForKey:@"lastDateTime"];
+        }
+        
+        if (wself.lastTime == 1) {
+
+            [wself.datasDic removeAllObjects];
+            wself.sectionsArray = nil;
         }
         
         wself.lastDateTime = json[@"lastDateTime"];
-        
         NSArray *map = json[@"sortedTimeAccountFlowVos"];
         
-        if ([ObjectUtil isNotEmpty:map]) {
-            
-            for (NSDictionary *obj in map) {
-                
-                NSMutableArray *arr = [obj objectForKey:@"accountFlowList"];
-                NSString *time = [obj objectForKey:@"sortedTime"];
-                
-                NSMutableArray *tempArray = [NSMutableArray array];
-                for (NSDictionary *list in arr) {
-                    
-                    LSMemberMeterCardListVo *meterCardListVo = [[LSMemberMeterCardListVo alloc] initWithDictionary:list];
-                    [tempArray addObject:meterCardListVo];
-                }
-                
-                [wself.dict setValue:tempArray forKey:time];
-                [self.dates addObject:time];
-                
-            }
-        }
+        [wself dealResponseDataByTime:map];
         
         [wself.tableView reloadData];
         wself.tableView.ls_show = YES;
         
     } errorHandler:^(id json) {
         
+        wself.lastTime = MAX(1, --wself.lastTime);
         [wself.tableView headerEndRefreshing];
         [wself.tableView footerEndRefreshing];
         [LSAlertHelper showAlert:json];
     }];
 }
 
+// 根据计次充值记录的生成时间来整理分组
+- (void)dealResponseDataByTime:(NSArray *)sortedTimeAccountFlowVos {
+    
+    if (sortedTimeAccountFlowVos.count > 0) {
+        
+        [sortedTimeAccountFlowVos enumerateObjectsUsingBlock:^(NSDictionary *dic, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            NSArray *voList = [LSMemberMeterCardListVo byTimeRechargeRecordVoList:[dic valueForKey:@"accountFlowList"]];
+            NSArray *keyArray = [dic[@"sortedTime"] componentsSeparatedByString:@"-"];
+            NSString *timeKey = [NSString stringWithFormat:@"%@年%@月", keyArray.firstObject,keyArray.lastObject];
+            NSMutableArray *array = [self.datasDic valueForKey:timeKey];
+            if (!array) {
+                array = [[NSMutableArray alloc] init];
+                [self.datasDic setObject:array forKey:timeKey];
+            }
+            [array addObjectsFromArray:voList];
+            
+        }];
+        
+        NSArray *allKeys = [[self.datasDic allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+        self.sectionsArray = [[allKeys reverseObjectEnumerator] allObjects];
+        
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark - UItableView
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return self.dates.count;
+    return _sectionsArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    NSArray *arr = [self.dict objectForKey:self.dates[section]];
-    return arr.count;
+
+    return [[_datasDic valueForKey:_sectionsArray[section]] count];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    HeaderItem* headItem = [HeaderItem headerItem];
-    NSString *time = self.dates[section];
-    NSString *strTemp = [time stringByReplacingOccurrencesOfString:@"-" withString:@"年"];
-    NSMutableString* strTime=[[NSMutableString alloc]initWithString:strTemp];
-    [strTime insertString:@"月"atIndex:7];
-    [headItem initWithName:strTime];
-    
-    return headItem;
+    SMHeaderItem *header = [SMHeaderItem loadFromNib];
+    header.lblVal.text = _sectionsArray[section];
+    return header;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSArray *operateListVos = [self.dict objectForKey:self.dates[indexPath.section]];
+    NSArray *operateListVos = [self.datasDic valueForKey:_sectionsArray[indexPath.section]];
     
     LSMemberMeterCardListCell *cell = [LSMemberMeterCardListCell memberMeterCardListCellWithTableView:tableView];
     LSMemberMeterCardListVo *vo = operateListVos[indexPath.row];
@@ -228,7 +234,8 @@
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     
     LSMemberMeterCardDetailController *vc = [[LSMemberMeterCardDetailController alloc] init];
-    NSArray *listVos = [self.dict objectForKey:self.dates[indexPath.section]];
+    
+    NSArray *listVos = [self.datasDic valueForKey:_sectionsArray[indexPath.section]];
     LSMemberMeterCardListVo *list = listVos[indexPath.row];
     [param setValue:list.id forKey:@"id"];
     vc.param = param;

@@ -62,10 +62,7 @@
 - (void)configViews {
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     //标题
-    [self configTitle:@"会员充值记录" leftPath:Head_ICON_BACK rightPath:nil];
-    
-#warning “jicika"
-//    [self configTitle:@"储值充值记录" leftPath:Head_ICON_BACK rightPath:nil];
+    [self configTitle:@"储值充值记录" leftPath:Head_ICON_BACK rightPath:nil];
     //scollVIew
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kNavH, SCREEN_W, SCREEN_H - kNavH)];
     [self.view addSubview:self.scrollView];
@@ -108,11 +105,7 @@
     UIButton *btn = [LSViewFactor addGreenButton:self.container title:@"查询" y:0];
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    NSString *text = @"提示：可以根据上面的条件查询相应的会员充值记录。";
-    
-#warning “jicika"
-//    NSString *text = @"提示：可以根据上面的条件查询相应的储值充值记录。";
-    
+    NSString *text = @"提示：可以根据上面的条件查询相应的储值充值记录。";
     [LSViewFactor addExplainText:self.container text:text y:0];
     self.LstTransactionTime.tag = TAG_LST_TRANSACTION_TIME;
     self.LstStartTime.tag = TAG_LST_TRANSACTION_START_TIME;

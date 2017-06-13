@@ -117,11 +117,12 @@
 -(void) initMainView
 {
     [self.lsPurPrice initLabel:@"参考进货价" withHit:nil delegate:self];
-    if ([[Platform Instance] getShopMode] == 1 || ([[Platform Instance] getShopMode] == 3 && [[[Platform Instance] getkey:PARENT_ID] isEqualToString:@"0"])) {
-        [self.lsPurPrice visibal:YES];
-    }else{
-        [self.lsPurPrice visibal:NO];
-    }
+    [self.lsPurPrice visibal:NO];
+//    if ([[Platform Instance] getShopMode] == 1 || ([[Platform Instance] getShopMode] == 3 && [[[Platform Instance] getkey:PARENT_ID] isEqualToString:@"0"])) {
+//        [self.lsPurPrice visibal:YES];
+//    }else{
+//        [self.lsPurPrice visibal:NO];
+//    }
     
     [self.lsHangTagPrice initLabel:@"吊牌价" withHit:nil isrequest:YES delegate:self];
     if ([[Platform Instance] getShopMode] == 1 || ([[Platform Instance] getShopMode] == 3 && [[[Platform Instance] getkey:PARENT_ID] isEqualToString:@"0"])) {

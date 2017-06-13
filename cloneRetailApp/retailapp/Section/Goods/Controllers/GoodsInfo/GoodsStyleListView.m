@@ -65,7 +65,7 @@
     self.searchBar.ls_top = y;
     y = y + self.searchBar.ls_height;
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, y, SCREEN_W, SCREEN_H - kNavH)];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, y, SCREEN_W, SCREEN_H - y)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -384,6 +384,13 @@
 {
     if (listStyleVo == nil) {
         _addStyleVo = nil;
+        if (_addStyleVo == nil) {
+            _addStyleVo = [[StyleVo alloc] init];
+        }
+        //如果输入的是数字默认赋值到详情添加页
+        if ([NSString isValidNumber:self.searchCode]) {
+            _addStyleVo.styleCode = self.searchCode;
+        }
         static UIAlertView *alertView;
         if (alertView != nil) {
             [alertView dismissWithClickedButtonIndex:0 animated:NO];

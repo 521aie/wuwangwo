@@ -258,12 +258,12 @@ const CGFloat kMarginValue = 100.0f;
         topY += CGRectGetHeight(view.frame)+5;
         [self.scrollViewSubViews addObject:view];
         
-        //配置个人信息
-        if (!([[Platform Instance] getShopMode] == 3 || ([[Platform Instance] getShopMode] == 1 && [[[Platform Instance] getkey:USER_NAME] isEqualToString:@"ADMIN"]) || [[Platform Instance] lockAct:ACTION_USER_INCOME_SEARCH])) {
-            view = [self addShopSaleInfoView:topY];
-            topY += CGRectGetHeight(view.frame);
-            [self.scrollViewSubViews addObject:view];
-        }
+//       // 配置个人信息
+//        if (!([[Platform Instance] getShopMode] == 3 || ([[Platform Instance] getShopMode] == 1 && [[[Platform Instance] getkey:USER_NAME] isEqualToString:@"ADMIN"]) || [[Platform Instance] lockAct:ACTION_USER_INCOME_SEARCH])) {
+//            view = [self addShopSaleInfoView:topY];
+//            topY += CGRectGetHeight(view.frame);
+//            [self.scrollViewSubViews addObject:view];
+//        }
     }
     view = [self addDailyRunView:topY];
     topY += CGRectGetHeight(view.frame);
@@ -304,19 +304,19 @@ const CGFloat kMarginValue = 100.0f;
     [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromRight];
 }
 
-// 导购员个人销售总业绩指南
-- (ShopReatedManInfoView *)addShopSaleInfoView:(CGFloat)topY
-{
-    ShopReatedManInfoView *shopSaleInfoView = [ShopReatedManInfoView shopSaleInfoView:topY backBlock:^{
-        // 跳转到导购员个人营业汇总界面
-        BusinessDetailView *businessDetailView = [[BusinessDetailView alloc] initWithNibName:[SystemUtil getXibName:@"BusinessDetailView"] bundle:nil];
-        businessDetailView.shopFlag = 2;
-        [self.navigationController pushViewController:businessDetailView animated:NO];
-        [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromRight];
-    }];
-    [self.scrollView addSubview:shopSaleInfoView];
-    return shopSaleInfoView;
-}
+//// 导购员个人销售总业绩指南
+//- (ShopReatedManInfoView *)addShopSaleInfoView:(CGFloat)topY
+//{
+//    ShopReatedManInfoView *shopSaleInfoView = [ShopReatedManInfoView shopSaleInfoView:topY backBlock:^{
+//        // 跳转到导购员个人营业汇总界面
+//        BusinessDetailView *businessDetailView = [[BusinessDetailView alloc] initWithNibName:[SystemUtil getXibName:@"BusinessDetailView"] bundle:nil];
+//        businessDetailView.shopFlag = 2;
+//        [self.navigationController pushViewController:businessDetailView animated:NO];
+//        [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromRight];
+//    }];
+//    [self.scrollView addSubview:shopSaleInfoView];
+//    return shopSaleInfoView;
+//}
 
 // 配置门店营业信息 view
 - (ShopIncomeView *)addIncomeView:(NSArray *)titles top:(CGFloat)topY

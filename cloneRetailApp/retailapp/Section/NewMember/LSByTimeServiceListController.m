@@ -108,6 +108,8 @@ static NSString *byTimeServiceCellReuseId = @"LSByTimeServiceCell";
     
     if (vo.goodsArray) {
         
+//        self.tableView.footerHidden = YES;
+        
         // 存在展开记次商品的cell，进行隐藏
         if (![vo isEqual:self.lastedServiceVo]) {
             self.lastedServiceVo.isExpand = NO;
@@ -133,6 +135,12 @@ static NSString *byTimeServiceCellReuseId = @"LSByTimeServiceCell";
         }
         
         self.lastedServiceVo = vo;
+        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//           
+//            [self.tableView setNeedsDisplay];
+//             self.tableView.footerHidden = NO;
+//        });
         
     } else {
        
@@ -182,7 +190,7 @@ static NSString *byTimeServiceCellReuseId = @"LSByTimeServiceCell";
     } else {
         [param setObject:@"0" forKey:@"isExpiry"];
     }
-    [param setObject:@"99928347592525410159252590500003" forKey:@"cardId"];
+    [param setValue:_cardId forKey:@"cardId"];
     [param setValue:_lastDateTime forKey:@"lastDateTime"];
     NSString *url = @"accountcard/memberAccountCardList";
     __weak typeof(self) wself = self;

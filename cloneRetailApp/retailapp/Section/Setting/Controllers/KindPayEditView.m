@@ -235,27 +235,6 @@
     /*
      优惠券，开关“收入计入销售额”初始默认为关闭状态；其余支付方式，初始默认为打开状态
      */
-    if ([name isEqualToString:@"会员卡"] ||[name isEqualToString:@"优惠券"]) {
-        self.lblNote.hidden = YES;
-        [self.rdoSale visibal:NO];
-        [self.vewSale visibal:YES];
-        if ([name isEqualToString:@"会员卡"]) {
-            [self.vewSale initData:@"计入" ];
-            [self.rdoSale changeData:@"1"];
-        } else {
-            [self.vewSale initData:@"不计入"];
-            [self.rdoSale changeData:@"0"];
-        }
-    } else {
-        self.lblNote.hidden = NO;
-        [self.rdoSale visibal:YES];
-        [self.vewSale visibal:NO];
-        [self.rdoSale initData:@"1"];
-    }
-    
-    
-#warning “jicika"
-    /*
     if ([name isEqualToString:@"储值卡"] ||[name isEqualToString:@"优惠券"]) {
         self.lblNote.hidden = YES;
         [self.rdoSale visibal:NO];
@@ -273,7 +252,6 @@
         [self.vewSale visibal:NO];
         [self.rdoSale initData:@"1"];
     }
-    */
     [self.txtName changeData:[item obtainItemName]];
     [UIHelper refreshUI:self.container scrollview:self.scrollView];
     return YES;

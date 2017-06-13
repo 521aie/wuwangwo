@@ -35,6 +35,8 @@
     self.lblName = [[UILabel alloc] init];
     self.lblName.font = [UIFont systemFontOfSize:15];
     self.lblName.textColor = [ColorHelper getTipColor3];
+    self.lblName.numberOfLines = 0;
+    self.lblName.lineBreakMode = NSLineBreakByWordWrapping;
     [self.contentView addSubview:self.lblName];
     
     self.lblCode = [[UILabel alloc] init];
@@ -61,7 +63,6 @@
         make.top.equalTo(wself.contentView).offset(19);
         make.left.equalTo(wself.contentView).offset(12);
         make.right.equalTo(wself.contentView).offset(-10);
-        make.height.equalTo(20);
     }];
     
     [self.lblCode makeConstraints:^(MASConstraintMaker *make) {
@@ -69,7 +70,7 @@
         make.left.equalTo(wself.lblName.left);
         make.right.equalTo(wself.lblCount.left);
         make.bottom.equalTo(wself.contentView).offset(-19);        
-//        make.height.equalTo(13);
+        make.height.equalTo(13);
     }];
     
     [self.lblCount makeConstraints:^(MASConstraintMaker *make) {

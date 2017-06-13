@@ -14,6 +14,8 @@
 #import "LSByTimeRechargeRecordCell.h"
 #import "LSByTimeRechargeRecordVo.h"
 #import "DateUtils.h"
+#import "LSMemberInfoVo.h"
+#import "LSMemberCardVo.h"
 
 static NSString *tableCellReuseIdentifier = @"tableCellReuseIdentifier";
 @interface LSMemberByTimeRechargeNotesListController ()<INavigateEvent, UITableViewDelegate, UITableViewDataSource>
@@ -23,15 +25,20 @@ static NSString *tableCellReuseIdentifier = @"tableCellReuseIdentifier";
 @property (nonatomic, strong) NSNumber *lastTime;/**<分页标识>*/
 @property (nonatomic, strong) NSMutableDictionary *datasDic;/**<按时间分组>*/
 @property (nonatomic, strong) NSArray *sectionsArray;/**<sections：按yyyy-MM降序排列>*/
-@property (nonatomic, strong) NSNumber *memberCardId;/**<会员卡id>*/
+@property (nonatomic, strong) NSString *memberCardId;/**<会员卡id>*/
+@property (nonatomic, strong) LSMemberCardVo *cardVo;/**<记次充值记录对应的会员卡vo>*/
+@property (nonatomic, strong) LSMemberPackVo *packVo;/**<会员vo>*/
+@property (nonatomic, strong) NSNumber *lastDateTime;/**<分页>*/
 @end
 
 @implementation LSMemberByTimeRechargeNotesListController
 
-- (instancetype)initWithMemberCardId:(id)cardId {
+- (instancetype)initWithMemberCardVo:(LSMemberCardVo *)card packVo:(LSMemberPackVo *)packVo {
     self = [super init];
     if (self) {
-        _memberCardId = cardId;
+        _memberCardId = card.sId?:@"";
+        _cardVo = card;
+        _packVo = packVo;
     }
     return self;
 }
@@ -76,6 +83,7 @@ static NSString *tableCellReuseIdentifier = @"tableCellReuseIdentifier";
     __weak typeof(self) weakSelf = self;
     [weakSelf.tableView ls_addHeaderWithCallback:^{
         weakSelf.lastTime = nil;
+        weakSelf.lastDateTime = nil;
         [weakSelf byTimeRechargeRecordList];
     }];
     
@@ -126,7 +134,7 @@ static NSString *tableCellReuseIdentifier = @"tableCellReuseIdentifier";
     
     NSArray *voGroupArray = [self.datasDic valueForKey:_sectionsArray[indexPath.section]];
     LSByTimeRechargeRecordVo *vo = voGroupArray[indexPath.row];
-    LSByTimeRechargeRecordDetailController *vc = [[LSByTimeRechargeRecordDetailController alloc] initWith:vo.accountCardId memberCardId:_memberCardId];
+    LSByTimeRechargeRecordDetailController *vc = [[LSByTimeRechargeRecordDetailController alloc] initWithRechargeRecordVo:vo memberCardVo:_cardVo packVo:_packVo];
     [self pushController:vc from:kCATransitionFromRight];
 }
 
@@ -136,14 +144,18 @@ static NSString *tableCellReuseIdentifier = @"tableCellReuseIdentifier";
 // 计次充值记录列表
 - (void)byTimeRechargeRecordList {
     
-    // @{@"cardId":@"213213223",@"lastDateTime":@(231323)};
-    NSDictionary *param = @{@"cardId":@"99928347592525410159252590500003"};
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setValue:self.memberCardId forKey:@"cardId"];
+    [param setValue:self.lastDateTime forKey:@"lastDateTime"];
     NSString *url = @"accountcard/memberRachargeList";
     __weak typeof(self) wself = self;
     [BaseService getRemoteLSDataWithUrl:url param:param withMessage:nil show:YES CompletionHandler:^(id json) {
         
         [wself.tableView headerEndRefreshing];
         [wself.tableView footerEndRefreshing];
+        if ([ObjectUtil isNotNull:[json valueForKey:@"lastDateTime"]]) {
+            self.lastDateTime = [json valueForKey:@"lastDateTime"];
+        }
         
         if (wself.lastTime == nil) {
             [wself.datasDic removeAllObjects];

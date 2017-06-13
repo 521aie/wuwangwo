@@ -81,23 +81,17 @@
     list = [NSMutableArray array];
     model = [LSModuleModel moduleModelWithName:@"会员消费记录" detail:@"查询会员交易信息" path:@"ico_report_huiyuanjiaoyi" code:ACTION_MEMBER_CONSUMPTION_SEARCH];
     [list addObject:model];
-    model = [LSModuleModel moduleModelWithName:@"会员充值记录" detail:@"查询会员充值记录" path:@"ico_nav_huiyuanchongzhi" code:ACTION_CARD_CHARGE_SEARCH];
-    
-#warning “jicika"
-//    model = [LSModuleModel moduleModelWithName:@"储值充值记录" detail:@"查询储值充值记录" path:@"ico_nav_huiyuanchongzhi" code:ACTION_CARD_CHARGE_SEARCH];
+    model = [LSModuleModel moduleModelWithName:@"储值充值记录" detail:@"查询储值充值记录" path:@"ico_nav_huiyuanchongzhi" code:ACTION_CARD_CHARGE_SEARCH];
     [list addObject:model];
     model = [LSModuleModel moduleModelWithName:@"会员积分兑换记录" detail:@"查询会员积分兑换记录" path:@"ico_nav_jifenduihuan" code:ACTION_MEMBER_EXCHANGE_SEARCH];
     [list addObject:model];
     model = [LSModuleModel moduleModelWithName:@"会员卡操作记录" detail:@"查询会员卡操作记录" path:@"report_member_card_operate" code:ACTION_CARD_OPERATE];
     [list addObject:model];
-    
-#warning "jicika"
-    /*
     if ([[[Platform Instance] getkey:SHOP_MODE] intValue] == 102 && [[Platform Instance] getShopMode] == 1) {
         model = [LSModuleModel moduleModelWithName:@"计次充值记录" detail:@"查询计次充值记录" path:@"ico_report_meterRecharge" code:ACTION_ACCOUNTCARD_CHARGE_SEARCH];
         [list addObject:model];
     }
-    */
+    
     [self.map setObject:list forKey:REPORT_TYPE3];
     
 //    list = [NSMutableArray array];
@@ -127,7 +121,7 @@
         vc = [[LSEmployeePerformanceViewController alloc] init];
     } else if ([code isEqualToString:ACTION_MEMBER_CONSUMPTION_SEARCH]) { //会员消费记录
         vc = [[LSMemberConsumeViewController alloc] init];
-    } else if ([code isEqualToString:ACTION_CARD_CHARGE_SEARCH]) { //储值充值记录/会员充值记录
+    } else if ([code isEqualToString:ACTION_CARD_CHARGE_SEARCH]) { //储值充值记录
         vc = [[LSMemberRechargeViewReportController alloc] init];
     } else if ([code isEqualToString:ACTION_SELL_SEARCH]){ //商品交易流水报表
         vc = [[LSGoodsTransactionFlowController alloc] init];
@@ -147,13 +141,9 @@
         vc = [[LSGoodsPurchaseViewController alloc] init];
     } else if([code isEqualToString:ACTION_SUPPLY_ORDER_REPORT]) { //供应商采购报表
         vc = [[LSSuppilerPurchaseViewController alloc] init];
+    }else if([code isEqualToString:ACTION_ACCOUNTCARD_CHARGE_SEARCH]) { //计次充值记录
+        vc = [[LSMemberMeterCardController alloc] init];
     }
- 
-#warning "jicika"
-//    else if([code isEqualToString:ACTION_ACCOUNTCARD_CHARGE_SEARCH]) { //计次充值记录
-//        vc = [[LSMemberMeterCardController alloc] init];
-//    }
-    
     [self.navigationController pushViewController:vc animated:NO];
     [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromRight];
 }

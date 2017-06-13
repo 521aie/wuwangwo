@@ -61,9 +61,11 @@
     self.lblType = [[UILabel alloc] init];
     self.lblType.font = [UIFont systemFontOfSize:13];
     self.lblType.textColor = [ColorHelper getTipColor6];
+    self.lblType.lineBreakMode = NSLineBreakByCharWrapping;
+    self.lblType.numberOfLines = 0;
     [self.viewBg addSubview:self.lblType];
     
-    //余额
+    //卡号
     self.lblCardNum = [[UILabel alloc] init];
     self.lblCardNum.font = [UIFont systemFontOfSize:13];
     self.lblCardNum.textColor = [ColorHelper getTipColor6];
@@ -98,6 +100,7 @@
     [self.lblNameAndTel makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(wself.imgViewIcon.right).offset(10);
         make.top.equalTo(wself.imgViewIcon.top);
+        make.right.equalTo(wself);
         make.height.equalTo(20);
     }];
     
@@ -105,14 +108,14 @@
     [self.lblType makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(wself.lblNameAndTel.bottom);
         make.left.right.equalTo(wself.lblNameAndTel);
-        make.height.equalTo(wself.lblNameAndTel);
+        make.bottom.equalTo(wself.lblCardNum.top);
     }];
     
     //卡号
     [self.lblCardNum makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(wself.lblType.bottom);
         make.left.right.equalTo(wself.lblNameAndTel);
-        make.bottom.equalTo(wself.imgViewIcon.bottom);
+//        make.bottom.equalTo(wself.imgViewIcon.bottom);
     }];
     
     //底部锯齿图片
@@ -134,7 +137,12 @@
     //设置会员名手机号
     NSString *txtName = personDetailVO.payName;
     txtName = [NSString text:txtName subToIndex:8];
-    NSString *txtTel = [NSString stringWithFormat:@"（%@）",personDetailVO.mobile];
+    
+    NSString *txtTel = nil;
+    if ([NSString isNotBlank:personDetailVO.mobile]) {
+        
+       txtTel = [NSString stringWithFormat:@"（%@）",personDetailVO.mobile];
+    }
     NSMutableAttributedString *attrName,*attrTel;
     
     if ([NSString isNotBlank:txtName]) {
@@ -155,9 +163,19 @@
     self.lblNameAndTel.attributedText = attrName;
     
     //设置会员卡类型
+    NSString *txtRation = nil;
+    NSString *txtRationway = nil;
     if ([NSString isNotBlank:personDetailVO.kindCardName]) {
         
-        NSString *txtRation = [NSString stringWithFormat:@"%@ (优惠：%@)",personDetailVO.kindCardName,personDetailVO.Ratioway];
+        txtRation = personDetailVO.kindCardName;
+    }
+    if ([NSString isNotBlank:personDetailVO.Ratioway]) {
+        
+        txtRationway = personDetailVO.Ratioway;
+    }
+    if ([NSString isNotBlank:txtRationway]) {
+        self.lblType.text = [NSString stringWithFormat:@"%@ (优惠：%@)",txtRation,txtRationway];
+    }else{
         self.lblType.text = txtRation;
     }
     

@@ -23,4 +23,5 @@ typedef enum {
 @property (nonatomic, strong) NSNumber *channelType;
 /** <#注释#> */
 @property (nonatomic, assign) Type type;
+@property (nonatomic, copy) NSString *payMsgTag;
 @end

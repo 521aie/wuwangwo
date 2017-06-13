@@ -10,5 +10,5 @@
 
 @interface LSByTimeRechargeRecordDetailController : BaseViewController
 
-- (instancetype)initWith:(id)byTimeCardId memberCardId:(id)cardId;
+- (instancetype)initWithRechargeRecordVo:(id)vo memberCardVo:(id)cardVo packVo:(id)packVo;
 @end

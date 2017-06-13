@@ -246,7 +246,17 @@
     NSString *txt = nil;
     if ([ObjectUtil isNull:onlineChargeVo.free_rule]&& [ObjectUtil isNull:onlineChargeVo.free_degree]) {
        
-        txt = @"";
+        if ([NSString isNotBlank:onlineChargeVo.accountCardName]) {
+            
+            txt = [NSString stringWithFormat:@"计次服务：%@",onlineChargeVo.accountCardName];
+        }else{
+            [self.lblPayCountTex updateConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.viewBg).offset(30);
+            }];
+            [self.lblPayCount updateConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.lblPayCountTex.top);
+            }];
+        }
         
     } else if ([self isNull:onlineChargeVo.free_rule]&& [self isNotNull:onlineChargeVo.free_degree]) {
         

@@ -12,6 +12,5 @@
 @interface LSPaymentOrderDetailCell : UITableViewCell
 
 + (instancetype)paymentOrderDetailCellWithTable:(UITableView *)tableView;
-/** <#注释#> */
 @property (nonatomic, strong) InstanceVo *goodsInfo;
 @end

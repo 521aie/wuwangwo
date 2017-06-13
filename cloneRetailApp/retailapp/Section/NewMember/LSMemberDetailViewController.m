@@ -233,18 +233,17 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
         _sendTime.valueLable.text = [DateUtils formateChineseTime3:_memberCardVo.activeDate.longLongValue];
     }
     
-#warning "jicika"
     // 计次充值记录
-//    if ([[Platform Instance]  getShopMode] == 1 && [[[Platform Instance] getkey:SHOP_MODE] integerValue] == 102) {
-//      
-//        [_byTimeRechargeRecord initData:@"" withVal:@""];
-//        _byTimeCard.lblVal.hidden = YES;
-//        if (_memberCardVo.byTimeServiceTimes.integerValue > 0) {
-//             [_byTimeCard initData:[NSString stringWithFormat:@"%@项",_memberCardVo.byTimeServiceTimes] withVal:@"1"];
-//             _byTimeCard.lblVal.hidden = NO;
-//        }
-//    }
-#warning "jicika"
+    if ([[Platform Instance]  getShopMode] == 1 && [[[Platform Instance] getkey:SHOP_MODE] integerValue] == 102) {
+      
+        [_byTimeRechargeRecord initData:@"" withVal:@""];
+        _byTimeCard.lblVal.hidden = YES;
+        if (_memberCardVo.byTimeServiceTimes.integerValue >= 0) {
+             [_byTimeCard initData:[NSString stringWithFormat:@"%@项",_memberCardVo.byTimeServiceTimes] withVal:@"1"];
+             _byTimeCard.lblVal.hidden = NO;
+        }
+    }
+
     
     // 发卡门店
     _sendShop.valueLable.text = [NSString isNotBlank:_memberCardVo.shopEntityName] ? _memberCardVo.shopEntityName : @"";
@@ -449,27 +448,26 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
             _integralDetail.imgMore.image = [UIImage imageNamed:@"ico_next"];
         }
         
-#warning "jicika"
+        
         // 计次卡相关：商超单店才显示
-//        if ([[Platform Instance] getShopMode] == 1 && [[[Platform Instance] getkey:SHOP_MODE] integerValue] == 102) {
-//          
-//            // 计次卡
-//            if (!_byTimeCard) {
-//                _byTimeCard = [[EditItemList alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 48.0)];
-//                [_byTimeCard initLabel:@"计次服务" withHit:nil delegate:self];
-//                _byTimeCard.imgMore.image = [UIImage imageNamed:@"ico_next"];
-//            }
-//            
-//            // 计次卡充值记录
-//            if (!_byTimeRechargeRecord) {
-//                _byTimeRechargeRecord = [[EditItemList alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 48.0)];
-//                _byTimeRechargeRecord.lblVal.hidden = YES;
-//                [_byTimeRechargeRecord initLabel:@"计次充值记录" withHit:nil delegate:self];
-//                _byTimeRechargeRecord.imgMore.image = [UIImage imageNamed:@"ico_next"];
-//            }
-//
-//        }
-#warning "jicika"
+        if ([[Platform Instance] getShopMode] == 1 && [[[Platform Instance] getkey:SHOP_MODE] integerValue] == 102) {
+          
+            // 计次卡
+            if (!_byTimeCard) {
+                _byTimeCard = [[EditItemList alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 48.0)];
+                [_byTimeCard initLabel:@"计次服务" withHit:nil delegate:self];
+                _byTimeCard.imgMore.image = [UIImage imageNamed:@"ico_next"];
+            }
+            
+            // 计次卡充值记录
+            if (!_byTimeRechargeRecord) {
+                _byTimeRechargeRecord = [[EditItemList alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 48.0)];
+                _byTimeRechargeRecord.lblVal.hidden = YES;
+                [_byTimeRechargeRecord initLabel:@"计次充值记录" withHit:nil delegate:self];
+                _byTimeRechargeRecord.imgMore.image = [UIImage imageNamed:@"ico_next"];
+            }
+
+        }
         
         //发卡日期
         if (!_sendTime) {
@@ -1033,7 +1031,7 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
     } else if ([obj isEqual:_byTimeRechargeRecord]) {
         
         [MobClick event:@"Member_DetailsPage_ByTimeRechargeRecords_In"];
-        LSMemberByTimeRechargeNotesListController *vc = [[LSMemberByTimeRechargeNotesListController alloc] init];
+        LSMemberByTimeRechargeNotesListController *vc = [[LSMemberByTimeRechargeNotesListController alloc] initWithMemberCardVo:_memberCardVo packVo:_memberPackVo];
         [self pushController:vc from:kCATransitionFromRight];
     
     } else if ([obj isEqual:_byTimeCard]) {
@@ -1207,7 +1205,13 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
                 
                 LSMemberTypeVo *type = [LSMemberTypeVo getMemberTypeVo:dic[@"kindCard"]];
                 LSMemberCardVo *card = [LSMemberCardVo getMemberCardVo:dic[@"card"]];
-                card.byTimeServiceTimes = [dic valueForKey:@"accountcardnum"];
+                // 计次服务次数
+                if ([ObjectUtil isNotNull:[dic valueForKey:@"accountcardnum"]]) {
+                     card.byTimeServiceTimes = [dic valueForKey:@"accountcardnum"];
+                } else {
+                    card.byTimeServiceTimes = @0;
+                }
+               
                 card.cardTypeVo = type;
                 card.kindCardName = type.name;
                 card.filePath = type.filePath;

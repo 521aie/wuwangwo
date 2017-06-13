@@ -103,6 +103,9 @@
 
 - (void)showCancelButton
 {
+    if (self.scanView.hidden == YES) {
+        return;
+    }
     self.scanView.hidden = YES;
     [UIView animateWithDuration:0.3 animations:^{
         self.panel.frame = CGRectMake(self.panel.ls_origin.x, self.panel.ls_origin.y, self.panel.ls_width, self.panel.ls_height);
@@ -116,6 +119,9 @@
 
 - (void)hiddenCancelButton
 {
+    if (self.scanView.hidden == NO) {
+        return;
+    }
     [UIView animateWithDuration:0.3 animations:^{
         self.panel.frame = CGRectMake(self.panel.ls_origin.x, self.panel.ls_origin.y, self.panel.ls_width, self.panel.ls_height);
         self.panel.frame = CGRectMake(self.panel.ls_origin.x+37, self.panel.ls_origin.y, self.panel.ls_width-12, self.panel.ls_height);

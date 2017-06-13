@@ -39,8 +39,10 @@
             if (list.count > 0) {
                 for (NSDictionary* dic1 in list) {
                     MicroGoodsImageVo *microGoodsImageVo = [MicroGoodsImageVo convertToMicroGoodsImageVo:dic1];
-                    microGoodsImageVo.fileName = [NSString getImagePath:microGoodsImageVo.filePath];
-                    [microGoodsVo.mainImageVoList addObject:microGoodsImageVo];
+                    if (microGoodsImageVo) {
+                        microGoodsImageVo.fileName = [NSString getImagePath:microGoodsImageVo.filePath];
+                        [microGoodsVo.mainImageVoList addObject:microGoodsImageVo];
+                    }
                 }
             }
         }
@@ -49,7 +51,10 @@
             NSMutableArray* list = [dic objectForKey:@"infoImageVoList"];
             if (list.count > 0) {
                 for (NSDictionary* dic2 in list) {
-                    [microGoodsVo.infoImageVoList addObject:[MicroGoodsImageVo convertToMicroGoodsImageVo:dic2]];
+                    MicroGoodsImageVo *vo = [MicroGoodsImageVo convertToMicroGoodsImageVo:dic2];
+                    if (vo) {
+                         [microGoodsVo.infoImageVoList addObject:vo];
+                    }
                 }
             }
         }

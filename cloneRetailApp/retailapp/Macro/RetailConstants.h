@@ -12,7 +12,8 @@
 //======================================测试================================================
 #if DAILY || DEBUG
 
-#define API_ROOT @"http://10.1.5.194:8080/retail-server/serviceCenter/api"
+//计次卡
+#define API_ROOT @"http://10.1.4.152:8080/retail-server/serviceCenter/api"
 #define API_OUT_ROOT  @"http://10.1.5.202:8080/retail-api"
 
 

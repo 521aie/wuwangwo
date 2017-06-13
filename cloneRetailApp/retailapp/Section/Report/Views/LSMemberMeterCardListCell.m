@@ -101,9 +101,8 @@
     }];
     
     [self.lblTransactionTime makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(wself.lblSalePrice.bottom).offset(top);
+        make.top.equalTo(wself.lblMeterCardName.top);
         make.right.equalTo(wself.lblSalePrice.right);
-        make.bottom.equalTo(wself.contentView.bottom).offset(-22);
         make.width.equalTo(SCREEN_W/2-20);
         make.height.equalTo(12);
     }];
@@ -112,14 +111,14 @@
         make.top.equalTo(wself.contentView).offset(top);
         make.left.equalTo(wself.contentView).offset(margin);
         make.right.equalTo(wself.lblSalePrice.left);
-        make.height.equalTo(15);
+        make.bottom.equalTo(wself.lblMeterCardName.top).offset(-margin);
     }];
     
     [self.lblMeterCardName makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(wself.lblTransactionTime.top);
+        make.top.equalTo(wself.lblMemberCardName.bottom).offset(margin);
         make.left.equalTo(wself.lblMemberCardName.left);
-        make.bottom.equalTo(wself.lblTransactionTime.bottom);
-        make.height.with.equalTo(wself.lblTransactionTime);
+        make.right.equalTo(wself.lblTransactionTime.left);
+        make.bottom.equalTo(wself.contentView).offset(-11);
     }];
     
     [self.viewLine makeConstraints:^(MASConstraintMaker *make) {
@@ -139,12 +138,12 @@
     }
     
     //operType; //操作类型（充值、退款）
-    if (obj.pay.integerValue >= 0) {
+    if (obj.pay.doubleValue >= 0) {
         self.lblSalePrice.textColor = [ColorHelper getRedColor];
-        self.lblSalePrice.text =[NSString stringWithFormat:@"￥%.2f", obj.pay.doubleValue];
+        self.lblSalePrice.text =[NSString stringWithFormat:@"￥%.2f", obj.pay.floatValue];
     } else {
         self.lblSalePrice.textColor = [ColorHelper getGreenColor];
-        NSMutableString *temp =[NSMutableString stringWithFormat:@"%.2f", obj.pay.doubleValue];
+        NSMutableString *temp =[NSMutableString stringWithFormat:@"%.2f", obj.pay.floatValue];
         [temp insertString:@"￥" atIndex:1];
         self.lblSalePrice.text= temp;
     }

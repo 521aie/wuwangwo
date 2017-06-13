@@ -698,7 +698,9 @@
 		02B5CC55045EBCC4CFED5F8473EEBA76 /* DDLegacyMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLegacyMacros.h; path = Classes/DDLegacyMacros.h; sourceTree = "<group>"; };
 		02C198172120B98EBDDBC3C272846C50 /* TDFLogger.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TDFLogger.xcconfig; sourceTree = "<group>"; };
 		02EA691D2DF3E7C36D6B3517D088A63D /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQTitleBarButtonItem.m; path = IQKeyboardManager/IQToolbar/IQTitleBarButtonItem.m; sourceTree = "<group>"; };
+		03137621954475D19445A547E71CBEBC /* SobotKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SobotKit.framework; sourceTree = "<group>"; };
 		039AE4B5352E05D431C94F999BFC7BE6 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		0415999F78E2A7BD18D86A647CA788EE /* SobotKit.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = SobotKit.bundle; sourceTree = "<group>"; };
 		053A0AEA47A15AB4DAADA318C9D1A94E /* Pods-retailapp-retailapp-Enterprise-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-retailapp-retailapp-Enterprise-frameworks.sh"; sourceTree = "<group>"; };
 		0593EB69538C4EB891CA37D40BCE8998 /* JSONKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JSONKit-dummy.m"; sourceTree = "<group>"; };
 		05C3660ADA445251D20493E0DD209E2F /* libWeChatSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = UShareSDK/SocialLibraries/WeChat/WechatSDK/libWeChatSDK.a; sourceTree = "<group>"; };
@@ -800,7 +802,6 @@
 		3F311481935326BBCEF94675FC1BAAF4 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+MJExtension.m"; path = "MJRefreshExample/MJRefreshExample/MJRefresh/UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
 		3FE4CAB0A01DDD8C3E147EDD8BA77A97 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		407FCA313F3378F39EC82A0CDCBCD40F /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		409FA8C488B08F97D0607AD35A0646E2 /* SobotKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SobotKit.framework; sourceTree = "<group>"; };
 		40A7842CA85D218A12EE28EADC9DE263 /* MJExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MJExtension-prefix.pch"; sourceTree = "<group>"; };
 		40E7876927BDB0F19BEFAA7AEDE92D42 /* UIDevice-Capabilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Capabilities.m"; sourceTree = "<group>"; };
 		40F058AD435F07CDE66B0FDD038DF513 /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUITextFieldView+Additions.m"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
@@ -913,6 +914,7 @@
 		850385EBFEF07725F1DE347168EB636F /* jastor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = jastor.xcconfig; sourceTree = "<group>"; };
 		867FF1A762DEEEEEE08FE63BE8427B2F /* TDFCustomerServiceButtonController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TDFCustomerServiceButtonController.h; path = TDFSobotChatModule/Classes/TDFCustomerServiceButtonController.h; sourceTree = "<group>"; };
 		86858CC26333F8E4C3364E96940A424C /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
+		87E113BA0A2C515285436F03EC916D89 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = "zh-Hans.lproj"; sourceTree = "<group>"; };
 		87EA71B135D48388234A5CFD137EC3C0 /* SVProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
 		88FE669B545230E78B56A179587A8420 /* UIColor+RGB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+RGB.h"; path = "Classes/UIColor/UIColor+RGB.h"; sourceTree = "<group>"; };
 		8AA22459B8379AE0AB826A6E0C7AFCEC /* MJRefreshBaseView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshBaseView.m; path = MJRefreshExample/MJRefreshExample/MJRefresh/MJRefreshBaseView.m; sourceTree = "<group>"; };
@@ -936,16 +938,17 @@
 		94DA281A761081075794449BA4196F6D /* CocoaLumberjack-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaLumberjack-prefix.pch"; sourceTree = "<group>"; };
 		960B9A8E59DA3E5A33173D44EECD263E /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		968A1431C9643E5FFF9999ECA150A901 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		97AA9C3B55AD5A0430F73B350837F319 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; path = en.lproj; sourceTree = "<group>"; };
 		989A45299AFEF391678186C8383915D2 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQUITextFieldView+Additions.h"; path = "IQKeyboardManager/Categories/IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
 		9902481B282E40A7A5F6B8F8F213DE0D /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAFNetworking.a; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A1B8514C112CDE92BDD1512C24EDF9C /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		9AE735ADFF9C2D9833BC60D9E9B17160 /* MJPropertyKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJPropertyKey.h; path = MJExtension/MJPropertyKey.h; sourceTree = "<group>"; };
 		9C06FA35E1A7B375A78D129CF2AED5AD /* UIView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "SDWebImage/UIView+WebCache.m"; sourceTree = "<group>"; };
 		9C14D9D18E3237DFB01CC2702C8A15C0 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		9D2DE9FC8811B3649946988BF267810C /* ZCEmojiExpression.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = ZCEmojiExpression.bundle; sourceTree = "<group>"; };
 		9D696981EAE01352EF36D678CD1DED9C /* libJSONKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libJSONKit.a; path = libJSONKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD3EAC45041FE59C3B6845069F31761 /* Jastor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Jastor.m; path = Jastor/Jastor/Jastor.m; sourceTree = "<group>"; };
 		A0701BD390AB39D9D32794C05D2D2860 /* Pods-retailapp.enterprise.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-retailapp.enterprise.xcconfig"; sourceTree = "<group>"; };
+		A0EFC46C44A09E5998928F096312D6F0 /* ZCEmojiExpression.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = ZCEmojiExpression.bundle; sourceTree = "<group>"; };
 		A15D33733192133633F358F26D10D6C6 /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
 		A173D8FF356332D57C7D7569E9F7C85F /* MJRefresh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MJRefresh.h; path = MJRefreshExample/MJRefreshExample/MJRefresh/MJRefresh.h; sourceTree = "<group>"; };
 		A1ADC050C858E1BC24FCFD183D36065D /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
@@ -1006,7 +1009,6 @@
 		BF9050F00DB6A19E6AA7ED681AB01CEE /* wwanconnect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = wwanconnect.h; path = Apple/wwanconnect.h; sourceTree = "<group>"; };
 		BFA8DEDB26AAD0990EA8BD5DE4AE34E5 /* UICollectionViewCell+ReuseIdentifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UICollectionViewCell+ReuseIdentifier.h"; path = "Classes/UICollectionViewCell/UICollectionViewCell+ReuseIdentifier.h"; sourceTree = "<group>"; };
 		C0303CB7DF7F51AE7DBB04EDF8D7D16B /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		C0F5E0029F9E57C2AA3D7434AA765743 /* SobotKit.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = SobotKit.bundle; sourceTree = "<group>"; };
 		C1C10043CEA61EBE499684E87B4CEC0C /* NSString+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+MJExtension.h"; path = "MJExtension/NSString+MJExtension.h"; sourceTree = "<group>"; };
 		C39AEDE28A2846FC81851B546CE2DFFD /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
 		C40B656060E6917BF6C21FBCB737DB21 /* DDFileLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDFileLogger.m; path = Classes/DDFileLogger.m; sourceTree = "<group>"; };
@@ -1057,7 +1059,6 @@
 		E23BC6D9ECF80C551A9B9E5E8B517A9E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		E24F68FB92612F0042B9DF242A7F2F2E /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		E306681103248D403846D1486A0946A4 /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
-		E3D892AE0FD0225AA1FE068214C96B43 /* SobotLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SobotLocalizable.strings; path = "zh-Hans.lproj/SobotLocalizable.strings"; sourceTree = "<group>"; };
 		E472709815A35E618E6AC60EBDE07AFE /* IQKeyboardManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQKeyboardManager-prefix.pch"; sourceTree = "<group>"; };
 		E47B9E9873649983900F7587A336B796 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = "umsdk_IOS_analyics_no-idfa_v4.1.9/UMMobClick.framework"; sourceTree = "<group>"; };
 		E5C78E3C26632A659A0F65EF77CD9E13 /* MJRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MJRefresh-dummy.m"; sourceTree = "<group>"; };
@@ -1097,7 +1098,6 @@
 		F965EC80C205EA66FD9AE02FF96D604C /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
 		F9CFB90B4F4D89946A3EAFE677CBF15E /* UIViewController+NavigationBarConfigure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+NavigationBarConfigure.h"; path = "Classes/UIViewController/UIViewController+NavigationBarConfigure.h"; sourceTree = "<group>"; };
 		FA2A5A52BD0E18563FEE6B2893103345 /* DDLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLog.h; path = Classes/DDLog.h; sourceTree = "<group>"; };
-		FA5763539FAAD73900EB84ABF1CA198C /* SobotLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SobotLocalizable.strings; path = en.lproj/SobotLocalizable.strings; sourceTree = "<group>"; };
 		FA7BA0B749636037515DE569F4D4776A /* libTDFCategories.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libTDFCategories.a; path = libTDFCategories.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB7C19FA692E2D9CFC5346E96679CB3C /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		FBCAF5EAC25DC6C46A2136C82FCC1C38 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
@@ -1463,16 +1463,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		260B48F9FAA20DE5908BCF4E30C9A8B3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C0F5E0029F9E57C2AA3D7434AA765743 /* SobotKit.bundle */,
-				D60470C09E07FD01F8EBD41BB54EDCF1 /* SobotLocalizable.strings */,
-				9D2DE9FC8811B3649946988BF267810C /* ZCEmojiExpression.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		2F85634B051CABCD3219602C488AE8FE /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1550,16 +1540,6 @@
 			path = Crashlytics;
 			sourceTree = "<group>";
 		};
-		40C5BEA441B6F04148D03764E2BD7D3E /* SobotKit */ = {
-			isa = PBXGroup;
-			children = (
-				CEA12C133983507D06EC9D0349C52F60 /* Frameworks */,
-				260B48F9FAA20DE5908BCF4E30C9A8B3 /* Resources */,
-			);
-			name = SobotKit;
-			path = SobotKit;
-			sourceTree = "<group>";
-		};
 		451DAC19639EC42FE70B16F32F66AF6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1587,7 +1567,7 @@
 				5E6A2C9D21EDEC3E7B5AAC49A5F5A63C /* NullSafe */,
 				0691D01F2CD3500753134058F1B059E5 /* RegexKitLite */,
 				B1E9DD04C735AF1D7CEEB2394B29E61F /* SDWebImage */,
-				40C5BEA441B6F04148D03764E2BD7D3E /* SobotKit */,
+				5222D5C50D890D950DF99F3404D07A44 /* SobotKit */,
 				90B1A858D0C6E229621AA902404EAF26 /* SVProgressHUD */,
 				CC12B7F08E41F0E986BC17F84042EB7E /* TDFCategories */,
 				011A792793F76548B3C5B05D2A54A748 /* TDFConditionFilter */,
@@ -1659,6 +1639,16 @@
 			);
 			name = MJExtension;
 			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		5222D5C50D890D950DF99F3404D07A44 /* SobotKit */ = {
+			isa = PBXGroup;
+			children = (
+				741A5E5D9B545987F120BAF17C90B008 /* Frameworks */,
+				A6BB9BA7D8600F30FB40DA5746E3FA00 /* Resources */,
+			);
+			name = SobotKit;
+			path = SobotKit;
 			sourceTree = "<group>";
 		};
 		52B9524971332FB0B9141924D46E64B4 /* Support Files */ = {
@@ -1776,6 +1766,14 @@
 			);
 			name = TDFSobotChatModule;
 			path = TDFSobotChatModule;
+			sourceTree = "<group>";
+		};
+		741A5E5D9B545987F120BAF17C90B008 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03137621954475D19445A547E71CBEBC /* SobotKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		785553737B06AFC3DA711DDEB7D56194 /* Frameworks */ = {
@@ -2042,6 +2040,17 @@
 			path = "../Target Support Files/SDWebImage";
 			sourceTree = "<group>";
 		};
+		A6BB9BA7D8600F30FB40DA5746E3FA00 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				97AA9C3B55AD5A0430F73B350837F319 /* en.lproj */,
+				0415999F78E2A7BD18D86A647CA788EE /* SobotKit.bundle */,
+				A0EFC46C44A09E5998928F096312D6F0 /* ZCEmojiExpression.bundle */,
+				87E113BA0A2C515285436F03EC916D89 /* zh-Hans.lproj */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A739081F4CAAA5596177F67C8D29F87F /* WeChat */ = {
 			isa = PBXGroup;
 			children = (
@@ -2243,14 +2252,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/MJRefresh";
-			sourceTree = "<group>";
-		};
-		CEA12C133983507D06EC9D0349C52F60 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				409FA8C488B08F97D0607AD35A0646E2 /* SobotKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E187E344264644F3360A9668C1676B86 /* Products */ = {
@@ -3836,19 +3837,6 @@
 			targetProxy = 529012035E121ED36AB1A7F8C27874E6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D60470C09E07FD01F8EBD41BB54EDCF1 /* SobotLocalizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA5763539FAAD73900EB84ABF1CA198C /* SobotLocalizable.strings */,
-				E3D892AE0FD0225AA1FE068214C96B43 /* SobotLocalizable.strings */,
-			);
-			name = SobotLocalizable.strings;
-			path = .;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00370B52D57F7D373730118D3DA24E27 /* Pre */ = {

@@ -11,6 +11,7 @@
 #define METER_LIST_PERIOD 3
 #define METER_RDO_IS_RETURN 4
 #define METER_VEW_IS_RETURN 5
+#define METER_CELL_CONCUMETIME 6
 
 #import "LSMemberMeterDetailViewController.h"
 #import "ServiceFactory.h"
@@ -19,6 +20,8 @@
 #import "SymbolNumberInputBox.h"
 #import "LSEditItemRadio.h"
 #import "LSEditItemTitle.h"
+#import "LSEditItemMemo.h"
+#import "MemoInputView.h"
 #import "ItemTitle.h"
 #import "UIHelper.h"
 #import "ColorHelper.h"
@@ -36,7 +39,7 @@
 #import "GoodsBatchChoiceView1.h"
 #import "GoodsVo.h"
 
-@interface LSMemberMeterDetailViewController ()<IEditItemListEvent,SymbolNumberInputClient,IEditItemRadioEvent,IItemTitleEvent,UITableViewDelegate,UITableViewDataSource,LSMemberMeterDetailCellDelagate>
+@interface LSMemberMeterDetailViewController ()<IEditItemListEvent,SymbolNumberInputClient,IEditItemRadioEvent,IItemTitleEvent,IEditItemMemoEvent,MemoInputClient,UITableViewDelegate,UITableViewDataSource,LSMemberMeterDetailCellDelagate>
 
 /** 编辑状态传值*/
 @property (nonatomic,strong) LSMemberMeterVo *obj;
@@ -49,7 +52,7 @@
 @property (nonatomic, strong) NSNumber *currentPage;
 
 /**名称*/
-@property (nonatomic, strong) LSEditItemText *txtName;
+@property (nonatomic, strong) LSEditItemMemo *txtName;
 /**销售价格（元）*/
 @property (nonatomic, strong) LSEditItemList *txtPrice;
 /**有效期（天）*/
@@ -70,6 +73,10 @@
 /**添加*/
 @property (nonatomic, strong) NSMutableDictionary *param;
 
+/**手动设置添加计次商品数量 记录cell*/
+@property (nonatomic, assign) NSInteger rowNow;
+/** 后台判断是否可以添加计次商品*/
+//@property (nonatomic,assign) BOOL checkGoodsId;
 @end
 
 @implementation LSMemberMeterDetailViewController
@@ -89,6 +96,8 @@
         _delGoodsList = [NSMutableArray array];
         _param = [[NSMutableDictionary alloc] init];
         _currentPage = nil;
+        _rowNow = nil;
+//        _checkGoodsId =  NO;
     }
     
     return self;
@@ -117,7 +126,8 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 88.0f;
+    self.tableView.estimatedRowHeight = 88.0f;
+    self.tableView.rowHeight =UITableViewAutomaticDimension;
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = self.footerView;
     [self.view addSubview:self.tableView];
@@ -149,8 +159,8 @@
         _headerView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
         _headerView.ls_width = SCREEN_W;
         
-        _txtName = [LSEditItemText editItemText];
-        [_txtName initLabel:@"名称" withHit:nil isrequest:YES type:UIKeyboardTypeASCIICapable];
+        _txtName = [LSEditItemMemo editItemMemo];
+        [_txtName initLabel:@"名称" isrequest:YES delegate:self];
         [_txtName initData:nil];
         [_headerView addSubview:_txtName];
         
@@ -208,8 +218,9 @@
         UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         addBtn.frame = CGRectMake(0, 0, SCREEN_W, 48);
         [addBtn setImage:[UIImage imageNamed:@"ico_add_rr"] forState:UIControlStateNormal];
-        [addBtn setImageEdgeInsets:UIEdgeInsetsMake(10,113,10,236)];
+        [addBtn setImageEdgeInsets:UIEdgeInsetsMake(13,SCREEN_W/2-44,13,SCREEN_W/2+22)];
         [addBtn setTitle:@"添加计次商品" forState:UIControlStateNormal];
+        addBtn.titleLabel.font = [UIFont systemFontOfSize:13];
         [addBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         [addBtn addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
         
@@ -260,7 +271,8 @@
         }
         
         [self.txtName initData:self.obj.accountCardName];
-        [self.txtPrice initData:[NSString stringWithFormat:@"%@",self.obj.price] withVal:nil];
+        
+        [self.txtPrice initData:[NSString stringWithFormat:@"%.2f",self.obj.price.floatValue] withVal:nil];
         
         if (self.obj.expiryDate.integerValue == -1) {
             [self.lstPeriod initData:@"不限期" withVal:nil];
@@ -282,7 +294,7 @@
             [self.vewIsReturn visibal:NO];
         }
         
-        [self.txtName editEnabled:NO];
+        [self.txtName editEnable:NO];
         [self.txtPrice editEnable:NO];
         [self.lstPeriod editEnable:NO];
         [self.rdoIsReturn editable:NO];
@@ -314,6 +326,24 @@
     }
 }
 
+//名称
+-(void) onItemMemoListClick:(LSEditItemMemo*)obj {
+    if (obj == self.txtName) {
+        int tag = (int)obj.tag;
+        MemoInputView *vc = [[MemoInputView alloc] init];
+        [vc limitShow:tag delegate:self title:self.txtName.lblName.text val:[self.txtName getStrVal] limit:50];
+        [self.navigationController pushViewController:vc animated:NO];
+        [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromTop];
+    }
+}
+
+-(void) finishInput:(int)event content:(NSString*)content {
+    if (event == METER_TXT_NAME) {
+        [self.txtName changeData:content];
+    }
+    [self tableViewRefreshUI];
+}
+
 #pragma mark - IEditItemListEvent协议
 - (void)onItemListClick:(LSEditItemList *)obj {
     
@@ -327,12 +357,20 @@
     } else if (obj.tag == METER_LIST_PERIOD) {
         
         //有效期
-        [SymbolNumberInputBox initData:obj.lblVal.text];
+        if ([obj.lblVal.text isEqualToString:@"不限期"]) {
+            [SymbolNumberInputBox initData:@""];
+        } else {
+            [SymbolNumberInputBox initData:obj.lblVal.text];
+        }
         [SymbolNumberInputBox show:obj.lblName.text client:self isFloat:YES isSymbol:NO event:obj.tag];
     
     } else if (obj.tag == METER_VEW_IS_RETURN) {
         //充值后可退几天
-        [SymbolNumberInputBox initData:obj.lblVal.text];
+        if ([obj.lblVal.text isEqualToString:@"不限期"]) {
+            [SymbolNumberInputBox initData:@""];
+        } else {
+            [SymbolNumberInputBox initData:obj.lblVal.text];
+        }
         [SymbolNumberInputBox show:obj.lblName.text client:self isFloat:YES isSymbol:NO event:obj.tag];
         [SymbolNumberInputBox limitInputNumber:3 digitLimit:0];
     }
@@ -344,9 +382,9 @@
     if (eventType == METER_TXT_PRICE) {
         if ([NSString isBlank:val]) {
             val = nil;
-            [self.txtPrice changeData:@"不限期" withVal:val];
+            [self.txtPrice changeData:@"" withVal:val];
         } else {
-            val = [NSString stringWithFormat:@"%.2f",val.doubleValue];
+            val = [NSString stringWithFormat:@"%.2f",val.floatValue];
             [self.txtPrice changeData:val withVal:val];
         }
     } else if (eventType == METER_LIST_PERIOD) {
@@ -364,6 +402,12 @@
         } else {
             val = [NSString stringWithFormat:@"%d",val.intValue];
             [self.vewIsReturn changeData:val withVal:val];
+        }
+    }else  if (eventType == METER_CELL_CONCUMETIME) {
+        if ([NSString isNotBlank:val]) {
+            LSMemberMeterGoodsVo *model = self.meterGoodsList[self.rowNow];
+            val = [NSString stringWithFormat:@"%ld",(long)val.integerValue];
+             model.consumeTime = val.intValue;
         }
     }
     [self tableViewRefreshUI];
@@ -436,13 +480,30 @@
             }
         }
             break;
+            
         case 12:
         {
             //做加法
             LSMemberMeterGoodsVo *model = self.meterGoodsList[index.row];
-            model.consumeTime ++;
+            if (model.consumeTime < 999999) {
+                model.consumeTime ++;
+            }
+//            model.consumeTime ++;
         }
             break;
+            
+        case 10:
+        {
+            //自定义数量
+            LSMemberMeterGoodsVo *model = self.meterGoodsList[index.row];
+            self.rowNow = index.row;
+            NSString *consume = [NSString stringWithFormat:@"%d",model.consumeTime];
+            [SymbolNumberInputBox initData:consume];
+            [SymbolNumberInputBox show:nil client:self isFloat:NO isSymbol:NO event:METER_CELL_CONCUMETIME];
+            [SymbolNumberInputBox limitInputNumber:6 digitLimit:0];
+        }
+            break;
+            
         default:
             break;
     }
@@ -475,92 +536,120 @@
     
     [goodsView loaddatas:[[Platform Instance] getkey:SHOP_ID] callBack:^(NSMutableArray *goodsList) {
         
-        if (goodsList.count>0) {
-            //有选择商品
-            NSMutableArray *addArr = [NSMutableArray arrayWithCapacity:goodsList.count];
+        if (goodsList == nil) {//左侧
             
-            for (GoodsVo* vo in goodsList) {
-                BOOL flag = NO;
-                BOOL isHave = NO;
-                
-                if (weakSelf.delGoodsList.count>0) {
-                    //添加删除队列中存在的商品
-                    for (LSMemberMeterGoodsVo* detailVo in weakSelf.delGoodsList) {
-                        if ([vo.goodsId isEqualToString:detailVo.ID]) {
-                                flag = YES;
-                                [addArr addObject:detailVo];
-                                [weakSelf.delGoodsList removeObject:detailVo];
-                                break;
-                        }
-                    }
-                }
-                
-                if (weakSelf.meterGoodsList.count > 0) {
-                    //已经存在的商品不添加
-                    for (LSMemberMeterGoodsVo* detailVo in weakSelf.meterGoodsList) {
-                       if ([vo.goodsId isEqualToString:detailVo.ID]) {
-                                isHave = YES;
-                                break;
-                        }
-                    }
-                }
-                
-                if (!flag && !isHave) {
-                    if (vo.type != 1) {
-                    /*商品类型(1.普通商品、2.拆分商品、3.组装商品、4.称重商品、5.原料商品、6:加工商品')
-                     选择的商品中是否含有散称、下架、拆分、组装、加工的商品，若存在则提示：散称、下架或拆分\组装\加工商品不能选为计次商品，请重新选择！*/
-                        [LSAlertHelper showAlert:@"散称、下架或拆分\\组装\\加工商品不能选为计次商品，请重新选择！"];
-                        [weakSelf.meterGoodsList removeObjectsInArray:goodsList];
-                        return  ;
-                    }else{
-                    //添加不存在以上两种情况的商品
-                    LSMemberMeterGoodsVo* detailVo = [[LSMemberMeterGoodsVo alloc] init];
-                    detailVo.ID = vo.goodsId;
-                    detailVo.goodsName = vo.goodsName;
-                    detailVo.barCode= vo.barCode;
-                    detailVo.consumeTime = 1;
-                    detailVo.operateType = @"add";
+            [self popViewController];
+        } else {//右侧
+            
+            if (goodsList.count>0) {
+                [self checkGoodsIds:goodsList];
+            }
+        }
+        }];
+        
+    [self pushViewController:goodsView];
+    [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromRight];
+}
+
+- (void)checkGoodsIds:(NSMutableArray *)goodsList{
+    
+    __weak typeof(self) wself = self;
+    NSString *url = @"goods/checkGoodsInGoodsHandle";
+    
+    //有选择商品
+    NSMutableArray *addArr = [NSMutableArray arrayWithCapacity:goodsList.count];
+    
+    NSMutableArray *checkArr = [NSMutableArray array];
+    for (GoodsVo* goodsVo in goodsList) {
+        [checkArr addObject:goodsVo.goodsId];
+    }
+
+    NSDictionary *param = [NSDictionary dictionaryWithObject:checkArr forKey:@"goodsIds"];
+    
+    [BaseService getRemoteLSDataWithUrl:url param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        
+        for (GoodsVo* vo in goodsList) {
+            
+        BOOL flag = NO;
+        BOOL isHave = NO;
+        
+        if (wself.delGoodsList.count>0) {
+            //添加删除队列中存在的商品
+            for (LSMemberMeterGoodsVo* detailVo in wself.delGoodsList) {
+                if ([vo.goodsId isEqualToString:detailVo.ID]) {
+                    flag = YES;
                     [addArr addObject:detailVo];
-                    }
+                    [wself.delGoodsList removeObject:detailVo];
+                    break;
                 }
             }
-            
-            if ((weakSelf.meterGoodsList.count+addArr.count) > 20) {
-                //选择的商品总数超过20件,放回原删除的商品
-                for (LSMemberMeterGoodsVo* detailVo in addArr) {
-                    if ([detailVo.operateType isEqualToString:@"del"]) {
-                        [weakSelf.delGoodsList addObject:detailVo];
-                    }
-                }
-                [LSAlertHelper showAlert:@"计次服务最多添加20项计次商品！"];
-                return ;
-            }
-            
-            if (addArr.count > 0) {
-                //未超过20件，将原删除的商品重置
-                for (LSMemberMeterGoodsVo *detailVo in addArr) {
-                    if ([detailVo.operateType isEqualToString:@"del"]) {
-                        detailVo.operateType = @"edit";
-                        detailVo.consumeTime = 1;
-                    }
-                }
-                [weakSelf.meterGoodsList addObjectsFromArray:addArr];
-            }
-            [weakSelf.tableView reloadData];
         }
         
-        for (UIViewController *vc in self.navigationController.viewControllers) {
-            if ([vc isKindOfClass:[LSMemberMeterDetailViewController class]] ) {
-                [weakSelf.meterGoodsList removeObjectsInArray:goodsList];
+        if (wself.meterGoodsList.count > 0) {
+            //已经存在的商品不添加
+            for (LSMemberMeterGoodsVo* detailVo in wself.meterGoodsList) {
+                if ([vo.goodsId isEqualToString:detailVo.ID]) {
+                    isHave = YES;
+                    break;
+                }
             }
         }
 
-        [XHAnimalUtil animal:weakSelf.navigationController type:kCATransitionPush direction:kCATransitionFromLeft];
-        [weakSelf popToViewController:weakSelf];
+        //exist = true ,不添加该商品
+        if (vo.type != 1 || vo.upDownStatus == 2 || [json[@"exist"] boolValue] == YES) {
+            /*商品类型(1.普通商品、2.拆分商品、3.组装商品、4.称重商品、5.原料商品、6:加工商品')
+             选择的商品中是否含有散称、下架、拆分、组装、加工的商品，若存在则提示：散称、下架或拆分\组装\加工商品不能选为计次商品，请重新选择！*/
+            [LSAlertHelper showAlert:@"散称、下架或拆分\\组装\\加工商品不能选为计次商品，请重新选择！"];
+            [wself.meterGoodsList removeObjectsInArray:goodsList];
+            return  ;
+        }else{
+            //添加不存在以上两种情况的商品
+            if (!flag && !isHave) {
+            LSMemberMeterGoodsVo* detailVo = [[LSMemberMeterGoodsVo alloc] init];
+            detailVo.ID = vo.goodsId;
+            detailVo.goodsName = vo.goodsName;
+            detailVo.barCode= vo.barCode;
+            detailVo.consumeTime = 1;
+            detailVo.operateType = @"add";
+            [addArr addObject:detailVo];
+            }
+        }
+        
+        
+        if ((wself.meterGoodsList.count+addArr.count) > 20) {
+            //选择的商品总数超过20件,放回原删除的商品
+            for (LSMemberMeterGoodsVo* detailVo in addArr) {
+                if ([detailVo.operateType isEqualToString:@"del"]) {
+                    [wself.delGoodsList addObject:detailVo];
+                }
+            }
+            [LSAlertHelper showAlert:@"计次服务最多添加20项计次商品！"];
+            return ;
+        }
+       
+        }
+        
+        if (addArr.count>=0) {
+            //未超过20件，将原删除的商品重置
+            for (LSMemberMeterGoodsVo *detailVo in addArr) {
+                if ([detailVo.operateType isEqualToString:@"del"]) {
+                    detailVo.operateType = @"edit";
+                    detailVo.consumeTime = 1;
+                }
+            }
+            [wself.meterGoodsList addObjectsFromArray:addArr];
+            [self popViewController];
+        }
+        
+        [wself.tableView headerEndRefreshing];
+        [wself.tableView footerEndRefreshing];
+        [wself.tableView reloadData];
+        wself.tableView.ls_show = YES;
+    } errorHandler:^(id json) {
+        [wself.tableView headerEndRefreshing];
+        [wself.tableView footerEndRefreshing];
+        [LSAlertHelper showAlert:json];
     }];
-    
-    [self pushViewController:goodsView];
-    [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromRight];
 }
 
 - (NSMutableArray *)obtainGoodsList {
@@ -589,6 +678,7 @@
     } else {
         [self showSelectGoodsView];
     }
+    
     [self tableViewRefreshUI];
 }
 
@@ -648,12 +738,12 @@
             [AlertBox show:@"销售价格不能为空，请输入!"];
             return NO;
         }
-        if (![NSString isPositiveNum:[self.txtPrice getStrVal]]) {
+        if (![NSString isFloat:[self.txtPrice getStrVal]]) {
             [AlertBox show:@"销售价格不正确，请重新输入!"];
             return NO;
         }
         if (self.meterGoodsList.count < 1) {
-            [AlertBox show:@"请选择计次商品！"];
+            [AlertBox show:@"请先添加计次商品！"];
             return NO;
         }
     }
@@ -663,8 +753,9 @@
 #pragma mark - 数据模型赋值
 - (void)transMode {
     
-    _obj.accountCardName = [self.txtName getStrVal];
-    _obj.price = [NSNumber numberWithLongLong:[self.txtPrice getStrVal].longLongValue] ;
+    _obj.accountCardName = [self.txtName getStrVal];    
+    
+    _obj.price = [NSNumber numberWithFloat:[self.txtPrice getStrVal].floatValue];
     
     if ([self.lstPeriod.lblVal.text  isEqualToString:@"不限期"]) {
         _obj.expiryDate = @-1;
@@ -706,6 +797,8 @@
         return;
     }
     [self transMode];
+    
+    
     
     NSString *url = @"accountcard/save";
     [BaseService getRemoteLSDataWithUrl:url param:self.param withMessage:@"" show:YES CompletionHandler:^(id json) {

@@ -521,6 +521,11 @@
                 if ([Platform Instance].getMicroShopStatus != 2 && [module.moduleName isEqual:@"顾客评价"]){
                     [itemModule visibal:NO];
                 }
+                if ([module.moduleName isEqualToString:@"商圈设置"]) {
+                    if ([[Platform Instance] getScanPayStatus] != 1) {//没有开通商圈
+                        [itemModule visibal:NO];
+                    }
+                }
                 
             }
             
@@ -576,6 +581,15 @@
             {
                 LSEditItemList *temp = [self.moduleMap objectForKey:[NSNumber numberWithInteger:module.moduleId]];
                 [temp visibal:YES];
+                if ([Platform Instance].getMicroShopStatus != 2 && [module.moduleName isEqual:@"顾客评价"]){
+                    [temp visibal:NO];
+                }
+                if ([module.moduleName isEqualToString:@"商圈设置"]) {
+                    if ([[Platform Instance] getScanPayStatus] != 1) {//没有开通商圈
+                        [temp visibal:NO];
+                    }
+                }
+
             }
         }
         
