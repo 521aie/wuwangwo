@@ -253,12 +253,12 @@ static NSString *saveDetailCellId1 = @"LSMemberSaveDetailCell1";
         [param setValue:@(self.page) forKey:@"page"];
         [param setValue:@(10) forKey:@"page_size"];
         
-        [BaseService getRemoteLSOutDataWithUrl:@"card/v1/get_degree_flow" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        [BaseService getRemoteLSOutDataWithUrl:@"card/v2/get_degree_flow" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
             if ([json[@"code"] boolValue]) {
                 if (self.dataSource.count > 0 && self.page == 1) {
                     [self.dataSource removeAllObjects];
                 }
-                NSArray *records = [json[@"data"] valueForKey:@"records"];
+                NSArray *records = json[@"data"];
                 if ([ObjectUtil isNotEmpty:records]) {
                     NSArray *array = [LSMemberDegreeFlowVo getDegreeFlowVoVoList:records];
                     [self.dataSource addObjectsFromArray:array];
@@ -314,7 +314,7 @@ static NSString *saveDetailCellId1 = @"LSMemberSaveDetailCell1";
     // shop 实体店id
     [param setValue:[[Platform Instance] getkey:RELEVANCE_ENTITY_ID] forKey:@"shopEntityId"];
     
-    [BaseService getRemoteLSOutDataWithUrl:@"card/cancelChargeCard"  param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"card/v2/cancelChargeCard"  param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         if ([json[@"code"] boolValue]) {
             self.page = 1;
             [self getDetailList];

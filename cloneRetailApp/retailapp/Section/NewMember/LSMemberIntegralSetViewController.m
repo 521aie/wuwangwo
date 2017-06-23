@@ -215,6 +215,7 @@
     [self pushController:vc from:kCATransitionFromRight];
 }
 
+    
 #pragma mark - 协议方法
 //  ISearchBarEvent, 弹出选择搜索类型选择类别
 - (void)selectCondition {

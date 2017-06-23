@@ -172,7 +172,7 @@ static NSString *memberInoCellId = @"LSMemberInfoCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     LSMemberPackVo *vo = [self.groupDatas valueForKey:self.allKeys[indexPath.section]][indexPath.row];
-     NSString *mobile = [vo getMemberPhoneNum];
+//     NSString *mobile = [vo getMemberPhoneNum];
 //    if (vo.customer && [ObjectUtil isEmpty:vo.cardNames]) {
 //
 //        // 去会员详情页需要先有会员卡，所以提示用户先给该会员发卡
@@ -183,7 +183,7 @@ static NSString *memberInoCellId = @"LSMemberInfoCell";
 //        return ;
 //    }
 //    else {
-        LSMemberDetailViewController *vc = [[LSMemberDetailViewController alloc] initWithPhoneNum:mobile];
+        LSMemberDetailViewController *vc = [[LSMemberDetailViewController alloc] initWithMemberVo:vo];
         [self pushController:vc from:kCATransitionFromRight];
 //    }
 }
@@ -196,13 +196,16 @@ static NSString *memberInoCellId = @"LSMemberInfoCell";
     if ([NSString isNotBlank:queryString]) {
 
         [self swithSearchModel:YES];
-        NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
-        NSDictionary *param = @{@"entityId":entityId ,@"keyword":queryString ,@"isOnlySearchMobile":@(NO)};
+        NSMutableDictionary *param = [[NSMutableDictionary alloc] initWithCapacity:3];
+        [param setValue:[[Platform Instance] getkey:ENTITY_ID] forKey:@"entityId"];
+        [param setValue:@(1) forKey:@"page"];
+        [param setValue:@(10) forKey:@"pageSize"];
+        [param setValue:queryString forKey:@"keyword"];
         
-        [BaseService getRemoteLSOutDataWithUrl:@"card/queryCustomerInfo" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
+        [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerList" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
             if ([json[@"code"] boolValue]) {
                 
-                NSArray *customerList = json[@"data"][@"customerList"];
+                NSArray *customerList = json[@"data"];
                 if ([ObjectUtil isNotEmpty:customerList]) {
                     
                     NSArray *packVoList = [LSMemberPackVo getMemberPackVoList:customerList];
@@ -228,10 +231,12 @@ static NSString *memberInoCellId = @"LSMemberInfoCell";
         [param setValue:[[Platform Instance] getkey:ENTITY_ID] forKey:@"entityId"];
         [param setValue:@(self.currentPage) forKey:@"page"];
         [param setValue:@(10) forKey:@"pageSize"];
+        [param setObject:[NSNull null] forKey:@"keyword"];
         
-        [BaseService getRemoteLSOutDataWithUrl:@"card/queryCustomerList" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerList" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
             [self endRefresh];
-            NSArray *customerList = json[@"data"][@"customerList"];
+          
+            NSArray *customerList = [json valueForKey:@"data"];
             if ([ObjectUtil isNotEmpty:customerList]) {
                 NSArray *packVoList = [LSMemberPackVo getMemberPackVoList:customerList];
                 [self resultProcess:packVoList];

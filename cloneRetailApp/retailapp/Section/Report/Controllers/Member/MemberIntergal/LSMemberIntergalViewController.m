@@ -165,26 +165,22 @@
     }
     [_param removeAllObjects];
     
-    // 这几个参数，没有的时候要传空字符串
-//    [_param setValue:@"" forKey:@"mobile"];
-//    [_param setValue:@"" forKey:@"shopEntityId"];
-//    [_param setValue:@"" forKey:@"shopId"];
-    
     if ([NSString isNotBlank:self.txtPhoneNumber.txtVal.text]) {
         // 电话卡号或者会员卡号
         [_param setValue:self.txtPhoneNumber.txtVal.text forKey:@"mobile"];
     }
+    
     if ([self.LstTransactionTime.lblVal.text isEqualToString:@"自定义"]) {
         [_param setValue:[NSNumber numberWithLongLong:[DateUtils converStartTime:self.LstStartTime.lblVal.text]]
                    forKey:@"dateFrom"];
         [_param setValue:[NSNumber numberWithLongLong:[DateUtils converEndTime:self.LstEndTime.lblVal.text]]
                    forKey:@"dateTo"];
-    }
-    else {
+    } else {
+      
         [_param setValue:[NSNumber numberWithLongLong:[DateUtils converStartTime:self.LstTransactionTime.lblVal.text]] forKey:@"dateFrom"];
-        [_param setValue:[NSNumber numberWithLongLong:[DateUtils converEndTime:self.LstTransactionTime.lblVal.text]]
-                   forKey:@"dateTo"];
+        [_param setValue:[NSNumber numberWithLongLong:[DateUtils converEndTime:self.LstTransactionTime.lblVal.text]] forKey:@"dateTo"];
     }
+    
     if (self.LstOrderSource.hidden == NO) {
         if ([self.LstOrderSource.lblVal.text isEqualToString:@"实体门店"]) {
             [_param setValue:@"1" forKey:@"exchangeType"];
@@ -197,30 +193,25 @@
     [_param setValue:[[Platform Instance] getkey:ENTITY_ID] forKey:@"entityId"];
     
     //shopId
-    NSString *shopId = nil;
-    NSString *saleType = [self.LstOrderSource getDataLabel];
     if (self.LstTransactionShop.hidden == NO) {
         if ([[self.LstTransactionShop getDataLabel] isEqualToString:@"全部"]) {
-            shopId =  [[Platform Instance] getkey:SHOP_ID];
-        }else{
-            shopId = [self.LstTransactionShop getStrVal];
+            _shopId = @"";
+        } else {
+            _shopId = [self.LstTransactionShop getStrVal];
         }
     } else {
-        shopId =  [[Platform Instance] getkey:SHOP_ID];
+        _shopId =  [[Platform Instance] getkey:SHOP_ID];
     }
     
-    if ([[Platform Instance] getShopMode] == 3 && [[self.LstTransactionShop getDataLabel] isEqualToString:@"全部"]) {
-        [_param removeObjectForKey:@"shopId"];
-        if ([saleType isEqualToString:@"全部"] || [saleType isEqualToString:@"微店"]) {
-            [_param removeObjectForKey:@"shopEntityId"];
-        } else {
-            [_param setValue:shopId forKey:@"shopId"];
-            [_param setValue:self.shopEntityId forKey:@"shopEntityId"];
-        }
-    } else {
-        [_param setValue:shopId forKey:@"shopId"];
-        [_param setValue:self.shopEntityId forKey:@"shopEntityId"];
+    // 连锁，查询指定门店或者单店/门店，需要shopEntityId
+    if ([[Platform Instance] getShopMode] == 3 && ![[self.LstTransactionShop getDataLabel] isEqualToString:@"全部"]) {
+        [_param setValue:_shopEntityId forKey:@"shopEntityId"];
+        
+    } else if ([[Platform Instance] getShopMode] == 1 || [[Platform Instance] getShopMode] == 2) {
+        [_param setValue:_shopEntityId forKey:@"shopEntityId"];
     }
+
+    [_param setValue:_shopId forKey:@"shopId"];
     
     return _param;
 }
@@ -244,9 +235,12 @@
             if (shop) {
                 if ([[shop obtainItemId] isEqualToString:@"0"]) {
                     [self.LstTransactionShop initData:[shop obtainItemName] withVal:@"0"];
+                    _shopEntityId = @"";
+                    _shopId = @"";
                 } else {
                     [self.LstTransactionShop initData:[shop obtainItemName] withVal:[shop obtainItemId]];
-                    self.shopEntityId = [shop obtainShopEntityId];
+                    _shopEntityId = [shop obtainShopEntityId];
+                    _shopId = [shop obtainItemId];
                 }
             }
             [XHAnimalUtil animal:self.navigationController type:kCATransitionPush direction:kCATransitionFromLeft];

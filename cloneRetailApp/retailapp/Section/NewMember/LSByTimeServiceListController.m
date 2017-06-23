@@ -56,18 +56,20 @@ static NSString *byTimeServiceCellReuseId = @"LSByTimeServiceCell";
     [_titleBox initWithName:title backImg:Head_ICON_BACK moreImg:nil];
     [self.view addSubview:_titleBox];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _titleBox.ls_bottom, SCREEN_W, SCREEN_H-_titleBox.ls_bottom) style:UITableViewStylePlain];
+    CGFloat tableHeight = _type == LSByTimeServiceExpired ? SCREEN_H-_titleBox.ls_bottom: SCREEN_H-_titleBox.ls_bottom-45;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _titleBox.ls_bottom, SCREEN_W, tableHeight) style:UITableViewStylePlain];
     [_tableView registerNib:[UINib nibWithNibName:@"LSByTimeServiceCell" bundle:nil] forCellReuseIdentifier:byTimeServiceCellReuseId];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor clearColor];
     NSString *emptyNoticeText = _type == LSByTimeServiceNotExpired ? @"会员卡内没有有效的计次服务！" : @"没有失效的计次服务！";
     [_tableView emptyNoticeImage:@"ico_noByTimeCard" noticeText:emptyNoticeText];
-    [self tryShowExpiredNotceTableFooterView];
     _tableView.estimatedRowHeight = 200.0f;
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
    
+    [self tryShowExpiredNotceTableFooterView];
+    
     __weak typeof(self) weakSelf = self;
     [weakSelf.tableView ls_addHeaderWithCallback:^{
         weakSelf.lastDateTime = nil;
@@ -85,13 +87,12 @@ static NSString *byTimeServiceCellReuseId = @"LSByTimeServiceCell";
     if (_type == LSByTimeServiceNotExpired) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:@selector(toExpiredListView) forControlEvents:UIControlEventTouchUpInside];
-        button.frame = CGRectMake(10, 0, SCREEN_W-20, 45);
+        button.frame = CGRectMake(10, SCREEN_H-45, SCREEN_W-20, 45);
         [button setTitle:@"查看已失效的计次服务>>" forState:0];
         button.titleLabel.font = [UIFont systemFontOfSize:15.0f];
         [button setTitleColor:[[UIColor whiteColor] colorWithAlphaComponent:0.79] forState:0];
-        _tableView.tableFooterView = button;
-    } else {
-        _tableView.tableFooterView = [ViewFactory generateFooter:30];
+        [self.view addSubview:button];
+//        _tableView.tableFooterView = [ViewFactory generateFooter:45];
     }
 }
 

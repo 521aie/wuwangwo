@@ -11,8 +11,10 @@
 @interface LSRoleInfoController : LSRootViewController
 /** <#注释#> */
 @property (nonatomic, assign) int action;
+@property (nonatomic, assign) int type;
 /*详情页面进入时调用*/
 - (void)loadDataWithRoleID:(NSString *)roleID;
 /*添加页面进入时调用*/
 - (void)initDataInAddType;
+- (void)loadData;
 @end

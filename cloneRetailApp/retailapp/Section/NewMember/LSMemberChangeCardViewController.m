@@ -91,6 +91,7 @@
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     [self initNavigate];
     [self configScrollViewAndSubItems];
+//    [self checkMemberInfo];
     [self querySmsNumAndKindCardAndQueryCard];
     [self configHelpButton:HELP_MEMBER_MEMBER_CHANGE_CARD];
 }
@@ -206,7 +207,7 @@
             self.ensurePassword = [[EditItemText alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 48.0)];
 //            self.ensurePassword.notificationType = Notification_UI_Change;
             [self.ensurePassword initMaxNum:kCardPasswordMaxNum];
-            self.ensurePassword.line.hidden = YES;
+//            self.ensurePassword.line.hidden = YES;
             [self.ensurePassword initIndent:@"确认卡密码" withHit:@"" isrequest:YES type:UIKeyboardTypeNumberPad];
             [self.ensurePassword initData:@""];
             [self.scrollView addSubview:self.ensurePassword];
@@ -222,7 +223,7 @@
     }
     
     
-    
+/*
     // 店铺会员信息
     if (!self.shopMemberInfo) {
         self.shopMemberInfo = [[ItemTitle alloc] init];
@@ -380,7 +381,8 @@
         [self.scrollView addSubview:self.remark];
     }
     self.remark.ls_top = topY;
-    topY += 48.0;
+    topY += 48.0; 
+ */
     
     self.scrollView.contentSize = CGSizeMake(SCREEN_W ,topY + 30);
 }
@@ -562,31 +564,31 @@
     
     [self.memberCarNum initData:card.code];
     
-    // 店铺会员信息
-    LSMemberInfoVo *customer = self.memberPackVo.customer;
-    [self.memberName initData:customer.name ? : @""];
-    if (customer.sex.integerValue == 1) {
-        [self.memberSex initData:@"男" withVal:@"1"];
-    }
-    else if (customer.sex.integerValue == 2) {
-        [self.memberSex initData:@"女" withVal:@"2"];
-    }
-    
-    if ([ObjectUtil isNotNull:customer.birthdayStr] && customer.birthday.longLongValue > 1000) {
-        
-        NSString *birthdayString = [DateUtils formateChineseDate2:[NSDate dateWithTimeIntervalSince1970:customer.birthday.longLongValue/1000]];
-          [self.memberBirthday initData:birthdayString withVal:birthdayString];
-    }
-    [self.memberIDNumber initData:customer.certificate ? : @""];
-    [self.wechatNumber initData:customer.weixin ? : @""];
-    [self.email initData:customer.email ? : @""];
-    [self.contactAddress initData:customer.address ? : @""];
-    [self.postNumber initData:customer.zipcode ? : @""];
-    [self.jobType initData:customer.job ? : @""];
-    [self.company initData:customer.company ? : @""];
-    [self.duty initData:customer.pos ? : @""];
-    [self.carPlateNumber initData:customer.carNo ? : @""];
-    [self.remark initData:customer.memo ? : @""];
+//    // 店铺会员信息
+//    LSMemberInfoVo *customer = self.memberPackVo.customer;
+//    [self.memberName initData:customer.name ? : @""];
+//    if (customer.sex.integerValue == 1) {
+//        [self.memberSex initData:@"男" withVal:@"1"];
+//    }
+//    else if (customer.sex.integerValue == 2) {
+//        [self.memberSex initData:@"女" withVal:@"2"];
+//    }
+//    
+//    if ([ObjectUtil isNotNull:customer.birthdayStr] && customer.birthday.longLongValue > 1000) {
+//        
+//        NSString *birthdayString = [DateUtils formateChineseDate2:[NSDate dateWithTimeIntervalSince1970:customer.birthday.longLongValue/1000]];
+//          [self.memberBirthday initData:birthdayString withVal:birthdayString];
+//    }
+//    [self.memberIDNumber initData:customer.certificate ? : @""];
+//    [self.wechatNumber initData:customer.weixin ? : @""];
+//    [self.email initData:customer.email ? : @""];
+//    [self.contactAddress initData:customer.address ? : @""];
+//    [self.postNumber initData:customer.zipcode ? : @""];
+//    [self.jobType initData:customer.job ? : @""];
+//    [self.company initData:customer.company ? : @""];
+//    [self.duty initData:customer.pos ? : @""];
+//    [self.carPlateNumber initData:customer.carNo ? : @""];
+//    [self.remark initData:customer.memo ? : @""];
 }
 
 - (NSMutableDictionary *)createUploadData {
@@ -596,8 +598,12 @@
     
     // 发卡信息
     NSMutableDictionary *cardInfoDic = [[NSMutableDictionary alloc] init];
-    NSString *passWord = self.inputPassword.txtVal.text;
-    [cardInfoDic setValue:[[CocoaSecurity md5:passWord] hexLower] forKey:@"pwd"];
+    if ([self.memberCardSet getVal]) {
+        NSString *passWord = self.inputPassword.txtVal.text;
+        [cardInfoDic setValue:[[CocoaSecurity md5:passWord] hexLower] forKey:@"pwd"];
+
+    }
+    
     // 会员卡号
     NSString *codeNum = [NSString isNotBlank:self.memberCarNum.currentVal] ? self.memberCarNum.currentVal : @"";
     [cardInfoDic setValue:codeNum forKey:@"code"];
@@ -609,11 +615,12 @@
     [cardInfoDic setValue:entityId forKey:@"entityId"];
     
     // 店铺会员信息
+    LSMemberInfoVo *customer = self.memberPackVo.customer;
     NSMutableDictionary *memberInfoDic = [[NSMutableDictionary alloc] init];
     
-    NSString *mobile = self.memberPackVo.customer.mobile;
+    NSString *mobile = customer.mobile;
     if ([NSString isBlank:mobile]) {
-        mobile = self.memberPackVo.customerRegisterThirdPartyPojo.customerRegisterPojo.mobile;
+        mobile = [_memberPackVo getMemberPhoneNum];
         if ([NSString isBlank:mobile]) {
             mobile = self.phoneNum;
         }
@@ -622,27 +629,42 @@
     [memberInfoDic setValue:entityId forKey:@"entityId"];
     
     if ([NSString isNotBlank:self.memberPackVo.customer.sId]) {
-        [memberInfoDic setValue:self.memberPackVo.customer.sId forKey:@"id"];
+        [memberInfoDic setValue:customer.sId forKey:@"id"];
     }
     
-    [memberInfoDic setValue:[self.memberName getStrVal] forKey:@"name"]; // 会员名
-    [memberInfoDic setValue:[self.jobType getStrVal] forKey:@"job"]; // 职业
-    [memberInfoDic setValue:[self.memberIDNumber getStrVal] forKey:@"certificate"]; // 身份证
-    [memberInfoDic setValue:[self.email getStrVal] forKey:@"email"]; // 邮箱
-    [memberInfoDic setValue:self.memberSex.currentVal forKey:@"sex"]; // 性别
-    [memberInfoDic setValue:[self.remark getStrVal] forKey:@"memo"]; // 备注
-    [memberInfoDic setValue:[NSString stringWithFormat:@"%@",self.memberPackVo.customer.createTime] forKey:@"createTime"];
-    
-    if ([NSString isNotBlank:[self.memberBirthday getStrVal]]) {
-        NSDate *date = [DateUtils getDate:[self.memberBirthday getStrVal] format:@"yyyy年MM月dd日"];
-        [memberInfoDic setValue:[NSNumber numberWithLongLong:([date timeIntervalSince1970]*1000)] forKey:@"birthday"];
+//    [memberInfoDic setValue:[self.memberName getStrVal] forKey:@"name"]; // 会员名
+    [memberInfoDic setValue:customer.name forKey:@"name"];
+//    [memberInfoDic setValue:[self.jobType getStrVal] forKey:@"job"]; // 职业
+    [memberInfoDic setValue:customer.job  forKey:@"job"];
+//    [memberInfoDic setValue:[self.memberIDNumber getStrVal] forKey:@"certificate"]; // 身份证
+    [memberInfoDic setValue:customer.certificate forKey:@"certificate"]; // 身份证
+//    [memberInfoDic setValue:[self.email getStrVal] forKey:@"email"]; // 邮箱
+    [memberInfoDic setValue:customer.email forKey:@"email"]; // 邮箱
+//    [memberInfoDic setValue:self.memberSex.currentVal forKey:@"sex"]; // 性别
+    [memberInfoDic setValue:customer.sex forKey:@"sex"]; // 性别
+//    [memberInfoDic setValue:[self.remark getStrVal] forKey:@"memo"]; // 备注
+    [memberInfoDic setValue:customer.memo forKey:@"memo"]; // 备注
+    if ([ObjectUtil isNotNull:self.memberPackVo.customer.createTime]) {
+        [memberInfoDic setValue:[NSString stringWithFormat:@"%@",self.memberPackVo.customer.createTime] forKey:@"createTime"];
     }
-    [memberInfoDic setValue:[self.wechatNumber getStrVal] forKey:@"weixin"];   // 微信
-    [memberInfoDic setValue:[self.contactAddress getStrVal] forKey:@"address"]; // 联系地址
-    [memberInfoDic setValue:[self.postNumber getStrVal] forKey:@"zipcode"]; // 邮编
-    [memberInfoDic setValue:[self.duty getStrVal] forKey:@"pos"];    // 职务
-    [memberInfoDic setValue:[self.carPlateNumber getStrVal] forKey:@"carNo"];   // 车牌号
-    [memberInfoDic setValue:[self.company getStrVal] forKey:@"company"];   // 公司
+    
+//    if ([NSString isNotBlank:[self.memberBirthday getStrVal]]) {
+//        NSDate *date = [DateUtils getDate:[self.memberBirthday getStrVal] format:@"yyyy年MM月dd日"];
+//        [memberInfoDic setValue:[NSNumber numberWithLongLong:([date timeIntervalSince1970]*1000)] forKey:@"birthday"];
+//    }
+    [memberInfoDic setValue:customer.birthday forKey:@"birthday"];
+//    [memberInfoDic setValue:[self.wechatNumber getStrVal] forKey:@"weixin"];   // 微信
+    [memberInfoDic setValue:customer.weixin forKey:@"weixin"];   // 微信
+//    [memberInfoDic setValue:[self.contactAddress getStrVal] forKey:@"address"]; // 联系地址
+    [memberInfoDic setValue:customer.address forKey:@"address"]; // 联系地址
+//    [memberInfoDic setValue:[self.postNumber getStrVal] forKey:@"zipcode"]; // 邮编
+    [memberInfoDic setValue:customer.zipcode forKey:@"zipcode"]; // 邮编
+//    [memberInfoDic setValue:[self.duty getStrVal] forKey:@"pos"];    // 职务
+     [memberInfoDic setValue:customer.pos forKey:@"pos"];    // 职务
+//    [memberInfoDic setValue:[self.carPlateNumber getStrVal] forKey:@"carNo"];   // 车牌号
+     [memberInfoDic setValue:customer.carNo forKey:@"carNo"];   // 车牌号
+//    [memberInfoDic setValue:[self.company getStrVal] forKey:@"company"];   // 公司
+     [memberInfoDic setValue:customer.company forKey:@"company"];   // 公司
     
     NSMutableDictionary *flowDic = [[NSMutableDictionary alloc] init];
     [flowDic setValue:memberInfoDic forKey:@"customer"];
@@ -744,11 +766,11 @@
         return NO;
     }
     
-    if ([NSString isBlank:[self.memberName getStrVal]]) {
-        alertString = @"会员名不能为空！";
-        [LSAlertHelper showAlert:alertString block:nil];
-        return NO;
-    }
+//    if ([NSString isBlank:[self.memberName getStrVal]]) {
+//        alertString = @"会员名不能为空！";
+//        [LSAlertHelper showAlert:alertString block:nil];
+//        return NO;
+//    }
     
     if ([NSString isNotBlank:[self.memberCarNum getStrVal]]) {
         
@@ -763,21 +785,21 @@
     }
     
     // 身份证号验证
-    if ([NSString isNotBlank:[self.memberIDNumber getStrVal]]) {
-        
-        if (![NSString validateIDCardNumber:self.memberIDNumber.currentVal]) {
-            [LSAlertHelper showAlert:@"请输入正确的身份证号！" block:nil];
-            return NO;
-        }
-    }
+//    if ([NSString isNotBlank:[self.memberIDNumber getStrVal]]) {
+//        
+//        if (![NSString validateIDCardNumber:self.memberIDNumber.currentVal]) {
+//            [LSAlertHelper showAlert:@"请输入正确的身份证号！" block:nil];
+//            return NO;
+//        }
+//    }
     
     // 邮箱验证
-    if ([NSString isNotBlank:[self.email getStrVal]]) {
-        if (![NSString isValidateEmail:self.email.currentVal]) {
-            [LSAlertHelper showAlert:@"请输入正确的邮箱！" block:nil];
-            return NO;
-        }
-    }
+//    if ([NSString isNotBlank:[self.email getStrVal]]) {
+//        if (![NSString isValidateEmail:self.email.currentVal]) {
+//            [LSAlertHelper showAlert:@"请输入正确的邮箱！" block:nil];
+//            return NO;
+//        }
+//    }
     
     // 密码验证
     if (self.memberCardSet.imgOn.hidden == NO) {
@@ -815,7 +837,7 @@
     [param setValue:self.phoneNum forKey:@"mobile"];
     [param setValue:@(NO) forKey:@"isNeedAll"];
    
-    [BaseService getRemoteLSDataWithUrl:@"customer/querySmsNumAndKindCardAndQueryCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSDataWithUrl:@"customer/v1/querySmsNumAndKindCardAndQueryCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         NSDictionary *dic = json[@"data"];
         if ([ObjectUtil isNotEmpty:dic]) {
             self.memberCards = [LSMemberCardVo getMemberCardVoList:dic[@"cardQueryVo"][@"cards"]];
@@ -823,7 +845,7 @@
             // 顺序不能换
             self.ownCardItems = [self createOwnCardItems:self.memberCards];
             self.withoutCardItems = [self createWithoutCardTypeItems:self.allMemberCardTypes];
-            [self fillData];
+            [self checkMemberInfo];
         }
     } errorHandler:^(id json) {
         [LSAlertHelper showAlert:json block:nil];
@@ -831,30 +853,40 @@
 }
 
 // 查询会员基本信息
-//- (void)checkMemberInfo {
-//    
-//    NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
-//    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
-//    [param setValue:entityId forKey:@"entityId"];
-//     // 可以为空，单必须要传
-//    [param setValue:self.phoneNum ? : @"" forKey:@"keyword"];
-//    [param setValue:@(true) forKey:@"isOnlySearchMobile"];
-//    AFHTTPRequestOperation *op = [BaseService getRemoteLSOutOperationWithparams:[param mutableCopy] withUrlStr:@"card/queryCustomerInfo" completionHandler:^(id json) {
-//        
-//        NSArray *array = [LSMemberPackVo getMemberPackVoList:json[@"data"][@"customerList"]];
-//        if ([ObjectUtil isNotEmpty:array]) {
-//            self.memberPackVo = array.firstObject;
-//        }
-//        [self fillData];
-//        
-//    } errorHandler:^(id json) {
-//        
-//        [LSAlertHelper showAlert:json block:nil];
-//    }];
-//    
-//    [BaseService startOperationQueue:@[op] withMessage:nil show:YES];
-//}
-
+- (void)checkMemberInfo {
+    
+    if ([ObjectUtil isNull:_memberPackVo]) {
+        _memberPackVo = [[LSMemberPackVo alloc] init];
+        [self fillData];
+        return;
+    }
+    
+    NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] initWithCapacity:3];
+    [param setValue:entityId forKey:@"entityId"];
+    [param setValue:_phoneNum forKey:@"keyword"];
+    [param setValue:@(NO) forKey:@"isOnlySearchMobile"];
+    [param setValue:_memberPackVo.customerRegisterId forKey:@"twodfireMemberId"];
+    [param setValue:_memberPackVo.customer.sId forKey:@"customerId"];
+    
+    [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerInfo" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        if ([json[@"code"] boolValue]) {
+            
+            NSArray *customerList = json[@"data"][@"customerList"];
+            if ([ObjectUtil isNotEmpty:customerList]) {
+                
+                if (customerList.count == 1) {
+                    self.memberPackVo = [LSMemberPackVo getMemberPackVo:customerList[0]];
+                    [self fillData];
+                }
+            }
+        }
+        
+    } errorHandler:^(id json) {
+        [LSAlertHelper showAlert:json block:nil];
+    }];
+    
+}
 
 // 确认换卡
 - (void)exchangeCard {
@@ -862,7 +894,7 @@
     if ([self isValid]) {
         
         NSMutableDictionary *param = [self createUploadData];
-        [BaseService getRemoteLSDataWithUrl:@"customer/saveCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        [BaseService getRemoteLSDataWithUrl:@"customer/changeCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
             if ([json[@"returnCode"] isEqualToString:@"success"]) {
                 
                 [LSAlertHelper showStatus:@" 换卡成功！" afterDeny:2 block:^{

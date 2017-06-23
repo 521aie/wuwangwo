@@ -23,7 +23,7 @@
 {
     if (type==1) {
         self.btnExpand.hidden = YES;
-        self.shopImage.image = [UIImage imageNamed:@"icon_shop.png"];
+        self.shopImage.image = [UIImage imageNamed:@"icon_shop"];
         self.shopImage.hidden = !show;
         self.checkImage.hidden = !check;
         [self changePos:1];
@@ -41,7 +41,7 @@
         }
         if (show) {
             self.shopImage.hidden = NO;
-            self.shopImage.image = [UIImage imageNamed:@"icon_shop.png"];
+            self.shopImage.image = [UIImage imageNamed:@"icon_shop"];
             [self.shopImage updateConstraints:^(MASConstraintMaker *make) {
                 make.size.equalTo(CGSizeMake(24, 34));
             }];

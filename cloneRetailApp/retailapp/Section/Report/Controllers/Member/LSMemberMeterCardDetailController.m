@@ -203,22 +203,24 @@
         if ([self.detailVo.action  isEqual: @1]) {
             
             [wself.action initData:@"充值"];
-            
             wself.salePrice.lblVal.textColor = [ColorHelper getRedColor];
-            [wself.salePrice initData:[NSString stringWithFormat:@"%.2f",price.doubleValue]];
             
         } else if ([self.detailVo.action  isEqual: @2]) {
             
             [wself.action initData:@"支付"];
+            wself.salePrice.lblVal.textColor = [ColorHelper getRedColor];
+            
+            wself.salePrice.lblVal.textColor = [ColorHelper getRedColor];
             
         }else if ([self.detailVo.action  isEqual: @3]) {
             
             [wself.action initData:@"退款"];
-            
             wself.salePrice.lblVal.textColor = [ColorHelper getGreenColor];
-            [wself.salePrice initData:[NSString stringWithFormat:@"%.2f",price.doubleValue]];
         }
+        
+        [wself.salePrice initData:[NSString stringWithFormat:@"%.2f",price.doubleValue]];
     }
+
     
     if ([ObjectUtil isNotNull:self.detailVo.payMode]) {
         

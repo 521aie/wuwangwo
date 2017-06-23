@@ -367,10 +367,9 @@
         }
         
         // cardTypeVo.attachmentId
-        if ([NSString isNotBlank:cardVo.cardTypeVo.attachmentId]) {
-             [self.bgImagView ls_setImageWithPath:cardVo.filePath
+        [self.bgImagView ls_setImageWithPath:cardVo.filePath
                                  placeholderImage:[UIImage imageNamed:kDefaultCardBackgroundImageName]];
-        }
+        
     }
     else if (type == 0) {  // type == 0 ，也就是type == MBAccessCardsInfoDetailPage
         // 未领卡情况

@@ -26,8 +26,15 @@
 }
 
 + (NSArray *)getMemberTypeVos:(NSArray *)dicArray {
-    
-    return [[self mj_objectArrayWithKeyValuesArray:dicArray] copy];
+    NSMutableArray *dataAry = [[NSMutableArray alloc] init];
+    for (int i = 0; i < dicArray.count; i++) {
+        NSDictionary *dic = [dicArray objectAtIndex:i];
+        LSMemberTypeVo *vo = [LSMemberTypeVo getMemberTypeVo:dic];
+        vo.ratioExchangeDegree = vo.ratioExchangeDegree/100.0;
+        vo.exchangeDegree = vo.exchangeDegree/100.0;
+        [dataAry addObject:vo];
+    }
+    return [dataAry copy];
 }
 
 + (LSMemberTypeVo *)getMemberTypeVo:(NSDictionary *)dic {

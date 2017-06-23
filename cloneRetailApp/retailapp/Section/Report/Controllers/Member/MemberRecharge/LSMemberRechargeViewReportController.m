@@ -165,10 +165,6 @@
         _param = [[NSMutableDictionary alloc] init];
     }
     [_param removeAllObjects];
-    
-//    [_param setValue:@"" forKey:@"shopId"];
-//    [_param setValue:[NSNull null] forKey:@"shopEntityId"];
-//    [_param setValue:@"" forKey:@"mobile"];
 
     if ([NSString isNotBlank:self.txtPhoneNumber.txtVal.text]) {
         [_param setValue:self.txtPhoneNumber.txtVal.text forKey:@"mobile"];
@@ -196,13 +192,13 @@
     }
     
     [_param setValue:[[Platform Instance] getkey:ENTITY_ID] forKey:@"entityId"];
+    
     //shopId
     NSString *shopId = nil;
-    NSString *saleType = [self.LstOrderSource getDataLabel];
     if (self.LstTransactionShop.hidden == NO) {
         if ([[self.LstTransactionShop getDataLabel] isEqualToString:@"全部"]) {
-            shopId =  [[Platform Instance] getkey:SHOP_ID];
-        }else{
+            shopId = @"";
+        } else {
             shopId = [self.LstTransactionShop getStrVal];
         }
     } else {
@@ -210,17 +206,12 @@
     }
     [_param setValue:shopId forKey:@"shopId"];
     
-    if ([[Platform Instance] getShopMode] == 3 && [[self.LstTransactionShop getDataLabel] isEqualToString:@"全部"]) {
-        [_param removeObjectForKey:@"shopId"];
-        if ([saleType isEqualToString:@"全部"] || [saleType isEqualToString:@"微店"]) {
-            [_param removeObjectForKey:@"shopEntityId"];
-        } else {
-            [_param setValue:shopId forKey:@"shopId"];
-            [_param setValue:self.shopEntityId forKey:@"shopEntityId"];
-        }
-    } else {
-        [_param setValue:shopId forKey:@"shopId"];
-        [_param setValue:self.shopEntityId forKey:@"shopEntityId"];
+    // 连锁，查询指定门店或者单店/门店，需要shopEntityId
+    if ([[Platform Instance] getShopMode] == 3 && ![[self.LstTransactionShop getDataLabel] isEqualToString:@"全部"]) {
+        [_param setValue:_shopEntityId forKey:@"shopEntityId"];
+    
+    } else if ([[Platform Instance] getShopMode] == 1 || [[Platform Instance] getShopMode] == 2) {
+        [_param setValue:_shopEntityId forKey:@"shopEntityId"];
     }
     return _param;
 }
@@ -243,6 +234,8 @@
             if (shop) {
                 if ([[shop obtainItemId] isEqualToString:@"0"]) {
                     [self.LstTransactionShop initData:[shop obtainItemName] withVal:@"0"];
+                    _shopId = nil;
+                    _shopEntityId = nil;
                 } else {
                     [self.LstTransactionShop initData:[shop obtainItemName] withVal:[shop obtainItemId]];
                     self.shopEntityId = [shop obtainShopEntityId];

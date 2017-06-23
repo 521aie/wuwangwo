@@ -14,7 +14,6 @@
 #import "LSMemberRescindCardViewController.h"
 #import "LSMemberCardLossHandViewController.h"
 #import "LSMemberRechargeViewController.h"
-//#import "LSMemberIntegralSetViewController.h"
 #import "LSMemberIntegralExchangeViewController.h"
 #import "LSMemberBestowIntegralViewController.h"
 #import "LSMemberDetailViewController.h"
@@ -172,7 +171,6 @@ static NSString *memberInoCellId = @"LSMemberInfoCell";
     
     if (self.type == MBSubModule_SummaryInfo) {
         LSMemberNewAddedVo *vo = self.datas[indexPath.row];
-//        [self toMemberDetailPage:vo.mobile];
         [self queryMemberInfo:vo];
     }
     else {
@@ -180,12 +178,11 @@ static NSString *memberInoCellId = @"LSMemberInfoCell";
         // 存在该会员但未领卡时，弹出提示框(适用于：会员换卡、会员充值、积分兑换、挂失与解挂、会员退卡、改卡密码)
         if (memberPackVo.customer && [ObjectUtil isEmpty:memberPackVo.cardNames]) {
             
-//             只要不是去发卡，其他模块操作前提都需要有会员卡，所以提示用户先给该会员发卡
+            //只要不是去发卡，其他模块操作前提都需要有会员卡，所以提示用户先给该会员发卡
             if (self.type != MBSubModule_SendCard) {
                 [LSAlertHelper showAlert:@"提示" message:@"此会员还没有领本店会员卡，需要为会员发卡吗？" cancle:@"取消" block:nil ensure:@"发卡" block:^{
                     [self toSendCardPage:memberPackVo];
                 }];
-//                [self toMemberDetailPage:[memberPackVo getMemberPhoneNum]];
             }
             return ;
         }
@@ -214,7 +211,7 @@ static NSString *memberInoCellId = @"LSMemberInfoCell";
                 [self toMemberBestowIntegralPage:memberPackVo];
             }
             else if (self.type == MBSubModule_HomePage) {
-                [self toMemberDetailPage:[memberPackVo getMemberPhoneNum]];
+                [self toMemberDetailPage:memberPackVo];
             }
         }
     }
@@ -265,10 +262,22 @@ static NSString *memberInoCellId = @"LSMemberInfoCell";
     NSString *phoneNo = [NSString isNotBlank:vo.mobile]?vo.mobile:@"";
     NSDictionary *param = @{@"entityId":entityId ,@"keyword":phoneNo ,@"isOnlySearchMobile":@(YES)};
     
-    [BaseService getRemoteLSOutDataWithUrl:@"card/queryCustomerInfo" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerInfoByMobileOrCode" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
         NSArray *array = [LSMemberPackVo getMemberPackVoList:json[@"data"][@"customerList"]];
         if ([ObjectUtil isNotEmpty:array]) {
-            [wself toMemberDetailPage:phoneNo];
+            
+            if (array.count == 1) {
+                [wself toMemberDetailPage:array.firstObject];
+            } else {
+                [array enumerateObjectsUsingBlock:^(LSMemberPackVo*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if ([vo.customerId isEqualToString:obj.customerId]) {
+                        *stop = YES;
+                        [wself toMemberDetailPage:obj];
+                    }
+                }];
+            }
+            
+            
         } else {
             [LSAlertHelper showAlert:@"该会员已被删除！"];
         }
@@ -334,8 +343,8 @@ static NSString *memberInoCellId = @"LSMemberInfoCell";
 }
 
 // 跳转到会员详情页面
-- (void)toMemberDetailPage:(NSString *)phone {
-    LSMemberDetailViewController *vc = [[LSMemberDetailViewController alloc] initWithPhoneNum:phone];
+- (void)toMemberDetailPage:(LSMemberPackVo *)vo {
+    LSMemberDetailViewController *vc = [[LSMemberDetailViewController alloc] initWithMemberVo:vo];
     [self pushController:vc from:kCATransitionFromRight];
 }
 

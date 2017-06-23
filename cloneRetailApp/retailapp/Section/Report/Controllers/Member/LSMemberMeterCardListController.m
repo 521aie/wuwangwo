@@ -148,7 +148,7 @@
         [wself.tableView footerEndRefreshing];
         
         if ([ObjectUtil isNotNull:[json valueForKey:@"lastDateTime"]]) {
-            self.lastDateTime = [json valueForKey:@"lastDateTime"];
+            wself.lastDateTime = [json valueForKey:@"lastDateTime"];
         }
         
         if (wself.lastTime == 1) {
@@ -157,7 +157,6 @@
             wself.sectionsArray = nil;
         }
         
-        wself.lastDateTime = json[@"lastDateTime"];
         NSArray *map = json[@"sortedTimeAccountFlowVos"];
         
         [wself dealResponseDataByTime:map];

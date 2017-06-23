@@ -281,7 +281,7 @@
         [param setValue:[[Platform Instance]  getkey:ENTITY_ID] forKey:@"entityId"];
         [param setValue:[self.ruleVo rechargeRuleVoJsonString] forKey:@"moneyRuleStr"];
         
-        [BaseService getRemoteLSOutDataWithUrl:@"moneyRule/save" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        [BaseService getRemoteLSOutDataWithUrl:@"moneyRule/v2/save" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
             if ([json[@"code"] boolValue]) {
                 if (self.callBackBlock) {
                     self.callBackBlock(ACTION_CONSTANTS_ADD);
@@ -303,7 +303,7 @@
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:[[Platform Instance]  getkey:ENTITY_ID] forKey:@"entityId"];
         [param setValue:[self.ruleVo rechargeRuleVoJsonString] forKey:@"moneyRuleStr"];
-        [BaseService getRemoteLSOutDataWithUrl:@"moneyRule/update" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        [BaseService getRemoteLSOutDataWithUrl:@"moneyRule/v2/update" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
             if ([json[@"code"] boolValue]) {
                 if (self.callBackBlock) {
                     self.callBackBlock(ACTION_CONSTANTS_EDIT);

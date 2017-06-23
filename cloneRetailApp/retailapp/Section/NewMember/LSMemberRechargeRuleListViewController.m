@@ -92,13 +92,13 @@ static NSString *attributeAddCellId = @"AttributeAddCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     LSMemberRechargeSetVo *vo = [self.dataSource objectAtIndex:section];
-    return vo.moneyRules.count + 1;
+    return vo.moneyRuleList.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     LSMemberRechargeSetVo *vo = self.dataSource[indexPath.section];
-    if (indexPath.row == vo.moneyRules.count) {
+    if (indexPath.row == vo.moneyRuleList.count) {
         AttributeAddCell *addCell = (AttributeAddCell *)[tableView dequeueReusableCellWithIdentifier:attributeAddCellId];
         addCell.lblName.text = @"添加充值优惠";
         return addCell;
@@ -106,7 +106,7 @@ static NSString *attributeAddCellId = @"AttributeAddCell";
     else {
         MemberTypeCell *cell = (MemberTypeCell *)[tableView dequeueReusableCellWithIdentifier:memberTypeCellId];
         cell.lblMemberTypeDiscount.hidden = YES;
-        LSMemberRechargeRuleVo *rule = (LSMemberRechargeRuleVo *)vo.moneyRules[indexPath.row];
+        LSMemberRechargeRuleVo *rule = (LSMemberRechargeRuleVo *)vo.moneyRuleList[indexPath.row];
         
         NSString *giftDegree = @"";
         if (rule.giftDegree.integerValue > 0) {
@@ -132,15 +132,15 @@ static NSString *attributeAddCellId = @"AttributeAddCell";
     LSMemberRechargeSetVo *vo = self.dataSource[indexPath.section];
     LSMemberRechargeRuleVo *ruleVo = nil;
     NSInteger type = ACTION_CONSTANTS_ADD;
-    if (indexPath.row == vo.moneyRules.count) {
+    if (indexPath.row == vo.moneyRuleList.count) {
         
         ruleVo = [[LSMemberRechargeRuleVo alloc] init];
         ruleVo.kindCardId = vo.kindCardId;
         ruleVo.kindCardName = vo.kindCardName;
     }
-    else if (indexPath.row < vo.moneyRules.count){
+    else if (indexPath.row < vo.moneyRuleList.count){
         type = ACTION_CONSTANTS_EDIT;
-        ruleVo = (LSMemberRechargeRuleVo *)[vo.moneyRules objectAtIndex:indexPath.row];
+        ruleVo = (LSMemberRechargeRuleVo *)[vo.moneyRuleList objectAtIndex:indexPath.row];
     }
    
     LSMemberRechargeRuleEditViewController *vc = [[LSMemberRechargeRuleEditViewController alloc]
@@ -151,9 +151,9 @@ static NSString *attributeAddCellId = @"AttributeAddCell";
                                                       }
                                                       else {
                                                           if (type == ACTION_CONSTANTS_DEL) {
-                                                              NSMutableArray *temp = [NSMutableArray arrayWithArray:vo.moneyRules];
+                                                              NSMutableArray *temp = [NSMutableArray arrayWithArray:vo.moneyRuleList];
                                                               [temp removeObject:ruleVo];
-                                                              vo.moneyRules = [temp copy];
+                                                              vo.moneyRuleList = [temp copy];
                                                           }
                                                           [self.tableView reloadData];
                                                       }
@@ -172,7 +172,7 @@ static NSString *attributeAddCellId = @"AttributeAddCell";
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     [param setValue:[[Platform Instance]  getkey:ENTITY_ID] forKey:@"entityId"];
     
-    [BaseService getRemoteLSOutDataWithUrl:@"moneyRule/queryKindCardMoneyRule" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"moneyRule/v2/queryKindCardMoneyRule" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         if ([json[@"code"] boolValue]) {
             
             self.dataSource = [LSMemberRechargeSetVo getMemberRechargeSetVoList:json[@"data"]];

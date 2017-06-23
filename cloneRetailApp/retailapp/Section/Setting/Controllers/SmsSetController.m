@@ -157,8 +157,24 @@
     NSString *strPaySms = nil;
     NSString *strTradeSms = nil;
     
-    if ([[Platform Instance] getShopMode] != 1 && [[[Platform Instance] getkey:SHOP_MODE] intValue] == 102
-) {
+    if ([[[Platform Instance] getkey:SHOP_MODE] intValue] == 102) {
+        
+        if ([[Platform Instance] getShopMode] == 1) {
+            
+            strPaySms = [NSString stringWithFormat:@"储值充值短信：\n【二维火】您的会员卡充值成功，充值金额{充值金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n计次充值短信：\n【二维火】您已成功充值计次服务：{计次服务名称}，有效期{开始日期}至{结束日期}。如有疑问请咨询%@<%@>",self.telephone, self.shopName,self.telephone, self.shopName];
+            
+            strTradeSms = [NSString stringWithFormat:@"储值消费短信：\n【二维火】您的会员卡本次消费了{消费金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n储值退款短信：\n【二维火】您的会员卡本次退款{退款金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n计次消费短信：\n【二维火】您的会员卡本次消费了计次服务：{计次商品名称}（等多项），共计消费{消费计次商品数量}次。如有疑问请咨询%@<%@>",self.telephone, self.shopName, self.telephone, self.shopName, self.telephone, self.shopName];
+        }else {
+            
+            strPaySms = [NSString stringWithFormat:@"储值充值短信：\n【二维火】您的会员卡充值成功，充值金额{充值金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>",self.telephone, self.shopName];
+            
+            strTradeSms = [NSString stringWithFormat:@"储值消费短信：\n【二维火】您的会员卡本次消费了{消费金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n储值退款短信：\n【二维火】您的会员卡本次退款{退款金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>",self.telephone, self.shopName, self.telephone, self.shopName];
+            
+            [self.vewMeterReturnSms visibal:NO];
+            [self.rdoMeterReturnSms visibal:NO];
+        }
+        
+    } else {
         
         strPaySms = [NSString stringWithFormat:@"储值充值短信：\n【二维火】您的会员卡充值成功，充值金额{充值金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>",self.telephone, self.shopName];
         
@@ -166,12 +182,8 @@
         
         [self.vewMeterReturnSms visibal:NO];
         [self.rdoMeterReturnSms visibal:NO];
-    } else {
-        
-        strPaySms = [NSString stringWithFormat:@"储值充值短信：\n【二维火】您的会员卡充值成功，充值金额{充值金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n计次充值短信：\n【二维火】您已成功充值计次服务：{计次服务名称}，有效期{开始日期}至{结束日期}。如有疑问请咨询%@<%@>",self.telephone, self.shopName,self.telephone, self.shopName];
-        
-        strTradeSms = [NSString stringWithFormat:@"储值消费短信：\n【二维火】您的会员卡本次消费了{消费金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n储值退款短信：\n【二维火】您的会员卡本次退款{退款金额}元，当前余额{卡内余额}元。如有疑问请咨询%@<%@>\n\n计次消费短信：\n【二维火】您的会员卡本次消费了计次服务：{计次商品名称}（等多项），共计消费{消费计次商品数量}次。如有疑问请咨询%@<%@>",self.telephone, self.shopName, self.telephone, self.shopName, self.telephone, self.shopName];
     }
+    
     [self.vewPaySms initLabel:@"▪︎ 短信预览" withHit:strPaySms];
     [self.vewPaySms visibal:[self.rdoPaySms getVal]];
     

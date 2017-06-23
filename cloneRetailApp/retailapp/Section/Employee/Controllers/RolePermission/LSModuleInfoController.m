@@ -17,6 +17,7 @@
 #import "XHAnimalUtil.h"
 #import "SystemInfoVo.h"
 #import "RoleVo.h"
+#import "LSRoleInfoController.h"
 @interface LSModuleInfoController ()< IEditItemRadioEvent, IEditItemListEvent, OptionPickerClient>
 /** <#注释#> */
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -114,6 +115,15 @@
                     [item visibal:NO];
                 }else{
                     [item visibal:YES];
+                }
+            }
+            if ([moduleVo.moduleName isEqualToString:@"店家设置"]) {
+                if ([obj.actionCode isEqualToString:ACTION_SETTLED_MALL]) {//入驻商圈
+                    if ([[Platform Instance] getScanPayStatus] != 1) {//没有开通商圈
+                        [item visibal:NO];
+                    } else {
+                        [item visibal:YES];
+                    }
                 }
             }
         } else if (obj.actionType == 2) {
@@ -279,6 +289,13 @@
 
 - (void)onNavigateEvent:(LSNavigationBarButtonDirect)direct {
     if (direct == LSNavigationBarButtonDirectLeft) {
+        [self.navigationController.viewControllers enumerateObjectsUsingBlock:^(__kindof UIViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[LSRoleInfoController class]]) {
+                [(LSRoleInfoController *)obj setType:0];
+                *stop = YES;
+            }
+            
+        }];
         [self popViewController];
     } else {
         //点击保存时,权限名称的拼接

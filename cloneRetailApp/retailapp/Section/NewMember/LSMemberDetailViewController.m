@@ -41,7 +41,6 @@
 #import "LSMemberOrderRecordVo.h"
 #import "DateUtils.h"
 #import "LSMemberConst.h"
-//#import "AFHTTPRequestOperation.h"
 #import "MobClick.h"
 
 static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
@@ -112,17 +111,17 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
 @property (nonatomic ,strong) NSArray *memberCards;/*<当前会员拥有的会员卡>*/
 @property (nonatomic ,strong) NSArray *memberCardTyps;/*<会员卡所对应的会员类型数组>*/
 @property (nonatomic ,assign) BOOL hasEditPower;/*<是否有修改会员信息的权限>*/
-@property (nonatomic ,strong) NSString *phoneNum;/*<查询的会员手机号>*/
+//@property (nonatomic ,strong) NSString *phoneNum;/*<查询的会员手机号>*/
 @property (nonatomic ,assign) BOOL hasChangeContent;/*<页面有编辑项，发生了变化>*/
 @end
 
 @implementation LSMemberDetailViewController
 
-- (instancetype)initWithPhoneNum:(NSString *)phoneNum {
+- (instancetype)initWithMemberVo:(LSMemberPackVo *)vo {
     
     self = [super init];
     if (self) {
-        _phoneNum = phoneNum;
+        _memberPackVo = vo;
         _showExpenseInfo = YES;
         _hasEditPower = ![[Platform Instance] lockAct:ACTION_CARD_EDIT];
     }
@@ -146,9 +145,9 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
     [super viewDidAppear:animated];
     [self queryMemberInfo];
 //    [self querySmsNumAndKindCardAndQueryCard];
-    if (_showExpenseInfo) {
-        [self getMemberExpendRecords];
-    }
+//    if (_showExpenseInfo) {
+//        [self getMemberExpendRecords];
+//    }
 }
 
 #pragma mark - NavigateTitle2 代理
@@ -209,7 +208,7 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
 - (void)fillData {
     
     // 二维火会员信息
-    [_memberInfoView fillMemberInfo:_memberPackVo cards:_memberCards cardTypes:_memberCardTyps phone:_phoneNum];
+    [_memberInfoView fillMemberInfo:_memberPackVo cards:_memberCards cardTypes:_memberCardTyps phone:_memberPackVo.mobile];
     
     // 卡详情信息
     if (self.memberCardVo.sellerId.length == 0) {
@@ -301,7 +300,7 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
     LSMemberInfoVo *customer = _memberPackVo.customer;
     customer.name = [_memberName getStrVal];
     customer.sex = @(_memberSex.currentVal.integerValue);
-    if ([NSString isNotBlank:[_memberBirthday getStrVal]]) {
+    if (_memberBirthday.baseChangeStatus && [NSString isNotBlank:[_memberBirthday getStrVal]]) {
         customer.birthdayStr = [_memberBirthday getStrVal];
         customer.birthday = @([[DateUtils getDate:[_memberBirthday getStrVal] format:@"yyyy年MM月dd日"] timeIntervalSince1970]*1000);
     }
@@ -337,6 +336,7 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
     customer.pos = [_duty getStrVal];
     customer.carNo = [_carPlateNumber getStrVal];
     customer.memo = [_remark getStrVal];
+    customer.weixin = [_wechatNumber getStrVal];
     return YES;
 }
 
@@ -510,8 +510,8 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
             if ([ObjectUtil isEmpty:_memberCards]) {
                 // 未领卡时只显示 cardsSummary
                 _wrapper1.ls_height = _cardsSummary.ls_bottom + 10.0;
-            }
-            else {
+            
+            } else {
                 _cardStatus.ls_top = (_cardFunctions.hidden ? _cardsSummary.ls_bottom:_cardFunctions.ls_bottom);
                 [_wrapper1 addSubview:_cardStatus];
                 
@@ -557,7 +557,7 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
                         [_wrapper1 addSubview:_sendPeople];
                         
                         _wrapper1.ls_height = _sendPeople.ls_bottom + 10;
-                    }else{
+                    } else {
                         //在微店领取的会员卡
                         //如果发卡人信息获取不到则隐藏
                         //如果发卡门店取不到则隐藏
@@ -573,10 +573,10 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
                                 
                                 _wrapper1.ls_height = _sendPeople.ls_bottom + 10;
                             }
-                        }else{
+                        } else {
                             if (self.memberCardVo.operatorName.length == 0) {
                                 _wrapper1.ls_height = _sendType.ls_bottom + 10;
-                            }else{
+                            } else {
                                 _sendPeople.ls_top = _sendType.ls_bottom;
                                 [_wrapper1 addSubview:_sendPeople];
                                 
@@ -585,18 +585,18 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
                         }
                     }
                     
-                }else{
+                } else {
                     //在微店领取的会员卡，
                     if (/* DISABLES CODE */ (type)) {
                         _sendPeople.ls_top = _sendType.ls_bottom;
                         [_wrapper1 addSubview:_sendPeople];
                         
                         _wrapper1.ls_height = _sendPeople.ls_bottom + 10;
-                    }else{
+                    } else {
                         //如果发卡人信息获取不到则隐藏
                         if (self.memberCardVo.operatorName.length == 0) {
                             _wrapper1.ls_height = _sendType.ls_bottom + 10;
-                        }else{
+                        } else {
                             [_wrapper1 addSubview:_sendPeople];
                             
                             _wrapper1.ls_height = _sendPeople.ls_bottom + 10;
@@ -606,8 +606,8 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
                 
             }
             [_tabHeaderView addSubview:_wrapper1];
-        }
-        else {
+        
+        } else {
             _wrapper1.ls_height = 10;
         }
         
@@ -1133,7 +1133,7 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
                 return ;
             }
             // 无卡提示发卡
-            LSMemberElectronicCardSendViewController *vc = [[LSMemberElectronicCardSendViewController alloc] init:_phoneNum member:nil fromPage:YES];
+            LSMemberElectronicCardSendViewController *vc = [[LSMemberElectronicCardSendViewController alloc] init:[_memberPackVo getMemberPhoneNum] member:_memberPackVo fromPage:YES];
             [self pushController:vc from:kCATransitionFromRight];
         }
     }
@@ -1150,30 +1150,19 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
 
 #pragma mark - 网络请求
 
-// 查询会员卡类型数，
-- (void)querySmsNumAndKindCardAndQueryCard {
-
-    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
-    [param setValue:entityId forKey:@"entityId"];
-    [param setValue:_phoneNum forKey:@"mobile"];
-    [param setValue:@(NO) forKey:@"isNeedAll"];
-    
-    [BaseService getRemoteLSDataWithUrl:@"customer/querySmsNumAndKindCardAndQueryCard" param:[param mutableCopy] withMessage:nil show:YES CompletionHandler:^(id json) {
-        //        LSMemberInfoVo *memberInfoVo = [LSMemberInfoVo getMemberVo:json[@"data"][@"cardQueryVo"][@"customer"]];
-        //        LSMemberRegisterVo *registerVo = [LSMemberRegisterVo getMemberRegisterVo:json[@"data"][@"cardQueryVo"][@"customerRegisterVo"]];
-    } errorHandler:^(id json) {
-        [LSAlertHelper showAlert:json block:nil];
-    }];
-}
-
 // 查询会员基本信息
 - (void)queryMemberInfo {
     
     NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
-    NSDictionary *param = @{@"entityId":entityId ,@"keyword":_phoneNum ,@"isOnlySearchMobile":@(YES)};
+    NSString *phone = [_memberPackVo getMemberPhoneNum];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setValue:phone forKey:@"keyword"];
+    [param setValue:entityId forKey:@"entityId"];
+    [param setValue:@(YES) forKey:@"isOnlySearchMobile"];
+    [param setValue:_memberPackVo.customerId forKey:@"customerId"];
+    [param setValue:_memberPackVo.customerRegisterId forKey:@"twodfireMemberId"];
     
-    [BaseService getRemoteLSOutDataWithUrl:@"card/queryCustomerInfo" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerInfo" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         NSArray *array = [LSMemberPackVo getMemberPackVoList:json[@"data"][@"customerList"]];
         if ([ObjectUtil isNotEmpty:array]) {
             _memberPackVo = array.firstObject;
@@ -1196,7 +1185,7 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
     [param setValue:_memberPackVo.customer.sId forKey:@"customerId"];
     [param setValue:[[Platform Instance]  getkey:ENTITY_ID] forKey:@"entityId"];
     
-    [BaseService getRemoteLSDataWithUrl:@"customer/queryCustomerCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSDataWithUrl:@"customer/v1/queryCustomerCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         
         if ([ObjectUtil isNotEmpty:json[@"data"]]) {
             NSMutableArray *types = [[NSMutableArray alloc] init];
@@ -1254,9 +1243,10 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
         NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
         NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
         [param setValue:entityId forKey:@"entityId"];
+//        [param setValue:self.memberCardVo.sId forKeyPath:@"cardId"];
         [param setValue:[_memberPackVo.customer memberInfoJsonString] forKey:@"customerJson"];
         
-        [BaseService getRemoteLSOutDataWithUrl:@"customer/updateCustomer" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        [BaseService getRemoteLSOutDataWithUrl:@"customer/v2/updateCustomer" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
             if ([json[@"code"] boolValue]) {
                 [self popToLatestViewController:kCATransitionFromLeft];
             }
@@ -1275,7 +1265,7 @@ static NSString *expenseInfoCellId = @"LSMemberExpenseInfoCell";
     
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     [param setValue:_lastTime forKey:@"lastTime"];
-    [param setValue:_memberPackVo.customer.sId forKey:@"customerId"];
+    [param setValue:_memberPackVo.customerId forKey:@"customerId"];
     [param setValue:[[Platform Instance] getkey:ENTITY_ID] forKey:@"entityId"];
     [param setValue:[[Platform Instance] getkey:RELEVANCE_ENTITY_ID] forKey:@"shopEntityId"];
     [BaseService getRemoteLSDataWithUrl:@"customerDeal/dealList" param:param withMessage:@"" show:NO CompletionHandler:^(id json) {

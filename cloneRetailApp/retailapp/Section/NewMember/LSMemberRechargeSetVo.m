@@ -13,12 +13,21 @@
 
 + (NSArray *)getMemberRechargeSetVoList:(NSArray *)array {
     
-    return [self mj_objectArrayWithKeyValuesArray:array];
+    NSMutableArray *vos = [self mj_objectArrayWithKeyValuesArray:array];
+    [vos enumerateObjectsUsingBlock:^(LSMemberRechargeSetVo *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSArray *ruleVos = obj.moneyRuleList;
+        [ruleVos enumerateObjectsUsingBlock:^(LSMemberRechargeRuleVo*  _Nonnull ruleVo, NSUInteger idx, BOOL * _Nonnull stop) {
+            ruleVo.condition = @(ruleVo.condition.floatValue/100.0);
+            ruleVo.rule = @(ruleVo.rule.floatValue/100.0);
+            ruleVo.kindCardName = obj.kindCardName;
+        }];
+    }];
+    return vos;
 }
 
 + (NSDictionary *)mj_objectClassInArray {
     
-    return @{@"moneyRules":@"LSMemberRechargeRuleVo"};
+    return @{@"moneyRuleList":@"LSMemberRechargeRuleVo"};
 }
 
 @end
@@ -48,6 +57,11 @@
 }
 
 + (NSArray *)getRechargeRuleVoList:(NSArray *)keyValueArray {
-    return [self mj_objectArrayWithKeyValuesArray:keyValueArray];
+    NSMutableArray *vos = [self mj_objectArrayWithKeyValuesArray:keyValueArray];
+    [vos enumerateObjectsUsingBlock:^(LSMemberRechargeRuleVo*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.condition = @(obj.condition.floatValue/100.0);
+        obj.rule = @(obj.rule.floatValue/100.0);
+    }];
+    return vos;
 }
 @end

@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *operType; //操作类型（充值、退款）
 @property (nonatomic, strong) NSNumber *consumeDate; //时间段标记
 @property (nonatomic ,copy) NSString *id;//	充值ID
+@property (nonatomic, strong) NSNumber *action; //操作类型（1充值,2支付,3退卡）
 
 + (instancetype)byTimeRechargeRecordVo:(NSDictionary *)jsonDic;
 + (NSArray *)byTimeRechargeRecordVoList:(NSArray *)keyValuesArray;

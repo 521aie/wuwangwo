@@ -51,7 +51,7 @@
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     [self configSubViews];
     [self initNavigate];
-    [self loadMemberCards];
+    [self queryMemberInfo];
     [self configHelpButton:HELP_MEMBER_MEMBER_SEND_INTERGAL];
 }
 
@@ -207,6 +207,37 @@
 
 #pragma mark - 网络请求
 
+// 查询会员基本信息
+- (void)queryMemberInfo {
+    
+    NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] initWithCapacity:3];
+    [param setValue:entityId forKey:@"entityId"];
+    [param setValue:[_memberPackVo getMemberPhoneNum] forKey:@"keyword"];
+    [param setValue:@(NO) forKey:@"isOnlySearchMobile"];
+    [param setValue:_memberPackVo.customerRegisterId forKey:@"twodfireMemberId"];
+    [param setValue:_memberPackVo.customer.sId forKey:@"customerId"];
+    
+    [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerInfo" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        if ([json[@"code"] boolValue]) {
+            
+            NSArray *customerList = json[@"data"][@"customerList"];
+            if ([ObjectUtil isNotEmpty:customerList]) {
+                
+                if (customerList.count == 1) {
+                    self.memberPackVo = [LSMemberPackVo getMemberPackVo:customerList[0]];
+                    [self loadMemberCards];
+                }
+            }
+        }
+        
+    } errorHandler:^(id json) {
+        [LSAlertHelper showAlert:json block:nil];
+    }];
+    
+}
+
+
 // 获取会员所有的会员卡信息
 - (void)loadMemberCards {
     
@@ -214,7 +245,7 @@
     [param setValue:_memberPackVo.customerRegisterThirdPartyPojo.customerRegisterId forKey:@"customerRegisterId"];
     [param setValue:_memberPackVo.customer.sId forKey:@"customerId"];
     [param setValue:[[Platform Instance]  getkey:ENTITY_ID] forKey:@"entityId"];
-    [BaseService getRemoteLSDataWithUrl:@"customer/queryCustomerCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSDataWithUrl:@"customer/v1/queryCustomerCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         //        if ([json[@"code"] boolValue]) {
         
         NSMutableArray *types = [[NSMutableArray alloc] init];

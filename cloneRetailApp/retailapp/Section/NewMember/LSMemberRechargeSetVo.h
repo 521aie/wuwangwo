@@ -13,7 +13,7 @@
 
 @property (nonatomic ,strong) NSString *kindCardId;/*<会员类型id>*/
 @property (nonatomic ,strong) NSString *kindCardName;/*<会员类型name>*/
-@property (nonatomic ,strong) NSArray<LSMemberRechargeRuleVo *> *moneyRules;/*<对象数组>*/
+@property (nonatomic ,strong) NSArray<LSMemberRechargeRuleVo *> *moneyRuleList;/*<对象数组>*/
 
 + (NSArray *)getMemberRechargeSetVoList:(NSArray *)array;
 @end

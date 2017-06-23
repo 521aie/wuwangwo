@@ -142,12 +142,10 @@ static NSString *memberTypeCellId = @"MemberTypeCellIndentifier";
     NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
     NSDictionary *param = @{@"entityId":entityId};
     
-    [BaseService getRemoteLSOutDataWithUrl:@"kindCard/list" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"kindCard/v2/list" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
         [self endRefreshing];
         self.dataSource = [LSMemberTypeVo getMemberTypeVos:json[@"data"]];
-        if (self.dataSource.count) {
-            [self.tableView reloadData];
-        }
+        [self.tableView reloadData];
         self.tableView.ls_show = YES;
     } errorHandler:^(id json) {
         [self endRefreshing];

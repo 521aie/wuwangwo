@@ -106,35 +106,39 @@
 
     self.mbNameLabel.text = @"未注册";
     self.mbImageView.image = [UIImage imageNamed:@"unregistered"];
-    if ([NSString isNotBlank:packVo.customerRegisterId] && [NSString isNotBlank:packVo.customerRegisterThirdPartyPojo.sId]) {
-        
-        NSString *name = packVo.customerRegisterThirdPartyPojo.nickName;
-        self.mbNameLabel.text = [NSString stringWithFormat:@"%@",[NSString isBlank:name]?@"-":name];
-        if ([NSString isNotBlank:packVo.customerRegisterThirdPartyPojo.url]) {
-            [self.mbImageView ls_setImageWithPath:packVo.customerRegisterThirdPartyPojo.url placeholderImage:[UIImage imageNamed:@"unregistered"]];
-        }
-        
-    } else if ([NSString isNotBlank:packVo.customerRegisterThirdPartyPojo.customerRegisterPojo.sId]) {
-        NSString *name = packVo.customerRegisterThirdPartyPojo.customerRegisterPojo.name;
-        self.mbNameLabel.text = [NSString stringWithFormat:@"%@",[NSString isBlank:name]?@"-":name];
-        NSString *path = nil;
-        if ([NSString isNotBlank:packVo.customerRegisterThirdPartyPojo.customerRegisterPojo.path] && [NSString isNotBlank:packVo.customerRegisterThirdPartyPojo.customerRegisterPojo.server]) {
-            path = [NSString stringWithFormat:@"http://%@/upload_files/%@",packVo.customerRegisterThirdPartyPojo.customerRegisterPojo.server,[NSString urlFilterRan:packVo.customerRegisterThirdPartyPojo.customerRegisterPojo.path]];
-        }
-        [self.mbImageView ls_setImageWithPath:path placeholderImage:[UIImage imageNamed:@"unregistered"]];
-        
-    }
-    NSString *mobile = [packVo getMemberPhoneNum];
-    self.mbPhoneLabel.text = [NSString stringWithFormat:@"手机：%@",[NSString isBlank:mobile]?@"-":mobile];
-    NSString *statusString = [packVo.cardNames componentsJoinedByString:@","];
     
-    if ([NSString isBlank:statusString]) {
+    // 会员名
+    if ([NSString isNotBlank:packVo.customerName]) {
+        _mbNameLabel.text = packVo.customerName;
+    } else if ([NSString isNotBlank:packVo.name]) {
+        _mbNameLabel.text = packVo.name;
+    } else {
+        _mbNameLabel.text = @"-";
+    }
+    
+    // 会员头像
+    if ([NSString isNotBlank:packVo.customerRegisterId] && [NSString isNotBlank:packVo.imgPath]) {
+        [self.mbImageView ls_setImageWithPath:packVo.imgPath placeholderImage:[UIImage imageNamed:@"unregistered"]];
+    }
+    
+    // 手机号
+    self.mbPhoneLabel.text = [NSString stringWithFormat:@"手机：%@",[packVo getMemberPhoneNum]];
+    
+    // 显示领卡情况
+    if ([ObjectUtil isNotEmpty:packVo.cardNames]) {
+        
+        NSString *ownCardString = [packVo.cardNames componentsJoinedByString:@"、"];
+        self.mbStatus.text = [NSString stringWithFormat:@"已领卡:%@",ownCardString];
+        self.mbStatus.textColor = [ColorHelper getGreenColor];
+        
+    } else if ([NSString isNotBlank:packVo.kindCardNames]) {
+       
+        self.mbStatus.text = [NSString stringWithFormat:@"已领卡:%@",packVo.kindCardNames];
+        self.mbStatus.textColor = [ColorHelper getGreenColor];
+   
+    } else {
         self.mbStatus.text = @"未领卡";
         self.mbStatus.textColor = [ColorHelper getRedColor];
-    }
-    else {
-        self.mbStatus.text = [NSString stringWithFormat:@"已领卡:%@",statusString];
-        self.mbStatus.textColor = [ColorHelper getGreenColor];
     }
 }
 
@@ -154,5 +158,4 @@
     }
     [self.mbImageView ls_setImageWithPath:vo.imageUrl placeholderImage:[UIImage imageNamed:@"unregistered"]];
 }
-
 @end

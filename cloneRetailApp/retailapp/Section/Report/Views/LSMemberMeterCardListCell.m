@@ -137,15 +137,28 @@
         self.lblMeterCardName.text = obj.accountCardName;
     }
     
-    //operType; //操作类型（充值、退款）
-    if (obj.pay.doubleValue >= 0) {
+    //操作类型
+    if ([obj.action  isEqual: @1]) {
+        //充值
         self.lblSalePrice.textColor = [ColorHelper getRedColor];
         self.lblSalePrice.text =[NSString stringWithFormat:@"￥%.2f", obj.pay.floatValue];
-    } else {
+        
+    } else if ([obj.action  isEqual: @2]) {
+        //支付
+        self.lblSalePrice.textColor = [ColorHelper getRedColor];
+        self.lblSalePrice.text =[NSString stringWithFormat:@"￥%.2f", obj.pay.floatValue];
+        
+    }else if ([obj.action  isEqual: @3]) {
+        //退款
         self.lblSalePrice.textColor = [ColorHelper getGreenColor];
-        NSMutableString *temp =[NSMutableString stringWithFormat:@"%.2f", obj.pay.floatValue];
-        [temp insertString:@"￥" atIndex:1];
-        self.lblSalePrice.text= temp;
+
+        if (obj.pay.floatValue == 0.00) {
+            self.lblSalePrice.text =[NSString stringWithFormat:@"￥%.2f", obj.pay.floatValue];
+        } else {
+            NSMutableString *temp =[NSMutableString stringWithFormat:@"%.2f", obj.pay.floatValue];
+            [temp insertString:@"￥" atIndex:1];
+            self.lblSalePrice.text= temp;
+        }
     }
     
     NSString *time = [DateUtils formateTime:obj.createTime.longLongValue];

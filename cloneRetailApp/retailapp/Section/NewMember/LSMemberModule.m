@@ -282,7 +282,7 @@ static NSString *mbReusableHeader = @"mbReusableViewHeader";
     [param setValue:queryString forKey:@"keyword"];
     [param setValue:@(NO) forKey:@"isOnlySearchMobile"];
     
-    [BaseService getRemoteLSOutDataWithUrl:@"card/queryCustomerInfo" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerInfoByMobileOrCode" param:[param copy] withMessage:@"" show:YES CompletionHandler:^(id json) {
         if ([json[@"code"] boolValue]) {
             
             NSArray *customerList = json[@"data"][@"customerList"];
@@ -290,7 +290,7 @@ static NSString *mbReusableHeader = @"mbReusableViewHeader";
                 
                 if (customerList.count == 1) {
                     LSMemberPackVo *vo = [LSMemberPackVo getMemberPackVo:customerList[0]];
-                    LSMemberDetailViewController *vc = [[LSMemberDetailViewController alloc] initWithPhoneNum:[vo getMemberPhoneNum]];
+                    LSMemberDetailViewController *vc = [[LSMemberDetailViewController alloc] initWithMemberVo:vo];
                     [self pushController:vc from:kCATransitionFromRight];
                 }
                 else {

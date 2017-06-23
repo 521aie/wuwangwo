@@ -268,6 +268,8 @@
     //折扣率
     NSString *ratio = [NSString stringWithFormat:@"%.2f%%",goodsInfo.ratio.doubleValue];
     
+
+    // 折扣率为100的只显示：单价，否则显示：折扣率\n优惠后单价\n单价
     if (goodsInfo.ratio.intValue == 100) {
         
         NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:price];
@@ -276,10 +278,11 @@
         
     } else {//销售单且折扣率不等于100% 显示折扣率\n优惠后单价\n单价
         NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] init];
-        if (isOrder) {//销售单显示折扣率
+//        if (isOrder) {//销售单显示折扣率
             [attr appendAttributedString:[[NSMutableAttributedString alloc] initWithString:ratio attributes:@{NSForegroundColorAttributeName : [ColorHelper getGreenColor]}]];
-        }
-        
+
+//        }
+
         //优惠后单价
         [attr appendAttributedString:[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n%@", reduce] attributes:@{NSForegroundColorAttributeName : [ColorHelper getTipColor3]}]];
         

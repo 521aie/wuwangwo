@@ -80,7 +80,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self loadMemberCards];
+    [self queryMemberInfo];
     [self loadPayType:nil];
 }
 
@@ -443,13 +443,13 @@
     [param setValue:[[_rechargeMoney getStrVal] convertToNumber] forKey:@"chargeMoney"];
     [param setValue:[[Platform Instance] getkey:ENTITY_ID] forKey:@"entityId"];
     
-    [BaseService getRemoteLSOutDataWithUrl:@"moneyRule/getGift" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"moneyRule/v2/getGift" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         if ([json[@"code"] boolValue]) {
             
             // 赠送金额
             NSNumber *money = json[@"data"][@"gift"];
-            _rechargeVo.presentMoney = money;
-            NSString *moneyString = [money convertToStringWithFormat:@"###,##0.00"];
+            _rechargeVo.presentMoney = @(money.floatValue/100.0);
+            NSString *moneyString = [_rechargeVo.presentMoney convertToStringWithFormat:@"###,##0.00"];
             [_presentMoney initData:moneyString withVal:moneyString];
             _rechargeVo.presentIntegral = json[@"data"][@"giftDegree"];
             NSString *degreeString = [NSString stringWithFormat:@"%@" ,_rechargeVo.presentIntegral];
@@ -467,6 +467,36 @@
     }];
 }
 
+
+// 查询会员基本信息
+- (void)queryMemberInfo {
+
+    NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] initWithCapacity:3];
+    [param setValue:entityId forKey:@"entityId"];
+    [param setValue:_phoneNum forKey:@"keyword"];
+    [param setValue:@(NO) forKey:@"isOnlySearchMobile"];
+    [param setValue:_memberPackVo.customerRegisterId forKey:@"twodfireMemberId"];
+    [param setValue:_memberPackVo.customer.sId forKey:@"customerId"];
+    
+    [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerInfo" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        if ([json[@"code"] boolValue]) {
+            
+            NSArray *customerList = json[@"data"][@"customerList"];
+            if ([ObjectUtil isNotEmpty:customerList]) {
+                
+                if (customerList.count == 1) {
+                    self.memberPackVo = [LSMemberPackVo getMemberPackVo:customerList[0]];
+                    [self loadMemberCards];
+                }
+            }
+        }
+        
+    } errorHandler:^(id json) {
+        [LSAlertHelper showAlert:json block:nil];
+    }];
+}
+
 // 获取会员所有的会员卡信息
 - (void)loadMemberCards {
     
@@ -475,7 +505,7 @@
     [param setValue:_memberPackVo.customer.sId forKey:@"customerId"];
     [param setValue:[[Platform Instance]  getkey:ENTITY_ID] forKey:@"entityId"];
     
-    [BaseService getRemoteLSDataWithUrl:@"customer/queryCustomerCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSDataWithUrl:@"customer/v1/queryCustomerCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         //        if ([json[@"code"] boolValue]) {
         
         NSMutableArray *types = [[NSMutableArray alloc] init];
@@ -520,7 +550,7 @@
     [param setObject:[[Platform Instance]  getkey:ENTITY_ID] forKey:@"entityId"];
     [param setObject:_memberCardVo.kindCardId forKey:@"kindCardId"];
     
-    [BaseService getRemoteLSOutDataWithUrl:@"moneyRule/queryMoneyRules" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"moneyRule/v2/queryMoneyRules" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         if ([json[@"code"] boolValue]) {
             
             NSArray *array = [LSMemberRechargeRuleVo getRechargeRuleVoList:json[@"data"]];
@@ -569,7 +599,7 @@
         return NO;
     }
     else {
-        if (_rechargeMoney.currentVal.integerValue <= 0) {
+        if (_rechargeMoney.currentVal.floatValue <= 0.0f) {
             [LSAlertHelper showAlert:@"充值金额不能为0！" block:nil];
             return NO;
         }

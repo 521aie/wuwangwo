@@ -278,7 +278,7 @@
         
         //销售单数
         if ([ObjectUtil isNotNull:self.userHandoverVo.saleGoodsNumber]) {
-            [self.vewSaleGoodsNumber initData:[NSString stringWithFormat:@"%@",self.userHandoverVo.saleGoodsNumber]];
+            [self.vewSaleGoodsNumber initData:[NSString stringWithFormat:@"%@",self.userHandoverVo.orderNumber]];
         }
         
         //销售金额

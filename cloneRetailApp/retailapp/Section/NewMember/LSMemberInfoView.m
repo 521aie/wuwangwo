@@ -146,8 +146,11 @@
         [cards enumerateObjectsUsingBlock:^(LSMemberCardVo *card, NSUInteger idx, BOOL * _Nonnull stop) {
             
             // 找到card 对应的会员卡类型
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"sId='%@'" ,card.kindCardId]];
-            LSMemberTypeVo *typeVo = [cardTypes filteredArrayUsingPredicate:predicate].firstObject;
+            LSMemberTypeVo *typeVo = card.cardTypeVo;
+            if (!typeVo) {
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"sId='%@'" ,card.kindCardId]];
+                typeVo = [cardTypes filteredArrayUsingPredicate:predicate].firstObject;
+            }
             NSString *commonString = (idx == cards.count-1 ? @"" : @"、");
             if ([card isLost]) {
                 commonString = (idx == cards.count-1 ? @"(挂失)" :@"(挂失)、");
@@ -195,10 +198,21 @@
             self.headImageView.image = [UIImage imageNamed:@"unregistered"];
         } else {
             
+            
+            NSString *name = @"-";
+            if (memberPackVo.customer && [NSString isNotBlank:memberPackVo.customer.name]) {
+                name = memberPackVo.customer.name;
+            } else if (memberPackVo.customerRegisterThirdPartyPojo) {
+                
+                if ([NSString isNotBlank:memberPackVo.customerRegisterThirdPartyPojo.nickName]) {
+                    name = memberPackVo.customerRegisterThirdPartyPojo.nickName;
+                } else if ([NSString isNotBlank:memberPackVo.customerRegisterThirdPartyPojo.customerRegisterPojo.name]) {
+                    name = memberPackVo.customerRegisterThirdPartyPojo.customerRegisterPojo.name;
+                }
+            }
+            
             if ([NSString isNotBlank:memberPackVo.customerRegisterThirdPartyPojo.sId]) {
                 // 是微信会员 ， 则优先显示
-                NSString *name = [NSString isBlank:memberPackVo.customerRegisterThirdPartyPojo.nickName]?@"-":memberPackVo.customerRegisterThirdPartyPojo.nickName;;
-//                NSString *sex = [self getSexString:memberPackVo.customerRegisterThirdPartyPojo.sex.intValue];
                 NSString *sex = [self getSexString:memberPackVo.customer.sex.intValue];
                 self.headLabel.text = [NSString stringWithFormat:@"%@ (%@)",name,sex];
                 NSString *path = memberPackVo.customerRegisterThirdPartyPojo.url;
@@ -206,13 +220,11 @@
             }
             else if ([NSString isNotBlank:memberPackVo.customerRegisterThirdPartyPojo.customerRegisterId]) {
                 // 显示二维火会员信息
-                NSString *name = [NSString isNotBlank:memberPackVo.customerRegisterThirdPartyPojo.customerRegisterPojo.name] ? memberPackVo.customerRegisterThirdPartyPojo.customerRegisterPojo.name : @"-";
-//                NSString *sex = [self getSexString:memberPackVo.customerRegisterThirdPartyPojo.customerRegisterPojo.sex.intValue];
                 NSString *sex = [self getSexString:memberPackVo.customer.sex.intValue];
                 self.headLabel.text = [NSString stringWithFormat:@"%@ (%@)",name,sex];
                 NSString *path = nil;
-                if ([NSString isNotBlank:memberPackVo.customerRegisterThirdPartyPojo.customerRegisterPojo.path] && [NSString isNotBlank:memberPackVo.customerRegisterThirdPartyPojo.customerRegisterPojo.server]) {
-                    path = [NSString stringWithFormat:@"http://%@/upload_files/%@",memberPackVo.customerRegisterThirdPartyPojo.customerRegisterPojo.server,[NSString urlFilterRan:memberPackVo.customerRegisterThirdPartyPojo.customerRegisterPojo.path]];
+                if ([NSString isNotBlank:memberPackVo.customerRegisterThirdPartyPojo.url]) {
+                    path = memberPackVo.customerRegisterThirdPartyPojo.url;
                 }
                 [self.self.headImageView ls_setImageWithPath:path placeholderImage:[UIImage imageNamed:@"unregistered"]];
             }

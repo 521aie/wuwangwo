@@ -12,9 +12,8 @@
 //======================================测试================================================
 #if DAILY || DEBUG
 
-//计次卡
-#define API_ROOT @"http://10.1.4.152:8080/retail-server/serviceCenter/api"
-#define API_OUT_ROOT  @"http://10.1.5.202:8080/retail-api"
+#define API_ROOT @"http://10.1.7.207:8080/retail-server/serviceCenter/api"
+#define API_OUT_ROOT  @"http://10.1.7.203:8080/retail-api"
 
 
 //上传图片路径

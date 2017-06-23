@@ -43,7 +43,8 @@
        
         _lowerLeftLabel.textColor = [ColorHelper  getGreenColor];
         // 这边后台返回的就是负数，取绝对值
-        _lowerLeftLabel.text = [NSString stringWithFormat:@"-￥%.2f", fabs(vo.pay.floatValue)];
+        NSString *symbol = vo.pay.floatValue >= 0 ? @"￥" : @"-￥";
+        _lowerLeftLabel.text = [NSString stringWithFormat:@"%@%.2f", symbol,fabs(vo.pay.floatValue)];
     }
     
     

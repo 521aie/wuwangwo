@@ -137,7 +137,12 @@
     }
     else if ([string isEqualToString:@""]) { // 删除字符
         if ((textField.text.length - 2) % 5 == 4) {
-            textField.text = [textField.text substringToIndex:textField.text.length - 1];
+            // 这里这样写：是因为线上出现一个bug，textField.text.length - 1 为负数导致转NSUInteger大于textField.text.length
+            NSInteger toIndex = textField.text.length - 1;
+            if (toIndex >= 0) {
+                textField.text = [textField.text substringToIndex:toIndex];
+            }
+            
         }
         return YES;
     }

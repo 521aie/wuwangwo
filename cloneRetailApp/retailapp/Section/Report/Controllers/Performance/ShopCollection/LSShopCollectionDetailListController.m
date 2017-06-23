@@ -50,6 +50,7 @@
     self.tableView.tableFooterView = [ViewFactory generateFooter:BOTTOM_HEIGHT];
     [self.view addSubview:self.tableView];
     __weak typeof(self) wself = self;
+    [_param setValue:@(1) forKey:@"currPage"];
     [self.tableView ls_addHeaderWithCallback:^{
         wself.lastSortId = nil;
         [wself loadData];
@@ -57,10 +58,7 @@
     [self.tableView ls_addFooterWithCallback:^{
         [wself loadData];
     }];
-
-    
 }
-
 
 #pragma mark - 加载数据
 - (void)loadData

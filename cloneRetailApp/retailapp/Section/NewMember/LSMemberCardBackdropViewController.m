@@ -174,7 +174,7 @@
 // 获取卡片背景列表
 - (void)getCardBackGroundList {
     
-    [BaseService getRemoteLSOutDataWithUrl:@"kindCard/queryCardSysCovers" param:nil withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"kindCard/v2/queryCardSysCovers" param:nil withMessage:@"" show:YES CompletionHandler:^(id json) {
         self.cardBackgroundVos = [LSCardBackgroundImageVo getObjectsFrom:json[@"data"]];
         if (self.cardBackgroundVos.count) {
             [self.collectionView reloadData];

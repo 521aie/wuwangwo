@@ -76,7 +76,7 @@
     
     self = [super init];
     if (self) {
-        
+        self.memberPackVo = (LSMemberPackVo *)vo;
         self.phoneNum = phoneStr;
         self.isFromDetailPage = isFromDetailPage;
     }
@@ -87,17 +87,19 @@
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     [self initNavigate];
+    if ([ObjectUtil isNotNull:_memberPackVo]) {
+         [self checkMemberInfo];
+    } else {
+        _memberPackVo = [[LSMemberPackVo alloc] init];
+    }
     [self configScrollViewAndSubItems];
-    [self checkMemberInfo];
     [self querySmsNumAndKindCardAndQueryCard];
     [self configHelpButton:HELP_MEMBER_SEND_MEMBER_CARD];
-//    [self registerNotification];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 
 #pragma mark - NavigateTitle2 代理
@@ -529,9 +531,8 @@
 
 - (void)fillData {
     
-   // 会员信息
+    // 会员信息
     [self.infoView fillMemberInfo:self.memberPackVo cards:self.memberCards cardTypes:self.memberCardTypes phone:self.phoneNum];
-    
     
     // 发卡信息
     NameItemVO *vo = self.memberCardTypeItems.firstObject;
@@ -651,7 +652,7 @@
     [param setValue:self.phoneNum forKey:@"mobile"];
     [param setValue:@(NO) forKey:@"isNeedAll"];
     
-    [BaseService getRemoteLSDataWithUrl:@"customer/querySmsNumAndKindCardAndQueryCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSDataWithUrl:@"customer/v1/querySmsNumAndKindCardAndQueryCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         NSDictionary *dic = json[@"data"];
         if ([ObjectUtil isNotEmpty:dic]) {
             self.memberCards = [LSMemberCardVo getMemberCardVoList:dic[@"cardQueryVo"][@"cards"]];
@@ -673,9 +674,15 @@
 - (void)checkMemberInfo {
     
     NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
-    NSDictionary *param = @{@"entityId":entityId ,@"keyword":self.phoneNum ,@"isOnlySearchMobile":@(true)};
+    NSString *phone = [_memberPackVo getMemberPhoneNum];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
+    [param setValue:phone forKey:@"keyword"];
+    [param setValue:entityId forKey:@"entityId"];
+    [param setValue:@(YES) forKey:@"isOnlySearchMobile"];
+    [param setValue:_memberPackVo.customerId forKey:@"customerId"];
+    [param setValue:_memberPackVo.customerRegisterId forKey:@"twodfireMemberId"];
     
-    [BaseService getRemoteLSOutDataWithUrl:@"card/queryCustomerInfo" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerInfo" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
         NSArray *array = [LSMemberPackVo getMemberPackVoList:json[@"data"][@"customerList"]];
         if ([ObjectUtil isNotEmpty:array]) {
             self.memberPackVo = array.firstObject;
@@ -696,13 +703,16 @@
     if ([self isValid]) {
         
         NSMutableDictionary *param = [self createUploadData];
-        [BaseService getRemoteLSDataWithUrl:@"customer/saveCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        [BaseService getRemoteLSDataWithUrl:@"customer/v1/saveCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
             [LSAlertHelper showStatus:@" 发卡成功！" afterDeny:2 block:^{
-                if (self.isFromDetailPage) {
-                    [self popToLatestViewController:kCATransitionFromLeft];
-                }
-                else {
-                    [self popToViewControllerNamed:@"LSMemberModule" popDirection:kCATransitionFromLeft];
+                
+                if ([json[@"returnCode"] isEqualToString:@"success"]) {
+                    if (self.isFromDetailPage) {
+                        [self popToLatestViewController:kCATransitionFromLeft];
+                    }
+                    else {
+                        [self popToViewControllerNamed:@"LSMemberModule" popDirection:kCATransitionFromLeft];
+                    }
                 }
             }];
         } errorHandler:^(id json) {

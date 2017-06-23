@@ -10,5 +10,5 @@
 
 @interface LSMemberDetailViewController : BaseViewController
 
-- (instancetype)initWithPhoneNum:(NSString *)phoneNum;
+- (instancetype)initWithMemberVo:(id)vo;
 @end

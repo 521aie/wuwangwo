@@ -108,7 +108,8 @@
     } else if ([_recordVo byTimeRechargeRecordVoOperType] == LSByTimeRechargeRecordOperType_Refund) {
         
         _salePrice = [SRTitleView titleViewWith:@"销售金额(元)"];
-        NSString *price = [NSString stringWithFormat:@"-%.2f",fabs(_recordVo.pay.floatValue)];
+        NSString *symbol = _recordVo.pay.floatValue >= 0 ? @"" : @"-";
+        NSString *price = [NSString stringWithFormat:@"%@%.2f" ,symbol ,fabs(_recordVo.pay.floatValue)];
         [_salePrice setLblText:price color:[ColorHelper getGreenColor]];
     }
     [_scrollView addSubview:_salePrice];

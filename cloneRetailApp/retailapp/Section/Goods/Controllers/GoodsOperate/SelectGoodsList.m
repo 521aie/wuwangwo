@@ -244,8 +244,8 @@
                 }
             }
         }
-        [weakSelf.tableView reloadData];
-        weakSelf.tableView.ls_show = YES;
+//        [weakSelf.tableView reloadData];
+//        weakSelf.tableView.ls_show = YES;
         if ([NSString isNotBlank:weakSelf.searchBar.keyWordTxt.text] && weakSelf.datas.count == 1) {
             GoodsOperationVo *item = weakSelf.datas[0];
             for (SelectGoodsItem *goodsItem in self.list) {
@@ -258,6 +258,10 @@
             self.selectedItem = item;
             [self checkEntityHaveGoods:item.goodsId];
             return;
+        } else {
+            // iPad，iOS8，由于执行顺序，写在上面由于执行顺序，当前控制器被提前释放，但此时刷新列表的动作还在执行，会引起crash
+            [weakSelf.tableView reloadData];
+            weakSelf.tableView.ls_show = YES;
         }
     } errorHandler:^(id json) {
         [weakSelf.tableView headerEndRefreshing];

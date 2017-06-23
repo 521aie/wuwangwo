@@ -34,8 +34,8 @@ typedef NS_ENUM(NSInteger ,CardPrimeType){
 @property (nonatomic ,assign) short isMoneyRatio;/* <储值金额是否参与打折*/
 @property (nonatomic ,assign) short isRatioPass;/* <打折时是否需要密码*/
 @property (nonatomic ,assign) short isMemberPrice;/* <是否使用会员价*/
-@property (nonatomic ,assign) double exchangeDegree;/* <兑换1积分所需消费额*/
-@property (nonatomic ,assign) double ratioExchangeDegree;/* <刷卡打折消费兑换1积分所需消费额*/
+@property (nonatomic ,assign) float exchangeDegree;/* <兑换1积分所需消费额*/
+@property (nonatomic ,assign) float ratioExchangeDegree;/* <刷卡打折消费兑换1积分所需消费额*/
 @property (nonatomic ,assign) short isRatioFeeDegree;/* <刷卡打折消费是否积分 默认传1*/
 @property (nonatomic ,assign) NSInteger mode;/* <1,使用会员价 3,使用折扣率 4,使用批发价 改动只需修改CardPrimeType枚举对应的值就行了*/
 @property (nonatomic ,strong) NSString *attachmentId;/* <附件（图片）ID*/

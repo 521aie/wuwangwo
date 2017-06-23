@@ -52,7 +52,7 @@
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     [self initNavigate];
     [self configSubviews];
-    [self loadMemberCards];
+    [self queryMemberInfo];
     [self configHelpButton:HELP_MEMBER_CARD_LOSS];
 }
 
@@ -167,7 +167,7 @@
        // [LSAlertHelper showAlert:@"提示" message:@"是否确定挂失？" cancle:@"取消" block:^{
             ;
         ///} ensure:@"确定" block:^{
-            [self lossCardHand];
+            [self lossCardHandWithType:0];
         //}];
     }
     else if (self.memberCardVo.status.integerValue == 2) {
@@ -175,7 +175,7 @@
         //[LSAlertHelper showAlert:@"提示" message:@"是否确定解挂？" cancle:@"取消" block:^{
           //  ;
         //} ensure:@"确定" block:^{
-            [self lossCardHand];
+            [self lossCardHandWithType:1];
         //}];
     }
 }
@@ -240,6 +240,37 @@
 
 #pragma mark - 网络请求
 
+// 查询会员基本信息
+- (void)queryMemberInfo {
+    
+    NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
+    NSMutableDictionary *param = [[NSMutableDictionary alloc] initWithCapacity:3];
+    [param setValue:entityId forKey:@"entityId"];
+    [param setValue:[_memberPackVo getMemberPhoneNum] forKey:@"keyword"];
+    [param setValue:@(NO) forKey:@"isOnlySearchMobile"];
+    [param setValue:_memberPackVo.customerRegisterId forKey:@"twodfireMemberId"];
+    [param setValue:_memberPackVo.customer.sId forKey:@"customerId"];
+    
+    [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerInfo" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        if ([json[@"code"] boolValue]) {
+            
+            NSArray *customerList = json[@"data"][@"customerList"];
+            if ([ObjectUtil isNotEmpty:customerList]) {
+                
+                if (customerList.count == 1) {
+                    self.memberPackVo = [LSMemberPackVo getMemberPackVo:customerList[0]];
+                    [self loadMemberCards];
+                }
+            }
+        }
+        
+    } errorHandler:^(id json) {
+        [LSAlertHelper showAlert:json block:nil];
+    }];
+    
+}
+
+
 // 获取会员所有的会员卡信息
 - (void)loadMemberCards {
     
@@ -273,13 +304,19 @@
 }
 
 // 挂失与解挂
-- (void)lossCardHand {
+- (void)lossCardHandWithType:(int)type {
     
     NSMutableDictionary *param = [[NSMutableDictionary alloc] init];
     [param setValue:[[Platform Instance]  getkey:ENTITY_ID] forKey:@"entityId"];
     [param setValue:self.memberCardVo.sId forKey:@"cardId"];
     [param setValue:[[Platform Instance] getkey:USER_ID] forKey:@"userId"];
-    [BaseService getRemoteLSOutDataWithUrl:@"card/lost" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [param setValue:[[Platform Instance] getkey:USER_NAME] forKey:@"userName"];
+    [param setValue:[[Platform Instance] getkey:PAY_ENTITY_ID] forKey:@"shopEntityId"];
+    NSString *path = @"card/v2/lost";
+    if (type) {
+        path = @"card/v2/cancelLost";
+    }
+    [BaseService getRemoteLSOutDataWithUrl:path param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         if ([json[@"code"] boolValue]) {
             
             if (self.memberCardVo.status.integerValue == 1) {

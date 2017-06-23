@@ -93,7 +93,7 @@
         NSDictionary *dict = json[@"operater"];
         for (NSString *obj in dict.allKeys) {
             // 操作人为null 的不显示
-            if ([NSString isNotBlank:dict[obj]]) {
+            if ([NSString isNotBlank:dict[obj]] && ![memberIntegralDetailVo.exchangeType isEqualToString:@"微店兑换"]) {
                 LSEditItemView *view = [LSEditItemView editItemView];
                 [view initLabel:@"操作人" withHit:nil];
                 [view initData:dict[obj]];

@@ -32,7 +32,7 @@
 @property (nonatomic, strong) NSMutableDictionary *systemInfoMap; //系统id(key)与系统对象的关系map
 @property (nonatomic, strong) NSMutableDictionary *moduleMap; //模块id(key)与模块对象的关系map
 @property (nonatomic, strong) RoleVo *roleVo;  //保存的RoleVo
-@property (nonatomic, assign) int type;
+
 @property (nonatomic, assign) BOOL isOrg;
 /** 判断下个页面是否发生变化 */
 @property (nonatomic, assign) BOOL isChange;
@@ -356,6 +356,11 @@
                         }
                     } else {
                         [temp visibal:YES];
+                    }
+                    if ([module.moduleName isEqualToString:@"商圈设置"]) {
+                        if ([[Platform Instance] getScanPayStatus] != 1) {//没有开通商圈
+                            [temp visibal:NO];
+                        }
                     }
                     
                     //设为显示

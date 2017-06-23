@@ -121,15 +121,29 @@
 // queryCustomerInfo 返回的信息对应的Model
 @interface LSMemberPackVo : NSObject
 
-@property (nonatomic ,strong) NSString *customerRegisterId;/*<<#说明#>>*/
+// v1
 @property (nonatomic ,strong) NSString *birthday;/*<<#说明#>>*/
 @property (nonatomic ,strong) NSArray *cardNames;/*<<#说明#>>*/
-@property (nonatomic ,strong) NSString *createTime;/*<<#说明#>>*/
 @property (nonatomic ,strong) LSMemberInfoVo *customer;/*<<#说明#>>*/
 @property (nonatomic ,strong) LSMemberRegisterThirdPartyPojo *customerRegisterThirdPartyPojo;/*<<#说明#>>*/
-@property (nonatomic ,strong) NSString *imgPath;/*<<#说明#>>*/
-@property (nonatomic ,strong) NSString *mobile;/*<<#说明#>>*/
+
+
+// 公共
 @property (nonatomic ,strong) NSString *name;/*<<#说明#>>*/
+@property (nonatomic ,strong) NSString *customerRegisterId;/*<<#说明#>>*/
+@property (nonatomic ,strong) NSString *mobile;/*<<#说明#>>*/
+@property (nonatomic ,strong) NSString *imgPath;/*<<#说明#>>*/
+@property (nonatomic ,strong) NSString *createTime;/*<<#说明#>>*/
+
+// v2
+@property (nonatomic, strong) NSString *entityId;/**<<#说明#>>*/
+@property (nonatomic, strong) NSString *customerId;/**<<#说明#>>*/
+@property (nonatomic, strong) NSString *countryCode;/**<eg：+86>*/
+@property (nonatomic, strong) NSNumber *sex;/**<<#说明#>>*/
+@property (nonatomic, strong) NSString *customerName;/**<<#说明#>>*/
+@property (nonatomic, strong) NSString *kindCardNames;/**<<#说明#>>*/
+@property (nonatomic, strong) NSString *cardCodes;/**<<#说明#>>*/
+
 
 - (NSString *)getMemberPhoneNum;
 + (LSMemberPackVo *)getMemberPackVo:(NSDictionary *)dic;

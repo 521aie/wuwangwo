@@ -74,18 +74,32 @@
 
 - (NSString *)getMemberPhoneNum {
     
-    NSString *mobile = nil;
-    if ([NSString isNotBlank:self.customerRegisterThirdPartyPojo.customerRegisterId] && [NSString isNotBlank:self.customerRegisterThirdPartyPojo.sId]) {
-        mobile = self.customerRegisterThirdPartyPojo.customerRegisterPojo.mobile?:@"";
+    if ([NSString isNotBlank:_mobile]) {
+        return _mobile;
     }
     
-    if ([NSString isNotBlank:mobile]) {
-        return mobile;
-    }
-    else if ([NSString isNotBlank:self.customer.mobile]) {
-        return self.customer.mobile;
+    if ([NSString isNotBlank:_customer.mobile]) {
+        return _customer.mobile;
     }
     
+    
+    if ([NSString isNotBlank:_customer.phone]) {
+        return _customer.phone;
+    }
+    
+    return @"-";
+}
+
+- (NSString *)customerId {
+    
+    if ([NSString isNotBlank:_customer.sId]) {
+        return _customer.sId;
+    }
+    
+    if ([NSString isNotBlank:_customerId]) {
+        return _customerId;
+    }
     return @"";
 }
+
 @end

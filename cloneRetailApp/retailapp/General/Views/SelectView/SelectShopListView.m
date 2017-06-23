@@ -259,7 +259,14 @@
     detailItem.lblName.ls_top = isAll ? 34 : 20;
     detailItem.lblNo.hidden = [NSString isBlank:[item obtainItemValue]];
     detailItem.lblNo.text = [NSString stringWithFormat:@"门店编号：%@",[item obtainItemValue]];
-    BOOL checkVal = [self.selectId isEqualToString:[item obtainItemId]];
+    BOOL checkVal = NO;
+    // 对于包含“全部”选项的，作特殊处理
+    if (self.viewType == CONTAIN_ALL && indexPath.row == 0 && [NSString isBlank:self.selectId]) {
+        checkVal = YES;
+    } else {
+      checkVal = [self.selectId isEqualToString:[item obtainItemId]];
+    }
+    
     [detailItem showImg:([item obtainItemType]==2) withType:1 withCheck:checkVal];
 }
 

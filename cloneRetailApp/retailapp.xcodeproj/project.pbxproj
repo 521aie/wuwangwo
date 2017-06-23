@@ -2300,8 +2300,8 @@
 		E99154331D51E6E600150FCD /* EditItemAddCorrelation.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC1F841D2F8E1900B9C4B7 /* EditItemAddCorrelation.xib */; };
 		E99154441D51E6E600150FCD /* OrderDealView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC0BED1D2F66CE00B9C4B7 /* OrderDealView.xib */; };
 		E99154481D51E6E600150FCD /* SRButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC1C0E1D2F8E1800B9C4B7 /* SRButtonView.xib */; };
-		E991544A1D51E6E600150FCD /* BuildFile in Resources */ = {isa = PBXBuildFile; };
-		E991544B1D51E6E600150FCD /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		E991544A1D51E6E600150FCD /* (null) in Resources */ = {isa = PBXBuildFile; };
+		E991544B1D51E6E600150FCD /* (null) in Resources */ = {isa = PBXBuildFile; };
 		E991544D1D51E6E600150FCD /* GoodsPicturesView5.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC0BEA1D2F66CE00B9C4B7 /* GoodsPicturesView5.xib */; };
 		E99154501D51E6E600150FCD /* WechatGoodsManagementStyleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC0C031D2F66CE00B9C4B7 /* WechatGoodsManagementStyleView.xib */; };
 		E99154531D51E6E600150FCD /* SaleMinusEditView5.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC0B541D2F66CE00B9C4B7 /* SaleMinusEditView5.xib */; };
@@ -2314,7 +2314,7 @@
 		E99154871D51E6E600150FCD /* SelectEmployeeListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC20491D2F8E1900B9C4B7 /* SelectEmployeeListView.xib */; };
 		E991548B1D51E6E600150FCD /* AcountAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC0A391D2F66CD00B9C4B7 /* AcountAddView.xib */; };
 		E99154931D51E6E600150FCD /* SortTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC207A1D2F8E1900B9C4B7 /* SortTableViewCell.xib */; };
-		E99154961D51E6E600150FCD /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		E99154961D51E6E600150FCD /* (null) in Resources */ = {isa = PBXBuildFile; };
 		E991549B1D51E6E600150FCD /* SendTimeListView5.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC0BF01D2F66CE00B9C4B7 /* SendTimeListView5.xib */; };
 		E991549E1D51E6E600150FCD /* EditItemList.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC0ABA1D2F66CD00B9C4B7 /* EditItemList.xib */; };
 		E99154A71D51E6E600150FCD /* SortTableView25.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC20761D2F8E1900B9C4B7 /* SortTableView25.xib */; };
@@ -2407,7 +2407,7 @@
 		E99156131D51E6E600150FCD /* FooterListView4.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC0AC71D2F66CD00B9C4B7 /* FooterListView4.xib */; };
 		E99156191D51E6E600150FCD /* StyleChoiceTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC20651D2F8E1900B9C4B7 /* StyleChoiceTopView.xib */; };
 		E991561A1D51E6E600150FCD /* BusinessSummaryBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = E90F44B61D39D21D00FDB21C /* BusinessSummaryBox.xib */; };
-		E991561B1D51E6E600150FCD /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		E991561B1D51E6E600150FCD /* (null) in Resources */ = {isa = PBXBuildFile; };
 		E99156221D51E6E600150FCD /* EditItemCorrelation.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC1F8B1D2F8E1900B9C4B7 /* EditItemCorrelation.xib */; };
 		E991562C1D51E6E600150FCD /* WeChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FC099F1D2F66CD00B9C4B7 /* WeChat.storyboard */; };
 		E991562D1D51E6E600150FCD /* WechatGoodsManagementStyleAddChooseView5.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9FC0BFE1D2F66CE00B9C4B7 /* WechatGoodsManagementStyleAddChooseView5.xib */; };
@@ -10598,8 +10598,8 @@
 				50A522CB1DAB365C0058F644 /* LSSystemNotificationCell.xib in Resources */,
 				E99154481D51E6E600150FCD /* SRButtonView.xib in Resources */,
 				50781EDB1E2479F400B7FD15 /* RecordChangeDetailCell.xib in Resources */,
-				E991544B1D51E6E600150FCD /* BuildFile in Resources */,
-				E991544A1D51E6E600150FCD /* BuildFile in Resources */,
+				E991544B1D51E6E600150FCD /* (null) in Resources */,
+				E991544A1D51E6E600150FCD /* (null) in Resources */,
 				507289AE1D6C60D3000EE0E9 /* Images.xcassets in Resources */,
 				E991544D1D51E6E600150FCD /* GoodsPicturesView5.xib in Resources */,
 				507599911E7FFC8A003E7A84 /* AddressPickerBox.xib in Resources */,
@@ -10638,7 +10638,7 @@
 				E991548B1D51E6E600150FCD /* AcountAddView.xib in Resources */,
 				508696611D6D86D2003F276A /* MapView5.xib in Resources */,
 				E99154931D51E6E600150FCD /* SortTableViewCell.xib in Resources */,
-				E99154961D51E6E600150FCD /* BuildFile in Resources */,
+				E99154961D51E6E600150FCD /* (null) in Resources */,
 				508696491D6D86D2003F276A /* SingleFocusSet5.xib in Resources */,
 				500FBA771E8113F200B8FE0B /* EditItemText2.xib in Resources */,
 				507969371EAF1972001D17CF /* KindMenuCell.xib in Resources */,
@@ -10809,7 +10809,7 @@
 				779ACE291EC9C2AB00E6BEF6 /* WechatGoodsDetailsView.xib in Resources */,
 				508696411D6D86D2003F276A /* HotTypeSet.xib in Resources */,
 				E991561A1D51E6E600150FCD /* BusinessSummaryBox.xib in Resources */,
-				E991561B1D51E6E600150FCD /* BuildFile in Resources */,
+				E991561B1D51E6E600150FCD /* (null) in Resources */,
 				E99156221D51E6E600150FCD /* EditItemCorrelation.xib in Resources */,
 				5086965F1D6D86D2003F276A /* MapView.xib in Resources */,
 				E991562C1D51E6E600150FCD /* WeChat.storyboard in Resources */,
@@ -10955,7 +10955,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		65B7449D4D0000F50C716D97 /* [CP] Embed Pods Frameworks */ = {
@@ -11011,7 +11011,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DF3B099C86DF06AF73924C91 /* [CP] Embed Pods Frameworks */ = {

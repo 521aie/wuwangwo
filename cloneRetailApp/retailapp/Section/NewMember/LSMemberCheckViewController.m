@@ -127,11 +127,12 @@
     [self.view endEditing:YES];
     if ([self isVaild]) {
 
-        if (self.type == MBSubModule_ChangeCard || self.type == MBSubModule_ChangePwd || self.type == MBSubModule_ReturnCard || self.type == MBSubModule_CardReport || self.type == MBSubModule_Recharge || self.type == MBSubModule_BestowIntegral || self.type == MBSubModule_Integral) {
-            [self queryMemberInfo];
-        }
-        else if (self.type == MBSubModule_SendCard) {
-            [self querySmsNumAndKindCardAndQueryCard];
+        if (self.type == MBSubModule_SendCard || self.type == MBSubModule_ChangeCard || self.type == MBSubModule_ChangePwd || self.type == MBSubModule_ReturnCard || self.type == MBSubModule_CardReport || self.type == MBSubModule_Recharge || self.type == MBSubModule_BestowIntegral || self.type == MBSubModule_Integral) {
+//            [self queryMemberInfo];
+            [self queryCustomerInfo];
+//        }
+//        else if (self.type == MBSubModule_SendCard) {
+//            [self querySmsNumAndKindCardAndQueryCard];
         }
     }
 }
@@ -140,43 +141,55 @@
 #pragma mark - 网络请求
 
 // 查询短信条数，卡类型，和会员已有会员卡
-- (void)querySmsNumAndKindCardAndQueryCard {
-    
-    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
-    [param setValue:entityId forKey:@"entityId"];
-    [param setValue:self.phoneInputBox.txtVal.text forKey:@"mobile"];
-    [param setValue:@(NO) forKey:@"isNeedAll"];
-    
-    [BaseService getRemoteLSDataWithUrl:@"customer/querySmsNumAndKindCardAndQueryCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
-        NSDictionary *dic = json[@"data"];
-        if ([ObjectUtil isNotEmpty:dic]) {
-            
-            if ([ObjectUtil isEmpty:dic[@"cardQueryVo"][@"cards"]]) {
-                [self toSendCardPage:nil];
-            } else {
-                [LSAlertHelper showAlert:@"提示" message:@"该手机用户已是店铺会员！" cancle:@"我知道了" block:nil];
-            }
-        }
-    } errorHandler:^(id json) {
-        [LSAlertHelper showAlert:json block:nil];
-    }];
-}
+//- (void)querySmsNumAndKindCardAndQueryCard {
+//    
+//    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+//    NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
+//    [param setValue:entityId forKey:@"entityId"];
+//    [param setValue:self.phoneInputBox.txtVal.text forKey:@"mobile"];
+//    [param setValue:@(NO) forKey:@"isNeedAll"];
+//    
+//    [BaseService getRemoteLSDataWithUrl:@"customer/v1/querySmsNumAndKindCardAndQueryCard" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+//        NSDictionary *dic = json[@"data"];
+//        if ([ObjectUtil isNotEmpty:dic]) {
+//            
+//            if ([ObjectUtil isEmpty:dic[@"cardQueryVo"]] || [ObjectUtil isEmpty:dic[@"cardQueryVo"][@"cards"]]) {
+//                [self toSendCardPage:nil];
+//            } else {
+//                [LSAlertHelper showAlert:@"提示" message:@"该手机用户已是店铺会员！" cancle:@"我知道了" block:nil];
+//            }
+//        }
+//    } errorHandler:^(id json) {
+//        [LSAlertHelper showAlert:json block:nil];
+//    }];
+//}
 
 
-// 查询会员基本信息
-- (void)queryMemberInfo {
+// 会员接口迁移新增接口
+- (void)queryCustomerInfo {
     
     NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
     NSDictionary *param = @{@"entityId":entityId ,@"keyword":self.phoneInputBox.txtVal.text ,@"isOnlySearchMobile":@(NO)};
     
-    [BaseService getRemoteLSOutDataWithUrl:@"card/queryCustomerInfo" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
+    [BaseService getRemoteLSOutDataWithUrl:@"card/v2/queryCustomerInfoByMobileOrCode" param:[param mutableCopy] withMessage:@"" show:YES CompletionHandler:^(id json) {
         NSArray *array = [LSMemberPackVo getMemberPackVoList:json[@"data"][@"customerList"]];
         if ([ObjectUtil isNotEmpty:array]) {
             
             if (array.count == 1) {
                 
                 LSMemberPackVo *memberPackVo = array.firstObject;
+                
+                // 发卡，已经是会员
+                if (self.type == MBSubModule_SendCard && memberPackVo.customer) {
+                    
+                    if ([ObjectUtil isNotEmpty:memberPackVo.cardNames]) {
+                         [LSAlertHelper showAlert:@"提示" message:@"该手机用户已是店铺会员！" cancle:@"我知道了" block:nil];
+                    } else {
+                        [self toSendCardPage:memberPackVo];
+                    }
+                     return ;
+                }
+                
                 
                 // 存在该会员但未领卡时，弹出提示框(适用于：会员换卡、会员充值、积分兑换、挂失与解挂、会员退卡、改卡密码、会员赠分)
                 if (memberPackVo.customer && [ObjectUtil isEmpty:memberPackVo.cardNames]) {
@@ -225,14 +238,20 @@
                 LSMemberListViewController *listVc = [[LSMemberListViewController alloc] init:self.type packVos:array];
                 [self pushController:listVc from:kCATransitionFromRight];
             }
-        }
-        else {
+        } else {
+            
+            if (self.type == MBSubModule_SendCard) {
+                [self toSendCardPage:nil];
+                return;
+            }
+            
             [LSAlertHelper showAlert:@"没有找到会员信息" block:nil];
         }
-
+        
     } errorHandler:^(id json) {
         [LSAlertHelper showAlert:json block:nil];
     }];
+
 }
 
 
@@ -262,31 +281,6 @@
     return YES;
 }
 
-
-//- (void)procesData:(NSDictionary *)dic {
-//    
-//    NSArray *cards = [LSMemberCardVo getMemberCardVoList:dic[@"cardQueryVo"][@"cards"]];
-//    NSArray *cardTypes = [LSMemberTypeVo getMemberTypeVos:dic[@"kindCardList"]];
-//    
-//    if (self.type == MBSubModule_SendCard) {
-//      [self toSendCardPage:cardTypes cards:cards];
-//    }
-//    else if (self.type == MBSubModule_ChangeCard) {
-//        
-//        if ([ObjectUtil isEmpty:cards]) {
-//            
-//            [LSAlertHelper showAlert:@"提示" message:@"此会员还没有领本店会员卡，需要为会员发卡吗？" cancle:@"取消" block:^{
-//                [self toSendCardPage:cardTypes cards:cards];
-//            } ensure:@"发卡" block:^{
-//                [self toChangeCardPage:cardTypes cards:cards];
-//            }];
-//        }
-//        else {
-//            [self toChangeCardPage:cardTypes cards:cards];
-//        }
-//    }
-//}
-//
 
 #pragma mark - 页面跳转
 // 跳转到会员发卡页面

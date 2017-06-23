@@ -727,15 +727,17 @@
 - (void)saveNewMemberCardType {
     
     if ([self checkRequiredItems]) {
-        
         NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
+        //积分*100处理
+//        self.memberTypVo.ratioExchangeDegree = self.memberTypVo.ratioExchangeDegree;
+//        self.memberTypVo.exchangeDegree = self.memberTypVo.exchangeDegree;
         NSMutableDictionary *param = [NSMutableDictionary dictionary];
         [param setValue:entityId forKey:@"entityId"];
         [param setValue:@"" forKey:@"planId"];
         [param setValue:@"" forKey:@"attachmentUrl"];
         [param setValue:[self.memberTypVo jsonString] forKey:@"kindCardStr"];
         
-        [BaseService getRemoteLSOutDataWithUrl:@"kindCard/save" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        [BaseService getRemoteLSOutDataWithUrl:@"kindCard/v2/save" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
             if (self.callBack) {
                 self.callBack();
             }
@@ -751,13 +753,16 @@
     if ([self checkRequiredItems]) {
         
         NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        //积分*100处理
+//        self.memberTypVo.ratioExchangeDegree = self.memberTypVo.ratioExchangeDegree;
+//        self.memberTypVo.exchangeDegree = self.memberTypVo.exchangeDegree;
         NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
         [param setValue:entityId forKey:@"entityId"];
         [param setValue:@"" forKey:@"planId"];
         [param setValue:@"" forKey:@"attachmentUrl"];
         [param setValue:[self.memberTypVo jsonString] forKey:@"kindCardStr"];
        
-        [BaseService getRemoteLSOutDataWithUrl:@"kindCard/update" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
+        [BaseService getRemoteLSOutDataWithUrl:@"kindCard/v2/update" param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
             if (self.callBack) {
                 self.callBack();
             }
@@ -774,7 +779,7 @@
     NSString *entityId = [[Platform Instance] getkey:ENTITY_ID];
     [param setValue:entityId forKey:@"entityId"];
     [param setValue:self.memberTypVo.sId forKey:@"kindCardId"];//@"kindCard/delete"
-    NSString *url = @"kindCard/delete";
+    NSString *url = @"kindCard/v2/delete";
    
     [BaseService getRemoteLSOutDataWithUrl:url param:param withMessage:@"" show:YES CompletionHandler:^(id json) {
         if (self.callBack) {
