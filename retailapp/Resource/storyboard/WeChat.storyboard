@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--微店-->
+        <scene sceneID="CbI-Qo-Gdj">
+            <objects>
+                <viewController storyboardIdentifier="WechatModule" title="微店" id="rTP-J5-uAd" customClass="WechatModule" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rYx-63-7Vv"/>
+                        <viewControllerLayoutGuide type="bottom" id="X7S-uB-5Fn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RoK-aM-8vo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNp-6R-cHb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="eZA-Sr-fQF"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WL1-6l-xbU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rTP-J5-uAd" id="ed3-tY-dyr"/>
+                                    <outlet property="delegate" destination="rTP-J5-uAd" id="67L-kK-Zzd"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rNp-6R-cHb" firstAttribute="top" secondItem="RoK-aM-8vo" secondAttribute="top" id="1ia-f4-ZUb"/>
+                            <constraint firstAttribute="trailing" secondItem="rNp-6R-cHb" secondAttribute="trailing" id="2qe-N7-UFF"/>
+                            <constraint firstItem="rNp-6R-cHb" firstAttribute="leading" secondItem="RoK-aM-8vo" secondAttribute="leading" id="CSq-rO-UQo"/>
+                            <constraint firstItem="X7S-uB-5Fn" firstAttribute="top" secondItem="WL1-6l-xbU" secondAttribute="bottom" id="gCy-9O-8Ij"/>
+                            <constraint firstAttribute="trailing" secondItem="WL1-6l-xbU" secondAttribute="trailing" id="gGJ-5U-5er"/>
+                            <constraint firstItem="WL1-6l-xbU" firstAttribute="leading" secondItem="RoK-aM-8vo" secondAttribute="leading" id="kAG-ED-Y1L"/>
+                            <constraint firstItem="WL1-6l-xbU" firstAttribute="top" secondItem="rNp-6R-cHb" secondAttribute="bottom" id="wHk-aq-EV8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainGrid" destination="WL1-6l-xbU" id="v6M-LK-ymQ"/>
+                        <outlet property="titleDiv" destination="rNp-6R-cHb" id="RlL-hq-3RN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Au4-jM-nhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-100" y="-182"/>
+        </scene>
+        <!--账户信息-->
+        <scene sceneID="z2d-K4-6xC">
+            <objects>
+                <viewController storyboardIdentifier="AccountInfo" title="账户信息" id="aWv-YI-JUo" customClass="AccountInfo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QOb-aQ-1Me"/>
+                        <viewControllerLayoutGuide type="bottom" id="HHR-AL-Yah"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6E4-Jt-Kjg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBJ-Wr-YuE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="GT9-at-9xh"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VQP-RN-h8z">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="aWv-YI-JUo" id="MP7-zA-f6X"/>
+                                    <outlet property="delegate" destination="aWv-YI-JUo" id="hgb-vN-qSV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VQP-RN-h8z" firstAttribute="leading" secondItem="6E4-Jt-Kjg" secondAttribute="leading" id="CkC-Lk-2eD"/>
+                            <constraint firstItem="HHR-AL-Yah" firstAttribute="top" secondItem="VQP-RN-h8z" secondAttribute="bottom" id="Cmh-gi-Byj"/>
+                            <constraint firstItem="qBJ-Wr-YuE" firstAttribute="leading" secondItem="6E4-Jt-Kjg" secondAttribute="leading" id="DF1-lo-1ru"/>
+                            <constraint firstItem="VQP-RN-h8z" firstAttribute="top" secondItem="qBJ-Wr-YuE" secondAttribute="bottom" id="bkg-ik-tG8"/>
+                            <constraint firstAttribute="trailing" secondItem="VQP-RN-h8z" secondAttribute="trailing" id="eXs-44-BET"/>
+                            <constraint firstAttribute="trailing" secondItem="qBJ-Wr-YuE" secondAttribute="trailing" id="lsE-S2-Rw0"/>
+                            <constraint firstItem="qBJ-Wr-YuE" firstAttribute="top" secondItem="6E4-Jt-Kjg" secondAttribute="top" id="tTn-yS-ACU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainGrid" destination="VQP-RN-h8z" id="Lx8-wF-fNj"/>
+                        <outlet property="titleDiv" destination="qBJ-Wr-YuE" id="Lns-ox-7Rb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vYj-vi-rnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260" y="-182"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

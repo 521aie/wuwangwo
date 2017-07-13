@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AttributeAddCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_add_rr.png" translatesAutoresizingMaskIntoConstraints="NO" id="3ji-76-h1i">
+                        <rect key="frame" x="108" y="33" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="5H0-lY-0gc"/>
+                            <constraint firstAttribute="width" constant="22" id="5Nm-0R-4CF"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添选颜色..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlU-Ts-z6M">
+                        <rect key="frame" x="134" y="35" width="74" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="NlU-Ts-z6M" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="11" id="TTr-6f-end"/>
+                    <constraint firstItem="NlU-Ts-z6M" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dCo-90-G8Q"/>
+                    <constraint firstItem="3ji-76-h1i" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hIT-r9-ddn"/>
+                    <constraint firstItem="NlU-Ts-z6M" firstAttribute="leading" secondItem="3ji-76-h1i" secondAttribute="trailing" constant="4" id="vyA-I4-8KB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="0.70216219190140849" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="lblName" destination="NlU-Ts-z6M" id="UUf-fy-Kln"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ico_add_rr.png" width="44" height="44"/>
+    </resources>
+</document>

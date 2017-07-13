@@ -1,0 +1,1671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>HELP_EMPLOYEE_ROLE_PERMISSION</key>
+    <dict>
+        <key>title</key>
+        <string>角色权限</string>
+        <key>code</key>
+        <string>YGGL-JSQX</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 如何让不同的员工有不同的操作权限？</string>
+                <string>context>1.点击【添加】按钮（或选择已有角色），在角色权限详细页中设置功能模块的操作权限。例如：角色为收银员，可设置打开跟收银相关的交接班、商品退货等权限。
+2.在【员工】—【员工信息】—添加员工信息—选择相应的员工角色。</string>
+            </array>
+            <array>
+                <string>title>► 如何为员工角色设置销售提成</string>
+                <string>context>角色权限添加成功后，默认销售不提成。在【员工】—【角色提成设置】—选择销售提成方式，包括：使用商品提成比例、按单提成、按销售额提成、按商品设置提成。</string>
+            </array>
+            <array>
+                <string>title>温馨提示：</string>
+                <string>context>超级管理员账号拥有系统所有操作权限，请妥善保管超级管理员账号和密码，避免泄露造成损失。</string>
+            </array>
+        </array>
+    </dict>
+    
+    
+    <key>HELP_EMPLOYEE_INFORMATION</key>
+    <dict>
+        <key>title</key>
+        <string>员工信息</string>
+        <key>code</key>
+        <string>YGGL-YFXX</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 如何让不同的员工有不同的操作权限？？</string>
+                <string>context>1.点击屏幕底部的【添加】按钮，在角色权限详细页中设置功能模块的操作权限。例如：角色为收银员，可设置打开跟收银相关的交接班、商品退货等权限。
+2.在此模块添加员工信息，选择相应的员工角色。</string>
+            </array>
+            <array>
+                <string>title>► 员工登录账号如何创建？</string>
+                <string>context>点击【添加】按钮，添加员工信息保存即可。添加完成后，可使用员工的用户名和密码登录二维火收银机、火掌柜等系统。</string>
+            </array>
+            <array>
+                <string>title>► 员工忘记密码怎么办？</string>
+                <string>context>拥有员工管理权限的账户，可在员工信息详情页点击【重置】按钮，将把密码恢复为初始密码123456。</string>
+            </array>
+        </array>
+    </dict>
+    
+    
+    <key>HELP_EMPLOYEE_INFORMATION_DETAIL</key>
+    <dict>
+        <key>title</key>
+        <string>员工信息</string>
+        <key>code</key>
+        <string>YGGL-YFXX</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 用户名/工号</string>
+                <string>context>用户名/工号将作为员工登录火收银、火掌柜的账号用户名，支持英文和数字输入，用户名/工号不能重复。</string>
+            </array>
+            <array>
+                <string>title>► 登录密码</string>
+                <string>context>登录密码将作为员工登录火收银、火掌柜的账号密码。若员工忘记密码，可再次点击【重置】按钮，把密码恢复为初始密码123456。</string>
+            </array>
+            <array>
+                <string>title>► 员工角色</string>
+                <string>context>可通过选择员工角色权限赋予员工不同的操作权限。例如：员工角色选择“收银员”，那么此员工将拥有“收银员”这个角色的所有权限。员工角色可在【员工】—【角色权限】添加。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_EMPLOYE_ROLE_SETTING</key>
+    <dict>
+        <key>title</key>
+        <string>角色提成设置</string>
+        <key>code</key>
+        <string>YGGL-JSTCDZ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 如何为员工角色设置销售提成？</string>
+                <string>context>角色添加成功后，默认销售不提成。在【员工】—【角色提成设置】—选择销售提成方式，包括：使用商品提成比例、按单提成、按销售额提成、按商品设置提成。</string>
+            </array>
+            <array>
+                <string>title>► 不同的销售提成方式有什么区别？</string>
+                <string>context>1）使用商品提成比例：表示按商品详情页面设置的销售提成比例计算提成。
+2）按单提成：表示按销售单数量计算提成。
+3）按销售额提成：表示按个人销售额计算提成。
+4）按商品设置提成：表示按指定商品进行提成，选择此提成方式时，需要设置提成商品及相应的提成比例。</string>
+            </array>
+        </array>
+    </dict>
+    <key>HELP_EMPLOYE_SHOPPING_GUIDE</key>
+    <dict>
+        <key>title</key>
+        <string>导购员业绩目标</string>
+        <key>code</key>
+        <string>YGGL-DGYJMBSZ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 如何按月批量设置业绩目标？</string>
+                <string>context>日历中的日期均未选中时，在业绩目标中输入目标金额后，当前月份每天的业绩目标自动填充该金额。</string>
+            </array>
+            <array>
+                <string>title>► 如何指定日期设置业绩目标？</string>
+                <string>context>在日历中选中需要设置业绩目标的日期，在业绩目标中输入目标金额后，选中日期的业绩目标自动填充该金额。</string>
+            </array>
+            <array>
+                <string>title>►  能修改导购员业绩目标吗？</string>
+                <string>context>只有当日及以后的业绩目标可以修改，当日之前的业绩目标只能查看。</string>
+            </array>
+            <array>
+                <string>title>► 导购员在哪里可以查看自己的业绩目标？</string>
+                <string>context>导购员登陆二维火掌柜端后，在主页点击【个人营业汇总】，可查看自己的业绩目标及业绩完成率等相关营业数据。</string>
+            </array>
+        </array>
+    </dict>
+    <key>HELP_EMPLOYE_MAIN_PAGE_SHOW_SETTING</key>
+    <dict>
+        <key>title</key>
+        <string>主页显示设置</string>
+        <key>code</key>
+        <string>DJSZ-ZYXSSZ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► “主页显示设置”设置的是什么？</string>
+                <string>context>主页显示设置控制的是员工在二维火掌柜端【主页】显示的营业汇总区域可查看的数据。角色添加成功后，默认的主页显示项目是“收益(元)、净销售额(元)、客单数(单)、客单价(元)”。</string>
+            </array>
+            <array>
+                <string>title>► 如何设置火掌柜主页显示的营业数据内容？</string>
+                <string>context>可在当前模块针对不同角色设置不同的查看项目，并且可对这些项目进行排序，排列在第一位的项目将在【主页】营业汇总区域最上方居中显示。</string>
+            </array>
+        </array>
+    </dict>
+    <key>HELP_SETTING_SHOP_INFO</key>
+    <dict>
+        <key>title</key>
+        <string>店家信息</string>
+        <key>code</key>
+        <string>DJSZ-DJXX</string>
+        <key>list</key>
+        <array>
+        </array>
+    </dict>
+    <key>HELP_SETTING_SYSTEM_PARAMETER</key>
+    <dict>
+        <key>title</key>
+        <string>系统参数</string>
+        <key>code</key>
+        <string>DJSZ-XTCS</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 收银时导购员必选</string>
+                <string>context>此项打开时，在收银台收银结账时必须先选择导购员才能正常结账。</string>
+            </array>
+            <array>
+                <string>title>► 总金额零头处理 / 每项金额零头处理</string>
+                <string>context>针对结算时采用现金付款方式的金额进行零头处理。例如：实际结算金额88.88</string>
+                <string>example>1.“不抹零”时，现金应收显示为88.88
+2.“抹掉分”时，现金应收显示为88.80
+3.“抹掉角”时，现金应收显示为88.00
+4.“四舍五入到角”时，现金应收显示为88.90
+5.“四舍五入到元”时，现金应收显示为89.00</string>
+            </array>
+            <array>
+                <string>title>► 允许整单折扣</string>
+                <string>context>此项打开时，表示店家支持在收银端结帐时对整单的价格进行修改。</string>
+                <string>note>注：此项打开后，还需在角色管理中开启整单折扣的权限，收银端才会显示整单打折的按钮。</string>
+            </array>
+        </array>
+    </dict>
+    <key>HELP_SETTING_PAYMENT_METHOD</key>
+    <dict>
+        <key>title</key>
+        <string>支付方式</string>
+        <key>code</key>
+        <string>DJSZ-ZFFS</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 支付类型</string>
+                <string>context>可在此添加的支付类型如下：
+1）现金：在收银结账页面上展示时有找零选项。
+2）会员卡：在收银时，需要先刷会员卡，如果会员设置了消费密码，还需输入正确的消费密码才能使用会员卡内的余额支付。
+3）优惠券：在收银时，必须输入或者扫描有效的券号才能使用优惠券支付。
+4）银行卡、其他：在收银时，没有与银联等第三方支付对接，只是记录一种支付方式。</string>
+                <string>note>注：支付宝、微信可在【电子收款明细】中添加收款账户进行开通。</string>
+            </array>
+            <array>
+                <string>title>► 支付方式名称</string>
+                <string>context>输入的支付方式名称会在收银结账页面的选择支付方式区域展示，建议与支付类型统一。</string>
+            </array>
+            <array>
+                <string>title>► 收入计入销售额</string>
+                <string>context>若此开关打开，该支付方式所收取的钱款算入销售额；若关闭，则不算入销售额。修改开关状态后，还需要更新收银机数据才开始生效。</string>
+            </array>
+            <array>
+                <string>title>► 支付完成后自动打开钱箱</string>
+                <string>context>此项打开时，选择该类型的支付方式结账完成支付后自动打开钱箱。</string>
+            </array>
+            <array>
+                <string>title>► 温馨提示：</string>
+                <string>context>支付方式删除后，将无法在收银结账时采用该支付方式，请谨慎删除。</string>
+            </array>
+        </array>
+    </dict>
+    <key>HELP_SETTING_SMALL_TICKET_SET</key>
+    <dict>
+        <key>title</key>
+        <string>小票设置</string>
+        <key>code</key>
+        <string>DJSZ-XPSZ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 小票模板</string>
+                <string>context>可查看标准模板，根据店家需要选择小票打印内容。在实际打印小票时，系统会根据选择的打印内容进行排版打印。</string>
+            </array>
+            <array>
+                <string>title>► 店家LOGO</string>
+                <string>context>此项打开时，将在收银小票的头部打印店家上传的LOGO图标。建议提前在店家信息中上传店家LOGO。</string>
+            </array>
+            <array>
+                <string>title>► 小票标题</string>
+                <string>context>标题一般可输入店家名称、简称等，打印在LOGO下方。</string>
+            </array>
+            <array>
+                <string>title>► 小票尾注</string>
+                <string>context>尾注一般可以输入欢迎词、电话、地址、说明等，最多可添加10行，打印在小票底部。</string>
+            </array>
+        </array>
+    </dict>
+    <key>HELP_SETTING_GUEST_MEMO</key>
+    <dict>
+        <key>title</key>
+        <string>客单备注</string>
+        <key>code</key>
+        <string>DJSZ-KDBZ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 客单备注</string>
+                <string>context>客单备注用在收银台下单时对整单的一个备注信息。店家可以将常用的备注信息事先添加好，在收银台下单时收银员就可以从已添加的选项中选择。</string>
+            </array>
+        </array>
+    </dict>
+    <key>HELP_SETTING_SMS_SETTEING</key>
+    <dict>
+        <key>title</key>
+        <string>短信设置</string>
+        <key>code</key>
+        <string>DJSZ-DXSZ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 支持短信条数充值</string>
+                <string>context>可根据需要在线购买相应的短信条数，用于短信通知功能。</string>
+            </array>
+            <array>
+                <string>title>► 短信开关设置</string>
+                <string>context>开关打开时，表示满足该项操作后，系统将自动发送提示短信到会员手机上。</string>
+            </array>
+        </array>
+    </dict>
+    <key>HELP_SETTING_DATA_CLEAR</key>
+    <dict>
+        <key>title</key>
+        <string>营业数据清理</string>
+        <key>code</key>
+        <string>QTGJ-SJQL</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 清理营业数据</string>
+                <string>context>系统仅清理指定日期范围内在销售、退货过程中产生的数据，如：交易流水、交接班、报表等。（交易进行中的销售、退货数据不会被清理。）数据清理后不可再恢复，请谨慎使用！</string>
+            </array>
+            <array>
+                <string>title>温馨提示：</string>
+                <string>context>数据清理后不可再恢复，请谨慎使用！</string>
+            </array>
+        </array>
+    </dict>
+	<key>HELP_MARKET_SPECIAL_MANAGEMENT_LIST</key>
+	<dict>
+		<key>title</key>
+		<string>特价管理</string>
+		<key>code</key>
+		<string>YXGL-TJGL</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 如何设置特价商品？</string>
+				<string>context>1.点击【添加】创建一个特价活动，设置活动的名称、范围及有效期；
+2.添加促销规则，选择特价方案及指定商品。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_SPECIAL_MANAGEMENT_ACTIVITY_DETAIL</key>
+	<dict>
+		<key>title</key>
+		<string>特价管理</string>
+		<key>code</key>
+		<string>YXGL-TJGL</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 会员专享</string>
+				<string>context>此项打开时，表示只有会员才能享受此特价促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 适用实体门店、适用微店</string>
+				<string>context>此项打开时，表示顾客可在实体门店或者微店享受此特价促销活动，二者至少选择一项打开。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_SPECIAL_MANAGEMENT_DETAIL</key>
+	<dict>
+		<key>title</key>
+		<string>特价管理</string>
+		<key>code</key>
+		<string>YXGL-TJGL</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 特价方案</string>
+				<string>context>1.设置折扣率：可设置商品的特价折扣率，在结帐时按照折扣率计算特价；
+2.设置特价：可设置商品的特价，在结帐时直接使用该价格结算。</string>
+			</array>
+			<array>
+				<string>title>► 指定商品范围</string>
+				<string>context>“指定商品范围”的开关关闭时，表示全场所有商品参加此特价活动。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_FULL_DELIVERY_LIST</key>
+	<dict>
+		<key>title</key>
+		<string>满送/换购</string>
+		<key>code</key>
+		<string>YXGL-MSHG</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 如何设置满送或换购活动？</string>
+				<string>context>1. 点击【添加】创建一个促销活动，设置活动的名称、范围及有效期；
+2.添加促销规则，一个促销活动可添加多个促销规则。</string>
+			</array>
+			<array>
+				<string>title>温馨提示：</string>
+				<string>context>在进行中的促销活动建议不要随意删除或修改。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_FULL_DELIVERY_ACTIVITY_DETAIL</key>
+	<dict>
+		<key>title</key>
+		<string>满送/换购</string>
+		<key>code</key>
+		<string>YXGL-MSHG</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 会员专享</string>
+				<string>context>此项打开时，表示只有会员才能享受此促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 适用实体门店、适用微店</string>
+				<string>context>此项打开时，表示顾客可在实体门店或者微店享受此促销活动，二者至少选择一项打开。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_FULL_DELIVERY_DETAIL</key>
+	<dict>
+		<key>title</key>
+		<string>满送/换购</string>
+		<key>code</key>
+		<string>YXGL-MSHG</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 购买数量、购买金额</string>
+				<string>context>购买数量和购买金额可以只输入其中一项，也可以同时输入，当两项同时输入时，表示顾客购物时必须同时满足这两项条件才能享受促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 购买组合方式</string>
+				<string>context>可选择三种购买组合方式：任意购买、必须购买同款、必须购买不同款。
+1）任意购买：表示任意购买商品都可以享受促销活动。
+2）必须购买同款：表示必须购买同一款商品才能享受促销活动。
+3）必须购买不同款：需要输入“包含款数”表示必须购买N款不同款商品才能享受促销活动。如果购买数量不为空，则输入的包含款数不能大于购买数量。</string>
+				<string>example>举例：选择必须购买不同款，包含款数输入3，表示必须购买3款不同款商品才能享受促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 指定商品范围</string>
+				<string>context>此项关闭时，表示所有商品都可参加此促销活动；打开时，可以选择指定商品参加此促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 附加金额</string>
+				<string>context>附加金额输入0时，表示免费赠送；附加金额大于0时，表示需要加价换购。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_FULL_CUT_LIST</key>
+	<dict>
+		<key>title</key>
+		<string>满减</string>
+		<key>code</key>
+		<string>YXGL-MJ</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 如何设置满减活动？</string>
+				<string>context>1. 点击【添加】创建一个促销活动，设置活动的名称、范围及有效期；
+ 2. 添加促销规则，一个促销活动可添加多个促销规则。</string>
+			</array>
+			<array>
+				<string>title>温馨提示：</string>
+				<string>context>在进行中的促销活动建议不要随意删除或修改。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_FULL_CUT_ACTIVITY_DETAIL</key>
+	<dict>
+		<key>title</key>
+		<string>满减</string>
+		<key>code</key>
+		<string>YXGL-MJ</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 会员专享</string>
+				<string>context>此项打开时，表示只有会员才能享受此促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 适用实体门店、适用微店</string>
+				<string>context>此项打开时，表示顾客可在实体门店或者微店享受此促销活动，二者至少选择一项打开。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_FULL_CUT_DETAIL</key>
+	<dict>
+		<key>title</key>
+		<string>满减</string>
+		<key>code</key>
+		<string>YXGL-MJ</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 购买数量、购买金额</string>
+				<string>context>购买数量和购买金额可以只输入其中一项，也可以同时输入，当两项同时输入时，表示顾客购物时必须同时满足这两项条件才能享受促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 购买组合方式</string>
+				<string>context>可选择三种购买组合方式：任意购买、必须购买同款、必须购买不同款。
+1.任意购买：表示任意购买商品都可以享受促销活动。
+2.必须购买同款：表示必须购买同一款商品才能享受促销活动。
+3.必须购买不同款：需要输入“包含款数”表示必须购买N款不同款商品才能享受促销活动。如果购买数量不为空，则输入的包含款数不能大于购买数量。</string>
+				<string>example>举例：选择必须购买不同款，包含款数输入3，表示必须购买3款不同款商品才能享受促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 指定商品范围</string>
+				<string>context>此项关闭时，表示所有商品都可参加此促销活动；打开时，可以选择指定商品参加此促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 最多扣减金额</string>
+				<string>context>即满减活动扣减的封顶金额，超过此金额将不再享受满减活动。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_BUNDLED_DISCOUNT_LIST</key>
+	<dict>
+		<key>title</key>
+		<string>捆绑打折</string>
+		<key>code</key>
+		<string>YXGL-KBDZ</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 如何设置捆绑打折活动？</string>
+				<string>context>1. 点击【添加】创建一个促销活动，设置活动的名称、范围及有效期；
+2. 添加促销规则，一个促销活动可添加多个促销规则。</string>
+			</array>
+			<array>
+				<string>title>温馨提示：</string>
+				<string>context>在进行中的促销活动建议不要随意删除或修改。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_BUNDLED_DISCOUNT_ACTIVITY_DETAIL</key>
+	<dict>
+		<key>title</key>
+		<string>捆绑打折</string>
+		<key>code</key>
+		<string>YXGL-KBDZ</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 会员专享</string>
+				<string>context>此项打开时，表示只有会员才能享受此促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 适用实体门店、适用微店</string>
+				<string>context>此项打开时，表示顾客可在实体门店或者微店享受此促销活动，二者至少选择一项打开。</string>
+			</array>
+			<array>
+				<string>title>► 会员消费时享受折上折</string>
+				<string>context>此项打开时，表示会员消费时可以在会员价基础上享受促销折扣。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_BUNDLED_DISCOUNT_DETAIL</key>
+	<dict>
+		<key>title</key>
+		<string>捆绑打折</string>
+		<key>code</key>
+		<string>YXGL-KBDZ</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 购买数量、购买金额</string>
+				<string>context>购买数量和购买金额可以只输入其中一项，也可以同时输入，当两项同时输入时，表示顾客购物时必须同时满足这两项条件才能享受促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 购买组合方式</string>
+				<string>context>可选择三种购买组合方式：任意购买、必须购买同款、必须购买不同款。
+1）任意购买：表示任意购买商品都可以享受促销活动。
+2）必须购买同款：表示必须购买同一款商品才能享受促销活动。
+3）必须购买不同款：需要输入“包含款数”表示必须购买N款不同款商品才能享受促销活动。如果购买数量不为空，则输入的包含款数不能大于购买数量。</string>
+				<string>example>举例：选择必须购买不同款，包含款数输入3，表示必须购买3款不同款商品才能享受促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 折扣率设置</string>
+				<string>context>设置满足购买数量享受的折扣，例如：满2件8折，如果顾客购买的商品数量超出最大件数，按最大件数的折扣进行打折。折扣率设置最多可添加6条折扣规则，并且设置的购买件数不能重复。</string>
+				<string>example>举例：购买组合方式选择“必须购买不同款”、包含款数为2，折扣规则为购买1件8折、购买2件6折。如果顾客单笔消费购买2款商品，总共购买了3件，则3件都按6折结算。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_PART_N_DISCOUNT_LIST</key>
+	<dict>
+		<key>title</key>
+		<string>第N件打折</string>
+		<key>code</key>
+		<string>YXGL-DNJDZ</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 如何设置第N件打折活动？</string>
+				<string>context>1. 点击【添加】创建一个促销活动，设置活动的名称、范围及有效期；
+2. 添加促销规则，一个促销活动可添加多个促销规则。</string>
+			</array>
+			<array>
+				<string>title>温馨提示：</string>
+				<string>context>在进行中的促销活动建议不要随意删除或修改。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_PART_N_DISCOUNT_ACTIVITY_DETAIL</key>
+	<dict>
+		<key>title</key>
+		<string>第N件打折</string>
+		<key>code</key>
+		<string>YXGL-DNJDZ</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 会员专享</string>
+				<string>context>此项打开时，表示只有会员才能享受此促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 适用实体门店、适用微店</string>
+				<string>context>此项打开时，表示顾客可在实体门店或者微店享受此促销活动，二者至少选择一项打开。</string>
+			</array>
+			<array>
+				<string>title>► 会员消费时享受折上折</string>
+				<string>context>此项打开时，表示会员消费时可以在会员价基础上享受促销折扣。</string>
+			</array>
+		</array>
+	</dict>
+	<key>HELP_MARKET_PART_N_DISCOUNT_DETAIL</key>
+	<dict>
+		<key>title</key>
+		<string>第N件打折</string>
+		<key>code</key>
+		<string>YXGL-DNJDZ</string>
+		<key>list</key>
+		<array>
+			<array>
+				<string>title>► 购买数量、购买金额</string>
+				<string>context>购买数量和购买金额可以只输入其中一项，也可以同时输入，当两项同时输入时，表示顾客购物时必须同时满足这两项条件才能享受促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 购买组合方式</string>
+				<string>context>可选择三种购买组合方式：任意购买、必须购买同款、必须购买不同款。
+1）任意购买：表示任意购买商品都可以享受促销活动。
+2）必须购买同款：表示必须购买同一款商品才能享受促销活动。
+3）必须购买不同款：需要输入“包含款数”表示必须购买N款不同款商品才能享受促销活动。如果购买数量不为空，则输入的包含款数不能大于购买数量。。</string>
+				<string>example>举例：选择必须购买不同款，包含款数输入3，表示必须购买3款不同款商品才能享受促销活动。</string>
+			</array>
+			<array>
+				<string>title>► 折扣率设置</string>
+				<string>context>设置满足购买数量享受的折扣，例如：第1件9折，第二件8折。折扣率设置最多可添加6条折扣规则，即最多可设置第6件的折扣。</string>
+			</array>
+            <array>
+                <string>title>► 折扣封顶</string>
+                <string>context>1. 此项打开时，需要设置“超出的商品折扣率”，如果顾客购买的商品数量超出最大件数，超出部分按设置的超出的商品折扣率进行打折。</string>
+                <string>example>举例：活动为购买第1件8折、购买第2件6折，超出最大数量的商品折扣率为5折，若顾客单笔购买了3件，则按商品价格由高到低进行打折，第3件商品按5折结算。</string>
+                <string>context>2. 此项关闭时，只要满足条件就可循环享受折扣。</string>
+                <string>example>举例：活动为购买第1件8折、购买第2件6折，折扣不封顶，若顾客单笔购买了4件，则按商品价格由高到低进行打折，第1件8折、第2件6折、第3件8折、第4件6折。</string>
+            </array>
+		</array>
+	</dict>
+    
+    
+    <key>HELP_MARKET_COUPON_LIST</key>
+    <dict>
+        <key>title</key>
+        <string>优惠券</string>
+        <key>code</key>
+        <string>YXGL-YHQ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 什么是优惠券活动？</string>
+                <string>context>优惠券是顾客消费满足一定条件会赠送的纸质券，附在收银小票后面，在下次消费时可抵扣金额。</string>
+            </array>
+            <array>
+                <string>title>► 如何设置优惠券活动？</string>
+                <string>context>1. 点击【添加】创建一个促销活动，设置活动的名称、范围及有效期；
+2. 添加促销规则，一个促销活动可添加多个促销规则。</string>
+            </array>
+            <array>
+                <string>title>温馨提示：</string>
+                <string>context>在进行中的促销活动建议不要随意删除或修改。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_MARKET_COUPON_ACTIVITY_DETAIL</key>
+    <dict>
+        <key>title</key>
+        <string>优惠券</string>
+        <key>code</key>
+        <string>YXGL-YHQ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 会员专享</string>
+                <string>context>此项打开时，表示只有会员才能享受此促销活动。</string>
+            </array>
+            <array>
+                <string>title>► 适用实体门店</string>
+                <string>context>此项打开时，表示顾客可在实体门店享受此促销活动，不可关闭。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_MARKET_COUPON_DETAIL</key>
+    <dict>
+        <key>title</key>
+        <string>优惠券</string>
+        <key>code</key>
+        <string>YXGL-YHQ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 优惠券数量</string>
+                <string>context>活动有效期内，促销门店可打印的优惠券张数。</string>
+            </array>
+            <array>
+                <string>title>► 优惠券说明</string>
+                <string>context>此项内容有输入时，输入内容会打印在优惠券底部。</string>
+            </array>
+            <array>
+                <string>title>► 购买数量、购买金额</string>
+                <string>context>购买数量和购买金额可以只输入其中一项，也可以同时输入，当两项同时输入时，表示顾客购物时必须同时满足这两项条件才能享受促销活动。</string>
+            </array>
+            <array>
+                <string>title>► 购买组合方式</string>
+                <string>context>可选择三种购买组合方式：任意购买、必须购买同款、必须购买不同款。
+1）任意购买：表示任意购买商品都可以享受促销活动。
+2）必须购买同款：表示必须购买同一款商品才能享受促销活动。
+3）必须购买不同款：需要输入“包含款数”表示必须购买N款不同款商品才能享受促销活动。如果购买数量不为空，则输入的包含款数不能大于购买数量。
+</string>
+                <string>example>举例：选择必须购买不同款，包含款数输入3，表示必须购买3款不同款商品才能享受促销活动。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_MARKET_BIRTHDAY_PROMOTION</key>
+    <dict>
+        <key>title</key>
+        <string>生日促销</string>
+        <key>code</key>
+        <string>YXGL-SRCX</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 限购数量、限购次数</string>
+                <string>context>会员符合生日促销活动条件时可购买商品的最大数量，或者最多次数。</string>
+            </array>
+            <array>
+                <string>title>► 在会员生日月有效</string>
+                <string>context>此项打开时，表示会员在生日月可享受生日促销活动。</string>
+                <string>example>例如：某会员生日是1981年9月1日，则该会员可在每年的9月享受生日促销活动。</string>
+            </array>
+            <array>
+                <string>title>► 在指定时间有效</string>
+                <string>context>此项打开时，表示会员可在生日前N天至生日后N天享受生日促销活动。</string>
+            </array>
+            <array>
+                <string>title>温馨提示：</string>
+                <string>context>在进行中的促销活动建议不要随意删除或修改。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_DISTRIBUTION_MANAGEMENT</key>
+    <dict>
+        <key>title</key>
+        <string>配送管理</string>
+        <key>code</key>
+        <string>WDGL-PSGL</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 允许上门自提</string>
+                <string>context>此项打开时，表示微店支持上门自提，可设置预约时间（非必填项），顾客在微店下单时可选择上门自提以及选择取货的时间。</string>
+            </array>
+            <array>
+                <string>title>► 允许配送到家</string>
+                <string>context>此项打开时，表示微店支持配送服务，可设置提供服务的起送金额、配送类型、是否包邮。</string>
+            </array>
+            <array>
+                <string>title>► 配送类型</string>
+                <string>context>1）第三方物流配送：即订单通过物流公司进行配送，需要选择默认物流公司。
+2）店家配送：即订单由店家直接配送，店家需要设置可配送的时间段。微店上可选择的配送时间是将店家设置的时间段以1小时为单位分割的。</string>
+                <string>example>举例：配送时间段设置为14：00-16：00，顾客在微店上可以选择的配送时间是14：00、15：00、16：00。</string>
+            </array>
+            <array>
+                <string>title>► 是否包邮</string>
+                <string>context>1）店家包邮：即顾客购买全场商品任意条件包邮。
+2）指定条件包邮：即店家需要指定包邮条件，只有符合包邮条件的订单才能享受包邮。
+3）店家不包邮：即所有订单均需支付配送费，配送费是店家设置的默认配送费。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_SALE_ORDER_LIST</key>
+    <dict>
+        <key>title</key>
+        <string>销售订单</string>
+        <key>code</key>
+        <string>WDGL-XSDD</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 销售订单查询</string>
+                <string>context>订单管理中可以查询、处理近3个月内顾客在微店下的订单。</string>
+            </array>
+            <array>
+                <string>title>► 销售订单处理</string>
+                <string>context>对于“待处理”状态的订单，店家可以同意接单也可以拒绝接单。如果拒绝接单，系统会在2-3天内自动按原支付方式将钱退回给顾客。建议店家尽量减少拒绝接单次数，以免给顾客造成不良印象。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_SALE_ORDER_DETAIL</key>
+    <dict>
+        <key>title</key>
+        <string>销售订单</string>
+        <key>code</key>
+        <string>WDGL-XSDD</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 同意接单</string>
+                <string>context>在配送能力范围内的订单，店家可以点击“同意接单”按钮，完成接单操作。如果配送方式是“配送到家”的订单，店家还需要填写配送信息。</string>
+            </array>
+            <array>
+                <string>title>► 拒绝接单</string>
+                <string>context>不在配送能力范围内的订单，店家可以点击“拒绝接单”按钮，并且选择拒绝原因以便反馈给顾客，系统会在2-3天内自动按原支付方式将钱退回给顾客。</string>
+            </array>
+            <array>
+                <string>title>► 查看配送信息</string>
+                <string>context>对于配送方式是“配送到家”的订单，店家同意接单后，便可点击img>ico_logisticsimg>图标查看订单的配送信息。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_SALE_ORDER_SEND_INFO</key>
+    <dict>
+        <key>title</key>
+        <string>销售订单</string>
+        <key>code</key>
+        <string>WDGL-XSDD</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 配送类型</string>
+                <string>context>1）店家配送：选择店家配送需要选择配送员。
+2）第三方物流配送：选择店家配送需要快递公司，同时填写快递单号或者点击快递单号后面的扫码图标，直接扫描快递单号。为了统计的准确性，建议在配送费中记入实际支付的费用。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_SALE_ORDER_REFUSE_REASON</key>
+    <dict>
+        <key>title</key>
+        <string>销售订单</string>
+        <key>code</key>
+        <string>WDGL-XSDD</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 拒绝原因</string>
+                <string>context>拒绝接单时，需要选择拒绝原因才能完成拒绝操作。当没有合适的拒绝原因或者有不再需要的原因时，可以在原因库管理中添加或者删除。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_INTERGAL_EXCHANGE_ORDER_LIST</key>
+    <dict>
+        <key>title</key>
+        <string>积分兑换订单</string>
+        <key>code</key>
+        <string>WDGL-JFDHDD</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 积分兑换订单查询</string>
+                <string>context>订单管理中可以查询、处理近3个月内顾客在微店积分兑换的订单。</string>
+            </array>
+            <array>
+                <string>title>► 积分兑换订单处理</string>
+                <string>context>积分兑换订单不支持拒绝接单操作。对于“待处理”状态的订单，店家确认配送时，需要填写配送信息，以方便顾客跟踪订单。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_INTERGAL_EXCHANGE_ORDER_DETAIL</key>
+    <dict>
+        <key>title</key>
+        <string>积分兑换订单</string>
+        <key>code</key>
+        <string>WDGL-JFDHDD</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 确认配送</string>
+                <string>context>订单可以配送时，店家可以点击“确认配送”按钮，并且填写配送信息完成配送操作。</string>
+            </array>
+            <array>
+                <string>title>► 查看配送信息</string>
+                <string>context>店家确认配送后，便可点击img>ico_logisticsimg>图标查看订单的配送信息。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_RETURN_AUDIT_LIST</key>
+    <dict>
+        <key>title</key>
+        <string>退货审核</string>
+        <key>code</key>
+        <string>WDGL-THSH</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 退货订单查询</string>
+                <string>context>订单管理中可以查询、处理近3个月内顾客在微店提交的退货订单。</string>
+            </array>
+            <array>
+                <string>title>► 退货订单处理</string>
+                <string>context>步骤1：对状态为“待审核”的订单进行退货审核。
+步骤2：确认收到退货商品，对状态为“退货中”的订单进行退款处理。</string>
+            </array>
+            <array>
+                <string>title>温馨提示：</string>
+                <string>context>1. 一个销售订单，只能进行一次退货申请，申请一旦被拒绝，原销售订单自动关闭，不可再次申请退货。建议与顾客协商好后再拒绝退货。
+2. 手动退款的订单需要在【微店管理】—【退款管理】中点击【手动退款成功】按钮，变更订单状态为“退款成功”。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_RETURN_AUDIT_DETAIL</key>
+    <dict>
+        <key>title</key>
+        <string>退货审核</string>
+        <key>code</key>
+        <string>WDGL-THSH</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 退货类型</string>
+                <string>context>退货类型是顾客申请退货时填写的，如果顾客填写的退货类型与实际不符，店家可以进行修改，但是只能修改“待处理”状态的退货订单。</string>
+            </array>
+            <array>
+                <string>title>► 应退金额、实退金额</string>
+                <string>context>应退金额是指退货商品的销售最终折扣价合计。
+实退金额默认与应退金额相同，可以根据实际情况进行修改，但是实退金额不能大于应退金额。</string>
+            </array>
+            <array>
+                <string>title>► 同意退货</string>
+                <string>context>点击“同意退货”按钮，输入退货地址信息，完成同意退货操作。退货地址信息默认显示上一次退货审核时输入的信息，如果有变化，可以直接修改。店家同意退货后，顾客便可以查看退货地址寄回商品。</string>
+            </array>
+            <array>
+                <string>title>► 拒绝退货</string>
+                <string>context>点击“拒绝退货”按钮，输入拒绝退货原因，完成拒绝退货操作。</string>
+                <string>note>注：一个销售订单，只能进行一次退货申请，申请一旦被拒绝，原销售订单自动关闭，不可再次申请退货。建议与顾客协商好后再拒绝退货。</string>
+            </array>
+            <array>
+                <string>title>► 同意退款</string>
+                <string>context>可以点击“同意退款”按钮，如果订单原支付方式是会员卡支付，系统自动将钱退回到顾客的会员卡中。如果订单原支付方式是微信支付，需要店家将退款金额手动转账给顾客。</string>
+                <string>note>注：手动退款的订单需要在【微店管理】—【退款管理】中点击“手动退款成功”按钮，变更订单状态为“退款成功”。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_REFUND_MANAGEMENT</key>
+    <dict>
+        <key>title</key>
+        <string>退款管理</string>
+        <key>code</key>
+        <string></string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 退款管理</string>
+                <string>context>退款管理是对原支付方式是微信支付的退款订单进行手动退款记录。需要店家将退款金额手动转账给顾客，转账成功后，点击“手动退款成功”按钮，将订单状态改成“退款成功”。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_HOME_SETTING</key>
+    <dict>
+        <key>title</key>
+        <string>微店主页设置</string>
+        <key>code</key>
+        <string>WDGL-WDZYSZ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 轮播图</string>
+                <string>context>可以设置指定跳转单个商品详情或多个商品列表。最多设置5张轮播图，如果不设置则隐藏不显示。</string>
+            </array>
+            <array>
+                <string>title>► 单列焦点图、双列焦点图</string>
+                <string>context>可以设置指定跳转单个商品详情或多个商品列表。如果不设置则隐藏不显示。</string>
+            </array>
+            <array>
+                <string>title>► 分类图</string>
+                <string>context>分类图可以指定跳转商品品类。最多设置6张分类图，如果不设置则隐藏不显示。</string>
+            </array>
+            <array>
+                <string>title>► 单列商品图</string>
+                <string>context>可以设置指定跳转单个商品详情。最多设置1张图片，如果不设置则隐藏不显示。</string>
+            </array>
+            <array>
+                <string>title>► 双列商品图</string>
+                <string>context>最多设置12个双列商品图，可对双列商品图进行排序。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_GOODS_INFO</key>
+    <dict>
+        <key>title</key>
+        <string>微店商品信息</string>
+        <key>code</key>
+        <string>WDGL-WDSPXX</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 可在微店商品管理支持哪些功能</string>
+                <string>context>支持设置商品在微店的上下架、销售价格、商品图片、图文详情等等。</string>
+            </array>
+            <array>
+                <string>title>► 微店商品管理中设置“未在微店销售”与“商品已下架”的区别</string>
+                <string>context>在微店销售：此项打开时，表示商品可以在微店销售；此项关闭时，在微店商品管理和微店中均不显示。
+商品上下架：上架时，商品可以在微店进行交易；下架时，商品在微店显示已售完，不能进行交易。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_GOODS_INFO_DETAIL</key>
+    <dict>
+        <key>title</key>
+        <string>微店商品信息</string>
+        <key>code</key>
+        <string>WDGL-WDSPXX</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 优先度</string>
+                <string>context>优先度数值越小，在微店中排列位置越靠前。</string>
+            </array>
+            <array>
+                <string>title>► 微店售价策略</string>
+                <string>context>可针对商品在微店中的销售设置价格：
+1.自定义价格：表明与商品实体店价格无关，可设置专门的微店价格。
+2.按实体店价格打折：表明在商品实体店价格的基础上打折，可设置折扣方案。
+3.与实体店同样价格：表明与商品实体店价格相同。</string>
+            </array>
+            <array>
+                <string>title>► 详细介绍</string>
+                <string>context>建议填写该商品的特殊说明，例如：商品的存储方式，内容会在【微店】—【商品详情】—【商品参数】中显示。</string>
+            </array>
+            <array>
+                <string>title>► 商品图片</string>
+                <string>context>该商品图片将作为商品在微店的展示图，最多可以上传12张，按图片上传顺序展示。请尽可能详尽的描述商品的属性和特征，以便顾客更了解该商品，提高成交率。</string>
+            </array>
+            <array>
+                <string>title>► 图文详情</string>
+                <string>context>建议添加介绍商品详情、卖点的图片，内容会在【微店】—【商品详情】—【图文详情】中显示。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_WECHAT_SALE_COUNT</key>
+    <dict>
+        <key>title</key>
+        <string>微店可销售数量设置</string>
+        <key>code</key>
+        <string></string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 微店可销售数量设置</string>
+                <string>context>支持对微店商品设置可供销售的库存，建议可销售数量不要超过商品实际库存数。当可销售数量为0时，微店商品显示“已售完”，不能进行交易。
+若微店销售不想受限于设置的数量，可在【微店管理】—【微店设置】中关闭“微店交易需判断可销售数量”开关。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_GOODS_CATEGORY_LIST</key>
+    <dict>
+        <key>title</key>
+        <string>商品分类</string>
+        <key>code</key>
+        <string>SPGL-SPFL</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 如何创建商品多级分类？最多设置几级？</string>
+                <string>context>点击【添加】创建分类—打开【此分类有上级】开关—选择该分类的上级分类。商超版最多支持4级分类。</string>
+            </array>
+            <array>
+                <string>title>► 商品所在的分类被删除后，商品会被删除吗？</string>
+                <string>context>不会。商品所在的分类被删除时，商品不会被删除，只是失去商品分类信息，被归在“未分类”下，可选择商品重新选择分类。</string>
+            </array>
+            <array>
+                <string>title>► 如何对商品分类进行排序？</string>
+                <string>context>点击【排序】选择需要排序的类目—拖动分类排序。例如：需要重新整理食品分类下休闲零食、生鲜食品、饼干等二级分类，则可选择食品进入列表页拖动二级分类进行排序。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_GOODS_CATEGORY_DETAIL</key>
+    <dict>
+        <key>title</key>
+        <string>商品分类</string>
+        <key>code</key>
+        <string>SPGL-SPFL</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 微店分类别名</string>
+                <string>context>在微店中该分类显示的名称，未输入时默认显示商品分类名称。</string>
+            </array>
+            <array>
+                <string>title>► 此分类有上级</string>
+                <string>context>用于设置商品多级分类，最多支持4级分类，例如：食品>>休闲食品>>膨化食品>>薯片。此项打开时，表示这个分类是另一个分类下的子分类，可以选择一个已有的分类作为上级分类。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_GOODS_INFO_LIST</key>
+    <dict>
+        <key>title</key>
+        <string>商品信息</string>
+        <key>code</key>
+        <string>SPGL-SPXX</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 如何快速添加商品？</string>
+                <string>context>方法一：使用火掌柜，在【商品】—【商品信息】—点击【扫一扫】扫描新商品的条码；或点击【添加】按钮进行添加。
+方法二：使用火收银，在【收银】的客单下方选择“条形码”作为查询条件，扫描新商品条形码；或在右侧商品列表页面点击【添加】按钮进行添加。
+方法三：使用商家管理后台（http://myshop.2dfire.com/pages/login.jsp），下载标准模板在Excel表内进行商品信息录入，通过Excel表导入进行添加。</string>
+            </array>
+            <array>
+                <string>title>► 如何对商品进行批量操作？</string>
+                <string>context>点击屏幕底部的【批量】按钮打开批量操作界面，可一次性选择多个商品，并对这些商品进行删除，设置上架下架、设置销售提成比例等操作。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_GOODS_DETAIL</key>
+    <dict>
+        <key>title</key>
+        <string>商品信息</string>
+        <key>code</key>
+        <string>SPGL-SPXX</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 商品条形码</string>
+                <string>context>可通过“扫一扫”输入，未输入时将在商品添加成功后自动生成以2开头的商品条码。若需要实现扫码收银，请输入真实有效的条形码。</string>
+            </array>
+            <array>
+                <string>title>► 商品店内码</string>
+                <string>context>添加商品时无需输入，会在商品添加成功后自动生成，默认与商品条码一致。当存在一码多品的商品时（一码多品是指多个商品共用一个商品条码），商品店内码会自动生成以2开头的店内码。</string>
+                <string>example>► 例如：添加条码为6900000000001的商品时，自动生成的商品店内码为6900000000001，再次添加条码为6900000000001的商品时，自动生成的商品店内码为2000000000001。</string>
+            </array>
+            <array>
+                <string>title>► 散装称重商品</string>
+                <string>context>此项打开时，表示该商品为条码秤称重商品，商品数量支持3位小数。设置了拆分、组装、加工规则的商品不能设置为散装称重商品。</string>
+            </array>
+            <array>
+                <string>title>► 商品简码</string>
+                <string>context>设置后可方便商品查询，若商品为散装称重商品则必须设置5位数字的商品简码。</string>
+            </array>
+            <array>
+                <string>title>► 销售提成比例</string>
+                <string>context>可设置该商品销售成功后收银人员可获得的提成比例。在员工提成报表中可以查看提成金额。</string>
+            </array>
+            <array>
+                <string>title>► 参与积分</string>
+                <string>context>此项打开时，会员在购买该商品时会员卡可获得相应积分。</string>
+            </array>
+            <array>
+                <string>title>► 参与任何优惠活动</string>
+                <string>context>此项打开时，该商品可参与任何营销活动；此项关闭时，该商品不可参与任何营销活动，在设置营销活动时该商品也不能使用。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_GOODS_SPLIT</key>
+    <dict>
+        <key>title</key>
+        <string>商品拆分</string>
+        <key>code</key>
+        <string>SPGL-SPCF</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 什么是商品拆分？如何使用？</string>
+                <string>context>商品拆分，即将一件大件商品拆分成多件小件商品的规则，多用于商品进货与销售的单位不一致的情况。
+创建拆分规则后，系统将自动按该规则将大件商品的现有库存数核算成小件商品的库存数。拆分规则一旦建立，对大件商品进货或销售时，都会自动核算成小件商品的库存数。</string>
+                <string>example>举例：建立拆分规则将1箱啤酒拆分成12瓶。
+选择大件商品“西湖纯生啤酒（箱）”；选择小件商品“西湖纯生啤酒（瓶）”，设置拆分数量为12。如果大件商品现有库存数为5，小件商品现有库存数为3，拆分规则建立后，大件商品的库存数变为0，小件商品的库存数变为5×12+3=63。</string>
+            </array>
+            <array>
+                <string>title>温馨提示：</string>
+                <string>context>1. 同一拆分商品不允许重复创建拆分规则。
+2. 拆分规则应尽量在营业前建立完善，不要随意增删，以免造成数据不准确。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_GOODS_ASSEMBLE</key>
+    <dict>
+        <key>title</key>
+        <string>商品组装</string>
+        <key>code</key>
+        <string>SPGL-SPZZ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 什么是商品组装？如何使用？</string>
+                <string>context>商品组装，即将多种小件商品组装成一种大件商品的规则，多用于商品捆绑销售。
+创建组装规则后，在销售组装商品时会自动按该规则核算扣减小件商品的库存数。</string>
+                <string>example>举例：将1瓶百事可乐2瓶雪碧捆绑销售，建立组装规则。
+选择小件商品“百事可乐”数量为1，“雪碧”数量为2；选择大件商品“可乐雪碧组合装”。创建规则后，小件商品跟大件商品库存无变化。当销售出一件“可乐雪碧组合装”时，扣减小件商品库存“百事可乐”1件、“雪碧”2件；</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_GOODS_MACHINING</key>
+    <dict>
+        <key>title</key>
+        <string>商品加工</string>
+        <key>code</key>
+        <string>SPGL-SPJJ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 什么是商品加工？如何使用？</string>
+                <string>context>商品加工，即将多种原料商品加工成一种加工商品的规则，但原料商品最多不能超过20种。
+创建加工规则后，在销售加工商品时，当销售数量达到加工规则中加工商品数量的倍数时，会按该规则自动扣减成原料商品的库存数。</string>
+                <string>example>举例：10份面包的加工用料为面粉3份、白砂糖1份、黄油1份。
+选择原料商品“面粉”数量为3，“白砂糖”数量为1，“黄油”数量为1；选择加工商品“手工面包”，数量为10。创建规则后，原料商品跟加工商品库存无变化。销售加工商品“手工面包”，销售数量&lt;10时，原料商品的库存数不发生改变，当销售数量达到10时，扣减原料商品库存“面粉”3份、“白砂糖”1份、“黄油”1份。</string>
+            </array>
+            <array>
+                <string>title>温馨提示：</string>
+                <string>context>1. 同一加工商品不允许重复创建加工规则。
+2. 加工规则应尽量在营业前建立完善，不要随意增删，以免造成数据不准确。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_STOCK_QUERY</key>
+    <dict>
+        <key>title</key>
+        <string>库存查询</string>
+        <key>code</key>
+        <string>KCGL-KCCX</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 库存数据查询及导出</string>
+                <string>context>可以点击【扫一扫】按钮用手机扫描商品条码对商品进行精确查询；也可以在查询条件中输入条形码、简码、拼音码进行模糊查询。
+点击【导出】按钮，可将导出的商品库存信息以excel文件形式发送到指定邮箱中。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_STOCK_ADJUST</key>
+    <dict>
+        <key>title</key>
+        <string>库存调整</string>
+        <key>code</key>
+        <string>KCGL-KCTZ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 什么时候进行库存调整？</string>
+                <string>context>当实际库存与现有的库存数据不一致时，可通过填写库存调整单来记录库存商品的损益，保证库存的准确性。</string>
+            </array>
+            <array>
+                <string>title>► 如何库存调整？</string>
+                <string>context>点击【添加】创建调整单，添加需要调整的商品，商品添加完成后，可点击列表中的商品进入商品信息界面，对商品的调整数量或调整后库存数、调整原因进行编辑。
+当调整数输入正数时，表示增加的库存数量；当调整数输入负数时，表示减少的库存数量。</string>
+            </array>
+            <array>
+                <string>title>温馨提示：</string>
+                <string>context>商品进货或退货引起的库存变化请通过物流管理记录商品的流转。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_STOCK_ALERT_SETTING</key>
+    <dict>
+        <key>title</key>
+        <string>提醒设置</string>
+        <key>code</key>
+        <string>KCGL-TXSZ</string>
+        <key>list</key>
+        <array>
+            <array>
+                <string>title>► 提醒设置是对什么做提醒？可以在哪里查看提醒消息？</string>
+                <string>context>提醒设置是对指定商品设置库存数量预警和保质期预警。当商品的库存数量低于预警数量时或者当商品的保质期天数低于预警天数时，在收银端或掌柜端的【消息中心】会收到预警消息。</string>
+            </array>
+            <array>
+                <string>title>► 为什么对商品做了提醒设置但没有收到提醒消息？</string>
+                <string>context>库存预警提醒的商品必须要有库存记录，保质期预警提醒必须要保质期和生产日期（进货时填写的生产日期）都完整的情况下，提醒功能才有效。</string>
+            </array>
+        </array>
+    </dict>
+    
+    <key>HELP_STOCK_INTERGAL_GOODS_STOCK</key>
+        <dict>
+            <key>title</key>
+            <string>积分商品库存</string>
+            <key>code</key>
+            <string></string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 为什么积分商品库存查询不到商品？</string>
+                    <string>context>首先需要在【会员】—【积分兑换】中添加积分商品，然后才可以在【积分商品库存】内查询到积分商品，并设置实体门店的积分商品库存。</string>
+                </array>
+                <array>
+                    <string>title>► 积分商品的库存设置有什么用？</string>
+                    <string>context>积分商品设置的库存为实体门店允许积分兑换的商品数量。建议设置的积分商品的库存小于商品实际库存数。</string>
+                </array>
+            </array>
+        </dict>
+        
+        
+        <key>HELP_MEMBER_HOEMPAGE</key>
+        <dict>
+            <key>title</key>
+            <string>会员主页</string>
+            <key>code</key>
+            <string>HYGL-HYZY</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 会员信息查询及导出</string>
+                    <string>context>可在搜索框输入会员卡号、手机号等查询会员信息，可以在卡详情界面进行充值、兑换、红冲等，也可以修改会员的基本资料，查看会员消费记录；
+若搜索框留空，点击查询可查看所有会员，点击导出，可将会员信息以Excel文件形式发送到指定邮箱。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_CARD_TYPE</key>
+        <dict>
+            <key>title</key>
+            <string>会员卡类型</string>
+            <key>code</key>
+            <string>HYGL-HYKLX</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 允许所有微店用户主动申请</string>
+                    <string>context>如果打开开关，那么用户在本店的微店上直接领卡，成为本店会员。每家店铺限设置一种可申领的会员卡类型。</string>
+                </array>
+                <array>
+                    <string>title>► 支持设置会员卡的优惠方式</string>
+                    <string>context>1）使用会员价：会员消费时使用商品会员价进行销售。
+2）使用折扣率：会员消费时可享受的折扣比例。例如：输入80时，表示可享受商品原价的八折优惠；输入100时表示不享受折扣。
+3）使用批发价：会员消费时使用商品批发价进行销售。</string>
+                </array>
+                <array>
+                    <string>title>► 支持设置会员卡自动升级</string>
+                    <string>context>例如：设置普通卡可升级为金卡
+先添加金卡，然后在新建普通卡时打开【达到一定积分自动升级】开关，选择下一级卡类型为金卡，设置升级所需积分，例如2000。
+设置完成后，普通卡的会员在卡内积分达到2000分时会自动升级到金卡，并享受金卡的积分和折扣规则。</string>
+                </array>
+                <array>
+                    <string>title>► 支持设置会员卡积分规则</string>
+                    <string>context>选择需要设置的会员卡类型，输入“消费积分比例”，即消费多少元可得1积分。例如：消费积分比例设置为2，消费金额31元时，可获得15积分。消费积分比例设置为0，消费不得分。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_INTEGRAL_EXCHANGE_SETTING</key>
+        <dict>
+            <key>title</key>
+            <string>积分兑换设置</string>
+            <key>code</key>
+            <string>HYGL-JFDHSZ</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 支持设置积分兑换商品或卡内余额</string>
+                    <string>context>1）兑换商品：选择兑换商品，输入兑换所需的积分。暂不支持将拆分商品、组装商品、加工商品设置成积分商品。
+2）兑换卡内余额：输入兑换金额以及兑换所需的积分。兑换卡余额后，会员卡的金额会自动增加对应的数值。</string>
+                </array>
+                <array>
+                    <string>title>► 支持设置积分商品的可兑换数量</string>
+                    <string>context>可选择批量操作设置积分商品在实体门店或微店的可兑换数量；当数量未输入时，默认在积分兑换时不判断可兑换数量，可无限量兑换。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_RECHARGE_PROMOTIONS</key>
+        <dict>
+            <key>title</key>
+            <string>充值优惠促销</string>
+            <key>code</key>
+            <string>HYGL-CZYHSZ</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 设置充值优惠</string>
+                    <string>context>充值优惠根据卡类型设置，请先务必在【会员卡类型】添加卡类型。会员充值优惠的赠送方式包含以下2种：
+1）店家充值：店家可输入任意充值金额，赠送金额、积分自动累加。</string>
+                    <string>example>例如：设置每充值100元送10元，每充值300送50元；则充值200元送20元，充值400送60元</string>
+                    <string>context>2）微店自助充值：顾客不能随意输入充值金额，只能选择固定的充值金额并享受相应的充值优惠。</string>
+
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_SEND_MEMBER_CARD</key>
+        <dict>
+            <key>title</key>
+            <string>发会员卡</string>
+            <key>code</key>
+            <string>HYGL-FHYK</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 会员卡号</string>
+                    <string>context>会员卡号可以自定义输入，要求4位以上的英文字母、数字。比如可以输入实体卡上的会员卡条形码、卡号等，以支持扫描条形码进行会员查询和刷卡。若卡号不输入，开卡成功后系统将自动生成卡号。</string>
+                </array>
+                <array>
+                    <string>title>► 卡类型</string>
+                    <string>context>用于选择给会员发放的会员卡类型，可在【会员卡类型】进行会员卡类型添加或修改。</string>
+                </array>
+                <array>
+                    <string>title>► 生日</string>
+                    <string>context>建议填写会员生日，可用于会员生日短信营销或生日提醒。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_RECHARGE</key>
+        <dict>
+            <key>title</key>
+            <string>会员充值</string>
+            <key>code</key>
+            <string>HYGL-HYCZ</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 如何在会员充值时赠送金额或积分？</string>
+                    <string>context>1.在【会员】—【充值促销】中添加充值促销活动，例如：充值100元赠送10元。
+2.在会员充值时输入任意充值金额，赠送金额、积分自动累加。</string>
+                    <string>example>例如：设置每充值100元送10元，每充值300送50元；则充值200元送20元，充值400送60元</string>
+                </array>
+                <array>
+                    <string>title>► 充值误操作怎么办？</string>
+                    <string>context>可在该会员的详情页选择充值红冲，如果充值记录中有赠送余额或积分，也会对赠送余额和积分进行红冲。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_INTERGAL_EXCHANGE</key>
+        <dict>
+            <key>title</key>
+            <string>积分兑换</string>
+            <key>code</key>
+            <string>HYGL-JFDH</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 为什么积分兑换时看不到可兑换的积分商品？</string>
+                    <string>context>原因1：未设置积分商品，需要在【会员】—【积分兑换设置】设置可使用积分兑换的商品及兑换所需积分。
+原因2：积分商品库存不足，可在【会员】—【积分兑换设置】设置可兑换的积分商品数量。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_RETUEN_CARD</key>
+        <dict>
+            <key>title</key>
+            <string>会员退卡</string>
+            <key>code</key>
+            <string>HYGL-HYTK</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 会员退卡后还能查到该会员信息吗？</string>
+                    <string>context>退卡成功后，会员的卡余额及积分会清零，但仍可以查询到该会员信息，只是处于未领卡状态。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_MEMBER_SEND_INTERGAL</key>
+        <dict>
+            <key>title</key>
+            <string>会员赠分</string>
+            <key>code</key>
+            <string>HYGL-HYZF</string>
+            <key>list</key>
+            <array>
+    
+            </array>
+        </dict>
+        <key>HELP_MEMBER_MEMBER_CHANGE_CARD</key>
+        <dict>
+            <key>title</key>
+            <string>会员换卡</string>
+            <key>code</key>
+            <string>HYGL-HYHK</string>
+            <key>list</key>
+            <array>
+                
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_MEMBER_CHANGE_PASSWORD</key>
+        <dict>
+            <key>title</key>
+            <string>改卡密码</string>
+            <key>code</key>
+            <string>HYGL-GKMM</string>
+            <key>list</key>
+            <array>
+                
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_CARD_LOSS</key>
+        <dict>
+            <key>title</key>
+            <string>会员卡挂失</string>
+            <key>code</key>
+            <string>HYGL-HYKGS</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>温馨提示：</string>
+                    <string>context>会员卡挂失后该会员卡将无法进行充值、消费、积分兑换等操作。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_SMS_MARKET</key>
+        <dict>
+            <key>title</key>
+            <string>短信营销</string>
+            <key>code</key>
+            <string>HYGL-DXYX</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 剩余短信条数</string>
+                    <string>context>显示当前剩余短信条数，并可以根据需要选择套餐进行短信充值。</string>
+                    <string>note>注：当发送的会员数大于剩余短信条数时，将无法发送短信。</string>
+                </array>
+                <array>
+                    <string>title>► 生日会员</string>
+                    <string>context>可以选择向生日是今天、明天或者最近一周生日的会员发送手机短信。当生日会员选择全部时，表示向所有会员发送短信。</string>
+                </array>
+                <array>
+                    <string>title>► 短信模板</string>
+                    <string>context>可选择不同类型的短信模板，每一种模板对应不同的可编辑内容。短信编辑好后可进行预览，如果对短信不满意，可返回修改。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_MEMBER_BIRTHDAY_ALERTING</key>
+        <dict>
+            <key>title</key>
+            <string>生日提醒</string>
+            <key>code</key>
+            <string>HYGL-SRTX</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 剩余短信条数</string>
+                    <string>context>显示当前剩余短信条数，并可以根据需要选择套餐进行短信充值。</string>
+                    <string>note>注：当发送的会员数大于剩余短信条数时，将无法发送短信。</string>
+                </array>
+                <array>
+                    <string>title>► 会员生日提前几天发送短信</string>
+                    <string>context>可以根据需要选择在会员生日的当天、提前1天、提前7天发送生日祝福短信，系统自动会每天给符合条件的会员群发短信。</string>
+                </array>
+                <array>
+                    <string>title>► 发送时间</string>
+                    <string>context>可以选择短信定时发送的时间，建议选择9：00至20：00之间的时间段。</string>
+                </array>
+                <array>
+                    <string>title>► 短信模板</string>
+                    <string>context>可选择不同类型的短信模板，每一种模板对应不同的可编辑内容。短信编辑好后可进行预览，如果对短信不满意，可返回修改。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_OUTIN_RECEIVING_ORDER</key>
+        <dict>
+            <key>title</key>
+            <string>收货入库单</string>
+            <key>code</key>
+            <string>CRKGL-SHRK</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 收货入库单是什么？什么时候创建？</string>
+                    <string>context>收货入库单是店铺收到商品并进入库的单据记录。收货入库单一般在实际收到商品并清点完成后创建，创建成功后，单据状态变更为“已收货”，进货商品的库存数量根据进货数量增加。</string>
+                </array>
+                <array>
+                    <string>title>► 商品种类较多，如何快速创建收货入库单？</string>
+                    <string>context>方法1：若进货的商品种类较固定，首次收货入库后，以后可通过导入历史单据的方式添加商品。
+方法2：可在商品列表页选择商品分类进行筛选，批量选择商品。
+方法3：使用商家管理后台（http://myshop.2dfire.com/pages/login.jsp），下载标准模板在Excel表内进行入库商品录入，通过Excel表导入进行添加。</string>
+                </array>
+                <array>
+                    <string>title>► 发现收货入库单的商品信息有误，如何修改？</string>
+                    <string>context>若收货入库单的状态为“未提交”，可直接进入订单详情页进行修改。若单据状态为“已收货”，表明商品已收货入库，商品库存已增加，不能在收货入库单进行修改，可以在【出入库管理】—【退货出库单】填写退货出库单进行红冲，再重新创建正确的收货入库单据。</string>
+                </array>
+                <array>
+                    <string>title>► 供应商选择</string>
+                    <string>context>需要修改或添加供应商可在【出入库管理】—【供应商】进行供应商管理。</string>
+                </array>
+                <array>
+                    <string>title>► 入库商品信息</string>
+                    <string>context>商品添加完成后，可点击列表中的商品进入商品信息界面，对商品的进货价（默认显示的是上次向该供应商采购的进货价）、进货数量、生产日期进行编辑。需要修改或添加商品可在【商品】—【商品信息】进行商品管理。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_OUTIN_RETURN_ORDER</key>
+        <dict>
+            <key>title</key>
+            <string>退货出库单</string>
+            <key>code</key>
+            <string>CRKGL-THCK</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 退货出库单是什么？什么时候创建？</string>
+                    <string>context>退货出库单是店铺向供应商退回商品的单据记录。退货出库单一般在实际退货完成后创建，创建成功后，单据状态变更为“已退货”，退货商品的库存数量根据退货数量减少。</string>
+                </array>
+                <array>
+                    <string>title>► 退货商品信息</string>
+                    <string>context>商品添加完成后，可点击列表中的商品进入商品信息界面，对商品的退货价、退货数量、退货原因进行编辑。退货原因不合适，可点击【退货原因管理】在退货原因管理页进行添加或修改。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_OUTIN_RECORD</key>
+        <dict>
+            <key>title</key>
+            <string>出入库记录</string>
+            <key>code</key>
+            <string>CRKGL-CRKJL</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 出入库记录查询</string>
+                    <string>context>可通过单号准确查询，或者通过单据类型、供应商、时间进行筛选查询。</string>
+                </array>
+            </array>
+        </dict>
+        
+        <key>HELP_OUTIN_SUPPLIER</key>
+        <dict>
+            <key>title</key>
+            <string>供应商</string>
+            <key>code</key>
+            <string>CRKGL-GYSGL</string>
+            <key>list</key>
+            <array>
+                <array>
+                    <string>title>► 供应商信息</string>
+                    <string>context>供应商信息作为出入库管理的重要信息，在创建收货入库单、退货出库单都会用到，请输入真实有效的信息。</string>
+                    <string>note>注：有出入库记录的供应商信息不能删除。</string>
+                </array>
+                <array>
+                    <string>title>► 供应商名称、简码、编码</string>
+                    <string>context>为了保证供应商信息的唯一性，所输入的信息不能与已存在供应商信息重复。</string>
+                </array>
+                <array>
+                    <string>title>► 供应商类别</string>
+                    <string>context>用于供应商的分类管理。若类别不合适，可点击【类别管理】进行添加或修改。</string>
+                </array>
+            </array>
+        </dict>
+        
+        
+        <key>HELP_PAYMENT_ACCOUNT</key>
+        <dict>
+            <key>title</key>
+            <string>电子收款账户</string>
+            <key>code</key>
+            <string>DJSZ-DZSKMX</string>
+            <key>list</key>
+            <array>
+            </array>
+        </dict>
+        
+        <key>HELP_COMMENT</key>
+        <dict>
+            <key>title</key>
+            <string>顾客评价</string>
+            <key>code</key>
+            <string>QTGJ-GKPJ</string>
+            <key>list</key>
+            <array>
+            </array>
+        </dict>
+
+
+
+
+    
+    
+</dict>
+</plist>

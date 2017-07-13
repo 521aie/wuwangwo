@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WechatGoodsDetailsView">
+            <connections>
+                <outlet property="TitBaseInfo" destination="VBN-Ek-hhw" id="bTW-hM-kkU"/>
+                <outlet property="TitExtendInfo" destination="DEw-Vs-mQf" id="uau-hM-T8e"/>
+                <outlet property="TitPictureInfo" destination="gG7-Ue-Ohx" id="NY6-XK-iyc"/>
+                <outlet property="boxPicture" destination="4Vb-wT-7Ok" id="ptu-Pl-Imy"/>
+                <outlet property="container" destination="QfY-xS-oLm" id="SwT-Lc-w9q"/>
+                <outlet property="footView" destination="1Ui-B9-Ec6" id="vw2-ZF-j5g"/>
+                <outlet property="lsDiscount" destination="Qx7-S7-EBI" id="s5o-Z0-nMh"/>
+                <outlet property="lsPictureInfo" destination="vUQ-8J-ij4" id="uEi-Uv-ccg"/>
+                <outlet property="lsPriority" destination="LzS-KX-lZD" id="ll4-uU-FJY"/>
+                <outlet property="lsSalesStrategy" destination="h1n-D9-3Av" id="EbJ-by-QHo"/>
+                <outlet property="lsWeixinPrice" destination="L4E-gE-2lS" id="9I3-xu-W8j"/>
+                <outlet property="rdoIsSale" destination="ts0-Y4-AzR" id="HON-jM-ZJP"/>
+                <outlet property="scrollView" destination="fzG-r1-HJw" id="N5l-H5-2Sz"/>
+                <outlet property="titleDiv" destination="1Js-OF-gdE" id="QjG-Il-jYJ"/>
+                <outlet property="txtBarcode" destination="zRn-WR-8Cc" id="HHf-c8-dWW"/>
+                <outlet property="txtDetails" destination="PiT-He-dCl" id="6xz-BH-Ubd"/>
+                <outlet property="txtGoodsName" destination="a4r-qt-rFJ" id="7IN-fG-UJo"/>
+                <outlet property="txtRetailPrice" destination="Yfc-7y-lWg" id="4K0-4q-NCE"/>
+                <outlet property="view" destination="WUA-Tb-3VE" id="qcd-XA-3lA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="WUA-Tb-3VE">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" id="qfk-fc-xHD">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" id="1Js-OF-gdE">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="fzG-r1-HJw">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="QfY-xS-oLm">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" id="ts0-Y4-AzR" customClass="EditItemRadio2">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="252"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="VBN-Ek-hhw" customClass="ItemTitle">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="zRn-WR-8Cc" customClass="EditItemText">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="a4r-qt-rFJ" customClass="EditItemMemo">
+                                    <rect key="frame" x="0.0" y="48" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="Yfc-7y-lWg" userLabel="Edit Item Text8" customClass="EditItemText">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="LzS-KX-lZD" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="h1n-D9-3Av" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="192" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="Qx7-S7-EBI" userLabel="Edit Item List10" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="L4E-gE-2lS" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="DEw-Vs-mQf" userLabel="Item Title12" customClass="ItemTitle">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="PiT-He-dCl" customClass="EditItemMemo">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="4Vb-wT-7Ok" userLabel="Edit Image Box14" customClass="EditImageBox">
+                                    <rect key="frame" x="0.0" y="126" width="320" height="252"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="gG7-Ue-Ohx" customClass="ItemTitle">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="vUQ-8J-ij4" userLabel="Edit Item List16" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </scrollView>
+                <view contentMode="scaleToFill" id="1Ui-B9-Ec6" userLabel="FooterList View" customClass="FooterListView">
+                    <rect key="frame" x="0.0" y="607" width="320" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <point key="canvasLocation" x="526" y="346"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>

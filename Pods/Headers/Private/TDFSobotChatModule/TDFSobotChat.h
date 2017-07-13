@@ -1,0 +1,1 @@
+../../../TDFSobotChatModule/TDFSobotChatModule/Classes/TDFSobotChat.h

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LSEditItemTitle">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="界面语言" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySN-BN-Bah">
+                    <rect key="frame" x="10" y="14" width="70" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_fold_up" translatesAutoresizingMaskIntoConstraints="NO" id="HdM-2Y-SnR">
+                    <rect key="frame" x="343" y="13" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="HDo-FU-bti"/>
+                        <constraint firstAttribute="height" constant="22" id="aZP-U1-YRz"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YD3-0J-OcS">
+                    <rect key="frame" x="295" y="0.0" width="80" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="bAF-HU-lwk"/>
+                    </constraints>
+                    <connections>
+                        <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="k3c-cY-fJv"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="YD3-0J-OcS" secondAttribute="bottom" id="565-3y-IHT"/>
+                <constraint firstAttribute="trailing" secondItem="HdM-2Y-SnR" secondAttribute="trailing" constant="10" id="8qv-HR-vzy"/>
+                <constraint firstItem="ySN-BN-Bah" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Pvy-X7-dXX"/>
+                <constraint firstItem="HdM-2Y-SnR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="REO-Ij-F7P"/>
+                <constraint firstItem="YD3-0J-OcS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZRm-lV-L52"/>
+                <constraint firstAttribute="trailing" secondItem="YD3-0J-OcS" secondAttribute="trailing" id="gmH-Or-1IL"/>
+                <constraint firstItem="ySN-BN-Bah" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="yIz-ZV-svA"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btn" destination="YD3-0J-OcS" id="q67-yq-M17"/>
+                <outlet property="imgView" destination="HdM-2Y-SnR" id="KiQ-TO-Q88"/>
+                <outlet property="lblName" destination="ySN-BN-Bah" id="pip-XL-h28"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="60"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ico_fold_up" width="39" height="39"/>
+    </resources>
+</document>

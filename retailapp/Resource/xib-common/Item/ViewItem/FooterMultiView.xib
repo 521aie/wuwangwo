@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FooterMultiView">
+            <connections>
+                <outlet property="btnChk" destination="zjX-yc-fRy" id="n4U-OU-u2R"/>
+                <outlet property="btnNotChk" destination="YDP-PR-Fuh" id="lV0-gx-rYC"/>
+                <outlet property="imgChkAll" destination="hCp-75-RFp" id="RIU-ko-xhi"/>
+                <outlet property="imgNotChkAll" destination="KyM-93-sZF" id="kq2-fu-aGe"/>
+                <outlet property="view" destination="uXC-20-nFH" id="exW-cP-lDj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="uXC-20-nFH">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjX-yc-fRy">
+                    <rect key="frame" x="190" y="2" width="55" height="55"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="22" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="全选" backgroundImage="ico_rnd_red2.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onCheckAllClickEvent:" destination="-1" eventType="touchUpInside" id="1oI-UZ-zbH"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico_checkall.png" translatesAutoresizingMaskIntoConstraints="NO" id="hCp-75-RFp">
+                    <rect key="frame" x="201" y="5" width="32" height="32"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDP-PR-Fuh">
+                    <rect key="frame" x="255" y="2" width="55" height="55"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="22" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="全不选" backgroundImage="ico_rnd_red2.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onNotCheckAllClickEvent:" destination="-1" eventType="touchUpInside" id="zzD-n2-AGR"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico_uncheckall.png" translatesAutoresizingMaskIntoConstraints="NO" id="KyM-93-sZF">
+                    <rect key="frame" x="266" y="5" width="32" height="32"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ico_checkall.png" width="64" height="64"/>
+        <image name="ico_rnd_red2.png" width="108" height="108"/>
+        <image name="ico_uncheckall.png" width="64" height="64"/>
+    </resources>
+</document>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuRightTabHeader">
+            <connections>
+                <outlet property="complanyInfoLabel" destination="oKf-vl-gnX" id="rPL-cQ-EdY"/>
+                <outlet property="customView" destination="XcG-n4-u9f" id="gKC-Qf-zlg"/>
+                <outlet property="userImgV" destination="ODd-Xv-peL" id="GIr-MK-Dca"/>
+                <outlet property="userNameLabel" destination="hFY-M9-fJQ" id="nZw-H5-bwD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="XcG-n4-u9f">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="171"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_nopic_user.png" translatesAutoresizingMaskIntoConstraints="NO" id="ODd-Xv-peL">
+                    <rect key="frame" x="61" y="25" width="72" height="72"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="72" id="e4T-20-XkG"/>
+                        <constraint firstAttribute="width" constant="72" id="x5c-VU-0mM"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="178" placeholderIntrinsicHeight="16" text="" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKf-vl-gnX">
+                    <rect key="frame" x="8" y="130" width="178" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="39" placeholderIntrinsicHeight="16" text="" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFY-M9-fJQ">
+                    <rect key="frame" x="78" y="106" width="39" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ODd-Xv-peL" firstAttribute="leading" secondItem="XcG-n4-u9f" secondAttribute="leading" constant="61" id="1yh-vh-0bR"/>
+                <constraint firstItem="hFY-M9-fJQ" firstAttribute="centerX" secondItem="ODd-Xv-peL" secondAttribute="centerX" id="AYC-J7-05T"/>
+                <constraint firstItem="hFY-M9-fJQ" firstAttribute="top" secondItem="ODd-Xv-peL" secondAttribute="bottom" constant="9" id="RQC-It-Wk1"/>
+                <constraint firstItem="hFY-M9-fJQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XcG-n4-u9f" secondAttribute="leading" constant="30" id="S7a-GI-pb2"/>
+                <constraint firstItem="oKf-vl-gnX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XcG-n4-u9f" secondAttribute="leading" constant="8" id="Vii-GY-eJg"/>
+                <constraint firstItem="oKf-vl-gnX" firstAttribute="centerX" secondItem="ODd-Xv-peL" secondAttribute="centerX" id="b69-DK-LTv"/>
+                <constraint firstItem="ODd-Xv-peL" firstAttribute="top" secondItem="XcG-n4-u9f" secondAttribute="top" constant="25" id="dmq-HS-iFw"/>
+                <constraint firstItem="oKf-vl-gnX" firstAttribute="top" secondItem="hFY-M9-fJQ" secondAttribute="bottom" constant="8" id="gTP-IC-rYv"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="506" y="192.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="img_nopic_user.png" width="144" height="144"/>
+    </resources>
+</document>

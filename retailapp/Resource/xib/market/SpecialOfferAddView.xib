@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpecialOfferAddView">
+            <connections>
+                <outlet property="RTShopList" destination="WGY-WS-zZl" id="jdd-W0-Gg3"/>
+                <outlet property="TitShop" destination="zvj-CZ-HWw" id="e4g-l0-M6R"/>
+                <outlet property="TitSpecial" destination="ooT-st-oMr" id="TKz-mF-CNV"/>
+                <outlet property="TitValidDate" destination="ysL-nJ-Fyb" id="7Pt-PQ-2KG"/>
+                <outlet property="container" destination="YNe-Ht-QZp" id="BGd-mJ-3TN"/>
+                <outlet property="lblShopNum" destination="W5a-Ua-rKE" id="aQ7-PR-IeV"/>
+                <outlet property="lsDiscountRate" destination="svg-cN-ZU6" id="z5X-Se-II5"/>
+                <outlet property="lsEndTime" destination="1tF-13-U5M" id="Vtj-hN-LBJ"/>
+                <outlet property="lsSalePrice" destination="CMk-OP-3TO" id="TK4-T6-UvJ"/>
+                <outlet property="lsSaleScheme" destination="Nag-q5-5S3" id="Iju-Wy-mxM"/>
+                <outlet property="lsShopPriceScheme" destination="GXD-qw-eHJ" id="KpK-Uo-H7R"/>
+                <outlet property="lsStartTime" destination="4Rf-Ct-rt2" id="1Qo-2S-lxl"/>
+                <outlet property="rdoIsMember" destination="TVF-lL-VGI" id="s7x-Io-sLv"/>
+                <outlet property="rdoIsShop" destination="Qsg-ma-ZdK" id="fQG-Us-B5Z"/>
+                <outlet property="rdoIsShopArea" destination="Swd-Fe-Vzw" id="2Bq-7q-7CM"/>
+                <outlet property="rdoIsWeiXin" destination="Xqm-4i-bdQ" id="CE9-gX-9In"/>
+                <outlet property="scrollView" destination="31w-kA-lF4" id="ept-Fz-ngf"/>
+                <outlet property="shopView" destination="rnN-Iz-bDP" id="ayV-GU-sfr"/>
+                <outlet property="titleDiv" destination="Rhg-o5-hsI" id="QJ0-ko-C1a"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="Rhg-o5-hsI">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view alpha="0.69999998807907104" contentMode="scaleToFill" id="jxp-Hr-chM">
+                    <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="31w-kA-lF4">
+                    <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="YNe-Ht-QZp">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" id="ooT-st-oMr" customClass="ItemTitle">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="TVF-lL-VGI" customClass="EditItemRadio">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="Qsg-ma-ZdK" customClass="EditItemRadio">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="Xqm-4i-bdQ" customClass="EditItemRadio">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="Nag-q5-5S3" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="GXD-qw-eHJ" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="CMk-OP-3TO" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="svg-cN-ZU6" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="b5z-Oc-7R0">
+                                    <rect key="frame" x="0.0" y="242" width="320" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="ysL-nJ-Fyb" customClass="ItemTitle">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="4Rf-Ct-rt2" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="1tF-13-U5M" customClass="EditItemList">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="l7P-Oe-TnY">
+                                    <rect key="frame" x="0.0" y="242" width="320" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="zvj-CZ-HWw" customClass="ItemTitle">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="Swd-Fe-Vzw" customClass="EditItemRadio">
+                                    <rect key="frame" x="0.0" y="228" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="rnN-Iz-bDP">
+                                    <rect key="frame" x="0.0" y="126" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_market_shopNum.png" id="4rh-k0-na4">
+                                            <rect key="frame" x="70" y="12" width="180" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W5a-Ua-rKE">
+                                            <rect key="frame" x="100" y="14" width="120" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w9G-ld-XNE">
+                                            <rect key="frame" x="260" y="12" width="24" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" backgroundImage="ico_add_shop.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="addShopAreaButton:" destination="-1" eventType="touchUpInside" id="uoW-pF-7nW"/>
+                                            </connections>
+                                        </button>
+                                        <view alpha="0.10000000149011612" contentMode="scaleToFill" id="hY4-Ck-NbV">
+                                            <rect key="frame" x="10" y="47" width="300" height="1"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="WGY-WS-zZl" customClass="RetailTable2">
+                                    <rect key="frame" x="0.0" y="126" width="320" height="252"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="598" y="444"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ico_add_shop.png" width="44" height="44"/>
+        <image name="ico_market_shopNum.png" width="460" height="44"/>
+    </resources>
+</document>

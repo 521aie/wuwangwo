@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WithdrawRecord">
+            <connections>
+                <outlet property="lstCheckStatus" destination="YhY-0v-Lkj" id="QTq-B7-GpY"/>
+                <outlet property="lstCheckTime" destination="zF4-lL-BqQ" id="B6K-oh-jdu"/>
+                <outlet property="mainGrid" destination="Gfv-Ph-P5E" id="QS5-lY-iz0"/>
+                <outlet property="titleDiv" destination="Fnq-CI-Qv8" id="dWR-r0-dG4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewFilter" destination="RwT-jG-SLD" id="zCw-tc-tS1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Gfv-Ph-P5E">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="cTL-VD-eyJ"/>
+                        <outlet property="delegate" destination="-1" id="gRZ-Te-ew9"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fnq-CI-Qv8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="WB5-VN-6ha"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Gfv-Ph-P5E" secondAttribute="trailing" id="0nU-iO-Myi"/>
+                <constraint firstAttribute="trailing" secondItem="Fnq-CI-Qv8" secondAttribute="trailing" id="Gzk-Cc-3FH"/>
+                <constraint firstItem="Fnq-CI-Qv8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="J4T-zJ-D10"/>
+                <constraint firstAttribute="bottom" secondItem="Gfv-Ph-P5E" secondAttribute="bottom" id="OYQ-DW-fxC"/>
+                <constraint firstItem="Fnq-CI-Qv8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="h3t-0K-fV1"/>
+                <constraint firstItem="Gfv-Ph-P5E" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yLc-X7-gnM"/>
+                <constraint firstItem="Gfv-Ph-P5E" firstAttribute="top" secondItem="Fnq-CI-Qv8" secondAttribute="bottom" id="znG-Qs-Kfv"/>
+            </constraints>
+            <point key="canvasLocation" x="254" y="408"/>
+        </view>
+        <view contentMode="scaleToFill" id="RwT-jG-SLD" customClass="UIControl">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNq-Ms-qU9">
+                    <rect key="frame" x="0.0" y="64" width="320" height="136"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YhY-0v-Lkj" customClass="EditItemList">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zF4-lL-BqQ" customClass="EditItemList">
+                            <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaL-uk-4qz">
+                            <rect key="frame" x="0.0" y="92" width="62" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="重置">
+                                <color key="titleColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="filterTypeClick:" destination="-1" eventType="touchUpInside" id="AT6-Ir-Bpy"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IzJ-Kk-hjp">
+                            <rect key="frame" x="258" y="92" width="62" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="完成">
+                                <color key="titleColor" red="0.0" green="0.53333333329999999" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="filterTypeClick:" destination="-1" eventType="touchUpInside" id="Tqz-TN-Xf0"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+            <connections>
+                <action selector="closeFilterView:" destination="-1" eventType="touchUpInside" id="ypy-Be-Xx4"/>
+            </connections>
+            <point key="canvasLocation" x="120" y="380"/>
+        </view>
+    </objects>
+</document>
