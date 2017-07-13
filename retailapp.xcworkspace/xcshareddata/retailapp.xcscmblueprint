@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "25CADD400F18F5FF66A7FBB038AF49324CB7EDED",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "25CADD400F18F5FF66A7FBB038AF49324CB7EDED" : 9223372036854775807,
+    "D52783CFADC330224F3CE571BE317641AEEC1656" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E12B2590-ED3A-404A-A8A1-F072A02F8277",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "25CADD400F18F5FF66A7FBB038AF49324CB7EDED" : "retail-manage-ios\/",
+    "D52783CFADC330224F3CE571BE317641AEEC1656" : "MyPods\/TDFRetailComponents\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "retailapp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "retailapp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.2dfire-inc.com:retail\/retail-manage-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "25CADD400F18F5FF66A7FBB038AF49324CB7EDED"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.2dfire-inc.com:taihangju\/TDFRetailComponents.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D52783CFADC330224F3CE571BE317641AEEC1656"
+    }
+  ]
+}
